@@ -51,9 +51,9 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Comforts](https://modrinth.com/mod/SaCpeal4)                                              | [9.0.5+1.21.1]             |
 | [Compass to Map](https://modrinth.com/mod/Y6HhXts4)                                        | [2.0.4]                    |
 | [Connector Extras](https://modrinth.com/mod/FYpiwiBR)                                      | [1.12.1+1.21.1]            |
-| [Sinytra Connector](https://modrinth.com/mod/u58R1TMW)                                     | [IITF0PRC]                 |
 | [Construction Sticks](https://modrinth.com/mod/ooyjDLZt)                                   | [1.5.0]                    |
 | [Continuity](https://modrinth.com/mod/1IjD5062)                                            | [3.0.0+1.21.neoforge]      |
+| [Corpse Curios Compatibility](https://modrinth.com/mod/pJGcKPh1)                           | [4.0.1]                    |
 | [Corpse](https://modrinth.com/mod/WrpuIfhw)                                                | [1.21.1-1.1.13]            |
 | [Cosmetic Armor x Corpse Compat](https://modrinth.com/mod/VrbUxhCI)                        | [4.0.1]                    |
 | [CosmeticArmorReworked](https://www.curseforge.com/projects/237307)                        | [1.21.1-v1-neoforge]       |
@@ -71,6 +71,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [CreativeCore](https://modrinth.com/mod/OsZiaDHq)                                          | [2.13.50]                  |
 | [Creeper Overhaul](https://modrinth.com/mod/MI1LWe93)                                      | [4.0.6]                    |
 | [Decocraft](https://modrinth.com/mod/IZJSgKZe)                                             | [3.0.11]                   |
+| [Despawn Tweaks](https://github.com/txnimc/DespawnTweaks/)                                 | [1.0.0]                    |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1)                                           | [3.11.4]                   |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5)                                           | [21.1.0]                   |
 | [Easy NPC: Bundle](https://modrinth.com/mod/CgGEe1h3)                                      | [7.14.0]                   |
@@ -106,6 +107,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Gadgets Against Grind](https://modrinth.com/mod/IeYLjzpn)                                 | [1.21.1-5.2.0]             |
 | [GlitchCore](https://modrinth.com/mod/s3dmwKy5)                                            | [2.1.0.2]                  |
 | [Handcrafted](https://modrinth.com/mod/pJmCFF0p)                                           | [4.0.3]                    |
+| [Hazen N Stuff](https://modrinth.com/mod/I94FeWYD)                                         | [1.4.0.14]                 |
 | [Ice And Fire Community Edition](https://www.curseforge.com/projects/1040076)              | [2.1.3]                    |
 | [ImmediatelyFast](https://modrinth.com/mod/5ZwdcRci)                                       | [1.6.14+1.21.1]            |
 | [Industrial Foregoing](https://modrinth.com/mod/lWxpUd04)                                  | [1.21-3.6.39]              |
@@ -176,6 +178,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Simple Voice Chat](https://modrinth.com/mod/9eGKb6K1)                                     | [1.21.1-2.6.24]            |
 | [SimpleHats](https://modrinth.com/mod/iSkQCp6b)                                            | [0.4.0]                    |
 | [Simply Swords](https://modrinth.com/mod/bK3Ubu9p)                                         | [1.70.2-1.21.1]            |
+| [Sinytra Connector](https://modrinth.com/mod/u58R1TMW)                                     | [IITF0PRC]                 |
 | [Sodium Extra](https://modrinth.com/mod/PtjYWJkn)                                          | [0.9.4+mc1.21.1]           |
 | [Sodium](https://modrinth.com/mod/AANobbMI)                                                | [0.8.13+mc1.21.1]          |
 | [Somake](https://modrinth.com/mod/uoNbtac8)                                                | [1.0.8]                    |
@@ -215,6 +218,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [BaguetteLib](https://modrinth.com/mod/OfKzpbRU)                      | [2.0.7]                  |
 | [Balm](https://modrinth.com/mod/MBAkmtvl)                             | [21.0.66]                |
 | [BCLib](https://modrinth.com/mod/7bdKEtKC)                            | [21.0.26]                |
+| [Caelus API](https://modrinth.com/mod/40FYwb4z)                       | [7.0.1+1.21.1]           |
 | [Cloth Config v15 API](https://modrinth.com/mod/9s6osm5g)             | [15.0.140]               |
 | [Cobweb](https://modrinth.com/mod/dQcfqGbl)                           | [1.4.0]                  |
 | [CodeChicken Lib](https://modrinth.com/mod/2gq0ALnz)                  | [4.6.1.529]              |
@@ -231,6 +235,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Fzzy Config](https://modrinth.com/mod/hYykXjDp)                      | [0.7.7+1.21+neoforge]    |
 | [GeckoLib 4](https://modrinth.com/mod/8BmcQJ2H)                       | [4.9.3]                  |
 | [GuideME](https://modrinth.com/mod/Ck4E7v7R)                          | [21.1.19]                |
+| [HazentouveLib](https://modrinth.com/mod/nZaIUw7C)                    | [1.0.9]                  |
 | [Integrated API](https://modrinth.com/mod/V6fKbpBN)                   | [1.8.2]                  |
 | [Iron's Lib](https://modrinth.com/mod/9nfaJPtX)                       | [1.21.1-2.2.0]           |
 | [Jupiter](https://modrinth.com/mod/XbiLGMMU)                          | [2.3.7]                  |
@@ -255,6 +260,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [SuperMartijn642's Core Lib](https://modrinth.com/mod/rOUBggPv)       | [1.1.24+b]               |
 | [TerraBlender](https://modrinth.com/mod/kkmrDlKT)                     | [4.1.0.8]                |
 | [Titanium](https://modrinth.com/mod/1Ro7m06l)                         | [4.0.50]                 |
+| [TxniLib](https://github.com/txnimc/TxniLib/)                         | [1.0.24]                 |
 | [Uranus](https://www.curseforge.com/projects/1010827)                 | [3.0-beta.1]             |
 | [Valhelsia Core](https://modrinth.com/mod/HsdNFinx)                   | [1.1.4]                  |
 | [WunderLib](https://modrinth.com/mod/HZmhgdJk)                        | [21.0.10]                |
@@ -287,7 +293,6 @@ servidor.
 | [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO)                     | [1.0.12]           |
 | [Highlighter](https://modrinth.com/mod/cVNW5lr6)                      | [1.1.11]           |
 | [Inventory HUD+](https://modrinth.com/mod/Kp2uclYl)                   | [3.4.28]           |
-| [Inventory Tweaks Refoxed](https://modrinth.com/mod/uqnMI1kq)         | [1.21.1-1.2.0]     |
 | [InvMove](https://modrinth.com/mod/REfW2AEX)                          | [0.9.3]            |
 | [Jade Addons](https://modrinth.com/mod/xuDOzCLy)                      | [6.1.2+neoforge]   |
 | [Jade](https://modrinth.com/mod/nvQzSEkH)                             | [15.10.6+neoforge] |
@@ -307,18 +312,17 @@ servidor.
 ### Dependências
 | Nome                                                                  | Versão                |
 |-----------------------------------------------------------------------|-----------------------|
+| [Architectury](https://modrinth.com/mod/lhGA9TYQ)                     | [13.0.11]             |
+| [Bookshelf](https://modrinth.com/mod/uy4Cnpcm)                        | [21.1.81]             |
+| [Cloth Config v15 API](https://modrinth.com/mod/9s6osm5g)             | [15.0.140]            |
+| [CreativeCore](https://modrinth.com/mod/OsZiaDHq)                     | [2.13.50]             |
+| [Fzzy Config](https://modrinth.com/mod/hYykXjDp)                      | [0.7.7+1.21+neoforge] |
+| [Iceberg](https://modrinth.com/mod/5faXoLqX)                          | [1.3.2]               |
+| [Konkrete](https://modrinth.com/mod/J81TRJWm)                         | [1.9.9]               |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz)                 | [uhJhCT7X]            |
 | [MezzConfig](https://modrinth.com/mod/7tEfOcA7)                       | [idpM3DKC]            |
-| [Bookshelf](https://modrinth.com/mod/uy4Cnpcm)                        | [21.1.81]             |
 | [PrickleMC](https://modrinth.com/mod/aaRl8GiW)                        | [21.1.11]             |
-| [CreativeCore](https://modrinth.com/mod/OsZiaDHq)                     | [2.13.50]             |
-| [Just Enough Items](https://modrinth.com/mod/u6dRKJwZ)                | [19.57.0.450]         |
-| [Cloth Config v15 API](https://modrinth.com/mod/9s6osm5g)             | [15.0.140]            |
-| [Architectury](https://modrinth.com/mod/lhGA9TYQ)                     | [13.0.11]             |
-| [Konkrete](https://modrinth.com/mod/J81TRJWm)                         | [1.9.9]               |
-| [Iceberg](https://modrinth.com/mod/5faXoLqX)                          | [1.3.2]               |
 | [SuperMartijn642's Config Library](https://modrinth.com/mod/LN9BxssP) | [1.1.8]               |
-| [Fzzy Config](https://modrinth.com/mod/hYykXjDp)                      | [0.7.7+1.21+neoforge] |
 
 ## Contribuições e Suporte
 
