@@ -40,6 +40,7 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G)                                      | [21.1.0.14]                |
 | [Brazilian Delight](https://modrinth.com/mod/Bgz35D5U)                                     | [3.0.1]                    |
 | [Brewin' And Chewin'](https://modrinth.com/mod/hIu9KJTT)                                   | [4.5.0]                    |
+| [Building Gadgets 2](https://www.curseforge.com/projects/298187)                           | [1.3.9]                    |
 | [Camera Mod](https://modrinth.com/mod/oiuNWinn)                                            | [1.21.1-1.0.22]            |
 | [Carry On](https://modrinth.com/mod/joEfVgkn)                                              | [2.2.6]                    |
 | [CarryOnExtend](https://modrinth.com/mod/JbqjOoQj)                                         | [1.5.2]                    |
@@ -193,7 +194,6 @@ servidor. Sem eles, o jogo não funcionará corretamente.
 | [Torchmaster](https://modrinth.com/mod/Tl8ESrhX)                                           | [21.1.13]                  |
 | [Towns and Towers](https://modrinth.com/mod/DjLobEOy)                                      | [1.13.11]                  |
 | [TrashSlot](https://modrinth.com/mod/vRYk0bv7)                                             | [21.1.11]                  |
-| [Tropicraft](https://modrinth.com/mod/20zpzIT1)                                            | [9.8.1]                    |
 | [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds)                 | [2.0.3]                    |
 | [Veggies Delight](https://modrinth.com/mod/emQ94xri)                                       | [1.9.3]                    |
 | [WaterFrames](https://modrinth.com/mod/eBzFuVTM)                                           | [2.1.23]                   |
@@ -285,6 +285,7 @@ servidor.
 | [Chat Heads](https://modrinth.com/mod/Wb5oqrBJ)                       | [0.15.7]           |
 | [Controlling](https://modrinth.com/mod/xv94TkTM)                      | [19.0.5]           |
 | [Crash Assistant](https://modrinth.com/mod/ix1qq8Ux)                  | [1.11.12]          |
+| [Custom Player Animations](https://modrinth.com/mod/EhthJpjM)         | [5.9.10]           |
 | [Durability Tooltip](https://modrinth.com/mod/smUP7V3r)               | [1.2.0]            |
 | [EnchantmentDescriptions](https://modrinth.com/mod/UVtY3ZAC)          | [21.1.11]          |
 | [Entity Model Features](https://modrinth.com/mod/4I1XuqiY)            | [3.3.11]           |
@@ -293,7 +294,6 @@ servidor.
 | [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO)                     | [1.0.12]           |
 | [Highlighter](https://modrinth.com/mod/cVNW5lr6)                      | [1.1.11]           |
 | [Inventory HUD+](https://modrinth.com/mod/Kp2uclYl)                   | [3.4.28]           |
-| [InvMove](https://modrinth.com/mod/REfW2AEX)                          | [0.9.3]            |
 | [Jade Addons](https://modrinth.com/mod/xuDOzCLy)                      | [6.1.2+neoforge]   |
 | [Jade](https://modrinth.com/mod/nvQzSEkH)                             | [15.10.6+neoforge] |
 | [Just Enough Breeding](https://modrinth.com/mod/9Pk89J3g)             | [3.3.1]            |
@@ -321,6 +321,7 @@ servidor.
 | [Konkrete](https://modrinth.com/mod/J81TRJWm)                         | [1.9.9]               |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz)                 | [uhJhCT7X]            |
 | [MezzConfig](https://modrinth.com/mod/7tEfOcA7)                       | [idpM3DKC]            |
+| [Player Animation Library](https://modrinth.com/mod/ha1mEyJS)         | [1.1.6+mc.1.21.1]     |
 | [PrickleMC](https://modrinth.com/mod/aaRl8GiW)                        | [21.1.11]             |
 | [SuperMartijn642's Config Library](https://modrinth.com/mod/LN9BxssP) | [1.1.8]               |
 
