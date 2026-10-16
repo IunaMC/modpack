@@ -1,0 +1,18 @@
+name = "Just Enough Professions (JEP)"
+filename = "JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/kB56GtWA/versions/Avs9oGLn/JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar"
+hash-format = "sha512"
+hash = "2d9ecd7dbe8a676447009a6943b99f54bb732d084d220c09b79636293e67596f8e0ac1d1a849ad1077126b5e9da4aff31c5bfd81836459190c63b974500c8363"
+
+[option]
+optional = true
+default = true
+description = "A JEI addon that adds profession workstations"
+
+[update]
+[update.modrinth]
+mod-id = "kB56GtWA"
+version = "Avs9oGLn"

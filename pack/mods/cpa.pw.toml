@@ -1,0 +1,18 @@
+name = "Custom Player Animations"
+filename = "cpa-5.9.10-neoforge+1.21.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/EhthJpjM/versions/YvEolJOg/cpa-5.9.10-neoforge%2B1.21.1.jar"
+hash-format = "sha512"
+hash = "889634ac34b83d5b914ec50b5ac0f56c1e359bcd2efb0952b1be78803e848691e2031fc974daeebdd499163c65fa95f2ff5e0e16d4f90d8a55526e73dc7b2d04"
+
+[option]
+optional = true
+default = true
+description = "Improves and customizes the player's default animations."
+
+[update]
+[update.modrinth]
+mod-id = "EhthJpjM"
+version = "YvEolJOg"

@@ -1,0 +1,13 @@
+name = "Petting - Tame any mob!"
+filename = "petting-4.2.2-neoforge-1.21.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vf91JXwf/versions/SGXiZw3p/petting-4.2.2-neoforge-1.21.1.jar"
+hash-format = "sha512"
+hash = "ad1856c6601d7cf1809e3cf7af4c64e95e54ed2514e1a9ba2b2c2d04d9810bb999660ab939f3fe027d51071579e38d51f800f80337dfe651bd6e739e45d3e47d"
+
+[update]
+[update.modrinth]
+mod-id = "vf91JXwf"
+version = "SGXiZw3p"

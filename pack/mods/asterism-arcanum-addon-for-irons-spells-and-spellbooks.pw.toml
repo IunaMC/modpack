@@ -1,0 +1,13 @@
+name = "Asterism Arcanum | Addon for Iron's Spells and Spellbooks"
+filename = "asterismarcanum-1.21.1-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/XImLIVFt/versions/pHid8vVL/asterismarcanum-1.21.1-0.1.0.jar"
+hash-format = "sha512"
+hash = "3c9369859efff77b04b294965353912ca1cc89b6e61c122abf65133f6077b5e1f9dd32cf23e639cd8b85db5503adf6471d0327dddb9420cba3be62cad040855c"
+
+[update]
+[update.modrinth]
+mod-id = "XImLIVFt"
+version = "pHid8vVL"
