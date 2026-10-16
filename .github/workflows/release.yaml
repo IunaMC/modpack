@@ -1,0 +1,77 @@
+name: Release
+
+# Dispara quando o arquivo VERSAO muda na main (ou manualmente pela aba Actions).
+on:
+  push:
+    branches: [main]
+    paths: [VERSAO]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ARQUIVO: IUNA.-.Modpack.zip
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ler e validar a versão
+        id: versao
+        run: |
+          VERSAO="$(tr -d '[:space:]' < VERSAO)"
+          if ! [[ "$VERSAO" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error file=VERSAO::Versão inválida: '$VERSAO' (esperado algo como 1.2.3 ou v1.2.3-beta.1)"
+            exit 1
+          fi
+          echo "versao=$VERSAO" >> "$GITHUB_OUTPUT"
+          if [[ "$VERSAO" == *-* ]]; then
+            echo "prerelease=--prerelease" >> "$GITHUB_OUTPUT"
+          else
+            echo "prerelease=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verificar se a release já existe
+        id: existe
+        run: |
+          if gh release view "${{ steps.versao.outputs.versao }}" >/dev/null 2>&1; then
+            echo "::warning::A release ${{ steps.versao.outputs.versao }} já existe. Altere o arquivo VERSAO para publicar outra."
+            echo "existe=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "existe=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A lista de arquivos do pacote vem do .index (sintaxe de .gitignore;
+      # linhas com "!" são exclusões). Veja scripts/resolver_index.sh.
+      - name: Resolver a lista de arquivos (.index)
+        if: steps.existe.outputs.existe == 'false'
+        run: |
+          bash ./github/scripts/resolver_index.sh index.lock > "$RUNNER_TEMP/arquivos.txt"
+          if [ ! -s "$RUNNER_TEMP/arquivos.txt" ]; then
+            echo "::error file=.index::O .index não resolveu nenhum arquivo."
+            exit 1
+          fi
+          echo "::group::$(wc -l < "$RUNNER_TEMP/arquivos.txt") arquivos serão empacotados"
+          cat "$RUNNER_TEMP/arquivos.txt"
+          echo "::endgroup::"
+
+      - name: Gerar o zip
+        if: steps.existe.outputs.existe == 'false'
+        run: zip -q "$ARQUIVO" -@ < "$RUNNER_TEMP/arquivos.txt"
+
+      - name: Criar tag e release
+        if: steps.existe.outputs.existe == 'false'
+        run: |
+          gh release create "${{ steps.versao.outputs.versao }}" "$ARQUIVO" \
+            --target "$GITHUB_SHA" \
+            --title "${{ steps.versao.outputs.versao }}" \
+            --notes-file MUDANCAS.md \
+            ${{ steps.versao.outputs.prerelease }}
