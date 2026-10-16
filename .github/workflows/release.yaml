@@ -54,7 +54,7 @@ jobs:
       - name: Resolver a lista de arquivos (.index)
         if: steps.existe.outputs.existe == 'false'
         run: |
-          bash ./github/scripts/resolver_index.sh index.lock > "$RUNNER_TEMP/arquivos.txt"
+          bash .github/scripts/resolver_index.sh index.lock > "$RUNNER_TEMP/arquivos.txt"
           if [ ! -s "$RUNNER_TEMP/arquivos.txt" ]; then
             echo "::error file=.index::O .index não resolveu nenhum arquivo."
             exit 1
