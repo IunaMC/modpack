@@ -1,0 +1,13 @@
+name = "Alex's Mobs Continued Delight"
+filename = "amcdelight-1.0.1-neoforge+1.21.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/iY124w4e/versions/1wR7GVQk/amcdelight-1.0.1-neoforge%2B1.21.1.jar"
+hash-format = "sha512"
+hash = "875dd0dd5c703128063e593e87ad3fd3191c428176f70ca8ebf31450661c1a1695bcc8f927e21afc41aa0976dbfec423dd71b4c9f625c591996449554e145614"
+
+[update]
+[update.modrinth]
+mod-id = "iY124w4e"
+version = "1wR7GVQk"

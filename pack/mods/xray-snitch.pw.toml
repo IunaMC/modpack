@@ -1,0 +1,13 @@
+name = "Xray Snitch"
+filename = "xray_snitch-1.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/AKunSbDQ/versions/p3BWSiPm/xray_snitch-1.3.jar"
+hash-format = "sha512"
+hash = "a9a7babecaeab322af1087dacfb5a081776086212fdb222ba7fb5afe8ffdfe631ffe1f576f1fa886eca94643fd8e77ffb010f7e4bb05be61f55d2e9b98fa1078"
+
+[update]
+[update.modrinth]
+mod-id = "AKunSbDQ"
+version = "p3BWSiPm"

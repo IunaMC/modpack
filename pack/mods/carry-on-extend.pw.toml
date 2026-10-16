@@ -1,0 +1,13 @@
+name = "Carry On Extend"
+filename = "CarryOnExtend-Architectury-neoforge-1.5.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/JbqjOoQj/versions/mlwItoGT/CarryOnExtend-Architectury-neoforge-1.5.2.jar"
+hash-format = "sha512"
+hash = "8efb8f0826a257fc4489f43bc170861ccd0db1135ad109088a0eb770f23db54fc4722751eb9c915016824ad3a2cd0afea07c70b4a27acd4d8bc512d0a0b60e51"
+
+[update]
+[update.modrinth]
+mod-id = "JbqjOoQj"
+version = "mlwItoGT"

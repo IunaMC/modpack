@@ -1,0 +1,13 @@
+name = "Silent's Power Scale"
+filename = "power-scale-1.21.1-neoforge-0.3.1.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/YCjSHxCP/versions/UVtML06x/power-scale-1.21.1-neoforge-0.3.1.1.jar"
+hash-format = "sha512"
+hash = "c05310e54c5a74dd0dc0fd9b19445b1a4046db3a528039839ba50677360075d97cbfa53213d7211d86a439aaf9ea659ade6ae080683c390766b0d2c4e9d14b07"
+
+[update]
+[update.modrinth]
+mod-id = "YCjSHxCP"
+version = "UVtML06x"

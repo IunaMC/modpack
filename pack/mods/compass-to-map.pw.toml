@@ -1,0 +1,13 @@
+name = "Compass to Map: JourneyMap"
+filename = "compass2map-2.0.4-neoforge-1.21.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Y6HhXts4/versions/FXwZQSn4/compass2map-2.0.4-neoforge-1.21.1.jar"
+hash-format = "sha512"
+hash = "dd7e37e2d0b15db9695c950cca802a43c599b0c15cec8ba3073fb67443d58e30d56522eff15cf5f2734050a6e796969573a282a17943f23bfca79fa6923b65e6"
+
+[update]
+[update.modrinth]
+mod-id = "Y6HhXts4"
+version = "FXwZQSn4"
