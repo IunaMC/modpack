@@ -15,30 +15,21 @@ implementada**.
       (e, se quiser garantir, de Astral Sorcery) salvas como captura de tela.
       Sem elas, dá para criar o projeto e enviar a versão, mas a revisão não
       anda. Veja [`permissoes.md`](permissoes.md).
-- [ ] A versão a publicar já tem release no GitHub (a 3.0.0 sai quando a
-      `feat/packwiz` entrar na `main`).
+- [ ] A versão a publicar já tem release no GitHub (a v3.0.0 já tem).
 
 ### 1. Gerar o `.mrpack` do Modrinth
 
-Use o `.mrpack` da release do GitHub ou gere um igual. Depois tire os três
-jars All Rights Reserved só de servidor, que o servidor IUNA não precisa no
-`.mrpack` (ele instala pelo packwiz-installer):
+Use o `.mrpack` da release do GitHub. Desde a v3.0.0 o workflow de release já
+tira `server-overrides/` (os jars só de servidor, alguns All Rights Reserved),
+então o arquivo serve como está:
 
 ```sh
-cd pack
-packwiz mr export -o ../IUNA-3.0.0.mrpack
-cd ..
-cp IUNA-3.0.0.mrpack IUNA-3.0.0-modrinth.mrpack
-zip -d IUNA-3.0.0-modrinth.mrpack \
-  'server-overrides/mods/cupboard-*' \
-  'server-overrides/mods/fastasyncworldsave-*' \
-  'server-overrides/mods/smoothchunk-*'
-unzip -l IUNA-3.0.0-modrinth.mrpack | grep -E 'overrides/mods/'
+gh release download v3.0.0 -R IunaMC/modpack-cliente -p '*.mrpack'
+unzip -l IUNA-3.0.0.mrpack | grep -E 'overrides/mods/'
 ```
 
-A última linha deve listar 14 jars em `overrides/mods/` e 2 em
-`server-overrides/mods/` (Better End Cities e Crash Utilities). Se o
-someaddon der permissão, pule o `zip -d` e envie o arquivo inteiro.
+A última linha deve listar 14 jars, todos em `overrides/mods/`, e nenhum em
+`server-overrides/`.
 
 ### 2. Criar a organização
 
@@ -78,7 +69,7 @@ Create organization**, nome `IunaMC`, URL `iunamc`, resumo e ícone.
 
 ### 4. Enviar a versão
 
-1. Em **Versions → Create version**, envie `IUNA-3.0.0-modrinth.mrpack`.
+1. Em **Versions → Create version**, envie `IUNA-3.0.0.mrpack`.
 2. Preencha:
    - **Version number:** `3.0.0`
    - **Version title:** `IUNA 3.0.0`
@@ -131,9 +122,10 @@ release do GitHub já existir, o `.mrpack` vem de
 `gh release download "v$VERSAO" -p '*.mrpack'` em vez do export (e os passos
 do packwiz e do export passam a rodar só quando precisarem).
 
-1. **Montar o `.mrpack` do Modrinth:** copiar o arquivo da release e rodar o
-   mesmo `zip -d` da parte 1. Melhor ainda: ler a lista de jars a tirar de um
-   arquivo versionado (ex.: `modrinth/sem-permissao.txt`), para que liberar um
+1. **Montar o `.mrpack` do Modrinth:** usar o mesmo arquivo da release, que
+   já sai sem `server-overrides/`. Se algum mod do jogador ficar sem
+   permissão, ler a lista de jars a tirar de um arquivo versionado (ex.:
+   `modrinth/sem-permissao.txt`) e rodar `zip -d`, para que liberar um
    mod seja só apagar uma linha.
 2. **Conferir se a versão já existe no Modrinth**, para poder rodar de novo
    sem duplicar:
@@ -175,7 +167,7 @@ curl --fail-with-body -sS https://api.modrinth.com/v2/version \
   -H "Authorization: $MODRINTH_TOKEN" \
   -H "User-Agent: IunaMC/modpack-cliente (github.com/IunaMC/modpack-cliente)" \
   -F "data=<$RUNNER_TEMP/versao.json;type=application/json" \
-  -F "arquivo=@IUNA-$VERSAO-modrinth.mrpack;type=application/x-modrinth-modpack+zip"
+  -F "arquivo=@IUNA-$VERSAO.mrpack;type=application/x-modrinth-modpack+zip"
 ```
 
 Campos obrigatórios da versão, pela
