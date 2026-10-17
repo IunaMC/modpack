@@ -46,9 +46,19 @@ jobs:
       - if: steps.versao.outputs.existe != 'true'
         uses: ./.github/actions/packwiz
 
+      # O servidor instala pelo packwiz-installer, que baixa os mods do
+      # CurseForge direto da fonte. Por isso os jars só de servidor
+      # (server-overrides/, alguns All Rights Reserved) não vão no .mrpack
+      # publicado: o arquivo leva só o que o jogador precisa.
       - name: Exportar o .mrpack
         if: steps.versao.outputs.existe != 'true'
-        run: (cd pack && packwiz mr export -o "../IUNA-${{ steps.versao.outputs.versao }}.mrpack")
+        run: |
+          ARQUIVO="IUNA-${{ steps.versao.outputs.versao }}.mrpack"
+          (cd pack && packwiz mr export -o "../$ARQUIVO")
+          if unzip -l "$ARQUIVO" 'server-overrides/*' > /dev/null 2>&1; then
+            zip -q -d "$ARQUIVO" 'server-overrides/*'
+          fi
+          unzip -l "$ARQUIVO" | tail -1
 
       # Notas = MUDANCAS.md escrito à mão + lista de mods gerada pela
       # comparação com a release anterior.
