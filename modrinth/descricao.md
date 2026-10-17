@@ -159,5 +159,5 @@ mantém a licença do seu autor.
 ## Links
 
 - Código do pack e lista de mods: [github.com/IunaMC/modpack-cliente](https://github.com/IunaMC/modpack-cliente)
-- Problemas e sugestões: [Issues](https://github.com/IunaMC/issues)
+- Problemas e sugestões: [Issues](https://github.com/IunaMC/modpack-cliente/issues)
 - Wiki: [wiki.iuna.space](https://wiki.iuna.space)

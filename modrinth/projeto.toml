@@ -25,7 +25,7 @@ icone = "imagens/icone.png"
 # Deixe "" para não mostrar o link.
 [links]
 codigo = "https://github.com/IunaMC/modpack-cliente"
-issues = "https://github.com/IunaMC/issues/issues"
+issues = "https://github.com/IunaMC/modpack-cliente/issues"
 wiki = "https://wiki.iuna.space"
 discord = ""
 
