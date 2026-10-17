@@ -48,23 +48,28 @@ CurseForge. Conferência de 16/10/2026, versão 3.0.0 do pack.
 | Fire's Ender Expansion | `firesenderexpansion-2.5.1.jar` | All Rights Reserved | All Rights Reserved (CurseForge). O repositório só tem o `TEMPLATE_LICENSE.txt` do MDK do NeoForge, que não é a licença do mod | **No permission** até o autor responder; depois **Special permission** | Captura da resposta do autor (pedido em `~/Documents`) |
 | Mob Grinding Utils | `mob_grinding_utils-1.1.10+mc1.21.1.jar` | All rights reserved | All Rights Reserved (CurseForge). O repositório não tem licença | **No permission** até o autor responder; depois **Special permission** | Captura da resposta do autor (pedido em `~/Documents`) |
 
-## Arquivos só do servidor (`server-overrides/mods/`)
+## Arquivos só do servidor (fora do `.mrpack` publicado)
 
 O Modrinth confere todos os arquivos externos do `.mrpack`, inclusive os de
-`server-overrides/`; a notícia não abre exceção para eles.
+`server-overrides/`. Desde a v3.0.0, o workflow de release tira
+`server-overrides/` do `.mrpack` (o servidor IUNA instala pelo
+packwiz-installer, que baixa do CurseForge direto da fonte). Por isso estes
+cinco **não aparecem** na página Permissions. A tabela fica como referência,
+caso algum dia voltem para o arquivo.
 
 | Mod | Arquivo | Licença no jar | Licença verificada | Opção | Link de prova |
 | --- | --- | --- | --- | --- | --- |
 | Crash Utilities | `crashutilities-9.0.4.jar` | MIT | MIT (`LICENSE`) | **License** | https://github.com/Darkere/CrashUtilities/blob/master/LICENSE |
 | Better End Cities Better End | `BetterEndCities-BetterEnd-1.21.jar` | `LicenseRef-Datapack` (sem licença; é um datapack convertido em mod) | **MIT** na página do CurseForge | **License** | https://www.curseforge.com/minecraft/mc-mods/better-end-cities-better-end |
-| Cupboard | `cupboard-1.21.1-4.2.jar` | ARR | **All Rights Reserved** (CurseForge) | **No permission**, ou tirar do `.mrpack` do Modrinth | https://www.curseforge.com/minecraft/mc-mods/cupboard |
-| Fast Async World Save | `fastasyncworldsave-1.21-2.6.jar` | ARR | **All Rights Reserved** (CurseForge) | **No permission**, ou tirar do `.mrpack` do Modrinth | https://www.curseforge.com/minecraft/mc-mods/fast-async-world-save-forge-fabric |
-| Smooth Chunk Save | `smoothchunk-1.21-4.1.jar` | ARR | **All Rights Reserved** (CurseForge) | **No permission**, ou tirar do `.mrpack` do Modrinth | https://www.curseforge.com/minecraft/mc-mods/smooth-chunk-save |
+| Cupboard | `cupboard-1.21.1-4.2.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/cupboard |
+| Fast Async World Save | `fastasyncworldsave-1.21-2.6.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/fast-async-world-save-forge-fabric |
+| Smooth Chunk Save | `smoothchunk-1.21-4.1.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/smooth-chunk-save |
 
 ## O que isso muda no plano
 
-- **Resolvidos pela licença: 13 de 19.** Os 10 de licença aberta, mais Crash
-  Utilities, Better End Cities e Monsters & Spellbooks.
+- **O `.mrpack` publicado tem 14 arquivos externos, todos em `overrides/mods/`.
+  Resolvidos pela licença: 11.** Os 10 de licença aberta, mais Monsters &
+  Spellbooks.
 - **Monsters & Spellbooks não depende mais de pedido.** O jar diz "All Rights
   Reserved", mas a página do CurseForge mostra MIT e autoriza o uso em
   modpacks. O mod também está no Modrinth
@@ -78,14 +83,10 @@ O Modrinth confere todos os arquivos externos do `.mrpack`, inclusive os de
   resposta dos autores, a versão fica retida. As saídas são esperar a
   permissão ou tirar o mod do pack (versão MINOR). Fire's Ender Expansion
   depende de Ace's Spell Utils, que pode sair junto se nada mais usar.
-- **3 mods do servidor são All Rights Reserved** (Cupboard, Fast Async World
-  Save e Smooth Chunk Save, todos do autor someaddon). O servidor IUNA não usa
-  o `.mrpack`: ele instala pelo packwiz-installer a partir do `pack.toml`.
-  Então o mais simples é **tirar os três do `.mrpack` enviado ao Modrinth**
-  (veja [`publicar.md`](publicar.md)). Quem montar um servidor pelo `.mrpack`
-  do Modrinth fica só sem essas três otimizações. A outra saída é pedir
-  permissão ao someaddon.
-- **O mesmo vale para a release do GitHub.** O `.mrpack` anexado às releases
-  também redistribui os jars All Rights Reserved. A regra do Modrinth não
-  alcança o GitHub, mas a licença dos autores sim. Vale aplicar a mesma
-  solução lá quando as permissões saírem.
+- **Os 3 mods All Rights Reserved do servidor** (Cupboard, Fast Async World
+  Save e Smooth Chunk Save, do autor someaddon) já não vão no `.mrpack`, nem
+  no do GitHub nem no do Modrinth. Nada a fazer.
+- **A release do GitHub ainda redistribui Fire's Ender Expansion e Mob
+  Grinding Utils** (All Rights Reserved) em `overrides/mods/`. A regra do
+  Modrinth não alcança o GitHub, mas a licença dos autores sim. A solução é a
+  mesma: a permissão dos autores, ou tirar os mods do pack.

@@ -47,7 +47,7 @@ item.
 | Categorias principais (até 3) | `technology`, `magic`, `adventure` | Create, Mekanism e AE2; Ars Nouveau, Iron's Spells e Occultism; Twilight Forest, Aether, BetterEnd e Alex's Caves. |
 | Categorias adicionais | `kitchen-sink`, `multiplayer`, `combat` | 285 mods de todos os temas, servidor da comunidade, Better Combat, Cataclysm e Apotheosis. |
 | Loader e versão | NeoForge, 1.21.1 | Vêm da versão (o Modrinth lê do `.mrpack`). |
-| Environment | **Client and server, required on both** (`client_and_server`) | Os mods de conteúdo precisam estar nos dois lados para entrar no servidor. O `.mrpack` também instala um servidor (`server-overrides` e os mods `side = server`). |
+| Environment | **Client and server, required on both** (`client_and_server`) | Os mods de conteúdo precisam estar nos dois lados para entrar no servidor. O `.mrpack` também lista os mods `side = server` baixados do Modrinth; os jars só de servidor do CurseForge não vão no arquivo, porque o servidor IUNA instala pelo packwiz-installer. |
 | Licença | Veja a seção 3. | **Decisão.** |
 | Aviso de IA | Marcar **Contains AI-generated content** (texto) | **Decisão.** A descrição e estes documentos foram escritos com ajuda de IA. Pela regra 6.1, ou você marca o aviso, ou reescreve os textos à mão. |
 | Descrição | [`descricao.md`](descricao.md) com a tradução de [`descricao.en.md`](descricao.en.md) | Veja como juntar os dois em [`publicar.md`](publicar.md). |
