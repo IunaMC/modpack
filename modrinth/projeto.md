@@ -4,7 +4,7 @@ Tudo o que precisa estar pronto para criar o projeto do IUNA no Modrinth. Nada
 aqui foi criado no site: os cliques e o envio são feitos pela conta do
 mantenedor. Os itens marcados com **Decisão** dependem de uma escolha sua.
 
-Estado conferido em 16/10/2026, versão do pack **3.0.0** (Minecraft 1.21.1,
+Estado conferido em 17/10/2026, versão do pack **3.0.0** (Minecraft 1.21.1,
 NeoForge 21.1.253).
 
 ## 1. Requisitos do Modrinth para modpacks
@@ -39,17 +39,16 @@ item.
 | Campo | Valor sugerido | Observação |
 | --- | --- | --- |
 | Tipo | Modpack | |
-| Nome | `IUNA` | **Decisão.** A regra 5.2 desencoraja enchimento como "Modpack" no nome; o tipo já aparece na página. O nome interno do `.mrpack` (`pack.toml`) pode continuar "IUNA Modpack". |
-| Slug | `iuna` | Livre em 16/10/2026 (`GET /v2/project/iuna` → 404). Alternativas livres: `iuna-modpack`, `iunamc`, `iuna-mc`. **Decisão.** |
-| URL final | `https://modrinth.com/modpack/iuna` | Muda se trocar o slug. |
-| Resumo (PT) | `Tecnologia, magia e exploração no NeoForge 1.21.1, feito para o servidor da comunidade IunaMC.` | 94 caracteres, sem formatação. |
-| Resumo (EN, se preferir) | `Tech, magic and exploration on NeoForge 1.21.1, made for the IunaMC community server.` | O resumo é um só; escolha o idioma. |
+| Nome | `IUNA` | **Decidido.** A regra 5.2 desencoraja enchimento como "Modpack" no nome; o tipo já aparece na página. O nome interno do `.mrpack` (`pack.toml`) continua "IUNA Modpack". |
+| Slug | `iuna` | **Decidido.** Livre em 17/10/2026 (`GET /v2/project/iuna` → 404). |
+| URL final | `https://modrinth.com/modpack/iuna` | |
+| Resumo | `Uma comunidade brasileira de Minecraft feita para amigos — e sim, a gente ‘não tem nome’.` | **Decidido**, texto do mantenedor. Sem formatação e sem repetir o nome (regra 5.3). |
 | Categorias principais (até 3) | `technology`, `magic`, `adventure` | Create, Mekanism e AE2; Ars Nouveau, Iron's Spells e Occultism; Twilight Forest, Aether, BetterEnd e Alex's Caves. |
 | Categorias adicionais | `kitchen-sink`, `multiplayer`, `combat` | 285 mods de todos os temas, servidor da comunidade, Better Combat, Cataclysm e Apotheosis. |
 | Loader e versão | NeoForge, 1.21.1 | Vêm da versão (o Modrinth lê do `.mrpack`). |
 | Environment | **Client and server, required on both** (`client_and_server`) | Os mods de conteúdo precisam estar nos dois lados para entrar no servidor. O `.mrpack` também lista os mods `side = server` baixados do Modrinth; os jars só de servidor do CurseForge não vão no arquivo, porque o servidor IUNA instala pelo packwiz-installer. |
-| Licença | Veja a seção 3. | **Decisão.** |
-| Aviso de IA | Marcar **Contains AI-generated content** (texto) | **Decisão.** A descrição e estes documentos foram escritos com ajuda de IA. Pela regra 6.1, ou você marca o aviso, ou reescreve os textos à mão. |
+| Licença | `MIT`, URL `https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE` | **Decidido.** Veja a seção 3. |
+| Aviso de IA | Marcar **Contains AI-generated content** (texto) | **Decidido.** A descrição foi escrita com ajuda de IA; a regra 6.1 exige o aviso. |
 | Descrição | [`descricao.md`](descricao.md) com a tradução de [`descricao.en.md`](descricao.en.md) | Veja como juntar os dois em [`publicar.md`](publicar.md). |
 
 ### Links
@@ -67,7 +66,7 @@ item.
 O `.mrpack` contém o que o IunaMC escreveu (o manifesto `modrinth.index.json`
 com a seleção de mods e, no futuro, configs) e os jars embutidos de terceiros,
 que continuam com a licença de cada autor. A licença do projeto cobre só a
-primeira parte. Hoje o repositório **não tem arquivo `LICENSE`**.
+primeira parte. Escolhida: **MIT**, no [`LICENSE`](../LICENSE) da raiz.
 
 | Opção | SPDX | Prós | Contras |
 | --- | --- | --- | --- |
@@ -78,8 +77,7 @@ primeira parte. Hoje o repositório **não tem arquivo `LICENSE`**.
 **Sugestão:** MIT, com um `LICENSE` na raiz do repositório e esta frase no
 README e na descrição: "A licença vale para os arquivos do IunaMC. Cada mod
 mantém a licença do autor." No Modrinth, `License URL` =
-`https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE`. O arquivo de
-licença ainda não foi criado: depende da sua decisão.
+`https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE`.
 
 ## 4. Ícone e galeria (você precisa produzir)
 
@@ -105,7 +103,7 @@ Nada disso pode ser gerado por IA (regra 6.2.1).
 ## 5. Organização IunaMC
 
 O nome `iunamc` está livre (`GET /v2/organization/iunamc` → 404 em
-16/10/2026). Organizações agrupam projetos e membros; quem é membro herda as
+17/10/2026). Organizações agrupam projetos e membros; quem é membro herda as
 permissões nos projetos da organização ([Creator update](https://modrinth.com/news/article/creator-update)).
 
 1. Entre no Modrinth com a conta que vai ser dona.
@@ -128,10 +126,10 @@ permissões nos projetos da organização ([Creator update](https://modrinth.com
 
 - [ ] Organização IunaMC criada, com ícone.
 - [ ] Projeto criado na organização, com nome, slug, resumo e categorias.
-- [ ] Licença escolhida (e `LICENSE` no repositório, se for MIT).
+- [x] Licença escolhida (MIT, com `LICENSE` no repositório).
 - [ ] Environment configurado como *client and server*.
 - [ ] Descrição em PT com a tradução em inglês colada.
-- [ ] Aviso de IA decidido.
+- [x] Aviso de IA decidido (marcar).
 - [ ] Ícone e galeria enviados.
 - [ ] Links preenchidos (sem placeholders `<...>`).
 - [ ] Primeira versão enviada e todos os arquivos externos resolvidos na
