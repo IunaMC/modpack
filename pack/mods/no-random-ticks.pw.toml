@@ -1,0 +1,13 @@
+name = "No Random Ticks"
+filename = "norandomticks-0.4-1.21.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/K2uLi5au/versions/XLHzXPXL/norandomticks-0.4-1.21.1.jar"
+hash-format = "sha512"
+hash = "3d8e15035fed6f898203e0ca3150ab1615efc0fcbac4d6f725be6080895c0210e0f76bf13ec93e9a2e87994415da3ca3dba5958943191d8c131312944cf75264"
+
+[update]
+[update.modrinth]
+mod-id = "K2uLi5au"
+version = "XLHzXPXL"
