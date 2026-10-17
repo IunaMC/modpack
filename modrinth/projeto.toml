@@ -1,0 +1,48 @@
+# Página do IUNA no Modrinth. Este arquivo, as descrições e as imagens desta
+# pasta são a fonte da página: o workflow "Modrinth" aplica tudo a cada push na
+# main que mexa em modrinth/. O que muda no site e não está aqui é desfeito no
+# próximo push.
+#
+# Fica de fora (só pelo site): status e visibilidade, aviso de IA, página
+# Permissions, membros e monetização.
+#
+# Testar localmente, sem mudar nada: python3 scripts/modrinth.py sincronizar --simular
+
+id = "vfStiAFv"
+nome = "IUNA 2"
+resumo = "A Brazilian Minecraft community made for friends — and yes, we ‘don’t have a name’."
+
+# Até 3 principais. Lista: https://api.modrinth.com/v2/tag/category (project_type = modpack)
+categorias = ["technology", "magic", "adventure"]
+categorias_extras = ["kitchen-sink", "multiplayer", "combat"]
+
+licenca = "MIT"
+licenca_url = "https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE"
+
+# PNG ou JPEG quadrado, 256×256 ou maior.
+icone = "imagens/icone.png"
+
+# Deixe "" para não mostrar o link.
+[links]
+codigo = "https://github.com/IunaMC/modpack-cliente"
+issues = "https://github.com/IunaMC/issues/issues"
+wiki = "https://wiki.iuna.space"
+discord = ""
+
+# A descrição da página é: o banner (se houver), o texto principal e a
+# tradução num bloco recolhível. O "# Título" do topo de cada arquivo é tirado,
+# porque o Modrinth já mostra o nome.
+[descricao]
+principal = "descricao.en.md"
+traducao = "descricao.md"
+traducao_titulo = "Português"
+# Uma imagem da galeria (pelo arquivo) para abrir a descrição. "" para nenhuma.
+banner = "imagens/banner.png"
+
+# Galeria, na ordem. Cada imagem é reconhecida pelo conteúdo: trocar o arquivo
+# envia a imagem nova e apaga a antiga. Até 5 MiB por imagem; nada gerado por IA.
+[[galeria]]
+arquivo = "imagens/banner.png"
+titulo = "IUNA Mark II"
+descricao = ""
+destaque = true
