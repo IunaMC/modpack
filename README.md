@@ -10,6 +10,24 @@ instala com um clique.
 
 ## Instalação
 
+### Pelo Modrinth (recomendado)
+
+> A página do pack no Modrinth ainda não foi publicada. Link provisório:
+> `<link-da-página-no-modrinth>` (deve ficar em
+> `https://modrinth.com/modpack/<slug>`). O preparo está em
+> [`modrinth/`](modrinth).
+
+1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
+   procure "IUNA" na aba de modpacks.
+   **Prism Launcher:** *Add Instance → Modrinth*, procure "IUNA" e escolha a
+   versão.
+2. Escolha os mods opcionais que quiser. Todos vêm marcados por padrão.
+3. Abra o jogo e entre no servidor.
+
+### Pelo arquivo `.mrpack`
+
+Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
+
 1. Baixe o `IUNA-<versão>.mrpack` da [última release](../../releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
