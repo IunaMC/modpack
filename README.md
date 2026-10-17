@@ -1,12 +1,12 @@
-# IUNA Modpack (cliente)
+# IUNA Modpack
 
-Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.253**, a
-mesma versão do servidor.
+Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.253**.
 
-O pack é mantido com o [packwiz](https://packwiz.infra.link/). O repositório
-guarda só a descrição de cada mod (um `.pw.toml` em [`pack/mods/`](pack/mods)),
-sem nenhum jar. A cada versão, o CI gera um `.mrpack` que qualquer launcher
-compatível instala com um clique.
+Este repositório é a **fonte única** do pack, do jogador e do servidor. O pack é
+mantido com o [packwiz](https://packwiz.infra.link/): cada mod é um `.pw.toml`
+em [`pack/mods/`](pack/mods), sem nenhum jar, e o campo `side` diz onde ele
+roda. A cada versão, o CI gera um `.mrpack` que qualquer launcher compatível
+instala com um clique.
 
 ## Instalação
 
@@ -26,6 +26,21 @@ você vem do zip antigo (até a v2.2.4), crie também uma instância nova: o
 prints e configurações, copie as pastas `saves`, `screenshots` e `config` da
 instância antiga.
 
+## Servidor
+
+O servidor instala os mods a partir do mesmo pack, com o
+[packwiz-installer](https://github.com/packwiz/packwiz-installer). Ele baixa
+só os mods `server` e `both` e apaga os que saíram do pack. No comando de
+inicialização, antes do Java do servidor:
+
+```sh
+java -jar packwiz-installer-bootstrap.jar -g -s server \
+  https://raw.githubusercontent.com/IunaMC/modpack-cliente/v<versão>/pack/pack.toml
+```
+
+Apontar para a tag (`v<versão>`) e não para a `main` garante que o servidor só
+mude quando uma release sair.
+
 ## Manutenção
 
 Os comandos rodam dentro de `pack/`, com o packwiz instalado.
@@ -40,9 +55,10 @@ Os comandos rodam dentro de `pack/`, com o packwiz instalado.
 | Gerar o `.mrpack` localmente | `packwiz mr export` |
 
 Ao adicionar um mod, confira no `.pw.toml`:
-- `side`: `both` se o mod também vai no servidor; `client` se é só visual ou de
-  interface. Um mod de conteúdo marcado como `client` impede o jogador de entrar
-  no servidor.
+- `side`: `both` para mods de conteúdo, que precisam estar nos dois lados;
+  `client` para mods só visuais ou de interface; `server` para administração,
+  desempenho e geração de mundo. Um mod de conteúdo marcado como `client` ou
+  `server` impede o jogador de entrar no servidor.
 - `[option] optional = true` para os mods opcionais, com uma `description` curta.
 
 Depois de mudar mods, regenere a lista abaixo com
@@ -68,7 +84,7 @@ adicionados, atualizados e removidos desde a release anterior.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **285 mods**: 253 obrigatórios e 32 opcionais.
+O pack tem **348 mods**. O jogador recebe 285 (253 obrigatórios e 32 opcionais), e o servidor, 308.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -231,10 +247,10 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Mekanism Generators](https://modrinth.com/mod/OFVYKsAk) | `MekanismGenerators-1.21.1-10.7.19.85.jar` | Cliente e servidor |
 | [Mekanism Tools](https://modrinth.com/mod/tqQpq1lt) | `MekanismTools-1.21.1-10.7.19.85.jar` | Cliente e servidor |
 | [Mermod](https://modrinth.com/mod/ORiydwz3) | `mermod-neoforge-3.3.2+1.21.1.jar` | Cliente e servidor |
-| [MezzConfig](https://modrinth.com/mod/7tEfOcA7) | `mezz_config-1.21.1-neoforge-0.6.6-standalone.jar` | Cliente e servidor |
+| [MezzConfig](https://modrinth.com/mod/7tEfOcA7) | `mezz_config-1.21.1-neoforge-0.6.8-standalone.jar` | Cliente e servidor |
 | [MmmMmmMmmMmm](https://modrinth.com/mod/Adega8YN) | `dummmmmmy-1.21-2.1.2-neoforge.jar` | Cliente e servidor |
 | [Mob Grinding Utils](https://www.curseforge.com/projects/254241) | `mob_grinding_utils-1.1.10+mc1.21.1.jar` | Cliente e servidor |
-| [ModernFix](https://modrinth.com/mod/nmDcB62a) | `modernfix-neoforge-5.27.24+mc1.21.1.jar` | Cliente e servidor |
+| [ModernFix](https://modrinth.com/mod/nmDcB62a) | `modernfix-neoforge-5.27.26+mc1.21.1.jar` | Cliente e servidor |
 | [Modonomicon](https://modrinth.com/mod/692GClaE) | `modonomicon-1.21.1-neoforge-1.120.7.jar` | Cliente e servidor |
 | [Monsters & Spellbooks: Iron's Spells 'n Spellbooks Addon](https://www.curseforge.com/projects/1428928) | `monsterspellbooks-0.0.16.3.jar` | Cliente e servidor |
 | [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.0-neoforge.jar` | Cliente e servidor |
@@ -366,4 +382,73 @@ Melhorias visuais e de qualidade de vida. O launcher pergunta quais você quer n
 | [Ping Wheel](https://modrinth.com/mod/QQXAdCzh) | `Ping-Wheel-1.12.2-neoforge-1.21.1.jar` | Cliente e servidor |
 | [Searchables](https://modrinth.com/mod/fuuu3xnx) | `Searchables-neoforge-1.21.1-1.0.2.jar` | Cliente |
 | [Sound Physics Remastered](https://modrinth.com/mod/qyVF9oeo) | `sound-physics-remastered-neoforge-1.21.1-1.5.1.jar` | Cliente |
+
+### Só no servidor
+Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.
+
+| Mod | Arquivo | Lado |
+| --- | --- | --- |
+| [AI Improvements: Performance Tuning](https://modrinth.com/mod/DSVgwcji) | `AI-Improvements-1.21-0.5.3.jar` | Servidor |
+| [Almanac](https://modrinth.com/mod/Gi02250Z) | `Almanac-1.21.1-2-neoforge-1.5.2.jar` | Servidor |
+| [BanHammer](https://modrinth.com/mod/Wpqg0ciI) | `banhammer-0.11.1+1.21.jar` | Servidor |
+| [Better End Cities Better End](https://www.curseforge.com/projects/959460) | `BetterEndCities-BetterEnd-1.21.jar` | Servidor |
+| [CalcMod: NeoForged](https://modrinth.com/mod/7uxk5PIo) | `calcmod-neoforged-1.4.2+neoforge.1.21.1.jar` | Servidor |
+| [Chunky](https://modrinth.com/mod/fALzjamp) | `Chunky-NeoForge-1.4.23.jar` | Servidor |
+| [Clumps](https://modrinth.com/mod/Wnxd13zP) | `Clumps-neoforge-1.21.1-19.0.0.1.jar` | Servidor |
+| [Collective](https://modrinth.com/mod/e0M1UDsY) | `collective-1.21.1-8.42.jar` | Servidor |
+| [Crash Utilities](https://www.curseforge.com/projects/371813) | `crashutilities-9.0.4.jar` | Servidor |
+| [CraterLib](https://modrinth.com/mod/Nn8Wasaq) | `CraterLib-Neoforge-1.21-3.1.3.jar` | Servidor |
+| [Cupboard](https://www.curseforge.com/projects/326652) | `cupboard-1.21.1-4.2.jar` | Servidor |
+| [Dungeon Crawl](https://modrinth.com/mod/q0rRg4lH) | `DungeonCrawl-NeoForge-1.21-2.3.17.jar` | Servidor |
+| [Dungeons and Taverns](https://modrinth.com/mod/tpehi7ww) | `dungeons-and-taverns-v4.4.4.jar` | Servidor |
+| [EasyAuth](https://modrinth.com/mod/aZj58GfX) | `easyauth-mc1.21-3.3.6.jar` | Servidor |
+| [Essential Commands](https://modrinth.com/mod/6VdDUivB) | `essential_commands-0.35.2-mc1.21.jar` | Servidor |
+| [Fast Async World Save[Forge/Neo/Fabric]](https://www.curseforge.com/projects/951499) | `fastasyncworldsave-1.21-2.6.jar` | Servidor |
+| [Flan](https://modrinth.com/mod/Si383TIH) | `flan-1.21.1-1.12.8-neoforge.jar` | Servidor |
+| [GriefLogger](https://modrinth.com/mod/8oGVUFuX) | `grieflogger-1.2.10-1.21.1-neoforge.jar` | Servidor |
+| [Harvest with ease](https://modrinth.com/mod/W4Ajthd2) | `harvest-with-ease-neoforge-1.21-9.4.0.jar` | Servidor |
+| [Immersive Optimization](https://modrinth.com/mod/vNZgQmjg) | `immersive_optimization-neoforge-1.21.1-0.2.0.jar` | Servidor |
+| [Inv View Forge/NeoForge](https://modrinth.com/mod/RXM1nxge) | `inv_view-4.2.1-neoforge+1.21.1.jar` | Servidor |
+| [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) | `krypton_fnp-neoforge-1.21.1-0.2.28.1-1.21.1.jar` | Servidor |
+| [Leashable Players](https://modrinth.com/mod/BKyMf6XK) | `leashmod-1.1.0.jar` | Servidor |
+| [Leaves Be Gone](https://modrinth.com/mod/AVq17PqV) | `LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar` | Servidor |
+| [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-1.21.x-neoforge-1.5.0.jar` | Servidor |
+| [Log Begone](https://modrinth.com/mod/9ON3zv6e) | `logbegone-neoforge-1.21.1-1.0.3.jar` | Servidor |
+| [LuckPerms](https://modrinth.com/mod/Vebnzrzj) | `LuckPerms-NeoForge-5.4.150.jar` | Servidor |
+| [Maintenance Mode](https://modrinth.com/mod/QOkEkSap) | `MaintenanceMode-Universal-1.3.4.jar` | Servidor |
+| [MixinTrace Reloaded](https://modrinth.com/mod/wx2WW8va) | `MixinTrace reloaded [NEOFORGE]-1.1.0+1.21.jar` | Servidor |
+| [NetherPortalFix](https://modrinth.com/mod/nPZr02ET) | `netherportalfix-neoforge-1.21.1-21.1.1.jar` | Servidor |
+| [No Random Ticks](https://modrinth.com/mod/K2uLi5au) | `norandomticks-0.4-1.21.1.jar` | Servidor |
+| [NoisiumForked](https://modrinth.com/mod/hasdd01q) | `noisium-neoforge-2.7.0+mc1.21-1.21.1.jar` | Servidor |
+| [Observable](https://modrinth.com/mod/VYRu7qmG) | `observable-5.4.4.jar` | Servidor |
+| [Saturn](https://modrinth.com/mod/2eT495vq) | `saturn-mc1.21.1-0.1.5.jar` | Servidor |
+| [Server Chat Log History](https://modrinth.com/mod/HZ6y1yNV) | `server_chat_log_history-1.10+1.21.1.jar` | Servidor |
+| [Server Performance - Smooth Chunk Save](https://www.curseforge.com/projects/582327) | `smoothchunk-1.21-4.1.jar` | Servidor |
+| [ServerCore](https://modrinth.com/mod/4WWQxlQP) | `servercore-neoforge-1.5.19+1.21.1.jar` | Servidor |
+| [Simple Discord Link](https://modrinth.com/mod/Sh0YauEf) | `SimpleDiscordLink-Universal-3.4.5.jar` | Servidor |
+| [Skin Restorer](https://modrinth.com/mod/ghrZDhGW) | `skinrestorer-2.11.0+1.21-neoforge.jar` | Servidor |
+| [Skin Shuffle](https://modrinth.com/mod/3s19I5jr) | `SkinShuffle-2.9.1+1.21.jar` | Servidor |
+| [spark](https://modrinth.com/mod/l6YH9Als) | `spark-1.10.124-neoforge.jar` | Servidor |
+| [Starter Kit](https://modrinth.com/mod/6L3ydNi8) | `starterkit-1.21.1-8.3.jar` | Servidor |
+| [Structory](https://modrinth.com/mod/aKCwCJlY) | `Structory_26.2_v1.3.7.jar` | Servidor |
+| [Styled Chat](https://modrinth.com/mod/doqSKB0e) | `styled-chat-2.6.1+1.21.jar` | Servidor |
+| [Styled Player List](https://modrinth.com/mod/DQIfKUHf) | `styledplayerlist-3.5.1+1.21.jar` | Servidor |
+| [Terralith](https://modrinth.com/mod/8oi3bsk5) | `Terralith_1.21.1_v2.6.2_Neoforge.jar` | Servidor |
+| [Tick Stasis](https://modrinth.com/mod/t6XBQ2xn) | `tick-stasis-1.1.1.jar` | Servidor |
+| [TT20 (TPS Fixer)](https://modrinth.com/mod/YS3ZignI) | `tt20-0.8.5+mc1.21.1-neoforge.jar` | Servidor |
+| [Unsafe World Random Access Detector](https://modrinth.com/mod/MsGuTgPJ) | `unsafe-world-random-access-detector-1.1.3+neoforge.jar` | Servidor |
+| [Vanishmod](https://modrinth.com/mod/MihN2cw5) | `Vanishmod-1.21.1-1.1.21.jar` | Servidor |
+| [View Distance Fix](https://modrinth.com/mod/nxrXbh5K) | `viewdistancefix-fabric-1.21.1-1.0.2.jar` | Servidor |
+| [Waystones Teleport Pets](https://modrinth.com/mod/VaCl9OtG) | `WaystonesTeleportPets-1.2-neoforge-1.21.1.jar` | Servidor |
+| [When Dungeons Arise](https://modrinth.com/mod/8DfbfASn) | `DungeonsArise-1.21.1-2.1.68-release.jar` | Servidor |
+| [When Dungeons Arise: Seven Seas](https://modrinth.com/mod/ZsrrjDbP) | `DungeonsAriseSevenSeas-1.21.x-1.0.4-neoforge.jar` | Servidor |
+| [World Border](https://modrinth.com/mod/nN96GjON) | `worldborder-1.21.1-5.0.jar` | Servidor |
+| [YUNG's Better Desert Temples](https://modrinth.com/mod/XNlO7sBv) | `YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar` | Servidor |
+| [YUNG's Better Dungeons](https://modrinth.com/mod/o1C1Dkj5) | `YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar` | Servidor |
+| [YUNG's Better End Island](https://modrinth.com/mod/2BwBOmBQ) | `YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar` | Servidor |
+| [YUNG's Better Jungle Temples](https://modrinth.com/mod/z9Ve58Ih) | `YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar` | Servidor |
+| [YUNG's Better Mineshafts](https://modrinth.com/mod/HjmxVlSr) | `YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar` | Servidor |
+| [YUNG's Better Nether Fortresses](https://modrinth.com/mod/Z2mXHnxP) | `YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar` | Servidor |
+| [YUNG's Better Ocean Monuments](https://modrinth.com/mod/3dT9sgt4) | `YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar` | Servidor |
+| [YUNG's Better Strongholds](https://modrinth.com/mod/kidLKymU) | `YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar` | Servidor |
 <!-- lista-de-mods:fim -->
