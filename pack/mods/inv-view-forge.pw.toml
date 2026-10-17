@@ -1,0 +1,13 @@
+name = "Inv View Forge/NeoForge"
+filename = "inv_view-4.2.1-neoforge+1.21.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/RXM1nxge/versions/3vW6F7M1/inv_view-4.2.1-neoforge%2B1.21.1.jar"
+hash-format = "sha512"
+hash = "e774baffb03570b260aece90aaae968f77b632cc2765713131023fa640cc92d94b674b1d407d3b0bcd7ea71a25a507d85c4a02ca7356e06967da39d1c1711338"
+
+[update]
+[update.modrinth]
+mod-id = "RXM1nxge"
+version = "3vW6F7M1"

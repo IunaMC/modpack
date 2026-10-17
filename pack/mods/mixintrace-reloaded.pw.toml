@@ -1,0 +1,13 @@
+name = "MixinTrace Reloaded"
+filename = "MixinTrace reloaded [NEOFORGE]-1.1.0+1.21.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/wx2WW8va/versions/Ed51QhTa/MixinTrace%20reloaded%20%5BNEOFORGE%5D-1.1.0%2B1.21.jar"
+hash-format = "sha512"
+hash = "9f14317a3b9ec9c130dee4fc129ddbefbe6d8f645ffc83637d0c91bc7577dfd1062cb13ccab6f4da1b471a4686d638c75ed282a099504f0ce84cddc8487b5840"
+
+[update]
+[update.modrinth]
+mod-id = "wx2WW8va"
+version = "Ed51QhTa"

@@ -1,0 +1,13 @@
+name = "Server Chat Log History"
+filename = "server_chat_log_history-1.10+1.21.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/HZ6y1yNV/versions/VCGs72zM/server_chat_log_history-1.10%2B1.21.1.jar"
+hash-format = "sha512"
+hash = "b79eda8edb008c59c82f415932b98a65d0e9e18ee9d911b60e63d3ee8aa1d98159e0d8f52a443f35fb45c2506aa2a0a425347ca3348f4446679f2965d8732c73"
+
+[update]
+[update.modrinth]
+mod-id = "HZ6y1yNV"
+version = "VCGs72zM"
