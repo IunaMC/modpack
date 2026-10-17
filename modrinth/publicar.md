@@ -33,8 +33,8 @@ A última linha deve listar 14 jars, todos em `overrides/mods/`, e nenhum em
 
 ### 2. Criar a organização
 
-Siga a seção 5 de [`projeto.md`](projeto.md): **Dashboard → Organizations →
-Create organization**, nome `IunaMC`, URL `iunamc`, resumo e ícone.
+Já feito: a organização é a **IUNA** (`iuna`). Veja a seção 5 de
+[`projeto.md`](projeto.md).
 
 ### 3. Criar o projeto
 
