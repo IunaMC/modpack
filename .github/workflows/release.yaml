@@ -1,7 +1,8 @@
 name: Release
 
-# Dispara quando o pack muda na main. Só publica se a versão do pack/pack.toml
-# ainda não tiver release; senão, avisa e para. Também roda pela aba Actions.
+# Dispara quando o pack muda na main. Só cria a release do GitHub se a versão
+# do pack/pack.toml ainda não tiver uma; depois envia a versão ao Modrinth, se
+# ela ainda não estiver lá. Também roda pela aba Actions.
 on:
   push:
     branches: [main]
@@ -85,3 +86,20 @@ jobs:
             --title "${{ steps.versao.outputs.tag }}" \
             --notes-file "$RUNNER_TEMP/notas.md" \
             ${{ steps.versao.outputs.prerelease }}
+
+      # Se a release já existia (ou o envio ao Modrinth falhou e o workflow foi
+      # rodado de novo pela aba Actions), usa o .mrpack e as notas dela.
+      - name: Baixar a release existente
+        if: steps.versao.outputs.existe == 'true'
+        run: |
+          gh release download "${{ steps.versao.outputs.tag }}" -p '*.mrpack'
+          gh release view "${{ steps.versao.outputs.tag }}" --json body -q .body > "$RUNNER_TEMP/notas.md"
+
+      # Pula sozinho se a versão já estiver no Modrinth ou se o secret
+      # MODRINTH_TOKEN não existir.
+      - name: Publicar no Modrinth
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+        run: |
+          python3 scripts/modrinth.py publicar "${{ steps.versao.outputs.versao }}" \
+            "IUNA-${{ steps.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
