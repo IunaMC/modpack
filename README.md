@@ -26,7 +26,9 @@ instala com um clique.
 
 Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
-1. Baixe o `IUNA-<versão>.mrpack` da [última release](../../releases/latest).
+1. Baixe o `.mrpack` da [última release](../../releases/latest). O link
+   <https://github.com/IunaMC/modpack/releases/latest/download/IUNA.mrpack>
+   sempre baixa a versão mais recente.
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
    - **Modrinth App:** *+ (Create instance) → Import from file*.
