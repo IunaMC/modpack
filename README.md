@@ -12,9 +12,8 @@ instala com um clique.
 
 ### Pelo Modrinth (recomendado)
 
-> A página do pack no Modrinth ainda não foi publicada. Link provisório:
-> `<link-da-página-no-modrinth>` (deve ficar em
-> `https://modrinth.com/modpack/<slug>`). O preparo está em
+> A página do pack no Modrinth ainda não foi publicada. Ela vai ficar em
+> `https://modrinth.com/modpack/iuna`. O preparo está em
 > [`modrinth/`](modrinth).
 
 1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
@@ -96,6 +95,11 @@ Para publicar, suba a versão no `pack.toml`, escreva o
 [`MUDANCAS.md`](MUDANCAS.md) e faça merge na `main`. O workflow de release cria
 a tag `v<versão>`, anexa o `.mrpack` e junta ao changelog a lista de mods
 adicionados, atualizados e removidos desde a release anterior.
+
+## Licença
+
+Os arquivos do IunaMC (a seleção de mods, os scripts e os workflows) estão sob
+a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 
 ## Mods
 
