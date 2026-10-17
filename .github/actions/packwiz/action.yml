@@ -1,0 +1,32 @@
+name: Instalar packwiz
+description: Instala o packwiz numa versão fixa e confere se o índice do pack está em dia.
+
+inputs:
+  versao:
+    description: Versão do módulo github.com/packwiz/packwiz (o packwiz não publica releases).
+    default: v0.0.0-20260906154125-ef87d964f8cb
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-go@v6
+      with:
+        go-version: stable
+        cache: false
+
+    - name: Instalar packwiz
+      shell: bash
+      run: go install "github.com/packwiz/packwiz@${{ inputs.versao }}"
+
+    # Se alguém editou um .pw.toml sem rodar `packwiz refresh`, os hashes do
+    # index.toml ficam errados e o launcher recusa o pack.
+    - name: Conferir o índice
+      shell: bash
+      working-directory: pack
+      run: |
+        packwiz refresh
+        if ! git diff --quiet -- .; then
+          git diff --stat -- .
+          echo "::error file=pack/index.toml::O índice está desatualizado. Rode 'packwiz refresh' dentro de pack/ e commite."
+          exit 1
+        fi

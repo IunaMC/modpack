@@ -1,10 +1,11 @@
 name: Release
 
-# Dispara quando o arquivo VERSAO muda na main (ou manualmente pela aba Actions).
+# Dispara quando o pack muda na main. Só publica se a versão do pack/pack.toml
+# ainda não tiver release; senão, avisa e para. Também roda pela aba Actions.
 on:
   push:
     branches: [main]
-    paths: [VERSAO]
+    paths: [pack/**, MUDANCAS.md]
   workflow_dispatch:
 
 permissions:
@@ -19,76 +20,58 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      ARQUIVO: IUNA.-.Modpack.zip
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
-          lfs: true
-
-      - name: Baixar arquivos Git LFS
-        run: |
-          git lfs install
-          git lfs pull
+          fetch-depth: 0
 
       - name: Ler e validar a versão
         id: versao
         run: |
-          VERSAO="$(tr -d '[:space:]' < VERSAO)"
-          if ! [[ "$VERSAO" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
-            echo "::error file=VERSAO::Versão inválida: '$VERSAO' (esperado algo como 1.2.3 ou v1.2.3-beta.1)"
+          VERSAO="$(python3 scripts/pack.py versao)"
+          if ! [[ "$VERSAO" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error file=pack/pack.toml::Versão inválida: '$VERSAO' (esperado algo como 1.2.3 ou 1.2.3-beta.1)"
             exit 1
           fi
           echo "versao=$VERSAO" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSAO" >> "$GITHUB_OUTPUT"
           if [[ "$VERSAO" == *-* ]]; then
             echo "prerelease=--prerelease" >> "$GITHUB_OUTPUT"
-          else
-            echo "prerelease=" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Verificar se a release já existe
-        id: existe
-        run: |
-          if gh release view "${{ steps.versao.outputs.versao }}" >/dev/null 2>&1; then
-            echo "::warning::A release ${{ steps.versao.outputs.versao }} já existe. Altere o arquivo VERSAO para publicar outra."
+          if gh release view "v$VERSAO" >/dev/null 2>&1; then
+            echo "::warning::A release v$VERSAO já existe. Suba a versão no pack/pack.toml para publicar outra."
             echo "existe=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "existe=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # A lista de arquivos do pacote vem do .index (sintaxe de .gitignore;
-      # linhas com "!" são exclusões). Veja .github/scripts/resolver_index.sh.
-      - name: Resolver a lista de arquivos (.index)
-        if: steps.existe.outputs.existe == 'false'
-        run: |
-          bash .github/scripts/resolver_index.sh index.lock > "$RUNNER_TEMP/arquivos.txt"
-          if [ ! -s "$RUNNER_TEMP/arquivos.txt" ]; then
-            echo "::error file=.index::O .index não resolveu nenhum arquivo."
-            exit 1
-          fi
-          echo "::group::$(wc -l < "$RUNNER_TEMP/arquivos.txt") arquivos serão empacotados"
-          cat "$RUNNER_TEMP/arquivos.txt"
-          echo "::endgroup::"
+      - if: steps.versao.outputs.existe != 'true'
+        uses: ./.github/actions/packwiz
 
-      - name: Validar arquivos LFS
-        if: steps.existe.outputs.existe == 'false'
+      - name: Exportar o .mrpack
+        if: steps.versao.outputs.existe != 'true'
+        run: (cd pack && packwiz mr export -o "../IUNA-${{ steps.versao.outputs.versao }}.mrpack")
+
+      # Notas = MUDANCAS.md escrito à mão + lista de mods gerada pela
+      # comparação com a release anterior.
+      - name: Montar as notas da release
+        if: steps.versao.outputs.existe != 'true'
         run: |
-          while IFS= read -r arquivo; do
-            if grep -q "^version https://git-lfs.github.com/spec/v1" "$arquivo" 2>/dev/null; then
-              echo "::error file=$arquivo::Arquivo ainda é um ponteiro Git LFS, o conteúdo real não foi baixado."
-              exit 1
+          ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | head -1)"
+          {
+            cat MUDANCAS.md
+            if [[ -n "$ANTERIOR" ]]; then
+              echo
+              echo "## Mods desde $ANTERIOR"
+              echo
+              python3 scripts/pack.py mudancas "$ANTERIOR"
             fi
-          done < "$RUNNER_TEMP/arquivos.txt"
-
-      - name: Gerar o zip
-        if: steps.existe.outputs.existe == 'false'
-        run: zip -q "$ARQUIVO" -@ < "$RUNNER_TEMP/arquivos.txt"
+          } > "$RUNNER_TEMP/notas.md"
+          cat "$RUNNER_TEMP/notas.md"
 
       - name: Criar tag e release
-        if: steps.existe.outputs.existe == 'false'
+        if: steps.versao.outputs.existe != 'true'
         run: |
-          gh release create "${{ steps.versao.outputs.versao }}" "$ARQUIVO" \
+          gh release create "${{ steps.versao.outputs.tag }}" "IUNA-${{ steps.versao.outputs.versao }}.mrpack" \
             --target "$GITHUB_SHA" \
-            --title "${{ steps.versao.outputs.versao }}" \
-            --notes-file MUDANCAS.md \
+            --title "${{ steps.versao.outputs.tag }}" \
+            --notes-file "$RUNNER_TEMP/notas.md" \
             ${{ steps.versao.outputs.prerelease }}
