@@ -42,14 +42,14 @@ item.
 | Nome | `IUNA` | **Decidido.** A regra 5.2 desencoraja enchimento como "Modpack" no nome; o tipo já aparece na página. O nome interno do `.mrpack` (`pack.toml`) continua "IUNA Modpack". |
 | Slug | `iuna` | **Decidido.** Livre em 17/10/2026 (`GET /v2/project/iuna` → 404). |
 | URL final | `https://modrinth.com/modpack/iuna` | |
-| Resumo | `Uma comunidade brasileira de Minecraft feita para amigos — e sim, a gente ‘não tem nome’.` | **Decidido**, texto do mantenedor. Sem formatação e sem repetir o nome (regra 5.3). |
+| Resumo | `A Brazilian Minecraft community made for friends — and yes, we ‘don’t have a name’.` | **Decidido**, texto do mantenedor, em inglês (a mesma frase da bio da conta IUNA). Sem formatação e sem repetir o nome (regra 5.3). |
 | Categorias principais (até 3) | `technology`, `magic`, `adventure` | Create, Mekanism e AE2; Ars Nouveau, Iron's Spells e Occultism; Twilight Forest, Aether, BetterEnd e Alex's Caves. |
 | Categorias adicionais | `kitchen-sink`, `multiplayer`, `combat` | 285 mods de todos os temas, servidor da comunidade, Better Combat, Cataclysm e Apotheosis. |
 | Loader e versão | NeoForge, 1.21.1 | Vêm da versão (o Modrinth lê do `.mrpack`). |
 | Environment | **Client and server, required on both** (`client_and_server`) | Os mods de conteúdo precisam estar nos dois lados para entrar no servidor. O `.mrpack` também lista os mods `side = server` baixados do Modrinth; os jars só de servidor do CurseForge não vão no arquivo, porque o servidor IUNA instala pelo packwiz-installer. |
 | Licença | `MIT`, URL `https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE` | **Decidido.** Veja a seção 3. |
 | Aviso de IA | Marcar **Contains AI-generated content** (texto) | **Decidido.** A descrição foi escrita com ajuda de IA; a regra 6.1 exige o aviso. |
-| Descrição | [`descricao.md`](descricao.md) com a tradução de [`descricao.en.md`](descricao.en.md) | Veja como juntar os dois em [`publicar.md`](publicar.md). |
+| Descrição | [`descricao.en.md`](descricao.en.md), com o português de [`descricao.md`](descricao.md) num bloco recolhível e o banner no topo | Veja como juntar os dois em [`publicar.md`](publicar.md). |
 
 ### Links
 
