@@ -150,7 +150,7 @@ author's license or permission:
 | [AE2 JEI Integration](https://www.curseforge.com/minecraft/mc-mods/ae2-jei-integration) | mezz and Tamaized | LGPL 3.0 |
 | [Cosmetic Armor Reworked](https://www.curseforge.com/minecraft/mc-mods/cosmetic-armor-reworked) | zlainsama | MMPL 1.0.1 |
 | [Monsters & Spellbooks](https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss) | RedReaper | MIT |
-| [Astral Sorcery](https://www.curseforge.com/minecraft/mc-mods/astral-sorcery) | HellFirePvP | <license-or-permission> |
+| [Astral Sorcery](https://www.curseforge.com/minecraft/mc-mods/astral-sorcery) | HellFirePvP | Custom license that lets modpacks distribute the jar |
 | [Fire's Ender Expansion](https://www.curseforge.com/minecraft/mc-mods/fires-ender-expansion) | Fire | <author-permission> |
 | [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 and flanks255 | <author-permission> |
 
