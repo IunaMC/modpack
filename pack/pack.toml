@@ -1,6 +1,6 @@
 name = "IUNA Modpack"
 author = "IunaMC"
-version = "2.2.4"
+version = "3.0.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
