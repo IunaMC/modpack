@@ -3,6 +3,6 @@ filename = "LuckPerms-Fabric-Placeholders.jar"
 side = "server"
 
 [download]
-url = "https://github.com/IunaMC/modpack-cliente/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar"
+url = "https://github.com/IunaMC/modpack/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar"
 hash-format = "sha512"
 hash = "6eb3584bb1bff0ed987794194477caebd95630b681cb687d2402aea093f9fe5ec238699d07f1117b59673216fb022be475d7ab72c73079ed25af409f3753cd65"
