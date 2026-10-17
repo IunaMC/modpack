@@ -415,7 +415,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-1.21.x-neoforge-1.5.0.jar` | Servidor |
 | [Log Begone](https://modrinth.com/mod/9ON3zv6e) | `logbegone-neoforge-1.21.1-1.0.3.jar` | Servidor |
 | [LuckPerms](https://modrinth.com/mod/Vebnzrzj) | `LuckPerms-NeoForge-5.4.150.jar` | Servidor |
-| [LuckPerms Placeholders](https://github.com/IunaMC/modpack-cliente/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar) | `LuckPerms-Fabric-Placeholders.jar` | Servidor |
+| [LuckPerms Placeholders](https://github.com/IunaMC/modpack/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar) | `LuckPerms-Fabric-Placeholders.jar` | Servidor |
 | [Maintenance Mode](https://modrinth.com/mod/QOkEkSap) | `MaintenanceMode-Universal-1.3.4.jar` | Servidor |
 | [MixinTrace Reloaded](https://modrinth.com/mod/wx2WW8va) | `MixinTrace reloaded [NEOFORGE]-1.1.0+1.21.jar` | Servidor |
 | [NetherPortalFix](https://modrinth.com/mod/nPZr02ET) | `netherportalfix-neoforge-1.21.1-21.1.1.jar` | Servidor |
