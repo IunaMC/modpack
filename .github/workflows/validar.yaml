@@ -21,7 +21,7 @@ jobs:
   validar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/packwiz
 
@@ -36,7 +36,7 @@ jobs:
           (cd pack && packwiz mr export -o "../$ARQUIVO")
           echo "arquivo=$ARQUIVO" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.exportar.outputs.arquivo }}
           path: ${{ steps.exportar.outputs.arquivo }}
