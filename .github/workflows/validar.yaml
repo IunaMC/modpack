@@ -1,0 +1,44 @@
+name: Validar
+
+# Roda em todo push e PR que mexe no pack: confere o índice e a lista de mods
+# do README, e gera um .mrpack de teste que fica nos artefatos da execução.
+on:
+  push:
+    branches-ignore: [main]
+    paths: [pack/**, scripts/**, README.md, .github/**]
+  pull_request:
+    paths: [pack/**, scripts/**, README.md, .github/**]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validar-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: ./.github/actions/packwiz
+
+      - name: Conferir a lista de mods do README
+        run: python3 scripts/pack.py readme --check
+
+      - name: Exportar o .mrpack
+        id: exportar
+        run: |
+          VERSAO="$(python3 scripts/pack.py versao)"
+          ARQUIVO="IUNA-${VERSAO}-${GITHUB_SHA::7}.mrpack"
+          (cd pack && packwiz mr export -o "../$ARQUIVO")
+          echo "arquivo=$ARQUIVO" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.exportar.outputs.arquivo }}
+          path: ${{ steps.exportar.outputs.arquivo }}
+          retention-days: 14
+          compression-level: 0
