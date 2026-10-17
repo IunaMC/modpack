@@ -150,8 +150,8 @@ permissão de cada autor:
 | [Cosmetic Armor Reworked](https://www.curseforge.com/minecraft/mc-mods/cosmetic-armor-reworked) | zlainsama | MMPL 1.0.1 |
 | [Monsters & Spellbooks](https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss) | RedReaper | MIT |
 | [Astral Sorcery](https://www.curseforge.com/minecraft/mc-mods/astral-sorcery) | HellFirePvP | Licença própria, que permite modpacks distribuírem o jar |
-| [Fire's Ender Expansion](https://www.curseforge.com/minecraft/mc-mods/fires-ender-expansion) | Fire | <permissão-do-autor> |
-| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 e flanks255 | <permissão-do-autor> |
+| [Fire's Ender Expansion](https://www.curseforge.com/minecraft/mc-mods/fires-ender-expansion) | Fire | Permissão pedida ao autor |
+| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 e flanks255 | Permissão pedida ao autor |
 
 A licença do IUNA vale só para os arquivos feitos pelo IunaMC. Cada mod
 mantém a licença do seu autor.
@@ -160,4 +160,4 @@ mantém a licença do seu autor.
 
 - Código do pack e lista de mods: [github.com/IunaMC/modpack-cliente](https://github.com/IunaMC/modpack-cliente)
 - Problemas e sugestões: [Issues](https://github.com/IunaMC/issues)
-- Comunidade: <convite-do-discord>
+- Wiki: [wiki.iuna.space](https://wiki.iuna.space)

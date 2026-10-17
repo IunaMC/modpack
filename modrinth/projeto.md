@@ -100,27 +100,13 @@ Nada disso pode ser gerado por IA (regra 6.2.1).
 - Cada imagem pode ter título e descrição. Não mostre o IP do servidor nem
   nomes de jogadores sem autorização.
 
-## 5. Organização IunaMC
+## 5. Organização e projeto
 
-O nome `iunamc` está livre (`GET /v2/organization/iunamc` → 404 em
-17/10/2026). Organizações agrupam projetos e membros; quem é membro herda as
-permissões nos projetos da organização ([Creator update](https://modrinth.com/news/article/creator-update)).
-
-1. Entre no Modrinth com a conta que vai ser dona.
-2. Abra **Dashboard → Organizations** (`https://modrinth.com/dashboard/organizations`)
-   e clique em **Create organization**.
-3. Preencha: nome `IunaMC`, URL `iunamc`, resumo curto (ex.:
-   `Comunidade brasileira de Minecraft com modpack próprio.`) e o ícone da seção 4.
-4. Na organização, em **Members**, convide os outros mantenedores e defina os
-   papéis e permissões. Só quem tem a permissão de adicionar projetos
-   (`ADD_PROJECT`) cria projetos nela.
-5. Para o projeto já nascer na organização, crie-o pela página da organização
-   (**Create a project** dentro dela). O dono passa a ser a organização.
-6. Se o projeto já tiver sido criado na conta pessoal: abra **Settings →
-   Members** do projeto e use a opção de transferir para a organização. O texto
-   exato do botão não está documentado oficialmente; confira na tela.
-
-> Se a organização for apagada, os projetos voltam para o dono da organização.
+Já existem: a organização **IUNA** (`https://modrinth.com/organization/iuna`,
+ID `T8IxJ4hk`) e, dentro dela, o projeto `iuna` (ID `vfStiAFv`). Em 17/10/2026
+o projeto recebeu pela API a descrição, as categorias, os links, a URL da
+licença, o banner na galeria e a versão 3.0.0 (`h30ZlPSP`), e continua em
+rascunho. O aviso de IA e a página **Permissions** só existem no site.
 
 ## 6. Antes de enviar para revisão
 
