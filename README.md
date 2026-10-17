@@ -415,6 +415,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-1.21.x-neoforge-1.5.0.jar` | Servidor |
 | [Log Begone](https://modrinth.com/mod/9ON3zv6e) | `logbegone-neoforge-1.21.1-1.0.3.jar` | Servidor |
 | [LuckPerms](https://modrinth.com/mod/Vebnzrzj) | `LuckPerms-NeoForge-5.4.150.jar` | Servidor |
+| [LuckPerms Placeholders](https://github.com/IunaMC/modpack-cliente/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar) | `LuckPerms-Fabric-Placeholders.jar` | Servidor |
 | [Maintenance Mode](https://modrinth.com/mod/QOkEkSap) | `MaintenanceMode-Universal-1.3.4.jar` | Servidor |
 | [MixinTrace Reloaded](https://modrinth.com/mod/wx2WW8va) | `MixinTrace reloaded [NEOFORGE]-1.1.0+1.21.jar` | Servidor |
 | [NetherPortalFix](https://modrinth.com/mod/nPZr02ET) | `netherportalfix-neoforge-1.21.1-21.1.1.jar` | Servidor |
@@ -436,7 +437,6 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Terralith](https://modrinth.com/mod/8oi3bsk5) | `Terralith_1.21.1_v2.6.2_Neoforge.jar` | Servidor |
 | [Tick Stasis](https://modrinth.com/mod/t6XBQ2xn) | `tick-stasis-1.1.1.jar` | Servidor |
 | [TT20 (TPS Fixer)](https://modrinth.com/mod/YS3ZignI) | `tt20-0.8.5+mc1.21.1-neoforge.jar` | Servidor |
-| [Unsafe World Random Access Detector](https://modrinth.com/mod/MsGuTgPJ) | `unsafe-world-random-access-detector-1.1.3+neoforge.jar` | Servidor |
 | [Vanishmod](https://modrinth.com/mod/MihN2cw5) | `Vanishmod-1.21.1-1.1.21.jar` | Servidor |
 | [View Distance Fix](https://modrinth.com/mod/nxrXbh5K) | `viewdistancefix-fabric-1.21.1-1.0.2.jar` | Servidor |
 | [Waystones Teleport Pets](https://modrinth.com/mod/VaCl9OtG) | `WaystonesTeleportPets-1.2-neoforge-1.21.1.jar` | Servidor |

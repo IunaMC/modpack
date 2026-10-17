@@ -1,14 +1,9 @@
-# Mudanças — v3.0.0, pack em .mrpack e fonte única
+# Mudanças — v3.1.0, mods do servidor
 
-## Mudou
-- O modpack agora é distribuído como **`.mrpack`**, no lugar do zip com as pastas `Obrigatorios` e `Opcionais`. O arquivo tem cerca de 79 MB, contra 1,1 GB do zip. O launcher baixa os mods do Modrinth na instalação e instala o NeoForge **21.1.253** sozinho.
-- Os mods opcionais viraram escolhas na tela de instalação do launcher. Todos vêm marcados por padrão.
-- O pack passa a ser a fonte única do jogador e do servidor. Os mods só de servidor (administração, desempenho e geração de mundo) estão no mesmo pack, e o launcher do jogador os ignora.
+Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.0.0: quem já está na 3.0.0 não precisa reinstalar.
 
-## Atualizou
-- [ModernFix](https://modrinth.com/mod/nmDcB62a) `5.27.24` → `5.27.26`, a mesma versão do servidor
-- [Mezz Config](https://modrinth.com/mod/7tEfOcA7) `0.6.6` → `0.6.8`, a mesma versão do servidor
+## Adicionou
+- **LuckPerms Placeholders** `5.5-SNAPSHOT` (Fabric, MIT), só no servidor. Liga o LuckPerms aos placeholders do chat e da lista de jogadores. Ele estava no servidor antigo, mas tinha ficado de fora do pack por não ter download fixo. O jar agora vem da release [`arquivos-servidor`](https://github.com/IunaMC/modpack-cliente/releases/tag/arquivos-servidor) deste repositório.
 
-## Como migrar
-- **Crie uma instância nova.** Importe o `IUNA-3.0.0.mrpack` no Prism Launcher (*Add Instance → Import*) ou no Modrinth App (*Import from file*). A pasta `mods` da instância antiga não serve.
-- Para manter mundos, prints e configurações, copie `saves`, `screenshots` e `config` da instância antiga para a nova.
+## Removeu
+- [Unsafe World Random Access Detector](https://modrinth.com/mod/MsGuTgPJ) `1.1.3`, só do servidor. É uma ferramenta de depuração do C2ME, que o servidor não usa. Mesma mudança da v2.15.0 do antigo `modpack-servidor`, que foi arquivado.
