@@ -1,12 +1,11 @@
 name: Validar
 
-# Roda em todo push e PR que mexe no pack: confere o índice e a lista de mods
-# do README, e gera um .mrpack de teste que fica nos artefatos da execução.
+# Roda em todo push fora da main que mexe no pack: confere o índice e a lista
+# de mods do README, gera um .mrpack de teste e sobe um servidor com o pack.
+# O resultado aparece no PR da branch (sem pull_request, que duplicaria a execução).
 on:
   push:
     branches-ignore: [main]
-    paths: [pack/**, scripts/**, README.md, .github/**]
-  pull_request:
     paths: [pack/**, scripts/**, README.md, .github/**]
   workflow_dispatch:
 
