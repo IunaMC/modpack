@@ -160,5 +160,5 @@ author's license.
 ## Links
 
 - Pack source and mod list: [github.com/IunaMC/modpack-cliente](https://github.com/IunaMC/modpack-cliente)
-- Bugs and suggestions: [Issues](https://github.com/IunaMC/modpack-cliente/issues)
+- Bugs and suggestions: [Issues](https://github.com/IunaMC/issues)
 - Community: <discord-invite>
