@@ -74,13 +74,17 @@ def tabela(mods):
 
 def lista_readme():
     mods = list(mods_atuais().values())
-    obrigatorios = [m for m in mods if not m["opcional"]]
-    opcionais = [m for m in mods if m["opcional"]]
+    servidor = [m for m in mods if m["lado"] == "server"]
+    cliente = [m for m in mods if m["lado"] != "server"]
+    obrigatorios = [m for m in cliente if not m["opcional"]]
+    opcionais = [m for m in cliente if m["opcional"]]
     return "\n".join([
         INICIO,
         "<!-- Gerado por scripts/pack.py readme. Não edite à mão. -->",
         "",
-        f"O pack tem **{len(mods)} mods**: {len(obrigatorios)} obrigatórios e {len(opcionais)} opcionais.",
+        f"O pack tem **{len(mods)} mods**. O jogador recebe {len(cliente)} "
+        f"({len(obrigatorios)} obrigatórios e {len(opcionais)} opcionais), e o servidor, "
+        f"{len(mods) - sum(1 for m in mods if m['lado'] == 'client')}.",
         "",
         "### Obrigatórios",
         "Necessários para entrar no servidor. O launcher instala todos.",
@@ -91,6 +95,11 @@ def lista_readme():
         "Melhorias visuais e de qualidade de vida. O launcher pergunta quais você quer na instalação.",
         "",
         tabela(opcionais),
+        "",
+        "### Só no servidor",
+        "Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.",
+        "",
+        tabela(servidor),
         FIM,
     ])
 
