@@ -51,7 +51,7 @@ inicialização, antes do Java do servidor:
 
 ```sh
 java -jar packwiz-installer-bootstrap.jar -g -s server \
-  https://raw.githubusercontent.com/IunaMC/modpack-cliente/v<versão>/pack/pack.toml
+  https://raw.githubusercontent.com/IunaMC/modpack/v<versão>/pack/pack.toml
 ```
 
 Apontar para a tag (`v<versão>`) e não para a `main` garante que o servidor só

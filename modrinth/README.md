@@ -56,7 +56,7 @@ validade de **6 meses** e só estes escopos: **Read projects**, **Write
 projects**, **Read versions** e **Create versions**. Para salvar ou renovar:
 
 ```sh
-gh secret set MODRINTH_TOKEN -R IunaMC/modpack-cliente
+gh secret set MODRINTH_TOKEN -R IunaMC/modpack
 ```
 
 Token vencido faz os workflows falharem com HTTP 401. Renove o secret e rode de
