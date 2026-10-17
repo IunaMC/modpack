@@ -131,7 +131,7 @@ O número da versão segue `MAJOR.MINOR.PATCH`:
 
 Este pack só existe por causa dos autores de cada mod. **Obrigado a todos.**
 A lista completa, com o link de cada mod, está no
-[README do repositório](https://github.com/IunaMC/modpack-cliente#mods).
+[README do repositório](https://github.com/IunaMC/modpack#mods).
 
 Alguns mods vêm do CurseForge e vão dentro do pack, com a licença ou a
 permissão de cada autor:
@@ -158,6 +158,6 @@ mantém a licença do seu autor.
 
 ## Links
 
-- Código do pack e lista de mods: [github.com/IunaMC/modpack-cliente](https://github.com/IunaMC/modpack-cliente)
-- Problemas e sugestões: [Issues](https://github.com/IunaMC/modpack-cliente/issues)
+- Código do pack e lista de mods: [github.com/IunaMC/modpack](https://github.com/IunaMC/modpack)
+- Problemas e sugestões: [Issues](https://github.com/IunaMC/modpack/issues)
 - Wiki: [wiki.iuna.space](https://wiki.iuna.space)

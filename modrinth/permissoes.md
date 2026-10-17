@@ -51,7 +51,7 @@ CurseForge. Conferência de 16/10/2026, versão 3.0.0 do pack.
 ## Arquivos baixados de outro site (a partir da 3.1.0)
 
 Não ficam embutidos: o `modrinth.index.json` aponta para o anexo da
-pré-release [`arquivos-servidor`](https://github.com/IunaMC/modpack-cliente/releases/tag/arquivos-servidor),
+pré-release [`arquivos-servidor`](https://github.com/IunaMC/modpack/releases/tag/arquivos-servidor),
 porque o autor não publica o jar com link fixo. É só de servidor
 (`client: unsupported`), mas aparece na página Permissions.
 

@@ -17,15 +17,15 @@ categorias = ["technology", "magic", "adventure"]
 categorias_extras = ["kitchen-sink", "multiplayer", "combat"]
 
 licenca = "MIT"
-licenca_url = "https://github.com/IunaMC/modpack-cliente/blob/main/LICENSE"
+licenca_url = "https://github.com/IunaMC/modpack/blob/main/LICENSE"
 
 # PNG ou JPEG quadrado, 256×256 ou maior.
 icone = "imagens/icone.png"
 
 # Deixe "" para não mostrar o link.
 [links]
-codigo = "https://github.com/IunaMC/modpack-cliente"
-issues = "https://github.com/IunaMC/modpack-cliente/issues"
+codigo = "https://github.com/IunaMC/modpack"
+issues = "https://github.com/IunaMC/modpack/issues"
 wiki = "https://wiki.iuna.space"
 discord = ""
 

@@ -28,7 +28,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 PASTA = RAIZ / "modrinth"
 API = "https://api.modrinth.com/v2"
-REPO = os.environ.get("GITHUB_REPOSITORY", "IunaMC/modpack-cliente")
+REPO = os.environ.get("GITHUB_REPOSITORY", "IunaMC/modpack")
 AGENTE = f"{REPO} (github.com/{REPO})"
 TIPOS = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
 SHA1 = re.compile(r"/([0-9a-f]{40})[_.]")
