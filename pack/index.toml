@@ -1596,11 +1596,6 @@ hash = "ba468b0e9e8ff229fdbaa7fc1efc6f43236cdafe7570b0ba2b51874ddbc1880b"
 metafile = true
 
 [[files]]
-file = "mods/uwrad.pw.toml"
-hash = "dc0b6c04134a57324efec1a2a3b556c3153f8cee154b9f70b4f8d62e9eccd3aa"
-metafile = true
-
-[[files]]
 file = "mods/valhelsia-core.pw.toml"
 hash = "f05197caaa06d6cf3807ae2d81928c4f5eff1336597b863207c6320ab7f2e4b0"
 metafile = true
