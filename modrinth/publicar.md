@@ -43,14 +43,14 @@ Já feito: a organização é a **IUNA** (`iuna`). Veja a seção 5 de
 3. Resumo: o de [`projeto.md`](projeto.md).
 4. Em **Settings**:
    - **General:** ícone.
-   - **Description:** cole o conteúdo de [`descricao.md`](descricao.md) e,
-     no fim, a tradução dentro de um bloco recolhível, assim:
+   - **Description:** cole o conteúdo de [`descricao.en.md`](descricao.en.md) (o inglês é o idioma principal da página) e,
+     no fim, o português dentro de um bloco recolhível, assim:
 
      ```markdown
      <details>
-     <summary>English</summary>
+     <summary>Português</summary>
 
-     (conteúdo de descricao.en.md)
+     (conteúdo de descricao.md)
 
      </details>
      ```
