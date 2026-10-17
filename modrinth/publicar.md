@@ -8,8 +8,8 @@ implementada**.
 
 ### Antes de começar
 
-- [ ] Decisões de [`projeto.md`](projeto.md) tomadas: nome, slug, licença,
-      aviso de IA e Discord.
+- [ ] Decisões de [`projeto.md`](projeto.md) tomadas: nome, slug, licença e
+      aviso de IA já estão; falta o Discord.
 - [ ] Ícone e capturas da galeria prontos.
 - [ ] Respostas dos autores de Fire's Ender Expansion e Mob Grinding Utils
       (e, se quiser garantir, de Astral Sorcery) salvas como captura de tela.
@@ -39,7 +39,7 @@ Create organization**, nome `IunaMC`, URL `iunamc`, resumo e ícone.
 ### 3. Criar o projeto
 
 1. Na página da organização, crie um projeto do tipo **Modpack**.
-2. Nome `IUNA`, URL `iuna` (ou o slug escolhido), visibilidade **Public**.
+2. Nome `IUNA`, URL `iuna`, visibilidade **Public**.
 3. Resumo: o de [`projeto.md`](projeto.md).
 4. Em **Settings**:
    - **General:** ícone.
@@ -55,9 +55,9 @@ Create organization**, nome `IunaMC`, URL `iunamc`, resumo e ícone.
      </details>
      ```
 
-     Troque os `<...>` (Discord e as licenças de Astral Sorcery, Fire's Ender
-     Expansion e Mob Grinding Utils na tabela de créditos) pelos valores
-     reais, ou apague as linhas.
+     Troque os `<...>` (Discord e as permissões de Fire's Ender Expansion e
+     Mob Grinding Utils na tabela de créditos) pelos valores reais, ou apague
+     as linhas.
    - **Tags:** principais `technology`, `magic`, `adventure`; adicionais
      `kitchen-sink`, `multiplayer`, `combat`.
    - **Environments:** *Client and server, required on both*.
