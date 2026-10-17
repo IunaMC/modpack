@@ -5,6 +5,7 @@ Lê os metadados do packwiz (pack/pack.toml e pack/mods/*.pw.toml).
 
 Uso:
   python3 scripts/pack.py versao              # imprime a versão do pack.toml
+  python3 scripts/pack.py neoforge            # imprime a versão do NeoForge do pack.toml
   python3 scripts/pack.py readme              # regenera a lista de mods no README.md
   python3 scripts/pack.py readme --check      # falha se a lista do README estiver desatualizada
   python3 scripts/pack.py mudancas <ref-git>  # mods adicionados/removidos/atualizados desde <ref-git>
@@ -145,6 +146,8 @@ def cmd_mudancas(ref):
 def main(args):
     if args[:1] == ["versao"]:
         print(versao())
+    elif args[:1] == ["neoforge"]:
+        print(tomllib.loads((PACK / "pack.toml").read_text())["versions"]["neoforge"])
     elif args[:1] == ["readme"]:
         cmd_readme("--check" in args)
     elif args[:1] == ["mudancas"] and len(args) == 2:
