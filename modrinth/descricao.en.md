@@ -1,7 +1,5 @@
 # IUNA
 
-![IUNA Mark II](https://cdn.modrinth.com/data/vfStiAFv/images/5398591e51593fa4b8cda87b0807cbefc0712622.png)
-
 **IUNA** is the modpack of the **IunaMC** community: Minecraft **1.21.1** on
 **NeoForge**, bringing together technology, magic, exploration and plenty of
 food in a world made for playing together. It was built for the community
