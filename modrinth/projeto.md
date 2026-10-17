@@ -57,7 +57,7 @@ item.
 | Campo | Valor |
 | --- | --- |
 | Source | `https://github.com/IunaMC/modpack-cliente` |
-| Issues | `https://github.com/IunaMC/modpack-cliente/issues` |
+| Issues | `https://github.com/IunaMC/issues` |
 | Wiki | `<link-da-wiki>` (deixe vazio se não houver) |
 | Discord | `<convite-do-discord>`. Só preencha com um **convite público** que não expire; a regra 5.4 exige links públicos. Se o Discord for só por convite pessoal, deixe vazio. |
 | Doações | `<link-de-doação>` ou vazio |
