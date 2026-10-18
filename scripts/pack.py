@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ferramentas do pack: lista de mods do README e changelog de mods.
+"""Ferramentas do pack: lista de mods do README, changelog de mods e arquivos externos.
 
 Lê os metadados do packwiz (pack/pack.toml e pack/mods/*.pw.toml).
 
@@ -9,10 +9,19 @@ Uso:
   python3 scripts/pack.py readme              # regenera a lista de mods no README.md
   python3 scripts/pack.py readme --check      # falha se a lista do README estiver desatualizada
   python3 scripts/pack.py mudancas <ref-git>  # mods adicionados/removidos/atualizados desde <ref-git>
+  python3 scripts/pack.py externo <jar> [opções]
+      # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
+      # Opções: --lado server|both|client (padrão server), --nome, --versao, --autor,
+      # --licenca, --origem (o padrão de cada uma vem dos metadados do jar) e --simular,
+      # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/arquivos-externos.md.
 """
+import hashlib
+import json
+import re
 import subprocess
 import sys
 import tomllib
+import zipfile
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -21,6 +30,8 @@ README = RAIZ / "README.md"
 INICIO = "<!-- lista-de-mods:inicio -->"
 FIM = "<!-- lista-de-mods:fim -->"
 LADOS = {"both": "Cliente e servidor", "client": "Cliente", "server": "Servidor"}
+REPO = "IunaMC/modpack"
+RELEASE_EXTERNOS = "arquivos-servidor"
 
 
 def ler_mod(texto):
@@ -143,6 +154,122 @@ def cmd_mudancas(ref):
             print(f"### {titulo} ({len(itens)})\n" + "\n".join(sorted(itens, key=str.casefold)) + "\n")
 
 
+def metadados_jar(jar):
+    """Nome, versão, autor, licença e origem declarados no jar (Fabric ou NeoForge)."""
+    with zipfile.ZipFile(jar) as z:
+        nomes = set(z.namelist())
+        if "fabric.mod.json" in nomes:
+            d = json.loads(z.read("fabric.mod.json"))
+            autores = [a["name"] if isinstance(a, dict) else a for a in d.get("authors", [])]
+            licenca = d.get("license", "")
+            return {
+                "nome": d.get("name", ""),
+                "versao": d.get("version", ""),
+                "autor": ", ".join(autores),
+                "licenca": " / ".join(licenca) if isinstance(licenca, list) else licenca,
+                "origem": d.get("contact", {}).get("sources") or d.get("contact", {}).get("repo")
+                          or d.get("contact", {}).get("homepage", ""),
+            }
+        for arquivo in ("META-INF/neoforge.mods.toml", "META-INF/mods.toml"):
+            if arquivo in nomes:
+                d = tomllib.loads(z.read(arquivo).decode())
+                mod = d.get("mods", [{}])[0]
+                versao = mod.get("version", "")
+                if "${" in versao and "META-INF/MANIFEST.MF" in nomes:
+                    manifesto = z.read("META-INF/MANIFEST.MF").decode(errors="replace")
+                    achado = re.search(r"^Implementation-Version:\s*(\S+)", manifesto, re.M)
+                    versao = achado.group(1) if achado else ""
+                return {
+                    "nome": mod.get("displayName", ""),
+                    "versao": "" if "${" in versao else versao,
+                    "autor": mod.get("authors", ""),
+                    "licenca": d.get("license", ""),
+                    "origem": mod.get("displayURL", "") or d.get("issueTrackerURL", ""),
+                }
+    return {}
+
+
+def opcao(args, nome, padrao=""):
+    if nome in args:
+        i = args.index(nome)
+        if i + 1 >= len(args):
+            sys.exit(f"Falta o valor de {nome}.")
+        return args[i + 1]
+    return padrao
+
+
+def gh(*args, **kwargs):
+    return subprocess.run(["gh", *args, "-R", REPO], check=True, text=True, **kwargs)
+
+
+def cmd_externo(args):
+    if not args or args[0].startswith("--"):
+        sys.exit(__doc__)
+    jar = Path(args[0]).expanduser().resolve()
+    if not jar.is_file() or jar.suffix != ".jar":
+        sys.exit(f"Não achei o jar: {jar}")
+    simular = "--simular" in args
+    meta = metadados_jar(jar)
+    info = {campo: opcao(args, f"--{campo}", meta.get(campo, ""))
+            for campo in ("nome", "versao", "autor", "licenca", "origem")}
+    lado = opcao(args, "--lado", "server")
+    if lado not in LADOS:
+        sys.exit(f"--lado deve ser um de: {', '.join(LADOS)}")
+    faltando = [campo for campo, valor in info.items() if not valor]
+    if faltando:
+        sys.exit("O jar não informa " + ", ".join(faltando) + ". Passe "
+                 + " ".join(f"--{campo} <valor>" for campo in faltando) + ".")
+
+    # Anexo com o mesmo nome nunca é substituído: o hash mudaria e as versões
+    # antigas do pack, que apontam para a mesma URL, deixariam de instalar.
+    if not re.search(r"\d", jar.stem):
+        sys.exit(f"O nome {jar.name} não tem versão. Renomeie para algo como "
+                 f"{jar.stem}-{info['versao']}.jar antes de anexar.")
+    slug = re.sub(r"[^a-z0-9]+", "-", info["nome"].casefold()).strip("-")
+    destino = PACK / "mods" / f"{slug}.pw.toml"
+    if destino.exists():
+        sys.exit(f"{destino.relative_to(RAIZ)} já existe. Para atualizar, apague-o (packwiz remove) e rode de novo.")
+    release = json.loads(gh("release", "view", RELEASE_EXTERNOS, "--json", "assets,body",
+                            capture_output=True).stdout)
+    if any(a["name"] == jar.name for a in release["assets"]):
+        sys.exit(f"A release {RELEASE_EXTERNOS} já tem um anexo {jar.name}. Use outro nome (com a versão nova).")
+
+    url = f"https://github.com/{REPO}/releases/download/{RELEASE_EXTERNOS}/{jar.name}"
+    pw_toml = "\n".join([
+        f'name = "{info["nome"]}"',
+        f'filename = "{jar.name}"',
+        f'side = "{lado}"',
+        "",
+        "[download]",
+        f'url = "{url}"',
+        'hash-format = "sha512"',
+        f'hash = "{hashlib.sha512(jar.read_bytes()).hexdigest()}"',
+        "",
+    ])
+    linha = (f"| `{jar.name}` | {info['nome']} {info['versao']} | {info['autor']} | "
+             f"{info['licenca']} | [{info['origem'].rstrip('/').split('/', 3)[-1]}]({info['origem']}) |")
+    corpo = release["body"].rstrip("\n").split("\n")
+    ultima = max(i for i, l in enumerate(corpo) if l.startswith("|"))
+    corpo.insert(ultima + 1, linha)
+
+    print(f"==> Anexar {jar.name} à release {RELEASE_EXTERNOS}")
+    print(f"==> Criar {destino.relative_to(RAIZ)}:\n{pw_toml}")
+    print(f"==> Linha nova na tabela da release:\n{linha}\n")
+    if simular:
+        print("Simulação: nada foi enviado nem gravado.")
+        return
+    sys.stdout.flush()
+
+    gh("release", "upload", RELEASE_EXTERNOS, str(jar))
+    gh("release", "edit", RELEASE_EXTERNOS, "--notes", "\n".join(corpo) + "\n")
+    destino.write_text(pw_toml)
+    subprocess.run(["packwiz", "refresh"], cwd=PACK, check=True)
+    cmd_readme(False)
+    print(f"\nPronto. Confira a licença ({info['licenca']}), suba a versão (MINOR), escreva o "
+          f"MUDANCAS.md e faça o commit:\n  feat(mods): adiciona {info['nome']} {info['versao']}"
+          + (" no servidor" if lado == "server" else ""))
+
+
 def main(args):
     if args[:1] == ["versao"]:
         print(versao())
@@ -152,6 +279,8 @@ def main(args):
         cmd_readme("--check" in args)
     elif args[:1] == ["mudancas"] and len(args) == 2:
         cmd_mudancas(args[1])
+    elif args[:1] == ["externo"]:
+        cmd_externo(args[1:])
     else:
         sys.exit(__doc__)
 
