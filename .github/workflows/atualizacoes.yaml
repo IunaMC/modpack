@@ -54,7 +54,7 @@ jobs:
             echo
             cat "$RUNNER_TEMP/lista.md"
             echo
-            echo "Para aplicar: \`packwiz update <mod>\` dentro de \`pack/\`. Pelo SemVer, qualquer mod atualizado é uma versão MINOR."
+            echo "Para aplicar: \`packwiz update <mod>\` dentro de \`pack/\` e depois \`python3 scripts/curseforge.py verificar --corrigir\` e \`packwiz refresh\`. Pelo SemVer, qualquer mod atualizado é uma versão MINOR."
           } > "$RUNNER_TEMP/corpo.md"
           if [[ -n "$NUM" ]]; then
             gh issue edit "$NUM" --body-file "$RUNNER_TEMP/corpo.md"

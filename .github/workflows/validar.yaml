@@ -27,6 +27,19 @@ jobs:
       - name: Conferir a lista de mods do README
         run: python3 scripts/pack.py readme --check
 
+      # O packwiz update só segue o Modrinth; isto acusa mod cujo arquivo na
+      # CurseForge ficou para trás.
+      - name: Conferir a fonte da CurseForge
+        run: python3 scripts/curseforge.py verificar
+
+      - name: Exportar o .zip da CurseForge
+        run: |
+          (cd pack && packwiz curseforge export -o ../curseforge-teste.zip)
+          if unzip -l curseforge-teste.zip 'overrides/mods/*' > /dev/null 2>&1; then
+            echo "::error::O .zip da CurseForge tem jars em overrides/mods."
+            exit 1
+          fi
+
       - name: Exportar o .mrpack
         id: exportar
         run: |
