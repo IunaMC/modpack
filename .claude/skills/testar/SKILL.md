@@ -1,8 +1,7 @@
 ---
 name: testar
-description: Testa se o servidor do pack sobe, pelo CI (Validar) por padrão ou localmente com scripts/testar-servidor.sh.
+description: Testa se o servidor do pack sobe, pelo CI (Validar) por padrão ou localmente com scripts/testar-servidor.sh. Use quando o usuário pedir para testar o boot do servidor ou conferir o Validar.
 argument-hint: "[local] [configs] [manter]"
-disable-model-invocation: true
 model: sonnet
 effort: low
 allowed-tools:

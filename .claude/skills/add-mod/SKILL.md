@@ -1,8 +1,7 @@
 ---
 name: add-mod
-description: Adiciona um mod do Modrinth ao pack pelo packwiz, com as dependências, e faz um commit por item no padrão do repo.
+description: Adiciona um mod do Modrinth ao pack pelo packwiz, com as dependências e a fonte da CurseForge, e faz um commit por item no padrão do repo. Use quando o usuário pedir para adicionar um mod ao pack.
 argument-hint: "<slug ou link do Modrinth> [server|client|both] [opcional]"
-disable-model-invocation: true
 model: sonnet
 effort: low
 allowed-tools:
