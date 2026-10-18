@@ -1,8 +1,7 @@
 ---
 name: beta
-description: Prepara e publica a próxima versão beta do modpack pela devel/devel (versão no pack.toml, README, MUDANCAS.md, commit e push).
+description: Prepara e publica a próxima versão beta do modpack pela devel/devel (versão no pack.toml, README, MUDANCAS.md, commit e push). Use quando o usuário pedir para soltar ou publicar uma beta do modpack.
 argument-hint: "[versão, ex.: 3.3.0-beta.1]"
-disable-model-invocation: true
 model: sonnet
 effort: low
 allowed-tools:
