@@ -33,7 +33,7 @@ CurseForge. Conferência de 16/10/2026, versão 3.0.0 do pack.
 
 | Mod | Arquivo | Licença no jar | Licença verificada | Opção | Link de prova |
 | --- | --- | --- | --- | --- | --- |
-| The Twilight Forest | `twilightforest-1.21.1-4.8.3345-universal.jar` | LGPL 2.1 | LGPL 2.1 ou posterior (`LICENSE` do repositório) | **License** | https://github.com/TeamTwilight/twilightforest/blob/latest/LICENSE |
+| The Twilight Forest | `twilightforest-1.21.1-4.8.3345-universal.jar` | LGPL 2.1 | Código LGPL 2.1, mas sons e estruturas **All Rights Reserved** (README do repositório) | **No permission** | https://github.com/TeamTwilight/twilightforest#licensing |
 | Ice and Fire CE | `iceandfire-2.1.3.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | https://github.com/IAFEnvoy/IceAndFire-CE/blob/master/LICENSE |
 | Uranus | `uranus-3.0-beta.1.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | https://github.com/IAFEnvoy/Uranus/blob/master/LICENSE |
 | Flux Networks | `FluxNetworks-1.21.1-8.0.0.jar` | MIT | MIT (`LICENSE`) | **License** | https://github.com/SonarSonic/Flux-Networks/blob/1.20/LICENSE |
@@ -67,7 +67,13 @@ cole o link da issue.
 - Fire's Ender Expansion: https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4
   (autorizado pelo autor em 17/10/2026; o Modrinth já reconhecia o arquivo)
 - Mob Grinding Utils: https://github.com/vadis365/Mob-Grinding-Utils/issues/372
-  (sem resposta até 18/10/2026)
+  (sem resposta; fechado em 18/10/2026)
+- The Twilight Forest: sem pedido. A Team Twilight já recusou várias vezes
+  liberar o mod em packs do Modrinth (issues
+  [#1798](https://github.com/TeamTwilight/twilightforest/issues/1798),
+  [#2358](https://github.com/TeamTwilight/twilightforest/issues/2358),
+  [#2380](https://github.com/TeamTwilight/twilightforest/issues/2380) e
+  [#2435](https://github.com/TeamTwilight/twilightforest/issues/2435)).
 
 ## Arquivos só do servidor (fora do `.mrpack` publicado)
 
@@ -89,7 +95,7 @@ caso algum dia voltem para o arquivo.
 ## O que isso muda no plano
 
 - **O `.mrpack` publicado tem 14 arquivos externos, todos em `overrides/mods/`.
-  Resolvidos: 12.** Os 10 de licença aberta, Monsters & Spellbooks e Fire's
+  Resolvidos: 11.** Os 9 de licença aberta, Monsters & Spellbooks e Fire's
   Ender Expansion, que o Modrinth reconheceu sozinho.
 - **Monsters & Spellbooks não depende mais de pedido.** O jar diz "All Rights
   Reserved", mas a página do CurseForge mostra MIT e autoriza o uso em
@@ -100,13 +106,14 @@ caso algum dia voltem para o arquivo.
 - **Astral Sorcery pode passar pela licença.** A licença do autor libera
   modpacks para distribuir o jar compilado. Vale tentar **License** citando
   a frase e manter o pedido ao autor como plano B.
-- **Falta 1 do jogador:** Mob Grinding Utils, com pedido aberto (veja acima).
-  Sem resposta do autor, a versão fica retida. As saídas são esperar a
-  permissão ou tirar o mod do pack (versão MINOR).
+- **Faltam 2 do jogador, e ficam assim por decisão:** Mob Grinding Utils
+  (pedido sem resposta) e The Twilight Forest (equipe recusa). Os dois
+  continuam no pack, porque o objetivo é o `.mrpack` completo. Por isso as
+  versões no Modrinth ficam retidas, e a distribuição é pelo GitHub.
 - **Os 3 mods All Rights Reserved do servidor** (Cupboard, Fast Async World
   Save e Smooth Chunk Save, do autor someaddon) já não vão no `.mrpack`, nem
   no do GitHub nem no do Modrinth. Nada a fazer.
-- **A release do GitHub ainda redistribui Mob Grinding Utils** (All Rights
-  Reserved) em `overrides/mods/`. A regra do Modrinth não alcança o GitHub,
+- **A release do GitHub redistribui Mob Grinding Utils e The Twilight Forest**
+  (com partes All Rights Reserved) em `overrides/mods/`. A regra do Modrinth não alcança o GitHub,
   mas a licença do autor sim. A solução é a mesma: a permissão do autor, ou
   tirar o mod do pack.
