@@ -10,6 +10,10 @@
 #                       ../iunamc.minecraft-config, ao lado deste repositório.
 #   --configs-git REF   o mesmo, mas clona a branch ou tag REF do GitHub. O repo é
 #                       privado: usa o login do gh ou a variável GH_TOKEN.
+#   --segredos ARQUIVO  preenche os marcadores {{NOME}} das configs (token do bot,
+#                       IDs do Discord) com um arquivo NOME=valor da sua máquina, fora
+#                       dos repositórios (ex.: ~/.config/iuna/segredos.env). Sem esta
+#                       opção, os marcadores viram vazio e a cópia sobe sem bot.
 #   --manter            não para o servidor quando ele fica pronto: deixa o console
 #                       aberto no terminal para entrar no jogo (localhost) e testar.
 #
@@ -25,6 +29,7 @@ RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
 CONFIGS=""
 CONFIGS_GIT=""
 MANTER=false
+SEGREDOS=""
 DIR=""
 while (( $# )); do
   case "$1" in
@@ -32,6 +37,8 @@ while (( $# )); do
     --configs=*) CONFIGS="${1#--configs=}" ;;
     --configs-git) CONFIGS_GIT="${2:?--configs-git precisa de uma branch ou tag}"; shift ;;
     --configs-git=*) CONFIGS_GIT="${1#--configs-git=}" ;;
+    --segredos) SEGREDOS="${2:?--segredos precisa de um arquivo}"; shift ;;
+    --segredos=*) SEGREDOS="${1#--segredos=}" ;;
     --manter) MANTER=true ;;
     -h|--help) sed -n '2,/^set -euo/{/^set/d;s/^# \{0,1\}//;p}' "$0"; exit 0 ;;
     -*) echo "Opção desconhecida: $1 (veja --help)" >&2; exit 2 ;;
@@ -44,6 +51,14 @@ if [[ -n "$CONFIGS" && -n "$CONFIGS_GIT" ]]; then
   exit 2
 fi
 [[ -z "$CONFIGS" ]] || CONFIGS="$(realpath -m "$CONFIGS")"
+if [[ -n "$SEGREDOS" ]]; then
+  [[ -n "$CONFIGS$CONFIGS_GIT" ]] || { echo "--segredos só faz sentido com --configs ou --configs-git." >&2; exit 2; }
+  SEGREDOS="$(realpath -m "$SEGREDOS")"
+  [[ -f "$SEGREDOS" ]] || { echo "Arquivo de segredos não encontrado: $SEGREDOS" >&2; exit 2; }
+  if [[ "$(stat -c %a "$SEGREDOS")" != 600 ]]; then
+    echo "Aviso: $SEGREDOS pode ser lido por outros usuários; rode: chmod 600 $SEGREDOS" >&2
+  fi
+fi
 
 DIR="$(realpath -m "${DIR:-$RAIZ/servidor-teste}")"
 MEMORIA="${MEMORIA:-8G}"
@@ -89,10 +104,45 @@ if [[ -n "$CONFIGS" ]]; then
   tar -C "$CONFIGS" --exclude=./.git --exclude=./.github --exclude=./.claude \
     --exclude=./docs --exclude=./.gitignore --exclude='./README*' -cf - . | tar -xf -
   echo "$(find "$CONFIGS/config" -type f | wc -l) arquivos de config copiados"
-  # Tokens e IDs do Discord ficam no repo como marcadores {{NOME}}, preenchidos
-  # só no .zip da release. Aqui viram vazio: a cópia não conecta no Discord.
-  grep -rlE '\{\{[A-Z0-9_]+\}\}' config server.properties 2>/dev/null \
-    | xargs -r sed -i -E 's/\{\{[A-Z0-9_]+\}\}//g'
+  # Tokens e IDs do Discord ficam no repo como marcadores {{NOME}}. Com
+  # --segredos, viram os valores do arquivo NOME=valor; sem, viram vazio (sem
+  # bot). Os secrets do GitHub só podem ser lidos dentro do Actions.
+  python3 - "$SEGREDOS" <<'PY'
+import re, sys
+from pathlib import Path
+valores = {}
+if sys.argv[1]:
+    for linha in Path(sys.argv[1]).read_text(encoding="utf-8").splitlines():
+        linha = linha.strip()
+        if not linha or linha.startswith("#") or "=" not in linha:
+            continue
+        nome, valor = linha.split("=", 1)
+        valor = valor.strip()
+        if len(valor) >= 2 and valor[0] == valor[-1] and valor[0] in "\"'":
+            valor = valor[1:-1]
+        valores[nome.strip()] = valor
+usados = {}
+alvos = [Path("server.properties")] + [p for p in Path("config").rglob("*") if p.is_file()]
+for arquivo in alvos:
+    try:
+        texto = arquivo.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        continue
+    if "{{" not in texto:
+        continue
+    aspas = arquivo.suffix in {".toml", ".json", ".json5"}
+    def trocar(m):
+        valor = valores.get(m.group(1), "")
+        usados[m.group(1)] = usados.get(m.group(1), False) or bool(valor)
+        return valor.replace("\\", "\\\\").replace('"', '\\"') if aspas else valor
+    novo = re.sub(r"\{\{([A-Z0-9_]+)\}\}", trocar, texto)
+    if novo != texto:
+        arquivo.write_text(novo, encoding="utf-8")
+if usados:
+    preenchidos = sorted(n for n, ok in usados.items() if ok)
+    print(f"Marcadores: {len(preenchidos)} preenchidos, {len(usados) - len(preenchidos)} vazios"
+          + (f" ({', '.join(preenchidos)})" if preenchidos else ""))
+PY
 fi
 
 echo "eula=true" > eula.txt
