@@ -16,3 +16,6 @@ description = "Adds a search bar to the Key-Bindings menu"
 [update.modrinth]
 mod-id = "xv94TkTM"
 version = "FaNppCJJ"
+[update.curseforge]
+file-id = 6368976
+project-id = 250398

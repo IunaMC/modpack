@@ -11,3 +11,6 @@ hash = "95f91c5d634dd144c6acb8dcf946df47a1c09d348e987b00469acc8b5977c09a02f9810c
 [update.modrinth]
 mod-id = "VzR5wiLo"
 version = "BYZmHubv"
+[update.curseforge]
+file-id = 6359014
+project-id = 1230497

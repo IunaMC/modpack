@@ -16,3 +16,6 @@ description = "Using async path-tracing to hide Block-/Entities that are not vis
 [update.modrinth]
 mod-id = "NNAgCjsB"
 version = "8w8FfUPs"
+[update.curseforge]
+file-id = 8942303
+project-id = 448233

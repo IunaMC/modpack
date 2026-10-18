@@ -16,3 +16,6 @@ description = "Emissive, Random & Custom texture support for entities in resourc
 [update.modrinth]
 mod-id = "BVzZfTc1"
 version = "CfQJbv1u"
+[update.curseforge]
+file-id = 9055219
+project-id = 568563

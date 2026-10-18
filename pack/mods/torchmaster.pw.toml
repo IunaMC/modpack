@@ -11,3 +11,6 @@ hash = "bfd009d48bef914c200b37395773372cec9bd2686eb8c726d2071d9799a13382f0c588c0
 [update.modrinth]
 mod-id = "Tl8ESrhX"
 version = "JmlakQNo"
+[update.curseforge]
+file-id = 8949981
+project-id = 254268

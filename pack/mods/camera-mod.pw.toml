@@ -11,3 +11,6 @@ hash = "175cc452b1bd255c593983dd2745ad425d7819a2008d693e7691e8a58ac99525cd7ca216
 [update.modrinth]
 mod-id = "oiuNWinn"
 version = "VKavoCru"
+[update.curseforge]
+file-id = 8657078
+project-id = 289310

@@ -16,3 +16,6 @@ description = "Adds your main inventory, potion effects and your equipments to y
 [update.modrinth]
 mod-id = "Kp2uclYl"
 version = "gOEEnxa6"
+[update.curseforge]
+file-id = 6369797
+project-id = 357540

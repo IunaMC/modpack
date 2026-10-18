@@ -11,3 +11,6 @@ hash = "19d07afc330a3a7b67bd17e5ca1ab6046679e14e7d7331bf4be74da6c25d541480c938d8
 [update.modrinth]
 mod-id = "d6MhxwRo"
 version = "j16Kori6"
+[update.curseforge]
+file-id = 7364962
+project-id = 662413

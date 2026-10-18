@@ -11,3 +11,6 @@ hash = "96022de7bf769d712cd38d621b20ee7d43953c0358ea322720990c4596412d0cf1410e31
 [update.modrinth]
 mod-id = "S5OkaSK0"
 version = "WzymjSBK"
+[update.curseforge]
+file-id = 6366737
+project-id = 792975

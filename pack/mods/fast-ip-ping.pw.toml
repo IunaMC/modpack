@@ -16,3 +16,6 @@ description = "Yeet the laggy reversed DNS lookup for literal IP server addresse
 [update.modrinth]
 mod-id = "9mtu0sUO"
 version = "SNWnJAqf"
+[update.curseforge]
+file-id = 8905303
+project-id = 904356

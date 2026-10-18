@@ -11,3 +11,6 @@ hash = "051d07cb372bfafd746ff658ef2ad3485606328e445099c17b499b14df6844a0c75e8c6d
 [update.modrinth]
 mod-id = "wbgfS34j"
 version = "FBXGqSP5"
+[update.curseforge]
+file-id = 8349218
+project-id = 441647

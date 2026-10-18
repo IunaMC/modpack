@@ -11,3 +11,6 @@ hash = "822fb8cfb22fb64893f3ac9000e6c68f49ffdc2816161bca7b06db6b51d0e6839f2a20ce
 [update.modrinth]
 mod-id = "Adega8YN"
 version = "DldwQTMc"
+[update.curseforge]
+file-id = 8903254
+project-id = 225738

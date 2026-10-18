@@ -16,3 +16,6 @@ description = "Jade 🔍's additional mod supports for Neo/Forge"
 [update.modrinth]
 mod-id = "xuDOzCLy"
 version = "O3F6Dkle"
+[update.curseforge]
+file-id = 9056575
+project-id = 583345

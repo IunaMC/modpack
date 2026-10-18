@@ -16,3 +16,6 @@ description = "Better Advancements tries to improve the UI and UX for the advanc
 [update.modrinth]
 mod-id = "Q2OqKxDG"
 version = "FjTYILOi"
+[update.curseforge]
+file-id = 5850587
+project-id = 272515

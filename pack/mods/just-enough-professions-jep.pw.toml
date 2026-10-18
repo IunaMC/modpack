@@ -16,3 +16,6 @@ description = "A JEI addon that adds profession workstations"
 [update.modrinth]
 mod-id = "kB56GtWA"
 version = "Avs9oGLn"
+[update.curseforge]
+file-id = 7966681
+project-id = 417645

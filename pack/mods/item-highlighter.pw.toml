@@ -16,3 +16,6 @@ description = "Highlights newly picked-up items. Simple and convenient."
 [update.modrinth]
 mod-id = "cVNW5lr6"
 version = "AsQ0Y2G9"
+[update.curseforge]
+file-id = 5591015
+project-id = 521590

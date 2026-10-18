@@ -11,3 +11,6 @@ hash = "320b6def6073ce0ffc0ce2bd7cdb66324467ea3e7cec05508f32d78f65c60ff3e155394b
 [update.modrinth]
 mod-id = "1IjD5062"
 version = "eXGUs5sy"
+[update.curseforge]
+file-id = 5981335
+project-id = 531351

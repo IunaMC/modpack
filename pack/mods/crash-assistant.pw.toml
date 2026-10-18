@@ -16,3 +16,6 @@ description = "Shows a GUI after Minecraft crashes, immediately showing and anal
 [update.modrinth]
 mod-id = "ix1qq8Ux"
 version = "18SR4EJw"
+[update.curseforge]
+file-id = 8636685
+project-id = 1154099

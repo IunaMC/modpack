@@ -11,3 +11,6 @@ hash = "6d21ceb6cd91e63a248251ded3812208ed5ea4f36abb11e8c6e16aa119a95b0e714f59ec
 [update.modrinth]
 mod-id = "cl223EMc"
 version = "Sduz0AWP"
+[update.curseforge]
+file-id = 8241767
+project-id = 856996

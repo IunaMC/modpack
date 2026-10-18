@@ -16,3 +16,6 @@ description = "Durability Tooltip shows you the durability of an item!"
 [update.modrinth]
 mod-id = "smUP7V3r"
 version = "lVrBx0o4"
+[update.curseforge]
+file-id = 8830219
+project-id = 511040

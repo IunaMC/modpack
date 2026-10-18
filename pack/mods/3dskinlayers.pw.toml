@@ -16,3 +16,6 @@ description = "Render the player skin layer in 3d!"
 [update.modrinth]
 mod-id = "zV5r3pPn"
 version = "5s6lxsQW"
+[update.curseforge]
+file-id = 8906440
+project-id = 521480

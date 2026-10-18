@@ -11,3 +11,6 @@ hash = "c05310e54c5a74dd0dc0fd9b19445b1a4046db3a528039839ba50677360075d97cbfa532
 [update.modrinth]
 mod-id = "YCjSHxCP"
 version = "UVtML06x"
+[update.curseforge]
+file-id = 7977298
+project-id = 1155398
