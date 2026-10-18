@@ -1,6 +1,6 @@
 ---
 name: propagar
-description: Depois de uma estável do modpack, leva a versão nova ao pack de moderação (base.toml pelo Acompanhar cliente, commit reassinado, PR e merge) e ao MODPACK do minecraft-config. Use quando o usuário pedir para propagar ou sincronizar a versão nova do modpack com a moderação e as configs.
+description: Depois de uma estável do modpack, leva a versão nova ao pack de moderação (base.toml pelo Acompanhar pack base, commit reassinado, PR e merge) e ao MODPACK do minecraft-config. Use quando o usuário pedir para propagar ou sincronizar a versão nova do modpack com a moderação e as configs.
 argument-hint: "[versão do modpack, ex.: 3.3.0]"
 model: sonnet
 effort: low
@@ -29,7 +29,7 @@ Propague a versão do modpack: `$ARGUMENTS` (vazio = a última estável abaixo).
 
 ## 1. Moderação
 Pule se a base já é a versão pedida.
-1. Sem branch `base/v<versão>` nem issue, dispare o Acompanhar cliente em vez de esperar o horário diário: `gh workflow run acompanhar-cliente.yaml -R IunaMC/modpack-moderacao` e espere com `gh run watch <id> -R IunaMC/modpack-moderacao --exit-status`.
+1. Sem branch `base/v<versão>` nem issue, dispare o Acompanhar pack base em vez de esperar o horário diário: `gh workflow run acompanhar-base.yaml -R IunaMC/modpack-moderacao` (enquanto a `main` de lá não tiver o arquivo novo, ele ainda se chama `acompanhar-cliente.yaml`) e espere com `gh run watch <id> -R IunaMC/modpack-moderacao --exit-status`.
 2. O commit do bot vem sem assinatura. Recrie com a sua:
    `git -C ../iunamc.modpack-moderacao fetch --prune`, `checkout base/v<versão>`, `commit --amend --no-edit --reset-author -S -s` e `push --force-with-lease`.
 3. Sem PR da branch, crie: `gh pr create -R IunaMC/modpack-moderacao --base main --head base/v<versão> --title "Pack base v<versão>" --body "Closes #<issue>"`.
