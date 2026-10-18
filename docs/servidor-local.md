@@ -43,9 +43,12 @@ sem `--manter`).
   `mods/` com nome novo fica; um jar do pack que você trocou é baixado de
   novo.
 - As configs são copiadas por cima. Arquivos que não estão no repo de configs
-  (mundo, dados do LuckPerms, tokens) não são tocados. Mas um arquivo
-  versionado é sobrescrito: se você pôs o token do bot no
-  `simple-discord-link.toml` da cópia, ele volta vazio. Veja os
+  (mundo, dados do LuckPerms) não são tocados. Mas um arquivo versionado é
+  sobrescrito: se você pôs o token do bot no `simple-discord-link.toml` da
+  cópia, ele volta vazio.
+- Tokens e IDs do Discord ficam no repo de configs como marcadores
+  (`"{{DISCORD_CANAL_CHAT}}"`). Na cópia, eles viram vazio, então ela não
+  conecta no Discord. Veja os
   [segredos do minecraft-config](https://github.com/IunaMC/minecraft-config/blob/main/docs/segredos.md).
 
 ## No CI

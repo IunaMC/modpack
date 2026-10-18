@@ -89,6 +89,10 @@ if [[ -n "$CONFIGS" ]]; then
   tar -C "$CONFIGS" --exclude=./.git --exclude=./.github --exclude=./.claude \
     --exclude=./docs --exclude=./.gitignore --exclude='./README*' -cf - . | tar -xf -
   echo "$(find "$CONFIGS/config" -type f | wc -l) arquivos de config copiados"
+  # Tokens e IDs do Discord ficam no repo como marcadores {{NOME}}, preenchidos
+  # só no .zip da release. Aqui viram vazio: a cópia não conecta no Discord.
+  grep -rlE '\{\{[A-Z0-9_]+\}\}' config server.properties 2>/dev/null \
+    | xargs -r sed -i -E 's/\{\{[A-Z0-9_]+\}\}//g'
 fi
 
 echo "eula=true" > eula.txt
