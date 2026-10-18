@@ -1,0 +1,63 @@
+name: Atualizações de mods
+
+# Toda segunda confere, na main, quais mods têm versão nova no Modrinth/CurseForge
+# (o Dependabot não enxerga o packwiz). Nada é aplicado: o resultado vai para uma
+# issue fixa, atualizada a cada semana e fechada quando não há nada pendente.
+on:
+  schedule:
+    - cron: "23 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: atualizacoes
+  cancel-in-progress: true
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: ./.github/actions/packwiz
+
+      - name: Procurar versões novas
+        run: |
+          (cd pack && packwiz update --all -y) || echo "::warning::O packwiz update terminou com erro; a lista pode estar incompleta."
+          {
+            for f in $(git diff --name-only -- 'pack/mods/*.pw.toml'); do
+              ANTES="$(git show "HEAD:$f" | sed -n 's/^filename = "\(.*\)"/\1/p')"
+              DEPOIS="$(sed -n 's/^filename = "\(.*\)"/\1/p' "$f")"
+              echo "- **$(basename "$f" .pw.toml)**: \`$ANTES\` → \`$DEPOIS\`"
+            done
+          } > "$RUNNER_TEMP/lista.md"
+          cat "$RUNNER_TEMP/lista.md"
+
+      - name: Atualizar a issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITULO="Mods com versão nova"
+          NUM="$(gh issue list --state open --search "in:title \"$TITULO\"" --json number,title \
+            --jq "map(select(.title == \"$TITULO\"))[0].number // empty")"
+          if [[ ! -s "$RUNNER_TEMP/lista.md" ]]; then
+            [[ -n "$NUM" ]] && gh issue close "$NUM" --comment "Nenhuma atualização pendente em $(date -u +%d/%m/%Y)."
+            exit 0
+          fi
+          {
+            echo "Mods da \`main\` com versão nova (conferido em $(date -u +%d/%m/%Y)):"
+            echo
+            cat "$RUNNER_TEMP/lista.md"
+            echo
+            echo "Para aplicar: \`packwiz update <mod>\` dentro de \`pack/\`. Pelo SemVer, qualquer mod atualizado é uma versão MINOR."
+          } > "$RUNNER_TEMP/corpo.md"
+          if [[ -n "$NUM" ]]; then
+            gh issue edit "$NUM" --body-file "$RUNNER_TEMP/corpo.md"
+          else
+            gh issue create --title "$TITULO" --body-file "$RUNNER_TEMP/corpo.md"
+          fi
