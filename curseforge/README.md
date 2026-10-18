@@ -29,6 +29,24 @@ gh secret set CURSEFORGE_TOKEN -R IunaMC/modpack
 gh variable set CURSEFORGE_PROJECT_ID -R IunaMC/modpack
 ```
 
+## Como funciona
+
+- **Versões:** o workflow [`Release`](../.github/workflows/release.yaml), depois
+  do Modrinth, gera o `.zip` com `packwiz curseforge export` e o envia pelo
+  [`scripts/curseforge.py`](../scripts/curseforge.py) (`beta` ou `release`,
+  com as notas da release). Cada arquivo passa pela revisão da CurseForge.
+- **Fonte de cada mod:** todo mod de cliente tem `[update.curseforge]` apontando
+  para o mesmo arquivo do `.mrpack`. O `packwiz update` só segue o Modrinth.
+  Depois de atualizar, rode:
+
+```sh
+python3 scripts/curseforge.py verificar --corrigir
+```
+
+  O Validar falha se algum mod ficar diferente nas duas fontes. Para um mod
+  novo, use `python3 scripts/curseforge.py ligar <mod.pw.toml> <Project ID>`
+  (o `/add-mod` já faz isso).
+
 ## Regras que pesam
 
 - Um pack público só pode trazer mods hospedados na CurseForge ou que estejam na
