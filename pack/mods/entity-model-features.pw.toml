@@ -16,3 +16,6 @@ description = "EMF is an, OptiFine format, Custom Entity Model replacement mod a
 [update.modrinth]
 mod-id = "4I1XuqiY"
 version = "bRlX1x4e"
+[update.curseforge]
+file-id = 9064942
+project-id = 844662

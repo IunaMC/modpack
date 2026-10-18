@@ -16,3 +16,6 @@ description = "Lots of new features and improvements for the Spyglass, plus a st
 [update.modrinth]
 mod-id = "iAiqcykM"
 version = "c9bc4pyu"
+[update.curseforge]
+file-id = 9062488
+project-id = 561885

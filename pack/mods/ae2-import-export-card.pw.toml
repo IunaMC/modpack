@@ -11,3 +11,6 @@ hash = "1129b0ae543a19d1bfee1ed589ab8603ff0435077e7c2566585edb71e2cd4775e908cb5e
 [update.modrinth]
 mod-id = "qelfSMnn"
 version = "CuP91rXX"
+[update.curseforge]
+file-id = 8961599
+project-id = 982512

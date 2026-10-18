@@ -16,3 +16,6 @@ description = "A Minecraft mod that provides realistic sound attenuation, reverb
 [update.modrinth]
 mod-id = "qyVF9oeo"
 version = "Dd2tmpsk"
+[update.curseforge]
+file-id = 7032247
+project-id = 535489

@@ -11,3 +11,6 @@ hash = "2f75b0865c6f342bc7f0fe8abb6e161befae64dd23ad73bc2ed5b6aa892055ee886d63d0
 [update.modrinth]
 mod-id = "wGKYL7st"
 version = "FT7t1n1a"
+[update.curseforge]
+file-id = 7348018
+project-id = 678036

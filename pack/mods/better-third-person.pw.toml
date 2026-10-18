@@ -16,3 +16,6 @@ description = "Improves third person camera view."
 [update.modrinth]
 mod-id = "G1s2WpNo"
 version = "aG5y4JUQ"
+[update.curseforge]
+file-id = 5833474
+project-id = 435044

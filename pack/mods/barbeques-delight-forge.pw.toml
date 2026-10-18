@@ -11,3 +11,6 @@ hash = "27d8338f862934a2eb7efb62cffcbba6675c00e4dcd1b66a482ad3a07d68aafe9f9e3205
 [update.modrinth]
 mod-id = "rtu7uERF"
 version = "rvUhMw6d"
+[update.curseforge]
+file-id = 8004721
+project-id = 1007788

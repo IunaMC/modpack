@@ -16,3 +16,6 @@ description = "Allows players to temporarily mark locations and entities"
 [update.modrinth]
 mod-id = "QQXAdCzh"
 version = "Zrh2Fmn9"
+[update.curseforge]
+file-id = 7996932
+project-id = 734339

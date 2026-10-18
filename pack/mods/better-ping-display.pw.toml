@@ -16,3 +16,6 @@ description = "Adds a configurable numerical ping display to the player list"
 [update.modrinth]
 mod-id = "ZvaHbwoZ"
 version = "AzKubcBR"
+[update.curseforge]
+file-id = 5936660
+project-id = 292038

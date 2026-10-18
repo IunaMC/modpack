@@ -16,3 +16,6 @@ description = "Food/hunger-related HUD improvements"
 [update.modrinth]
 mod-id = "EsAfCjCV"
 version = "uAKA6Laj"
+[update.curseforge]
+file-id = 7854442
+project-id = 248787

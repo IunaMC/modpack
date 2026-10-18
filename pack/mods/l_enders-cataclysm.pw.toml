@@ -11,3 +11,6 @@ hash = "289f6e8364a6e432f34803a47cff8381899a1df0fdc675170323b43fd1c09579b1320d8b
 [update.modrinth]
 mod-id = "46KJle7n"
 version = "PsPYpoCC"
+[update.curseforge]
+file-id = 8931182
+project-id = 551586

@@ -11,3 +11,6 @@ hash = "3c9369859efff77b04b294965353912ca1cc89b6e61c122abf65133f6077b5e1f9dd32cf
 [update.modrinth]
 mod-id = "XImLIVFt"
 version = "pHid8vVL"
+[update.curseforge]
+file-id = 8157080
+project-id = 1456947

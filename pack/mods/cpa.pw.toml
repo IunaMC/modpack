@@ -16,3 +16,6 @@ description = "Improves and customizes the player's default animations."
 [update.modrinth]
 mod-id = "EhthJpjM"
 version = "YvEolJOg"
+[update.curseforge]
+file-id = 9045233
+project-id = 1364067

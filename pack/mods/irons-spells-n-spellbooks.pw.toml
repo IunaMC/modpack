@@ -11,3 +11,6 @@ hash = "fd782f98c6c59b193c4832f33775291d2a7e639e1e23dd47510bfb494d99d182bec12535
 [update.modrinth]
 mod-id = "s4OWxYQQ"
 version = "slKLosTb"
+[update.curseforge]
+file-id = 8680204
+project-id = 855414

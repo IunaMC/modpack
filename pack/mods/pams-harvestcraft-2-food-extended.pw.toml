@@ -11,3 +11,6 @@ hash = "bda4ab7dcd172a8f6cd1aa98de7c663bc6803aa2856df95d0c21ced90e4a2c6c27e9976a
 [update.modrinth]
 mod-id = "bdPeAbPS"
 version = "8Jv3MDxv"
+[update.curseforge]
+file-id = 6221521
+project-id = 402231

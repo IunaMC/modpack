@@ -11,3 +11,6 @@ hash = "8900ee4cdb7d1ffb6559decdeec84ad479d04b2e7b01a60be9f6e328809af2bfd7a80077
 [update.modrinth]
 mod-id = "lfHFW1mp"
 version = "CtFE7hwT"
+[update.curseforge]
+file-id = 8923668
+project-id = 32274

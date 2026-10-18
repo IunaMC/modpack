@@ -11,3 +11,6 @@ hash = "073f0bf6ef9e4ace88c4d51ca591906a40adf1098f07893858080265e775e5db8467bd60
 [update.modrinth]
 mod-id = "Epm6R3P2"
 version = "wpGE79aG"
+[update.curseforge]
+file-id = 9039094
+project-id = 1308987
