@@ -45,7 +45,7 @@ CurseForge. Conferência de 16/10/2026, versão 3.0.0 do pack.
 | Cosmetic Armor Reworked | `cosmeticarmorreworked-1.21.1-v1-neoforge.jar` | MMPL 1.0.1 | MMPL 1.0.1 (`LICENSE.txt` no repositório e no jar) | **License** | https://github.com/zlainsama/CosmeticArmorReworked/blob/master/LICENSE.txt |
 | Monsters & Spellbooks | `monsterspellbooks-0.0.16.3.jar` | All Rights Reserved | **MIT** na página do CurseForge, que diz: "Fell free to add to modpacks" | **License** | https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss (cole também a frase da descrição) |
 | Astral Sorcery | `AstralSorcery-2.0.1.20.jar` | All Rights Reserved | Licença própria de código visível. Proíbe redistribuir o código, mas diz: "only the original author or modpacks may distribute compiled binary versions of this code" | **License**, com a frase citada; se a moderação recusar, **Special permission** com a resposta do autor | https://github.com/HellFirePvP/AstralSorcery/blob/1.21.1/LICENSE |
-| Fire's Ender Expansion | `firesenderexpansion-2.5.1.jar` | All Rights Reserved | All Rights Reserved (CurseForge). O repositório só tem o `TEMPLATE_LICENSE.txt` do MDK do NeoForge, que não é a licença do mod | **No permission** até o autor responder; depois **Special permission** | Resposta do autor na issue (ver abaixo) |
+| Fire's Ender Expansion | `firesenderexpansion-2.5.1.jar` | All Rights Reserved | All Rights Reserved (CurseForge). O repositório só tem o `TEMPLATE_LICENSE.txt` do MDK do NeoForge, que não é a licença do mod | **Resolvido:** o Modrinth reconheceu o arquivo sozinho, e o autor também autorizou o uso no pack em 17/10/2026 | https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4#issuecomment-6229744399 |
 | Mob Grinding Utils | `mob_grinding_utils-1.1.10+mc1.21.1.jar` | All rights reserved | All Rights Reserved (CurseForge). O repositório não tem licença | **No permission** até o autor responder; depois **Special permission** | Resposta do autor na issue (ver abaixo) |
 
 ## Arquivos baixados de outro site (a partir da 3.1.0)
@@ -65,7 +65,9 @@ Abertos em 17/10/2026. Quando houver resposta, marque **Special permission** e
 cole o link da issue.
 
 - Fire's Ender Expansion: https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4
+  (autorizado pelo autor em 17/10/2026; o Modrinth já reconhecia o arquivo)
 - Mob Grinding Utils: https://github.com/vadis365/Mob-Grinding-Utils/issues/372
+  (sem resposta até 18/10/2026)
 
 ## Arquivos só do servidor (fora do `.mrpack` publicado)
 
@@ -87,8 +89,8 @@ caso algum dia voltem para o arquivo.
 ## O que isso muda no plano
 
 - **O `.mrpack` publicado tem 14 arquivos externos, todos em `overrides/mods/`.
-  Resolvidos pela licença: 11.** Os 10 de licença aberta, mais Monsters &
-  Spellbooks.
+  Resolvidos: 12.** Os 10 de licença aberta, Monsters & Spellbooks e Fire's
+  Ender Expansion, que o Modrinth reconheceu sozinho.
 - **Monsters & Spellbooks não depende mais de pedido.** O jar diz "All Rights
   Reserved", mas a página do CurseForge mostra MIT e autoriza o uso em
   modpacks. O mod também está no Modrinth
@@ -98,14 +100,13 @@ caso algum dia voltem para o arquivo.
 - **Astral Sorcery pode passar pela licença.** A licença do autor libera
   modpacks para distribuir o jar compilado. Vale tentar **License** citando
   a frase e manter o pedido ao autor como plano B.
-- **Faltam 2 do jogador:** Fire's Ender Expansion e Mob Grinding Utils, com
-  pedido aberto (veja acima). Sem resposta dos autores, a versão fica retida. As saídas são esperar a
-  permissão ou tirar o mod do pack (versão MINOR). Fire's Ender Expansion
-  depende de Ace's Spell Utils, que pode sair junto se nada mais usar.
+- **Falta 1 do jogador:** Mob Grinding Utils, com pedido aberto (veja acima).
+  Sem resposta do autor, a versão fica retida. As saídas são esperar a
+  permissão ou tirar o mod do pack (versão MINOR).
 - **Os 3 mods All Rights Reserved do servidor** (Cupboard, Fast Async World
   Save e Smooth Chunk Save, do autor someaddon) já não vão no `.mrpack`, nem
   no do GitHub nem no do Modrinth. Nada a fazer.
-- **A release do GitHub ainda redistribui Fire's Ender Expansion e Mob
-  Grinding Utils** (All Rights Reserved) em `overrides/mods/`. A regra do
-  Modrinth não alcança o GitHub, mas a licença dos autores sim. A solução é a
-  mesma: a permissão dos autores, ou tirar os mods do pack.
+- **A release do GitHub ainda redistribui Mob Grinding Utils** (All Rights
+  Reserved) em `overrides/mods/`. A regra do Modrinth não alcança o GitHub,
+  mas a licença do autor sim. A solução é a mesma: a permissão do autor, ou
+  tirar o mod do pack.
