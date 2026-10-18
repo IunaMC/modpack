@@ -856,6 +856,11 @@ hash = "c24a24d94440c7c2e8fbb198677f251932b45e34836a1cb87fac61e07bffe89b"
 metafile = true
 
 [[files]]
+file = "mods/invhistory.pw.toml"
+hash = "e8e0eed0a7f8ce5121ce0a7194660434d70d11e0b19ec483edb99966957ea98c"
+metafile = true
+
+[[files]]
 file = "mods/iris.pw.toml"
 hash = "db1c1e6382878b78e994dba1b9026935f8d1c5ca685c89d2437858e0a0dcab58"
 metafile = true
