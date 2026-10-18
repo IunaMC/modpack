@@ -1,6 +1,6 @@
-# Mudanças — v3.2.0-beta.1, /clear com confirmação
+# Mudanças — v3.2.0, /clear com confirmação
 
-Beta: sai como pre-release e o servidor não a instala. Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.1.0: quem já está na 3.1.0 não precisa reinstalar.
+Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.1.0: quem já está na 3.1.0 não precisa reinstalar.
 
 ## Adicionou
 - **[Clear-fix](https://modrinth.com/mod/clear-fix)** `1.2.1` (Fabric, GPL-3.0), só no servidor. O `/clear` de um jogador só roda se for repetido em até 10 segundos; o console roda direto. Roda pelo Connector.
