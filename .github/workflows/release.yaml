@@ -1,11 +1,13 @@
 name: Release
 
-# Dispara quando o pack muda na main. Só cria a release do GitHub se a versão
-# do pack/pack.toml ainda não tiver uma; depois envia a versão ao Modrinth, se
-# ela ainda não estiver lá. Também roda pela aba Actions.
+# Dispara quando o pack muda na main ou na devel/devel. Versões estáveis
+# (1.2.3) saem só da main e betas (1.2.3-beta.1), só da devel/devel: o servidor
+# instala direto da main, então ela nunca pode ter beta. Só cria a release do
+# GitHub se a versão do pack/pack.toml ainda não tiver uma; depois envia a
+# versão ao Modrinth, se ela ainda não estiver lá. Também roda pela aba Actions.
 on:
   push:
-    branches: [main]
+    branches: [main, devel/devel]
     paths: [pack/**, MUDANCAS.md]
   workflow_dispatch:
 
@@ -17,10 +19,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release:
+  versao:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      publicar: ${{ steps.versao.outputs.publicar }}
+      versao: ${{ steps.versao.outputs.versao }}
+      tag: ${{ steps.versao.outputs.tag }}
+      prerelease: ${{ steps.versao.outputs.prerelease }}
+      existe: ${{ steps.versao.outputs.existe }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -28,6 +36,8 @@ jobs:
 
       - name: Ler e validar a versão
         id: versao
+        env:
+          ANTES: ${{ github.event.before }}
         run: |
           VERSAO="$(python3 scripts/pack.py versao)"
           if ! [[ "$VERSAO" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
@@ -36,15 +46,44 @@ jobs:
           fi
           echo "versao=$VERSAO" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSAO" >> "$GITHUB_OUTPUT"
+
           if [[ "$VERSAO" == *-* ]]; then
+            if [[ "$GITHUB_REF_NAME" == main ]]; then
+              echo "::error file=pack/pack.toml::A main só publica versões estáveis, e '$VERSAO' é beta. Betas saem da devel/devel."
+              exit 1
+            fi
             echo "prerelease=--prerelease" >> "$GITHUB_OUTPUT"
+          elif [[ "$GITHUB_REF_NAME" != main ]]; then
+            echo "::notice::$VERSAO não é beta, e versões estáveis só saem da main. Nada a publicar."
+            exit 0
           fi
+          echo "publicar=true" >> "$GITHUB_OUTPUT"
+
           if gh release view "v$VERSAO" >/dev/null 2>&1; then
+            # O servidor reinstala o pack da main a cada inicialização: mudar o
+            # pack nela sem versão nova mudaria o servidor sem release.
+            if [[ "$GITHUB_REF_NAME" == main && "$GITHUB_EVENT_NAME" == push ]] \
+              && git cat-file -e "$ANTES^{commit}" 2>/dev/null \
+              && ! git diff --quiet "$ANTES" "$GITHUB_SHA" -- pack/; then
+              echo "::error file=pack/pack.toml::O pack mudou na main, mas a v$VERSAO já existe. Suba a versão no pack/pack.toml."
+              exit 1
+            fi
             echo "::warning::A release v$VERSAO já existe. Suba a versão no pack/pack.toml para publicar outra."
             echo "existe=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - if: steps.versao.outputs.existe != 'true'
+  release:
+    needs: versao
+    if: needs.versao.outputs.publicar == 'true'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - if: needs.versao.outputs.existe != 'true'
         uses: ./.github/actions/packwiz
 
       # O servidor instala pelo packwiz-installer, que baixa os mods do
@@ -52,9 +91,9 @@ jobs:
       # (server-overrides/, alguns All Rights Reserved) não vão no .mrpack
       # publicado: o arquivo leva só o que o jogador precisa.
       - name: Exportar o .mrpack
-        if: steps.versao.outputs.existe != 'true'
+        if: needs.versao.outputs.existe != 'true'
         run: |
-          ARQUIVO="IUNA-${{ steps.versao.outputs.versao }}.mrpack"
+          ARQUIVO="IUNA-${{ needs.versao.outputs.versao }}.mrpack"
           (cd pack && packwiz mr export -o "../$ARQUIVO")
           if unzip -l "$ARQUIVO" 'server-overrides/*' > /dev/null 2>&1; then
             zip -q -d "$ARQUIVO" 'server-overrides/*'
@@ -67,9 +106,14 @@ jobs:
       # Notas = MUDANCAS.md escrito à mão + lista de mods gerada pela
       # comparação com a release anterior.
       - name: Montar as notas da release
-        if: steps.versao.outputs.existe != 'true'
+        if: needs.versao.outputs.existe != 'true'
         run: |
-          ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | head -1)"
+          # Versão estável compara com a estável anterior, não com as betas dela.
+          if [[ -n "${{ needs.versao.outputs.prerelease }}" ]]; then
+            ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | head -1)"
+          else
+            ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | grep -v -- - | head -1)"
+          fi
           {
             cat MUDANCAS.md
             if [[ -n "$ANTERIOR" ]]; then
@@ -82,21 +126,21 @@ jobs:
           cat "$RUNNER_TEMP/notas.md"
 
       - name: Criar tag e release
-        if: steps.versao.outputs.existe != 'true'
+        if: needs.versao.outputs.existe != 'true'
         run: |
-          gh release create "${{ steps.versao.outputs.tag }}" "IUNA-${{ steps.versao.outputs.versao }}.mrpack" IUNA.mrpack \
+          gh release create "${{ needs.versao.outputs.tag }}" "IUNA-${{ needs.versao.outputs.versao }}.mrpack" IUNA.mrpack \
             --target "$GITHUB_SHA" \
-            --title "${{ steps.versao.outputs.tag }}" \
+            --title "${{ needs.versao.outputs.tag }}" \
             --notes-file "$RUNNER_TEMP/notas.md" \
-            ${{ steps.versao.outputs.prerelease }}
+            ${{ needs.versao.outputs.prerelease }}
 
       # Se a release já existia (ou o envio ao Modrinth falhou e o workflow foi
       # rodado de novo pela aba Actions), usa o .mrpack e as notas dela.
       - name: Baixar a release existente
-        if: steps.versao.outputs.existe == 'true'
+        if: needs.versao.outputs.existe == 'true'
         run: |
-          gh release download "${{ steps.versao.outputs.tag }}" -p '*.mrpack'
-          gh release view "${{ steps.versao.outputs.tag }}" --json body -q .body > "$RUNNER_TEMP/notas.md"
+          gh release download "${{ needs.versao.outputs.tag }}" -p '*.mrpack'
+          gh release view "${{ needs.versao.outputs.tag }}" --json body -q .body > "$RUNNER_TEMP/notas.md"
 
       # Pula sozinho se a versão já estiver no Modrinth ou se o secret
       # MODRINTH_TOKEN não existir.
@@ -104,5 +148,5 @@ jobs:
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
         run: |
-          python3 scripts/modrinth.py publicar "${{ steps.versao.outputs.versao }}" \
-            "IUNA-${{ steps.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
+          python3 scripts/modrinth.py publicar "${{ needs.versao.outputs.versao }}" \
+            "IUNA-${{ needs.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
