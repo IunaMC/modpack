@@ -3,6 +3,7 @@ name: testar
 description: Testa se o servidor do pack sobe — pelo CI (Validar) por padrão, ou localmente com scripts/testar-servidor.sh.
 argument-hint: "[local] [configs] [manter]"
 disable-model-invocation: true
+model: sonnet
 effort: low
 ---
 

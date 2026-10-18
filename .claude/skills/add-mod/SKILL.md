@@ -3,6 +3,7 @@ name: add-mod
 description: Adiciona um mod do Modrinth ao pack pelo packwiz, com as dependências, e faz um commit por item no padrão do repo.
 argument-hint: "<slug ou link do Modrinth> [server|client|both] [opcional]"
 disable-model-invocation: true
+model: sonnet
 effort: low
 ---
 

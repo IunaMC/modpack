@@ -3,12 +3,13 @@ name: beta
 description: Prepara e publica a próxima versão beta do modpack pela devel/devel (versão no pack.toml, README, MUDANCAS.md, commit e push).
 argument-hint: "[versão, ex.: 3.3.0-beta.1]"
 disable-model-invocation: true
+model: sonnet
 effort: low
 ---
 
 Prepare a próxima beta do pack. Versão pedida: `$ARGUMENTS` (vazio = calcule).
 
-1. Confira: branch `devel/devel`, árvore limpa e em dia com `origin/devel/devel`. Se não estiver, pare e diga o que falta.
+1. Confira: branch `devel/devel`, árvore limpa e em dia com `origin/devel/devel`. Depois de uma estável, a remota some (o merge na `main` a apaga): nesse caso, `git fetch --prune` e `git merge --ff-only origin/main`. Se não der para avançar assim, pare e diga o que falta.
 2. Versão atual: `python3 scripts/pack.py versao`. Sem versão pedida:
    - atual `X.Y.Z-beta.N` → `X.Y.Z-beta.N+1`;
    - atual estável → rode `python3 scripts/pack.py mudancas <última tag estável>`. Mod adicionado, removido, atualizado ou movido = MINOR; nada muda para o jogador = PATCH; troca de Minecraft/NeoForge ou mundo novo = MAJOR (pergunte antes). Resultado: `<nova>-beta.1`.
