@@ -1,0 +1,13 @@
+name = "InvHistory"
+filename = "invhistory-neoforge-1.21.1-1.0.0.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/a7GydL63/versions/ebjeIwjV/invhistory-neoforge-1.21.1-1.0.0.jar"
+hash-format = "sha512"
+hash = "69616a1a79326862e7e69c6af579b9a9302a2dd60883124ef72d0ab8b695c91f9e8886539539cbffaefc503152834daebd5947256a18f1c4abc6e91976de4425"
+
+[update]
+[update.modrinth]
+mod-id = "a7GydL63"
+version = "ebjeIwjV"

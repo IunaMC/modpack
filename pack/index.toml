@@ -296,6 +296,11 @@ hash = "68cc51e721e993a8b7a2cbaf45369933b22b07a9c82327ab14757ee10684aa81"
 metafile = true
 
 [[files]]
+file = "mods/clear-fix.pw.toml"
+hash = "36ec280f0d2bc737e5a0286df44af946179e2975d29f7e5865e51131cd8a8894"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "75181b55e0407d1fca1e2f346c6501f919f5109545990ddfb66db9cd1b771f8a"
 metafile = true
@@ -853,6 +858,11 @@ metafile = true
 [[files]]
 file = "mods/inventoryhudplus.pw.toml"
 hash = "c24a24d94440c7c2e8fbb198677f251932b45e34836a1cb87fac61e07bffe89b"
+metafile = true
+
+[[files]]
+file = "mods/invhistory.pw.toml"
+hash = "e8e0eed0a7f8ce5121ce0a7194660434d70d11e0b19ec483edb99966957ea98c"
 metafile = true
 
 [[files]]

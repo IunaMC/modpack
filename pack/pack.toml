@@ -1,12 +1,12 @@
 name = "IUNA Modpack"
 author = "IunaMC"
-version = "3.1.0"
+version = "3.2.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "6b4fd06d729e8a04d35445e4e60b37aeda58a2f99f3a8d1e4b11cae41730c386"
+hash = "2d64bf7fc5f0650f8eb7c6388dfcd6955f7e8f0659548c5cef79ebe97dc0f2c9"
 
 [versions]
 minecraft = "1.21.1"

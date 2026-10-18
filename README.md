@@ -132,7 +132,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **348 mods**. O jogador recebe 285 (253 obrigatórios e 32 opcionais), e o servidor, 308.
+O pack tem **350 mods**. O jogador recebe 285 (253 obrigatórios e 32 opcionais), e o servidor, 310.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -442,6 +442,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Better End Cities Better End](https://www.curseforge.com/projects/959460) | `BetterEndCities-BetterEnd-1.21.jar` | Servidor |
 | [CalcMod: NeoForged](https://modrinth.com/mod/7uxk5PIo) | `calcmod-neoforged-1.4.2+neoforge.1.21.1.jar` | Servidor |
 | [Chunky](https://modrinth.com/mod/fALzjamp) | `Chunky-NeoForge-1.4.23.jar` | Servidor |
+| [Clear-fix](https://modrinth.com/mod/n13xynaE) | `clear-fix-1.2.1+mc1.21.jar` | Servidor |
 | [Clumps](https://modrinth.com/mod/Wnxd13zP) | `Clumps-neoforge-1.21.1-19.0.0.1.jar` | Servidor |
 | [Collective](https://modrinth.com/mod/e0M1UDsY) | `collective-1.21.1-8.42.jar` | Servidor |
 | [Crash Utilities](https://www.curseforge.com/projects/371813) | `crashutilities-9.0.4.jar` | Servidor |
@@ -457,6 +458,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Harvest with ease](https://modrinth.com/mod/W4Ajthd2) | `harvest-with-ease-neoforge-1.21-9.4.0.jar` | Servidor |
 | [Immersive Optimization](https://modrinth.com/mod/vNZgQmjg) | `immersive_optimization-neoforge-1.21.1-0.2.0.jar` | Servidor |
 | [Inv View Forge/NeoForge](https://modrinth.com/mod/RXM1nxge) | `inv_view-4.2.1-neoforge+1.21.1.jar` | Servidor |
+| [InvHistory](https://modrinth.com/mod/a7GydL63) | `invhistory-neoforge-1.21.1-1.0.0.jar` | Servidor |
 | [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) | `krypton_fnp-neoforge-1.21.1-0.2.28.1-1.21.1.jar` | Servidor |
 | [Leashable Players](https://modrinth.com/mod/BKyMf6XK) | `leashmod-1.1.0.jar` | Servidor |
 | [Leaves Be Gone](https://modrinth.com/mod/AVq17PqV) | `LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar` | Servidor |

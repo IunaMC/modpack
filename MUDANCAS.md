@@ -1,9 +1,7 @@
-# Mudanças — v3.1.0, mods do servidor
+# Mudanças — v3.2.0, /clear com confirmação
 
-Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.0.0: quem já está na 3.0.0 não precisa reinstalar.
+Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.1.0: quem já está na 3.1.0 não precisa reinstalar.
 
 ## Adicionou
-- **LuckPerms Placeholders** `5.5-SNAPSHOT` (Fabric, MIT), só no servidor. Liga o LuckPerms aos placeholders do chat e da lista de jogadores. Ele estava no servidor antigo, mas tinha ficado de fora do pack por não ter download fixo. O jar agora vem da release [`arquivos-servidor`](https://github.com/IunaMC/modpack/releases/tag/arquivos-servidor) deste repositório.
-
-## Removeu
-- [Unsafe World Random Access Detector](https://modrinth.com/mod/MsGuTgPJ) `1.1.3`, só do servidor. É uma ferramenta de depuração do C2ME, que o servidor não usa. Mesma mudança da v2.15.0 do antigo `modpack-servidor`, que foi arquivado.
+- **[Clear-fix](https://modrinth.com/mod/clear-fix)** `1.2.1` (Fabric, GPL-3.0), só no servidor. O `/clear` de um jogador só roda se for repetido em até 10 segundos; o console roda direto. Roda pelo Connector.
+- **[InvHistory](https://modrinth.com/mod/invhistory)** `1.0.0` (Apache-2.0), só no servidor. Guarda fotos do inventário dos jogadores (de tempos em tempos, ao entrar, sair e morrer). A staff vê e restaura pela GUI com `/invhistory see <jogador>`, com confirmação de dois cliques.
