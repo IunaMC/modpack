@@ -1,0 +1,13 @@
+name = "Clear-fix"
+filename = "clear-fix-1.2.1+mc1.21.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/n13xynaE/versions/Qmis6a6i/clear-fix-1.2.1%2Bmc1.21.jar"
+hash-format = "sha512"
+hash = "55f031b2909f4c000545605605b0619ed18927eb72daa05aa3d7d6c800f14316ec9c2c0215779951ef5f77ff5ddab175ff010d0cb2c5fd2b011d0d4057b4b4cb"
+
+[update]
+[update.modrinth]
+mod-id = "n13xynaE"
+version = "Qmis6a6i"
