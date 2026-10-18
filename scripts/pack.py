@@ -9,6 +9,7 @@ Uso:
   python3 scripts/pack.py readme              # regenera a lista de mods no README.md
   python3 scripts/pack.py readme --check      # falha se a lista do README estiver desatualizada
   python3 scripts/pack.py mudancas <ref-git>  # mods adicionados/removidos/atualizados desde <ref-git>
+  python3 scripts/pack.py proxima-beta        # próxima versão beta pelo SemVer (o motivo vai para o stderr)
   python3 scripts/pack.py externo <jar> [opções]
       # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
       # Opções: --lado server|both|client (padrão server), --nome, --versao, --autor,
@@ -270,6 +271,38 @@ def cmd_externo(args):
           + (" no servidor" if lado == "server" else ""))
 
 
+def ultima_estavel():
+    tags = subprocess.run(["git", "-C", str(RAIZ), "tag", "--list", "v*", "--sort=-v:refname"],
+                          capture_output=True, text=True, check=True).stdout.split()
+    return next((t for t in tags if "-" not in t), None)
+
+
+def cmd_proxima_beta():
+    """Beta seguinte a uma beta, ou a primeira beta depois da estável pelo SemVer:
+    MAJOR se o Minecraft ou o NeoForge mudou, MINOR se algum mod mudou, PATCH se nada mudou."""
+    atual = versao()
+    beta = re.fullmatch(r"(\d+\.\d+\.\d+)-beta\.(\d+)", atual)
+    if beta:
+        print(f"{beta[1]}-beta.{int(beta[2]) + 1}")
+        print(f"beta seguinte a {atual}", file=sys.stderr)
+        return
+    tag = ultima_estavel()
+    maior, menor, patch = map(int, atual.split("."))
+    if tag is None:
+        motivo, nova = "sem estável anterior", (maior, menor, patch + 1)
+    else:
+        antes = subprocess.run(["git", "-C", str(RAIZ), "show", f"{tag}:pack/pack.toml"],
+                               capture_output=True, text=True, check=True).stdout
+        if tomllib.loads(antes)["versions"] != tomllib.loads((PACK / "pack.toml").read_text())["versions"]:
+            motivo, nova = f"MAJOR: Minecraft ou NeoForge mudou desde {tag}", (maior + 1, 0, 0)
+        elif mods_em(tag) != mods_atuais():
+            motivo, nova = f"MINOR: mods mudaram desde {tag}", (maior, menor + 1, 0)
+        else:
+            motivo, nova = f"PATCH: nenhum mod mudou desde {tag}", (maior, menor, patch + 1)
+    print("{}.{}.{}-beta.1".format(*nova))
+    print(motivo, file=sys.stderr)
+
+
 def main(args):
     if args[:1] == ["versao"]:
         print(versao())
@@ -279,6 +312,8 @@ def main(args):
         cmd_readme("--check" in args)
     elif args[:1] == ["mudancas"] and len(args) == 2:
         cmd_mudancas(args[1])
+    elif args[:1] == ["proxima-beta"]:
+        cmd_proxima_beta()
     elif args[:1] == ["externo"]:
         cmd_externo(args[1:])
     else:
