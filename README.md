@@ -53,11 +53,18 @@ inicialização, antes do Java do servidor:
 
 ```sh
 java -jar packwiz-installer-bootstrap.jar -g -s server \
-  https://raw.githubusercontent.com/IunaMC/modpack/v<versão>/pack/pack.toml
+  https://raw.githubusercontent.com/IunaMC/modpack/main/pack/pack.toml
 ```
 
-Apontar para a tag (`v<versão>`) e não para a `main` garante que o servidor só
-mude quando uma release sair.
+A `main` só recebe versões estáveis: o workflow de release recusa beta nela e
+falha se o pack mudar sem versão nova. Assim o servidor pega a última release
+estável ao reiniciar, sem trocar o comando. Para fixar uma versão, troque `main`
+pela tag (`v<versão>`).
+
+O bootstrap baixa o `packwiz-installer.jar` do GitHub na primeira execução.
+Para usar um jar já enviado ao servidor, coloque-o ao lado do bootstrap e
+acrescente `--bootstrap-no-update`. O pack e os mods continuam sendo baixados
+do GitHub, do Modrinth e do CurseForge.
 
 ## Manutenção
 
@@ -92,11 +99,18 @@ SemVer:
 - **MINOR:** qualquer mod adicionado, atualizado ou removido.
 - **PATCH:** nada muda para o jogador (config, docs, CI).
 
-Para publicar, suba a versão no `pack.toml`, escreva o
-[`MUDANCAS.md`](MUDANCAS.md) e faça merge na `main`. O workflow de release cria
-a tag `v<versão>`, anexa o `.mrpack` e junta ao changelog a lista de mods
-adicionados, atualizados e removidos desde a release anterior. Depois, envia a
-mesma versão ao Modrinth.
+Para publicar, suba a versão no `pack.toml` e escreva o
+[`MUDANCAS.md`](MUDANCAS.md):
+- **Beta** (`1.2.3-beta.1`): push na `devel/devel`. Sai como pre-release, e o
+  servidor não a instala.
+- **Estável** (`1.2.3`): merge na `main`. É a versão que o servidor instala.
+
+A `main` recusa versão beta e também qualquer mudança no `pack/` sem versão
+nova. Na `devel/devel`, uma versão estável não publica nada. O workflow de
+release cria a tag `v<versão>`, anexa o `.mrpack` e junta ao changelog a lista
+de mods adicionados, atualizados e removidos desde a release anterior (a
+estável compara com a estável anterior). Depois, envia a mesma versão ao
+Modrinth.
 
 ### Página do Modrinth
 
