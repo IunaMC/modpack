@@ -74,6 +74,7 @@ Os comandos rodam dentro de `pack/`, com o packwiz instalado.
 | --- | --- |
 | Adicionar um mod do Modrinth | `packwiz mr add <slug-ou-link>` |
 | Adicionar um mod do CurseForge | `packwiz cf add <slug-ou-link>` |
+| Adicionar um jar sem download fixo ([detalhes](docs/arquivos-externos.md)) | `python3 scripts/pack.py externo <jar>` (na raiz do repositório) |
 | Atualizar um mod | `packwiz update <nome>` |
 | Remover um mod | `packwiz remove <nome>` |
 | Recalcular o índice após editar um `.pw.toml` à mão | `packwiz refresh` |
@@ -117,6 +118,10 @@ Modrinth.
 A página do projeto no Modrinth sai dos arquivos de [`modrinth/`](modrinth):
 textos, categorias, links, ícone e galeria. Mude os arquivos e faça merge na
 `main`; o workflow aplica sozinho. Veja [`modrinth/README.md`](modrinth/README.md).
+
+### Mais documentação
+
+Processos e referências que não cabem aqui ficam em [`docs/`](docs).
 
 ## Licença
 
