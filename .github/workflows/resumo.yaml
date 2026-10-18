@@ -1,0 +1,55 @@
+name: Resumo semanal
+
+# Toda segunda, depois do Atualizações de mods, junta numa issue fixa o estado dos
+# três repos: versões e se estão alinhadas, CI quebrado na main e na devel/devel,
+# commits fora da main e PRs e issues abertos (scripts/resumo.py).
+#
+# A moderação e as configs são privadas: o script lê os dois com o secret
+# RESUMO_TOKEN (token fine-grained só de leitura nos três repos: Contents,
+# Actions, Issues e Pull requests). Sem ele, tenta o MINECRAFT_CONFIG_TOKEN, e o
+# que não der para ler aparece como "sem acesso". A issue é pública: dos repos
+# privados só saem versões, contagens e o resultado do CI.
+on:
+  schedule:
+    - cron: "53 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: resumo
+  cancel-in-progress: true
+
+jobs:
+  resumo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Montar o resumo
+        env:
+          GH_TOKEN: ${{ secrets.RESUMO_TOKEN || secrets.MINECRAFT_CONFIG_TOKEN || github.token }}
+        run: |
+          {
+            echo "Estado dos repos em $(date -u +%d/%m/%Y). Esta issue é reescrita toda segunda."
+            echo
+            python3 scripts/resumo.py
+          } > "$RUNNER_TEMP/corpo.md"
+          cat "$RUNNER_TEMP/corpo.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Atualizar a issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITULO="Resumo semanal"
+          NUM="$(gh issue list --state open --search "in:title \"$TITULO\"" --json number,title \
+            --jq "map(select(.title == \"$TITULO\"))[0].number // empty")"
+          if [[ -n "$NUM" ]]; then
+            gh issue edit "$NUM" --body-file "$RUNNER_TEMP/corpo.md"
+          else
+            gh issue create --title "$TITULO" --body-file "$RUNNER_TEMP/corpo.md"
+          fi
