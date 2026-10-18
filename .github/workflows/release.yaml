@@ -110,7 +110,7 @@ jobs:
         run: |
           # Versão estável compara com a estável anterior, não com as betas dela.
           if [[ -n "${{ needs.versao.outputs.prerelease }}" ]]; then
-            ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | head -1)"
+            ANTERIOR="$(git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -1)"
           else
             ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | grep -v -- - | head -1)"
           fi
