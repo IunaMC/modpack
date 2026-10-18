@@ -13,7 +13,7 @@ instala com um clique.
 ### Pelo Modrinth (recomendado)
 
 > A página do pack no Modrinth está em revisão e ainda não aparece na busca.
-> Ela vai ficar em `https://modrinth.com/modpack/iuna`.
+> Quando sair, o atalho <https://iuna.space/modpack> leva direto a ela.
 
 1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
    procure "IUNA" na aba de modpacks.
@@ -26,9 +26,8 @@ instala com um clique.
 
 Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
-1. Baixe o `.mrpack` da [última release](../../releases/latest). O link
-   <https://github.com/IunaMC/modpack/releases/latest/download/IUNA.mrpack>
-   sempre baixa a versão mais recente.
+1. Baixe o `.mrpack` em <https://iuna.space/mrpack>, que sempre baixa a
+   versão mais recente, ou pela [última release](../../releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
    - **Modrinth App:** *+ (Create instance) → Import from file*.
