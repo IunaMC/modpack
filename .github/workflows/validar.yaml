@@ -56,8 +56,19 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      # Com o secret MINECRAFT_CONFIG_TOKEN (leitura do repo privado
+      # IunaMC/minecraft-config), o servidor sobe com as configs da main dele,
+      # como na produção. Sem o secret, sobe só com os mods.
       - name: Subir o servidor
-        run: bash scripts/testar-servidor.sh "$RUNNER_TEMP/servidor"
+        env:
+          GH_TOKEN: ${{ secrets.MINECRAFT_CONFIG_TOKEN }}
+        run: |
+          if [[ -n "$GH_TOKEN" ]]; then
+            bash scripts/testar-servidor.sh --configs-git main "$RUNNER_TEMP/servidor"
+          else
+            echo "::warning::Sem o secret MINECRAFT_CONFIG_TOKEN: o servidor sobe sem as configs do minecraft-config."
+            bash scripts/testar-servidor.sh "$RUNNER_TEMP/servidor"
+          fi
 
       - if: always()
         uses: actions/upload-artifact@v7
