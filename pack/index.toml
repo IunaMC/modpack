@@ -1196,6 +1196,11 @@ hash = "28612fa203090858adfbd8ba4a9fe64ada0721a024a9d0760011f8c47405840a"
 metafile = true
 
 [[files]]
+file = "mods/notenoughrecipebook.pw.toml"
+hash = "f02633ce6d298655f5365773d61891b2c2b54eda738b810988331c6b541bc0ea"
+metafile = true
+
+[[files]]
 file = "mods/observable.pw.toml"
 hash = "f9cfe1c9c47eef3adabf8706e2a026e0fedce2dd4f31fabe10b8b892819e72a7"
 metafile = true

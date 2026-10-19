@@ -132,7 +132,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **350 mods**. O jogador recebe 285 (253 obrigatórios e 32 opcionais), e o servidor, 310.
+O pack tem **351 mods**. O jogador recebe 286 (254 obrigatórios e 32 opcionais), e o servidor, 311.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -313,6 +313,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Necronomicon API](https://modrinth.com/mod/P1Kv5EAO) | `Necronomicon-NeoForge-1.6.0+1.21.jar` | Cliente e servidor |
 | [Not Enough Animations](https://modrinth.com/mod/MPCX6s5C) | `notenoughanimations-neoforge-1.12.6-mc1.21.1.jar` | Cliente |
 | [Not Enough Crashes](https://modrinth.com/mod/yM94ont6) | `notenoughcrashes-neoforge-4.4.9+1.21.1.jar` | Cliente |
+| [Not Enough Recipe Book [NERB]](https://modrinth.com/mod/bQh7xzFq) | `Not Enough Recipe Book-NEOFORGE-0.4.3+1.21.jar` | Cliente e servidor |
 | [ObserverLib](https://www.curseforge.com/projects/316833) | `observerlib-1.10.3.jar` | Cliente e servidor |
 | [Occultism](https://modrinth.com/mod/sbJh4AZw) | `occultism-1.21.1-neoforge-1.224.4.jar` | Cliente e servidor |
 | [Ocean's Delight](https://modrinth.com/mod/DGiq4ZSW) | `oceansdelight-neoforge-1.0.4-1.21.1.jar` | Cliente e servidor |
