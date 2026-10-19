@@ -1,13 +1,41 @@
 # Documentação
 
-Processos e referências de manutenção do pack que não cabem no
-[README](../README.md) principal.
+Como manter o pack. A instalação para jogadores e o comando do servidor estão
+no [README](../README.md) principal. O que atravessa repositórios
+(arquitetura, ciclo de versão entre os repositórios, cargos, glossário) está
+em [IunaMC/docs](https://github.com/IunaMC/docs).
 
-| Documento | Assunto |
+## Guias
+
+| Guia | Skill |
 | --- | --- |
-| [Manual de operação](operacao.md) | Como manter tudo sem o Claude: tarefas, workflows e equivalente local, segredos, o que é manual |
-| [Arquivos externos](arquivos-externos.md) | Jars sem download fixo: a release `arquivos-servidor` e o comando `pack.py externo` |
-| [Servidor local](servidor-local.md) | O teste de boot do CI e uma cópia do servidor com as configs do `minecraft-config` |
+| [Adicionar um mod](guias/adicionar-mod.md) | `/add-mod` |
+| [Remover um mod](guias/remover-mod.md) | `/remover-mod` |
+| [Atualizar mods](guias/atualizar-mods.md) | — |
+| [Publicar uma beta](guias/publicar-beta.md) | `/beta` |
+| [Publicar a estável](guias/publicar-estavel.md) | `/estavel` |
+| [Arquivos externos](guias/arquivos-externos.md) | — |
+| [Servidor local e teste de boot](guias/servidor-local.md) | `/testar` |
 
-A página do Modrinth tem a própria documentação em
-[`modrinth/README.md`](../modrinth/README.md).
+## Referência
+
+- [Versionamento, branches e commits](referencia/versionamento.md)
+- [Workflows](referencia/workflows.md)
+- [Scripts e skills](referencia/scripts.md)
+- [Segredos](referencia/segredos.md)
+
+## Decisões
+
+- [0001: packwiz como fonte única do jogador e do servidor](decisoes/0001-packwiz-fonte-unica.md)
+- [0002: commits assinados e merge commit na `main`](decisoes/0002-merge-commit-assinado.md)
+- [0003: `devel/devel` permanente e `main` só com estáveis](decisoes/0003-devel-permanente-main-estavel.md)
+- [0004: páginas das plataformas como código](decisoes/0004-paginas-como-codigo.md)
+- [0005: o pack não perde mods por causa de uma plataforma](decisoes/0005-mrpack-completo-sem-cortar-mods.md)
+
+## Plataformas
+
+- [Modrinth](../modrinth/README.md): a página sai de `modrinth/`.
+- [CurseForge](../curseforge/README.md): o projeto e a revisão dos arquivos.
+
+O padrão de escrita desta documentação está em
+[IunaMC/docs](https://github.com/IunaMC/docs/blob/main/referencia/padrao-de-escrita.md).

@@ -15,7 +15,7 @@ Uso:
       # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
       # Opções: --lado server|both|client (padrão server), --nome, --versao, --autor,
       # --licenca, --origem (o padrão de cada uma vem dos metadados do jar) e --simular,
-      # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/arquivos-externos.md.
+      # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/guias/arquivos-externos.md.
 """
 import hashlib
 import json

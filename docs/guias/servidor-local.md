@@ -1,6 +1,6 @@
 # Servidor local
 
-O [`scripts/testar-servidor.sh`](../scripts/testar-servidor.sh) monta um
+O [`scripts/testar-servidor.sh`](../../scripts/testar-servidor.sh) monta um
 servidor NeoForge com os mods de servidor do pack, instalados pelo
 packwiz-installer (`-s server`), igual à produção. O CI usa o script para
 conferir se o pack sobe. Com as opções abaixo, ele também serve para ter uma

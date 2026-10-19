@@ -1,0 +1,36 @@
+# Scripts e skills
+
+O uso completo de cada script está no topo do próprio arquivo. Esta página diz
+para que serve cada um e liga as skills do Claude Code aos comandos que elas
+rodam.
+
+## Scripts
+
+| Script | Para quê |
+| --- | --- |
+| [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`). Nenhum publica |
+| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag e [arquivos externos](../guias/arquivos-externos.md) |
+| [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` |
+| [`scripts/modrinth.py`](../../scripts/modrinth.py) | Página do Modrinth a partir de `modrinth/` (`verificar`, `sincronizar`) e envio de versões (`publicar`) |
+| [`scripts/resumo.py`](../../scripts/resumo.py) | O Resumo semanal, em Markdown |
+| [`scripts/testar-servidor.sh`](../../scripts/testar-servidor.sh) | Sobe um servidor NeoForge com o pack ([servidor local](../guias/servidor-local.md)) |
+
+Os que publicam (`publicar`, `sincronizar`) aceitam `--simular`.
+
+## Skills
+
+Cada skill em `.claude/skills/` é um atalho para um guia. Se o Claude Code não
+estiver disponível, o guia basta.
+
+| Skill | Guia | Comandos principais | O que só a skill faz |
+| --- | --- | --- | --- |
+| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `curseforge.py ligar`, `op.sh refresh` | Consulta lado e licença no Modrinth e acha o Project ID da CurseForge |
+| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `packwiz remove`, `op.sh refresh` | Procura dependências órfãs |
+| `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh versao`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md` |
+| `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `pack.py mudancas estavel`, `gh pr create`, `gh pr merge --merge` | Escreve o `MUDANCAS.md` e o corpo do PR; encadeia o `/propagar` |
+| `/propagar` | [Propagar](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) | `gh workflow run acompanhar-base.yaml`, `git commit --amend -S -s` | — |
+| `/testar` | [Servidor local](../guias/servidor-local.md) | `gh run watch`, `testar-servidor.sh` | Escolhe entre o CI e a máquina local pelo disco e pela memória livres |
+| `/spark` | — | `.claude/skills/spark/spark.py` | Análise dos perfis do Spark |
+
+A coluna "O que só a skill faz" lista o que ainda depende de julgamento ou de
+IA. É candidata a virar script.

@@ -62,3 +62,7 @@ python3 scripts/curseforge.py verificar --corrigir
   descrição.
 - Os mods `side = "server"` não entram no `.zip` da CurseForge. Eles continuam
   em `pack/` e no `.mrpack`, para o servidor.
+- Não rode o Release de novo para uma versão já enviada. Enquanto ela está em
+  revisão, o `status` não a enxerga, e o script envia outra cópia.
+- "Não aparece" no `status` é revisão ou recusa. O motivo só aparece em
+  authors.curseforge.com.
