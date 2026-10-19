@@ -32,7 +32,7 @@ Publique a estável do pack. Versão pedida: `$ARGUMENTS` (vazio = a da beta atu
 - Arquivos alterados: !`git status --porcelain || true`
 - Versão no pack.toml: !`python3 scripts/pack.py versao`
 - Última estável: !`git fetch -q --tags 2>/dev/null; git tag --list 'v*' --sort=-v:refname | grep -v -- -beta | head -1`
-- Mods desde a última estável: !`python3 scripts/pack.py mudancas "$(git tag --list 'v*' --sort=-v:refname | grep -v -- -beta | head -1)" || true`
+- Mods desde a última estável: !`python3 scripts/pack.py mudancas estavel || true`
 - Commits que ainda não estão na main: !`git log --oneline origin/main..HEAD || true`
 - Validar na devel/devel: !`gh run list --workflow validar.yaml --branch devel/devel --limit 1 || true`
 - PR aberto: !`gh pr list --head devel/devel --json number,url -q '.[] | "#\(.number) \(.url)"' || true`
@@ -49,4 +49,6 @@ Publique a estável do pack. Versão pedida: `$ARGUMENTS` (vazio = a da beta atu
 8. Acompanhe o Release da `main`: `gh run list --workflow release.yaml --branch main --limit 1` e `gh run watch <id> --exit-status`. Confira os passos "Publicar no Modrinth" e "Publicar na CurseForge" (`gh run view <id>`); se um falhar, mostre o erro, mas a release do GitHub já vale. Depois, `gh release view v<versão>`.
 9. Volte a `devel/devel` para a `main`: `git fetch --prune` e `git merge --ff-only origin/main`. O próximo push recria a branch remota.
 
-Responda só com a versão, os links do PR e da release, o status do Modrinth e da CurseForge e a lembrança: "rode o /propagar para a moderação e as configs".
+10. Se o Release terminou verde, siga direto para a skill `/propagar` com a versão, sem esperar novo pedido: a estável só termina com a moderação e as configs alinhadas.
+
+Responda só com a versão, os links do PR e da release, o status do Modrinth e da CurseForge e o resultado do `/propagar`.

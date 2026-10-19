@@ -33,8 +33,8 @@ Prepare a próxima beta do pack. Versão pedida: `$ARGUMENTS` (vazio = use a sug
 - Versão no pack.toml: !`python3 scripts/pack.py versao`
 - Sugerida (e o motivo): !`python3 scripts/pack.py proxima-beta 2>&1`
 - Última tag: !`git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -1`
-- Mods desde a última tag: !`python3 scripts/pack.py mudancas "$(git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -1)" || true`
-- Commits desde a última tag: !`git log --oneline "$(git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -1)"..HEAD || true`
+- Mods desde a última tag: !`python3 scripts/pack.py mudancas ultima || true`
+- Commits recentes (os que vêm depois da última tag entram): !`git log --oneline --decorate -20 || true`
 - `MUDANCAS.md` atual: !`cat MUDANCAS.md`
 
 ## Passos

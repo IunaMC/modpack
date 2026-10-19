@@ -22,7 +22,7 @@ Teste o boot do servidor. Argumentos: `$ARGUMENTS`.
 ## Estado atual
 - Branch: !`git status -sb | head -1`
 - Commits sem push: !`git log --oneline @{u}..HEAD 2>/dev/null || echo "(sem branch remota)"`
-- Últimos runs do Validar: !`gh run list --workflow validar.yaml --branch "$(git branch --show-current)" --limit 3 || true`
+- Últimos runs do Validar: !`gh run list --workflow validar.yaml --limit 3 || true`
 - Disco e memória livres: !`df -h --output=avail . | tail -1; free -g | awk '/Mem/{print $7 " GB de memória disponível"}'`
 
 ## Pelo CI (padrão, sem `local`)

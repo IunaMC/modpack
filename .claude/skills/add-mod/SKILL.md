@@ -27,7 +27,7 @@ Adicione ao pack: `$ARGUMENTS`. O lado vem dos argumentos; sem lado, use o que o
 ## Estado atual
 - Branch: !`git status -sb | head -1`
 - Arquivos alterados: !`git status --porcelain || true`
-- Exemplo de mod opcional: !`f=$(grep -l '^optional = true' pack/mods/*.pw.toml | head -1); cat "$f"`
+- Exemplo de mod opcional: !`grep -l '^optional = true' pack/mods/*.pw.toml | head -1 | xargs cat`
 
 ## Passos
 1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se não estiver, pare e avise.
