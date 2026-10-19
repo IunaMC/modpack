@@ -7,6 +7,7 @@ Pack IUNA (Minecraft 1.21.1, NeoForge) em packwiz, fonte única do jogador e do 
 - **Versão (SemVer, em `version` do `pack/pack.toml`):** MAJOR exige mundo novo ou reinstalar tudo; MINOR é qualquer mod adicionado, atualizado ou removido (remover mod de conteúdo também é MINOR); PATCH não muda nada para o jogador. Notas no `MUDANCAS.md`.
 - **Dependências:** dependência de mod obrigatório nunca leva `[option] optional`, mesmo que opcionais também a usem.
 - **CurseForge:** todo `.pw.toml` que não é `server` tem `[update.modrinth]` e `[update.curseforge]` para o mesmo arquivo. O `packwiz update` só segue o Modrinth: depois dele, `python3 scripts/curseforge.py verificar --corrigir`.
-- Depois de mudar mods: `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`. O teste de boot é o workflow Validar (`/testar`); localmente, `scripts/testar-servidor.sh` (veja `docs/servidor-local.md`).
+- Depois de mudar mods: `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`. O teste de boot é o workflow Validar (`/testar`); localmente, `scripts/testar-servidor.sh` (veja `docs/guias/servidor-local.md`).
 - **Modrinth:** a página sai de `modrinth/` (não edite pelo site). Ela é em inglês, com o português recolhível; todo o resto é em português do Brasil.
+- **Documentação:** guias, referência e decisões em `docs/` (índice em `docs/README.md`); regras completas de versão, branch e commit em `docs/referencia/versionamento.md`. O que atravessa repos fica em `IunaMC/docs` (local `../iunamc.docs`), com o padrão de escrita. Mudou skill, workflow ou script: atualize o guia no mesmo commit.
 - **Skills:** `/add-mod`, `/remover-mod`, `/beta`, `/estavel`, `/propagar`, `/testar`, `/spark`. Use a skill da tarefa em vez de fazer à mão.
