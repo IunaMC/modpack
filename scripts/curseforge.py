@@ -89,7 +89,8 @@ def conferir(caminho):
 
 
 def verificar(corrigir):
-    mods = sorted((PACK / "mods").glob("*.pw.toml"))
+    mods = sorted(p for pasta in ("mods", "resourcepacks", "shaderpacks")
+                  for p in (PACK / pasta).glob("*.pw.toml"))
     with ThreadPoolExecutor(8) as grupo:
         resultados = list(grupo.map(conferir, mods))
     problemas = [r for r in resultados if r[1]]
@@ -107,7 +108,7 @@ def verificar(corrigir):
         else:
             print(f"::error file={nome}::{problema}, e a CurseForge não tem esse arquivo. "
                   "Volte o mod para uma versão que exista nas duas fontes.")
-    print(f"{len(mods)} mods conferidos, {len(problemas)} com problema" +
+    print(f"{len(mods)} arquivos conferidos, {len(problemas)} com problema" +
           (f", {corrigidos} corrigidos (rode packwiz refresh em pack/)" if corrigidos else ""))
     if len(problemas) > corrigidos:
         sys.exit(1)

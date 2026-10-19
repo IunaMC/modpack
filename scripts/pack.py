@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ferramentas do pack: lista de mods do README, changelog de mods e arquivos externos.
 
-Lê os metadados do packwiz (pack/pack.toml e pack/mods/*.pw.toml).
+Lê os metadados do packwiz (pack/pack.toml e os .pw.toml de pack/mods, pack/resourcepacks e pack/shaderpacks).
 
 Uso:
   python3 scripts/pack.py versao              # imprime a versão do pack.toml
@@ -54,23 +54,29 @@ def ler_mod(texto):
     }
 
 
+PASTAS = ("mods", "resourcepacks", "shaderpacks")
+
+
 def mods_atuais():
-    return {p.name: ler_mod(p.read_text()) for p in sorted((PACK / "mods").glob("*.pw.toml"))}
+    """Mods, resource packs e shaders do pack, pela chave "pasta/arquivo"."""
+    return {f"{p.parent.name}/{p.name}": ler_mod(p.read_text())
+            for pasta in PASTAS for p in sorted((PACK / pasta).glob("*.pw.toml"))}
 
 
 def mods_em(ref):
     """Mods do pack em um ref do git; vazio se o ref não tiver o pack."""
     git = ["git", "-C", str(RAIZ)]
-    ls = subprocess.run(git + ["ls-tree", "--name-only", f"{ref}:pack/mods"],
-                        capture_output=True, text=True)
-    if ls.returncode != 0:
-        return {}
     mods = {}
-    for nome in ls.stdout.split():
-        if nome.endswith(".pw.toml"):
-            texto = subprocess.run(git + ["show", f"{ref}:pack/mods/{nome}"],
-                                   capture_output=True, text=True, check=True).stdout
-            mods[nome] = ler_mod(texto)
+    for pasta in PASTAS:
+        ls = subprocess.run(git + ["ls-tree", "--name-only", f"{ref}:pack/{pasta}"],
+                            capture_output=True, text=True)
+        if ls.returncode != 0:
+            continue
+        for nome in ls.stdout.split():
+            if nome.endswith(".pw.toml"):
+                texto = subprocess.run(git + ["show", f"{ref}:pack/{pasta}/{nome}"],
+                                       capture_output=True, text=True, check=True).stdout
+                mods[f"{pasta}/{nome}"] = ler_mod(texto)
     return mods
 
 
@@ -87,7 +93,9 @@ def tabela(mods):
 
 
 def lista_readme():
-    mods = list(mods_atuais().values())
+    todos = mods_atuais()
+    mods = [m for k, m in todos.items() if k.startswith("mods/")]
+    extras = [m for k, m in todos.items() if not k.startswith("mods/")]
     servidor = [m for m in mods if m["lado"] == "server"]
     cliente = [m for m in mods if m["lado"] != "server"]
     obrigatorios = [m for m in cliente if not m["opcional"]]
@@ -114,6 +122,11 @@ def lista_readme():
         "Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.",
         "",
         tabela(servidor),
+        "",
+        "### Resource packs e shaders",
+        "Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shaders.",
+        "",
+        tabela(extras),
         FIM,
     ])
 
