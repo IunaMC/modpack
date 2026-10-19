@@ -1,6 +1,4 @@
-# Mudanças — v3.3.0-beta.2, sem livro de receitas, com tradução e shaders
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.3.0, sem livro de receitas, com tradução e shaders
 
 Muda o cliente e o servidor: todo mundo precisa atualizar o pack.
 
