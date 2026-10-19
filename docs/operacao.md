@@ -94,8 +94,8 @@ cd pack && packwiz refresh && cd .. && python3 scripts/pack.py readme
 3. `gh pr create --base main --head devel/devel --title "Versão X.Y.Z: <resumo>"`
 4. `gh pr merge <n> --merge` (**nunca** `--rebase`: perde as assinaturas).
 5. Acompanhe: `gh run watch $(gh run list -w release.yaml -b main -L1 --json databaseId -q '.[0].databaseId')`.
-6. `git fetch --prune && git merge --ff-only origin/main` (o merge apagou a
-   `devel/devel` remota; o próximo push a recria).
+6. `git fetch && git merge --ff-only origin/main && git push`: alinha a
+   `devel/devel` com a `main`. A `devel/devel` é permanente, nunca a apague.
 
 O servidor pega a versão nova no próximo reinício. Logo em seguida, propague
 (abaixo): o `/estavel` já faz as duas coisas de uma vez.

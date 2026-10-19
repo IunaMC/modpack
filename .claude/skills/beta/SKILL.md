@@ -38,7 +38,7 @@ Prepare a próxima beta do pack. Versão pedida: `$ARGUMENTS` (vazio = use a sug
 - `MUDANCAS.md` atual: !`cat MUDANCAS.md`
 
 ## Passos
-1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se a remota aparecer como `[gone]` (o merge de uma estável a apaga), rode `git fetch --prune` e `git merge --ff-only origin/main`. Se não der para avançar assim, pare e diga o que falta.
+1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se ela estiver atrás da `main` (depois de uma estável), rode `git fetch` e `git merge --ff-only origin/main`. Se não der para avançar assim, pare e diga o que falta.
 2. Se a sugerida for MAJOR, pergunte antes de seguir.
 3. Troque `version` em `pack/pack.toml`, rode `cd pack && packwiz refresh` e depois `python3 scripts/pack.py readme`.
 4. Reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo curto>`, a linha "Beta: sai como pre-release e o servidor não a instala.", quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, cada mod com link do Modrinth, versão, licença e lado. A fonte são os mods e os commits listados acima.

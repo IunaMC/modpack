@@ -34,7 +34,7 @@ Pule se a base já é a versão pedida.
    `git -C ../iunamc.modpack-moderacao fetch --prune`, `checkout base/v<versão>`, `commit --amend --no-edit --reset-author -S -s` e `push --force-with-lease`.
 3. Sem PR da branch, crie: `gh pr create -R IunaMC/modpack-moderacao --base main --head base/v<versão> --title "Pack base v<versão>" --body "Closes #<issue>"`.
 4. Espere o Validar do push e mostre o `MUDANCAS.md` da branch. Se estiver verde, `gh pr merge <número> -R IunaMC/modpack-moderacao --merge`, nunca `--rebase`, e acompanhe o Release de lá.
-5. Volte a `devel/devel` de lá para a `main`: `checkout devel/devel`, `fetch --prune`, `merge --ff-only origin/main`.
+5. Alinhe a `devel/devel` de lá com a `main`: `checkout devel/devel`, `fetch`, `merge --ff-only origin/main` e `push`. Ela é permanente: nunca apague.
 
 ## 2. Configs
 1. A árvore do `minecraft-config` tem que estar limpa e na `devel/devel`. Se o `MODPACK` já é a versão pedida, pule.
