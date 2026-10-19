@@ -17,7 +17,17 @@ Uso:
       # acrescenta o [update.curseforge] de um mod novo, pelo mesmo arquivo do pack
   python3 scripts/curseforge.py publicar <versão> <.zip> <notas.md> [--simular]
       # envia o .zip do packwiz curseforge export, se a versão ainda não estiver lá
+  python3 scripts/curseforge.py status
+      # quais releases já aparecem na CurseForge e se a descrição do site está em dia
+  python3 scripts/curseforge.py descricao [--marcar]
+      # imprime a descrição para colar no site; --marcar registra que o site recebeu esta
+
+A CurseForge não tem API para editar o projeto nem para ver arquivos em revisão:
+a API de upload só envia e altera arquivos, e as APIs de leitura (a do site e a
+Core API) só mostram arquivos aprovados. Por isso a descrição é colada à mão, e
+o `status` só distingue "aparece" de "não aparece" (em revisão ou recusado).
 """
+import hashlib
 import json
 import os
 import re
@@ -36,6 +46,11 @@ SITE = "https://www.curseforge.com/api/v1"
 # API de upload dos autores: pede o token de upload.
 UPLOAD = "https://minecraft.curseforge.com/api"
 AGENTE = "Mozilla/5.0 (IunaMC/modpack)"
+PROJETO = "1752945"
+GITHUB = "https://api.github.com/repos/IunaMC/modpack/releases?per_page=10"
+# Primeira versão enviada pelo Release; as anteriores nunca foram à CurseForge.
+PRIMEIRA = "3.3.0-beta.1"
+MARCA = RAIZ / "curseforge" / "descricao.sha256"
 
 
 def pedir(url, corpo=None, tipo=None, token=None):
@@ -188,14 +203,62 @@ def publicar(versao, arquivo, notas, simular):
           "Ela passa pela revisão da CurseForge antes de aparecer.")
 
 
+# --- descrição e status --------------------------------------------------------
+
+def descricao():
+    """A descrição do site: a do Modrinth sem o título, mais a seção extra do projeto.md."""
+    texto = (RAIZ / "modrinth" / "descricao.en.md").read_text()
+    texto = re.sub(r"\A# [^\n]*\n+", "", texto)
+    extra = re.search(r"```md\n(.*?)```", (RAIZ / "curseforge" / "projeto.md").read_text(), re.S)
+    return texto.rstrip("\n") + "\n\n" + (extra.group(1).strip() + "\n" if extra else "")
+
+
+def estado_descricao():
+    atual = hashlib.sha256(descricao().encode()).hexdigest()
+    if not MARCA.exists():
+        return "sem registro do que está no site: confira e rode `curseforge.py descricao --marcar`"
+    if MARCA.read_text().strip() == atual:
+        return "em dia com o repositório"
+    return "⚠️ mudou no repositório: cole `curseforge.py descricao` no site e rode `--marcar`"
+
+
+def chave(versao):
+    base, _, beta = versao.partition("-beta.")
+    return tuple(map(int, base.split("."))) + ((int(beta),) if beta else (10**6,))
+
+
+def estado_versoes():
+    """(versão, aparece?) das releases enviadas à CurseForge, da mais nova à mais velha."""
+    req = urllib.request.Request(GITHUB, headers={"User-Agent": AGENTE})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        tags = [t["tag_name"].lstrip("v") for t in json.load(r)]
+    tags = [t for t in tags if re.fullmatch(r"\d+\.\d+\.\d+(-beta\.\d+)?", t) and chave(t) >= chave(PRIMEIRA)]
+    nomes = {a["displayName"] for a in arquivos_do_projeto(PROJETO)}
+    return [(t, f"IUNA {t}" in nomes) for t in tags]
+
+
+def status():
+    for versao, aparece in estado_versoes():
+        print(f"{versao}: {'publicada' if aparece else 'não aparece (em revisão ou recusada)'}")
+    print(f"descrição: {estado_descricao()}")
+
+
 def main():
-    args = [a for a in sys.argv[1:] if a not in ("--simular", "--corrigir")]
+    args = [a for a in sys.argv[1:] if a not in ("--simular", "--corrigir", "--marcar")]
     if args == ["verificar"]:
         verificar("--corrigir" in sys.argv)
     elif len(args) == 3 and args[0] == "ligar":
         ligar(*args[1:])
     elif len(args) == 4 and args[0] == "publicar":
         publicar(*args[1:], "--simular" in sys.argv)
+    elif args == ["status"]:
+        status()
+    elif args == ["descricao"]:
+        if "--marcar" in sys.argv:
+            MARCA.write_text(hashlib.sha256(descricao().encode()).hexdigest() + "\n")
+            print(f"Registrado em {MARCA.relative_to(RAIZ)}: o site tem a descrição atual. Faça o commit.")
+        else:
+            print(descricao(), end="")
     else:
         sys.exit(__doc__)
 

@@ -19,7 +19,6 @@ import urllib.request
 from datetime import datetime, timezone
 
 ORG = "IunaMC"
-CURSEFORGE = "https://www.curseforge.com/api/v1/mods/1752945/files?pageIndex=0&pageSize=20"
 PARADO = 14  # dias de commit na devel/devel sem estável que viram aviso
 REPOS = {"modpack": "Modpack", "modpack-moderacao": "Moderação", "minecraft-config": "Configs"}
 PUBLICO = "modpack"
@@ -48,11 +47,6 @@ def releases(repo):
     return estavel, beta
 
 
-def ultima(repo):
-    rels = api(f"repos/{ORG}/{repo}/releases?per_page=30") or []
-    return next((r["tag_name"] for r in rels if re.fullmatch(r"v\d+\.\d+\.\d+(-beta\.\d+)?", r["tag_name"])), None)
-
-
 def toml_valor(texto, chave):
     m = re.search(rf'^{chave}\s*=\s*"([^"]*)"', texto or "", re.M)
     return m.group(1) if m else None
@@ -62,17 +56,17 @@ def dias_desde(data):
     return (datetime.now(timezone.utc) - datetime.fromisoformat(data.replace("Z", "+00:00"))).days
 
 
-def curseforge(versao):
-    """Se a última versão do pack já aparece na CurseForge (a API pública esconde arquivo em revisão)."""
+def curseforge():
+    """Versões enviadas que ainda não aparecem e o estado da descrição (scripts/curseforge.py)."""
+    import curseforge as cf
     try:
-        with urllib.request.urlopen(CURSEFORGE, timeout=30) as r:
-            nomes = " ".join(f["displayName"] + " " + f["fileName"] for f in json.load(r)["data"])
+        faltam = [v for v, aparece in cf.estado_versoes() if not aparece]
     except Exception:
-        return "não consegui consultar a API pública."
-    if versao.lstrip("v") in nomes:
-        return f"`{versao}` publicada."
-    return (f"⚠️ `{versao}` ainda não aparece: arquivo em revisão ou recusado, "
-            "confira em authors.curseforge.com.")
+        return ["não consegui consultar a API pública."]
+    linhas = ["todas as versões enviadas estão publicadas." if not faltam else
+              f"⚠️ não aparecem ({', '.join(f'`{v}`' for v in faltam)}): em revisão ou recusadas, "
+              "confira em authors.curseforge.com."]
+    return linhas + [f"descrição do site: {cf.estado_descricao()}"]
 
 
 def ci(repo):
@@ -127,7 +121,8 @@ def main():
     out.append("- Lembrete: o envio das configs ao servidor é manual; confira se a release acima já está lá.")
 
     out.append("\n## Lojas\n")
-    out.append(f"- **CurseForge:** {curseforge(ultima("modpack"))}")
+    for linha in curseforge():
+        out.append(f"- **CurseForge:** {linha}")
 
     out.append("\n## CI\n")
     total = 0
