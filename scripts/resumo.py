@@ -5,7 +5,8 @@ Uso: python3 scripts/resumo.py
 
 Lê pelo `gh api` (token em GH_TOKEN): versões e alinhamento entre o modpack, a
 moderação e as configs, o último resultado de cada workflow na main e na
-devel/devel, commits da devel/devel fora da main e PRs e issues abertos. O
+devel/devel, commits da devel/devel fora da main (com aviso quando parados há
+muito tempo), se a última versão já aparece na CurseForge e PRs e issues abertos. O
 resumo vai para uma issue pública: dos repos privados só saem versões,
 contagens e o resultado do CI, nunca títulos.
 """
@@ -13,8 +14,12 @@ import base64
 import json
 import re
 import subprocess
+import urllib.request
+from datetime import datetime, timezone
 
 ORG = "IunaMC"
+CURSEFORGE = "https://www.curseforge.com/api/v1/mods/1752945/files?pageIndex=0&pageSize=20"
+PARADO = 14  # dias de commit na devel/devel sem estável que viram aviso
 REPOS = {"modpack": "Modpack", "modpack-moderacao": "Moderação", "minecraft-config": "Configs"}
 PUBLICO = "modpack"
 
@@ -37,9 +42,31 @@ def releases(repo):
     return estavel, beta
 
 
+def ultima(repo):
+    rels = api(f"repos/{ORG}/{repo}/releases?per_page=30") or []
+    return next((r["tag_name"] for r in rels if re.fullmatch(r"v\d+\.\d+\.\d+(-beta\.\d+)?", r["tag_name"])), None)
+
+
 def toml_valor(texto, chave):
     m = re.search(rf'^{chave}\s*=\s*"([^"]*)"', texto or "", re.M)
     return m.group(1) if m else None
+
+
+def dias_desde(data):
+    return (datetime.now(timezone.utc) - datetime.fromisoformat(data.replace("Z", "+00:00"))).days
+
+
+def curseforge(versao):
+    """Se a última versão do pack já aparece na CurseForge (a API pública esconde arquivo em revisão)."""
+    try:
+        with urllib.request.urlopen(CURSEFORGE, timeout=30) as r:
+            nomes = " ".join(f["displayName"] + " " + f["fileName"] for f in json.load(r)["data"])
+    except Exception:
+        return "não consegui consultar a API pública."
+    if versao.lstrip("v") in nomes:
+        return f"`{versao}` publicada."
+    return (f"⚠️ `{versao}` ainda não aparece: arquivo em revisão ou recusado, "
+            "confira em authors.curseforge.com.")
 
 
 def ci(repo):
@@ -93,6 +120,9 @@ def main():
                    + (" " + "; ".join(avisos) + "." if avisos else ""))
     out.append("- Lembrete: o envio das configs ao servidor é manual; confira se a release acima já está lá.")
 
+    out.append("\n## Lojas\n")
+    out.append(f"- **CurseForge:** {curseforge(ultima("modpack"))}")
+
     out.append("\n## CI\n")
     total = 0
     for repo, nome in REPOS.items():
@@ -114,7 +144,11 @@ def main():
         issues = [i for i in issues if "pull_request" not in i]
         partes = []
         if cmp and cmp["ahead_by"]:
-            partes.append(f"{cmp['ahead_by']} commit(s) na `devel/devel` fora da `main`")
+            parte = f"{cmp['ahead_by']} commit(s) na `devel/devel` fora da `main`"
+            dias = dias_desde(cmp["commits"][0]["commit"]["committer"]["date"]) if cmp["commits"] else 0
+            if dias >= PARADO:
+                parte += f" ⚠️ o mais antigo tem {dias} dias: hora de uma estável"
+            partes.append(parte)
         partes.append(f"{len(prs)} PR(s) e {len(issues)} issue(s) abertos")
         out.append(f"- **{nome}:** " + ", ".join(partes) + ".")
         if repo == PUBLICO:
