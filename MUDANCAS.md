@@ -1,7 +1,14 @@
-# Mudanças — v3.2.0, /clear com confirmação
+# Mudanças — v3.3.0-beta.1, sem livro de receitas
 
-Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.1.0: quem já está na 3.1.0 não precisa reinstalar.
+Beta: sai como pre-release e o servidor não a instala.
+
+Muda o cliente e o servidor: todo mundo precisa atualizar o pack.
 
 ## Adicionou
-- **[Clear-fix](https://modrinth.com/mod/clear-fix)** `1.2.1` (Fabric, GPL-3.0), só no servidor. O `/clear` de um jogador só roda se for repetido em até 10 segundos; o console roda direto. Roda pelo Connector.
-- **[InvHistory](https://modrinth.com/mod/invhistory)** `1.0.0` (Apache-2.0), só no servidor. Guarda fotos do inventário dos jogadores (de tempos em tempos, ao entrar, sair e morrer). A staff vê e restaura pela GUI com `/invhistory see <jogador>`, com confirmação de dois cliques.
+- **[Not Enough Recipe Book](https://modrinth.com/mod/notenoughrecipebook)** `0.4.3` (All Rights Reserved), no cliente e no servidor. Remove o livro de receitas e deixa de gravar as receitas desbloqueadas no arquivo de cada jogador. Cada um tinha ~23 mil receitas, 97% do arquivo (~2 MB), regravadas em todo autosave, o que dava 1–1,5 s de travada a cada 5 minutos com 6–7 jogadores. Os arquivos encolhem no primeiro save depois que o jogador entra. As receitas continuam no JEI.
+
+## Atualizou
+Nada.
+
+## Removeu
+Nada.
