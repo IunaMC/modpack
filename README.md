@@ -132,7 +132,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **350 mods**. O jogador recebe 285 (253 obrigatórios e 32 opcionais), e o servidor, 310.
+O pack tem **351 mods**. O jogador recebe 286 (254 obrigatórios e 32 opcionais), e o servidor, 311.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -313,6 +313,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Necronomicon API](https://modrinth.com/mod/P1Kv5EAO) | `Necronomicon-NeoForge-1.6.0+1.21.jar` | Cliente e servidor |
 | [Not Enough Animations](https://modrinth.com/mod/MPCX6s5C) | `notenoughanimations-neoforge-1.12.6-mc1.21.1.jar` | Cliente |
 | [Not Enough Crashes](https://modrinth.com/mod/yM94ont6) | `notenoughcrashes-neoforge-4.4.9+1.21.1.jar` | Cliente |
+| [Not Enough Recipe Book [NERB]](https://modrinth.com/mod/bQh7xzFq) | `Not Enough Recipe Book-NEOFORGE-0.4.3+1.21.jar` | Cliente e servidor |
 | [ObserverLib](https://www.curseforge.com/projects/316833) | `observerlib-1.10.3.jar` | Cliente e servidor |
 | [Occultism](https://modrinth.com/mod/sbJh4AZw) | `occultism-1.21.1-neoforge-1.224.4.jar` | Cliente e servidor |
 | [Ocean's Delight](https://modrinth.com/mod/DGiq4ZSW) | `oceansdelight-neoforge-1.0.4-1.21.1.jar` | Cliente e servidor |
@@ -501,4 +502,15 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [YUNG's Better Nether Fortresses](https://modrinth.com/mod/Z2mXHnxP) | `YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar` | Servidor |
 | [YUNG's Better Ocean Monuments](https://modrinth.com/mod/3dT9sgt4) | `YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar` | Servidor |
 | [YUNG's Better Strongholds](https://modrinth.com/mod/kidLKymU) | `YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar` | Servidor |
+
+### Resource packs e shaders
+Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shaders.
+
+| Mod | Arquivo | Lado |
+| --- | --- | --- |
+| [BSL Shaders](https://modrinth.com/mod/Q1vvjJYV) | `BSL_v10.1.8.zip` | Cliente |
+| [Complementary Shaders - Reimagined](https://modrinth.com/mod/HVnmMxH1) | `ComplementaryReimagined_r5.9.3.zip` | Cliente |
+| [Complementary Shaders - Unbound](https://modrinth.com/mod/R6NEzAwj) | `ComplementaryUnbound_r5.9.3.zip` | Cliente |
+| [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
+| [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->

@@ -11,3 +11,6 @@ hash = "0262d51c0e931d10c3dccefb3b5426a1622edecab243d4b15dce07a23309641370184776
 [update.modrinth]
 mod-id = "MBAkmtvl"
 version = "CquiaiDj"
+[update.curseforge]
+file-id = 8969738
+project-id = 531761

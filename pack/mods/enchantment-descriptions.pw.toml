@@ -16,3 +16,6 @@ description = "Provides a way to get enchantment descriptions from enchanted boo
 [update.modrinth]
 mod-id = "UVtY3ZAC"
 version = "IktklYWh"
+[update.curseforge]
+file-id = 8693034
+project-id = 250419

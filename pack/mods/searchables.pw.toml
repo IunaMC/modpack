@@ -16,3 +16,6 @@ description = "Searchables is a library mod that adds helper methods that allow 
 [update.modrinth]
 mod-id = "fuuu3xnx"
 version = "iEE85X0w"
+[update.curseforge]
+file-id = 5831692
+project-id = 858542

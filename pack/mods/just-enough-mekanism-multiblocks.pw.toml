@@ -16,3 +16,6 @@ description = "Add JEI page for calculate mekanism multiblock cost"
 [update.modrinth]
 mod-id = "kRaE85yQ"
 version = "4OlLf9A1"
+[update.curseforge]
+file-id = 8903943
+project-id = 898746

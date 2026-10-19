@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git log *)",
+      "Bash(git diff*)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(git fetch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push*)",
+      "Bash(git merge --ff-only *)",
+      "Bash(git tag *)",
+      "Bash(git -c versionsort.suffix=- tag *)",
+      "Bash(git check-ignore *)",
+      "Bash(git cherry *)",
+      "Bash(gh run *)",
+      "Bash(gh pr *)",
+      "Bash(gh issue *)",
+      "Bash(gh release view *)",
+      "Bash(gh release list *)",
+      "Bash(gh repo view *)",
+      "Bash(gh api repos/IunaMC/*)",
+      "Bash(curl -s https://api.modrinth.com/*)",
+      "Bash(packwiz *)",
+      "Bash(cd pack && packwiz *)",
+      "Bash(python3 scripts/pack.py *)",
+      "Bash(python3 scripts/curseforge.py *)",
+      "Bash(python3 scripts/modrinth.py *)"
+    ]
+  }
+}

@@ -11,3 +11,6 @@ hash = "b91665a0e7e74d7bfdc3903a297bc97477fdeea49c43e03f1de000cbb09422bf35d06a6f
 [update.modrinth]
 mod-id = "XbiLGMMU"
 version = "Jpcw76rq"
+[update.curseforge]
+file-id = 7738312
+project-id = 1072905

@@ -16,3 +16,6 @@ description = "See who you're chatting with!"
 [update.modrinth]
 mod-id = "Wb5oqrBJ"
 version = "ZPylso9i"
+[update.curseforge]
+file-id = 8642154
+project-id = 407206

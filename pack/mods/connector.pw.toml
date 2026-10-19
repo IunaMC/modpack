@@ -11,3 +11,6 @@ hash = "cb92b662047208792e61191d372d1e255766200406c35769007101f8c578c1018938610c
 [update.modrinth]
 mod-id = "u58R1TMW"
 version = "IITF0PRC"
+[update.curseforge]
+file-id = 8654089
+project-id = 890127

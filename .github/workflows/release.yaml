@@ -4,7 +4,8 @@ name: Release
 # (1.2.3) saem só da main e betas (1.2.3-beta.1), só da devel/devel: o servidor
 # instala direto da main, então ela nunca pode ter beta. Só cria a release do
 # GitHub se a versão do pack/pack.toml ainda não tiver uma; depois envia a
-# versão ao Modrinth, se ela ainda não estiver lá. Também roda pela aba Actions.
+# versão ao Modrinth e à CurseForge, se ela ainda não estiver lá. Também roda
+# pela aba Actions.
 on:
   push:
     branches: [main, devel/devel]
@@ -83,8 +84,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - if: needs.versao.outputs.existe != 'true'
-        uses: ./.github/actions/packwiz
+      - uses: ./.github/actions/packwiz
 
       # O servidor instala pelo packwiz-installer, que baixa os mods do
       # CurseForge direto da fonte. Por isso os jars só de servidor
@@ -110,7 +110,7 @@ jobs:
         run: |
           # Versão estável compara com a estável anterior, não com as betas dela.
           if [[ -n "${{ needs.versao.outputs.prerelease }}" ]]; then
-            ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | head -1)"
+            ANTERIOR="$(git -c versionsort.suffix=- tag --list 'v*' --sort=-v:refname | head -1)"
           else
             ANTERIOR="$(git tag --list 'v*' --sort=-v:refname | grep -v -- - | head -1)"
           fi
@@ -150,3 +150,21 @@ jobs:
         run: |
           python3 scripts/modrinth.py publicar "${{ needs.versao.outputs.versao }}" \
             "IUNA-${{ needs.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
+
+      # O pack da CurseForge é o mesmo, com o Twilight Forest e o Mob Grinding
+      # Utils, que o Modrinth não aceita. O .zip leva só os mods de cliente,
+      # referenciados pela CurseForge. Pula sozinho se a versão já estiver lá ou
+      # se faltar o secret CURSEFORGE_TOKEN ou a variable CURSEFORGE_PROJECT_ID.
+      - name: Publicar na CurseForge
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          CURSEFORGE_PROJECT_ID: ${{ vars.CURSEFORGE_PROJECT_ID }}
+        run: |
+          ARQUIVO="IUNA-${{ needs.versao.outputs.versao }}.zip"
+          (cd pack && packwiz curseforge export -o "../$ARQUIVO")
+          if unzip -l "$ARQUIVO" 'overrides/mods/*' > /dev/null 2>&1; then
+            echo "::error::O .zip da CurseForge tem jars em overrides/mods. Rode: python3 scripts/curseforge.py verificar"
+            exit 1
+          fi
+          python3 scripts/curseforge.py publicar "${{ needs.versao.outputs.versao }}" \
+            "$ARQUIVO" "$RUNNER_TEMP/notas.md"

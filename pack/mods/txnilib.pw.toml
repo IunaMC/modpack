@@ -11,3 +11,6 @@ hash = "656cd5746fe1b3a2cc7c516619d9f88556f37387e672bb0f362c8aecefc6f1d06705d3a8
 [update.modrinth]
 mod-id = "vBbPDuOs"
 version = "M1CyD3Uu"
+[update.curseforge]
+file-id = 6533725
+project-id = 1104882

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ferramentas do pack: lista de mods do README, changelog de mods e arquivos externos.
 
-Lê os metadados do packwiz (pack/pack.toml e pack/mods/*.pw.toml).
+Lê os metadados do packwiz (pack/pack.toml e os .pw.toml de pack/mods, pack/resourcepacks e pack/shaderpacks).
 
 Uso:
   python3 scripts/pack.py versao              # imprime a versão do pack.toml
@@ -9,6 +9,8 @@ Uso:
   python3 scripts/pack.py readme              # regenera a lista de mods no README.md
   python3 scripts/pack.py readme --check      # falha se a lista do README estiver desatualizada
   python3 scripts/pack.py mudancas <ref-git>  # mods adicionados/removidos/atualizados desde <ref-git>
+      # <ref-git> pode ser "estavel" (última tag estável) ou "ultima" (última tag, beta inclusive).
+  python3 scripts/pack.py proxima-beta        # próxima versão beta pelo SemVer (o motivo vai para o stderr)
   python3 scripts/pack.py externo <jar> [opções]
       # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
       # Opções: --lado server|both|client (padrão server), --nome, --versao, --autor,
@@ -52,23 +54,29 @@ def ler_mod(texto):
     }
 
 
+PASTAS = ("mods", "resourcepacks", "shaderpacks")
+
+
 def mods_atuais():
-    return {p.name: ler_mod(p.read_text()) for p in sorted((PACK / "mods").glob("*.pw.toml"))}
+    """Mods, resource packs e shaders do pack, pela chave "pasta/arquivo"."""
+    return {f"{p.parent.name}/{p.name}": ler_mod(p.read_text())
+            for pasta in PASTAS for p in sorted((PACK / pasta).glob("*.pw.toml"))}
 
 
 def mods_em(ref):
     """Mods do pack em um ref do git; vazio se o ref não tiver o pack."""
     git = ["git", "-C", str(RAIZ)]
-    ls = subprocess.run(git + ["ls-tree", "--name-only", f"{ref}:pack/mods"],
-                        capture_output=True, text=True)
-    if ls.returncode != 0:
-        return {}
     mods = {}
-    for nome in ls.stdout.split():
-        if nome.endswith(".pw.toml"):
-            texto = subprocess.run(git + ["show", f"{ref}:pack/mods/{nome}"],
-                                   capture_output=True, text=True, check=True).stdout
-            mods[nome] = ler_mod(texto)
+    for pasta in PASTAS:
+        ls = subprocess.run(git + ["ls-tree", "--name-only", f"{ref}:pack/{pasta}"],
+                            capture_output=True, text=True)
+        if ls.returncode != 0:
+            continue
+        for nome in ls.stdout.split():
+            if nome.endswith(".pw.toml"):
+                texto = subprocess.run(git + ["show", f"{ref}:pack/{pasta}/{nome}"],
+                                       capture_output=True, text=True, check=True).stdout
+                mods[f"{pasta}/{nome}"] = ler_mod(texto)
     return mods
 
 
@@ -85,7 +93,9 @@ def tabela(mods):
 
 
 def lista_readme():
-    mods = list(mods_atuais().values())
+    todos = mods_atuais()
+    mods = [m for k, m in todos.items() if k.startswith("mods/")]
+    extras = [m for k, m in todos.items() if not k.startswith("mods/")]
     servidor = [m for m in mods if m["lado"] == "server"]
     cliente = [m for m in mods if m["lado"] != "server"]
     obrigatorios = [m for m in cliente if not m["opcional"]]
@@ -112,6 +122,11 @@ def lista_readme():
         "Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.",
         "",
         tabela(servidor),
+        "",
+        "### Resource packs e shaders",
+        "Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shaders.",
+        "",
+        tabela(extras),
         FIM,
     ])
 
@@ -131,7 +146,15 @@ def cmd_readme(checar):
         README.write_text(novo)
 
 
+def ultima_tag(estavel):
+    tags = subprocess.run(["git", "-c", "versionsort.suffix=-", "tag", "--list", "v*", "--sort=-v:refname"],
+                          capture_output=True, text=True).stdout.split()
+    return next((t for t in tags if not (estavel and "-beta" in t)), "HEAD")
+
+
 def cmd_mudancas(ref):
+    if ref in ("estavel", "ultima"):
+        ref = ultima_tag(ref == "estavel")
     antigos, atuais = mods_em(ref), mods_atuais()
     if not antigos:
         print(f"_Sem comparação: `{ref}` não tem o pack em packwiz._")
@@ -270,6 +293,38 @@ def cmd_externo(args):
           + (" no servidor" if lado == "server" else ""))
 
 
+def ultima_estavel():
+    tags = subprocess.run(["git", "-C", str(RAIZ), "tag", "--list", "v*", "--sort=-v:refname"],
+                          capture_output=True, text=True, check=True).stdout.split()
+    return next((t for t in tags if "-" not in t), None)
+
+
+def cmd_proxima_beta():
+    """Beta seguinte a uma beta, ou a primeira beta depois da estável pelo SemVer:
+    MAJOR se o Minecraft ou o NeoForge mudou, MINOR se algum mod mudou, PATCH se nada mudou."""
+    atual = versao()
+    beta = re.fullmatch(r"(\d+\.\d+\.\d+)-beta\.(\d+)", atual)
+    if beta:
+        print(f"{beta[1]}-beta.{int(beta[2]) + 1}")
+        print(f"beta seguinte a {atual}", file=sys.stderr)
+        return
+    tag = ultima_estavel()
+    maior, menor, patch = map(int, atual.split("."))
+    if tag is None:
+        motivo, nova = "sem estável anterior", (maior, menor, patch + 1)
+    else:
+        antes = subprocess.run(["git", "-C", str(RAIZ), "show", f"{tag}:pack/pack.toml"],
+                               capture_output=True, text=True, check=True).stdout
+        if tomllib.loads(antes)["versions"] != tomllib.loads((PACK / "pack.toml").read_text())["versions"]:
+            motivo, nova = f"MAJOR: Minecraft ou NeoForge mudou desde {tag}", (maior + 1, 0, 0)
+        elif mods_em(tag) != mods_atuais():
+            motivo, nova = f"MINOR: mods mudaram desde {tag}", (maior, menor + 1, 0)
+        else:
+            motivo, nova = f"PATCH: nenhum mod mudou desde {tag}", (maior, menor, patch + 1)
+    print("{}.{}.{}-beta.1".format(*nova))
+    print(motivo, file=sys.stderr)
+
+
 def main(args):
     if args[:1] == ["versao"]:
         print(versao())
@@ -279,6 +334,8 @@ def main(args):
         cmd_readme("--check" in args)
     elif args[:1] == ["mudancas"] and len(args) == 2:
         cmd_mudancas(args[1])
+    elif args[:1] == ["proxima-beta"]:
+        cmd_proxima_beta()
     elif args[:1] == ["externo"]:
         cmd_externo(args[1:])
     else:

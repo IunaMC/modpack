@@ -16,3 +16,6 @@ description = "JEI integration that adds info on mobs, world gen, villagers and 
 [update.modrinth]
 mod-id = "uEfK2CXF"
 version = "TgNFki8j"
+[update.curseforge]
+file-id = 6506298
+project-id = 240630

@@ -16,3 +16,6 @@ description = "Break down your trees by only cutting one piece of it"
 [update.modrinth]
 mod-id = "Fb4jn8m6"
 version = "wxGXaJMA"
+[update.curseforge]
+file-id = 6835168
+project-id = 349559

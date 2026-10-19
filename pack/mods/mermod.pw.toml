@@ -11,3 +11,6 @@ hash = "b8bd1894f6010718a05f7473f3e8b051cdf27dd237644d327f9b720f985bedd73c5af736
 [update.modrinth]
 mod-id = "ORiydwz3"
 version = "MyXSxEZm"
+[update.curseforge]
+file-id = 6974346
+project-id = 709092

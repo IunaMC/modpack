@@ -16,3 +16,6 @@ description = "Adds NEI-like light overlay for mob spawns, a chunk border overla
 [update.modrinth]
 mod-id = "Thy5Pqut"
 version = "Kq8xaqKi"
+[update.curseforge]
+file-id = 6981252
+project-id = 391382

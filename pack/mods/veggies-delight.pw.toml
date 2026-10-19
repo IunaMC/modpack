@@ -11,3 +11,6 @@ hash = "bd108223b38236c7cae2a02601e52c98d4f655a45f4f3a8c2f5d298aaa0ed0debbb2639b
 [update.modrinth]
 mod-id = "emQ94xri"
 version = "9LiRnALb"
+[update.curseforge]
+file-id = 8485313
+project-id = 1082807

@@ -16,3 +16,6 @@ description = "JEI/REI/EMI plugin that displays breeding information"
 [update.modrinth]
 mod-id = "9Pk89J3g"
 version = "tnIqG3cu"
+[update.curseforge]
+file-id = 9037421
+project-id = 899386

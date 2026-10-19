@@ -1,0 +1,16 @@
+name = "The Brazilian Localization Project [PT-BR]"
+filename = "The Brazilian Project [1.21.1-1.4.0].zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/FGsIa36p/versions/urnYh7kb/The%20Brazilian%20Project%20%5B1.21.1-1.4.0%5D.zip"
+hash-format = "sha512"
+hash = "eaaf390365e00107c94806af9f75a8a65bbc53f1d1bbe6a811b2fe6042604083d262baa294f783ad2c39aacb5cd0421847186d973856cb3f1608b4005680c4dd"
+
+[update]
+[update.modrinth]
+mod-id = "FGsIa36p"
+version = "urnYh7kb"
+[update.curseforge]
+file-id = 9085941
+project-id = 1465500

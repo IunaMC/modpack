@@ -1,7 +1,15 @@
-# Mudanças — v3.2.0, /clear com confirmação
+# Mudanças — v3.3.0, sem livro de receitas, com tradução e shaders
 
-Só o servidor muda. Para o jogador, a lista de mods é a mesma da v3.1.0: quem já está na 3.1.0 não precisa reinstalar.
+Muda o cliente e o servidor: todo mundo precisa atualizar o pack.
 
 ## Adicionou
-- **[Clear-fix](https://modrinth.com/mod/clear-fix)** `1.2.1` (Fabric, GPL-3.0), só no servidor. O `/clear` de um jogador só roda se for repetido em até 10 segundos; o console roda direto. Roda pelo Connector.
-- **[InvHistory](https://modrinth.com/mod/invhistory)** `1.0.0` (Apache-2.0), só no servidor. Guarda fotos do inventário dos jogadores (de tempos em tempos, ao entrar, sair e morrer). A staff vê e restaura pela GUI com `/invhistory see <jogador>`, com confirmação de dois cliques.
+- **[Not Enough Recipe Book](https://modrinth.com/mod/notenoughrecipebook)** `0.4.3` (All Rights Reserved), no cliente e no servidor. Remove o livro de receitas e deixa de gravar as receitas desbloqueadas no arquivo de cada jogador. Cada um tinha ~23 mil receitas, 97% do arquivo (~2 MB), regravadas em todo autosave, o que dava 1–1,5 s de travada a cada 5 minutos com 6–7 jogadores. Os arquivos encolhem no primeiro save depois que o jogador entra. As receitas continuam no JEI.
+- **[The Brazilian Localization Project](https://modrinth.com/resourcepack/brazilian-project)** `1.4.0` (All Rights Reserved), resource pack no cliente. Traduz para português os mods que não têm tradução.
+- **[Fresh Animations](https://modrinth.com/resourcepack/fresh-animations)** `1.10.4`, resource pack no cliente. Animações novas para os mobs vanilla, pelo Entity Model Features e Entity Texture Features.
+- **[BSL Shaders](https://modrinth.com/shader/bsl-shaders)** `10.1.8` (All Rights Reserved), **[Complementary Reimagined](https://modrinth.com/shader/complementary-reimagined)** `r5.9.3` e **[Complementary Unbound](https://modrinth.com/shader/complementary-unbound)** `r5.9.3`, shaders no cliente. Ficam disponíveis no Iris, desligados até o jogador escolher um.
+
+## Atualizou
+Nada.
+
+## Removeu
+Nada.

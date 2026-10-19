@@ -11,3 +11,6 @@ hash = "b6d3cc651fa76c03d6845dd667fc673b74bd7409e7a1631907d82200b15ae50d76dd018c
 [update.modrinth]
 mod-id = "3ESR84kR"
 version = "jy3ApWAm"
+[update.curseforge]
+file-id = 6696097
+project-id = 835861

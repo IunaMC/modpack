@@ -11,3 +11,6 @@ hash = "0ba80383039270dec739f669fe936d091b87027c350972c88085729333e73e723e0c722d
 [update.modrinth]
 mod-id = "XaDC71GB"
 version = "sPmtDq1X"
+[update.curseforge]
+file-id = 8944659
+project-id = 936015

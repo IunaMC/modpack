@@ -11,3 +11,6 @@ hash = "9f33feecb73d92a7771b389f684ec5ac762df956dfbe748e8b6c3d839eaa9d60b2476fbe
 [update.modrinth]
 mod-id = "ABIMzABM"
 version = "LS7UoW1b"
+[update.curseforge]
+file-id = 8057637
+project-id = 266890

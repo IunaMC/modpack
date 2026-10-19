@@ -16,3 +16,6 @@ description = "#listentonature"
 [update.modrinth]
 mod-id = "fM515JnW"
 version = "Q7ssSC2X"
+[update.curseforge]
+file-id = 9037168
+project-id = 254284

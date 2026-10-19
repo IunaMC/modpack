@@ -11,3 +11,6 @@ hash = "a9a7babecaeab322af1087dacfb5a081776086212fdb222ba7fb5afe8ffdfe631ffe1f57
 [update.modrinth]
 mod-id = "AKunSbDQ"
 version = "p3BWSiPm"
+[update.curseforge]
+file-id = 7576556
+project-id = 975619

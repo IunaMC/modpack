@@ -11,3 +11,6 @@ hash = "8e4ccc37732b3f5190e7e98df34dbc1339fe614494fcabf1aeaeab9ad8e5993522964b51
 [update.modrinth]
 mod-id = "M1953qlQ"
 version = "lSbyRD6v"
+[update.curseforge]
+file-id = 6467772
+project-id = 714059

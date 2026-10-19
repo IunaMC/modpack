@@ -11,3 +11,6 @@ hash = "f3083b01267e7c674c4b42f45a317c93ee7723443cba2051fe5bc593638b533b0fe90699
 [update.modrinth]
 mod-id = "BAscRYKm"
 version = "eqVowbGc"
+[update.curseforge]
+file-id = 5813117
+project-id = 456956

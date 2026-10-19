@@ -11,3 +11,6 @@ hash = "8bc1f6f05c0ca0722b58210283fb3deb31155d3185936053e92c90f41bc61220e49d23bf
 [update.modrinth]
 mod-id = "nmoqTijg"
 version = "nSoNwJfm"
+[update.curseforge]
+file-id = 9039572
+project-id = 618298
