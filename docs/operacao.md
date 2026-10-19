@@ -111,6 +111,22 @@ O servidor pega a versão nova no próximo reinício. Logo em seguida, propague
   `build: testa com o modpack X.Y.Z`, push, e publique a versão de lá
   (`VERSAO` + `MUDANCAS.md`; veja `docs/versoes.md` daquele repo).
 
+### CurseForge: revisão e descrição
+
+A CurseForge não tem API para editar o projeto nem para ver arquivo em revisão.
+A API de upload só envia arquivos; as de leitura só mostram os aprovados.
+
+- `python3 scripts/curseforge.py status` diz quais releases já aparecem e se a
+  descrição do site está em dia. "Não aparece" é revisão ou recusa: o motivo só
+  aparece em authors.curseforge.com. O Resumo semanal mostra o mesmo.
+- A descrição sai do repositório (a do Modrinth em inglês mais a seção extra de
+  `curseforge/projeto.md`). Depois de mudar esses textos:
+  `python3 scripts/curseforge.py descricao`, cole no editor Markdown do projeto
+  no site, rode `python3 scripts/curseforge.py descricao --marcar` e faça o
+  commit do `curseforge/descricao.sha256`.
+- Não rode o Release de novo para uma versão já enviada: enquanto ela está em
+  revisão, o script não a enxerga e envia outra cópia.
+
 ### Enviar as configs ao servidor (só manual)
 
 Pelo FileZilla, seguindo `docs/enviar-ao-servidor.md` do `minecraft-config`:
@@ -147,7 +163,8 @@ Token vencido aparece como falha no Validar ou "sem acesso" no Resumo.
 ## O que só uma pessoa faz
 
 - Enviar as configs ao servidor (FileZilla) e reiniciar pelo painel.
-- Descrição e imagens do projeto na CurseForge (a API de upload não edita o projeto).
+- Colar a descrição e trocar as imagens do projeto na CurseForge (sem API para isso;
+  `curseforge.py descricao` gera o texto) e acompanhar a revisão dos arquivos.
 - Pedidos de permissão no Modrinth e a moderação de lá.
 - Atalhos de download no domínio (Cloudflare).
 - Cargos: LuckPerms pelo console, sincronia com o Discord.
