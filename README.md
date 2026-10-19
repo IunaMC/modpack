@@ -510,6 +510,7 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 | --- | --- | --- |
 | [BSL Shaders](https://modrinth.com/mod/Q1vvjJYV) | `BSL_v10.1.8.zip` | Cliente |
 | [Complementary Shaders - Reimagined](https://modrinth.com/mod/HVnmMxH1) | `ComplementaryReimagined_r5.9.3.zip` | Cliente |
+| [Complementary Shaders - Unbound](https://modrinth.com/mod/R6NEzAwj) | `ComplementaryUnbound_r5.9.3.zip` | Cliente |
 | [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->
