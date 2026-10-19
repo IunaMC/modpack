@@ -6,7 +6,8 @@ Uso: python3 scripts/resumo.py
 Lê pelo `gh api` (token em GH_TOKEN): versões e alinhamento entre o modpack, a
 moderação e as configs, o último resultado de cada workflow na main e na
 devel/devel, commits da devel/devel fora da main (com aviso quando parados há
-muito tempo), se a última versão já aparece na CurseForge e PRs e issues abertos. O
+muito tempo), as releases das configs ainda não enviadas ao servidor (issues
+`envio`), se a última versão já aparece na CurseForge e PRs e issues abertos. O
 resumo vai para uma issue pública: dos repos privados só saem versões,
 contagens e o resultado do CI, nunca títulos.
 """
@@ -69,6 +70,18 @@ def curseforge():
     return linhas + [f"descrição do site: {cf.estado_descricao()}"]
 
 
+def envios():
+    """Issues "Enviar configs X.Y.Z ao servidor" abertas: releases que ainda não chegaram ao servidor."""
+    issues = api(f"repos/{ORG}/minecraft-config/issues?state=open&labels=envio&per_page=20")
+    if issues is None:
+        return "- **Envio ao servidor:** sem acesso às issues das configs."
+    versoes = [m.group(1) for i in issues if (m := re.search(r"Enviar configs (\S+) ao servidor", i["title"]))]
+    if not versoes:
+        return "- **Envio ao servidor:** nenhuma release pendente; o servidor está com a última."
+    return (f"- **Envio ao servidor:** ⚠️ {len(versoes)} pendente(s), versão {', '.join(f'`{v}`' for v in versoes)}: "
+            "envie pelo FileZilla e feche a issue no repositório das configs.")
+
+
 def ci(repo):
     """Último resultado de cada workflow na main e na devel/devel."""
     linhas, falhas = [], 0
@@ -118,7 +131,7 @@ def main():
             avisos.append(f"⚠️ testadas com o modpack {modpack_cfg}, não com o `{pack_estavel}`")
         out.append(f"- **Configs:** release `{cfg_estavel}`, testadas com o modpack `{modpack_cfg}`."
                    + (" " + "; ".join(avisos) + "." if avisos else ""))
-    out.append("- Lembrete: o envio das configs ao servidor é manual; confira se a release acima já está lá.")
+    out.append(envios())
 
     out.append("\n## Lojas\n")
     for linha in curseforge():

@@ -132,7 +132,15 @@ A API de upload só envia arquivos; as de leitura só mostram os aprovados.
 Pelo FileZilla, seguindo `docs/enviar-ao-servidor.md` do `minecraft-config`:
 baixar antes os tomls do Simple Discord Link (token e IDs), trocar a pasta
 `config/` inteira pela do `.zip` da release, preencher os marcadores e
-reiniciar. **Nunca** apagar `world/`. Feche a issue de envio depois.
+reiniciar. **Nunca** apagar `world/`.
+
+A release fica pronta no GitHub, mas só vale no jogo depois desse envio, e o
+GitHub não tem como saber se ele aconteceu. Por isso cada release das configs
+abre a issue **Enviar configs X.Y.Z ao servidor** (etiqueta `envio`) no
+`minecraft-config`, com os passos como checklist: **feche-a depois de enviar**.
+Uma versão nova fecha a anterior que não chegou a ser enviada. O Resumo semanal
+lista as que estão abertas. Para abrir uma à mão:
+`bash .github/scripts/issue-envio.sh X.Y.Z` (no `minecraft-config`).
 
 ## Workflows e o equivalente local
 
