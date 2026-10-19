@@ -14,6 +14,7 @@ import base64
 import json
 import re
 import subprocess
+import sys
 import urllib.request
 from datetime import datetime, timezone
 
@@ -26,7 +27,12 @@ PUBLICO = "modpack"
 
 def api(caminho):
     r = subprocess.run(["gh", "api", caminho], capture_output=True, text=True)
-    return json.loads(r.stdout) if r.returncode == 0 else None
+    if r.returncode != 0:
+        # Vai para o log do workflow, não para a issue: mostra qual permissão falta.
+        motivo = (r.stderr.strip().splitlines() or ["sem detalhe"])[-1]
+        print(f"::warning::gh api {caminho.split('?')[0]}: {motivo}", file=sys.stderr)
+        return None
+    return json.loads(r.stdout)
 
 
 def arquivo(repo, caminho, ref="main"):
