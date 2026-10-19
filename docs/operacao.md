@@ -29,6 +29,8 @@ mod novo ─► modpack devel/devel ─► beta (pre-release) ─► PR para mai
 
 - `git` com assinatura GPG configurada, [`gh`](https://cli.github.com/) logado,
   [`packwiz`](https://packwiz.infra.link/), Python 3, Java 21 (só para o teste local).
+- `bash scripts/op.sh` lista atalhos das tarefas de rotina (`refresh`,
+  `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`). Nenhum publica.
 - Regras de commit, branch e versão: [`CLAUDE.md`](../CLAUDE.md). Resumo:
   `git commit -S -s`, Conventional Commits em português, um commit por mod,
   trabalho na `devel/devel`, merge na `main` só por PR com `--merge`.
@@ -79,7 +81,7 @@ cd pack && packwiz refresh && cd .. && python3 scripts/pack.py readme
 
 1. `python3 scripts/pack.py proxima-beta` sugere a versão pelo SemVer.
 2. Troque `version` em `pack/pack.toml`, rode `refresh` e `readme`.
-3. Reescreva o `MUDANCAS.md` (`python3 scripts/pack.py mudancas <última tag>`
+3. Reescreva o `MUDANCAS.md` (`python3 scripts/pack.py mudancas ultima`
    dá a lista de mods), com a linha "Beta: sai como pre-release…".
 4. `git commit -S -s -am "build: prepara a versao X.Y.Z-beta.N" && git push`.
    O workflow Release cria a pre-release, envia ao Modrinth e à CurseForge.
@@ -95,7 +97,8 @@ cd pack && packwiz refresh && cd .. && python3 scripts/pack.py readme
 6. `git fetch --prune && git merge --ff-only origin/main` (o merge apagou a
    `devel/devel` remota; o próximo push a recria).
 
-O servidor pega a versão nova no próximo reinício.
+O servidor pega a versão nova no próximo reinício. Logo em seguida, propague
+(abaixo): o `/estavel` já faz as duas coisas de uma vez.
 
 ### Propagar (`/propagar`)
 
