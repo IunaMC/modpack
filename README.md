@@ -51,14 +51,16 @@ só os mods `server` e `both` e apaga os que saíram do pack. No comando de
 inicialização, antes do Java do servidor:
 
 ```sh
-java -jar packwiz-installer-bootstrap.jar -g -s server \
-  https://raw.githubusercontent.com/IunaMC/modpack/main/pack/pack.toml
+java -jar packwiz-installer-bootstrap.jar -g -s server https://iuna.space/pack/pack.toml
 ```
 
-A `main` só recebe versões estáveis: o workflow de release recusa beta nela e
-falha se o pack mudar sem versão nova. Assim o servidor pega a última release
-estável ao reiniciar, sem trocar o comando. Para fixar uma versão, troque `main`
-pela tag (`v<versão>`).
+O atalho redireciona para o `pack/pack.toml` da `main`
+(`https://raw.githubusercontent.com/IunaMC/modpack/main/pack/pack.toml`, que
+também serve direto). A `main` só recebe versões estáveis: o workflow de
+release recusa beta nela e falha se o pack mudar sem versão nova. Assim o
+servidor pega a última release estável ao reiniciar, sem trocar o comando.
+Para fixar uma versão, use a URL do GitHub com a tag no lugar de `main`
+(`.../IunaMC/modpack/v<versão>/pack/pack.toml`).
 
 O bootstrap baixa o `packwiz-installer.jar` do GitHub na primeira execução.
 Para usar um jar já enviado ao servidor, coloque-o ao lado do bootstrap e
@@ -74,7 +76,7 @@ Os comandos rodam dentro de `pack/`, com o packwiz instalado.
 | Adicionar um mod do Modrinth | `packwiz mr add <slug-ou-link>` |
 | Adicionar um mod do CurseForge | `packwiz cf add <slug-ou-link>` |
 | Adicionar um jar sem download fixo ([detalhes](docs/arquivos-externos.md)) | `python3 scripts/pack.py externo <jar>` (na raiz do repositório) |
-| Atualizar um mod | `packwiz update <nome>` |
+| Atualizar um mod | `packwiz update <nome>` e, na raiz, `python3 scripts/curseforge.py verificar --corrigir` (o packwiz só segue o Modrinth) |
 | Remover um mod | `packwiz remove <nome>` |
 | Recalcular o índice após editar um `.pw.toml` à mão | `packwiz refresh` |
 | Gerar o `.mrpack` localmente | `packwiz mr export` |
@@ -110,7 +112,7 @@ nova. Na `devel/devel`, uma versão estável não publica nada. O workflow de
 release cria a tag `v<versão>`, anexa o `.mrpack` e junta ao changelog a lista
 de mods adicionados, atualizados e removidos desde a release anterior (a
 estável compara com a estável anterior). Depois, envia a mesma versão ao
-Modrinth.
+Modrinth e à CurseForge.
 
 ### Página do Modrinth
 
