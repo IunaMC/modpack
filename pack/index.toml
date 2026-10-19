@@ -1754,3 +1754,8 @@ metafile = true
 file = "mods/zeta.pw.toml"
 hash = "47628c14ca8065322b310d967b44f596a8375acd52a7139ac0fb99fff31d155b"
 metafile = true
+
+[[files]]
+file = "resourcepacks/brazilian-project.pw.toml"
+hash = "47e0c803831e6e190bfc4046d1813b45ccbfef3595125c7e4ce05e3d843f1664"
+metafile = true

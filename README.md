@@ -502,4 +502,11 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [YUNG's Better Nether Fortresses](https://modrinth.com/mod/Z2mXHnxP) | `YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar` | Servidor |
 | [YUNG's Better Ocean Monuments](https://modrinth.com/mod/3dT9sgt4) | `YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar` | Servidor |
 | [YUNG's Better Strongholds](https://modrinth.com/mod/kidLKymU) | `YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar` | Servidor |
+
+### Resource packs e shaders
+Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shaders.
+
+| Mod | Arquivo | Lado |
+| --- | --- | --- |
+| [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->
