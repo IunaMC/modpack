@@ -1764,3 +1764,8 @@ metafile = true
 file = "resourcepacks/fresh-animations.pw.toml"
 hash = "c83069db01f0c483a119d1146d0e2e9b2ed6a377beaa8623c0ffeb7a99df5b66"
 metafile = true
+
+[[files]]
+file = "shaderpacks/bsl-shaders.pw.toml"
+hash = "9e7f54a0ff8b28f177aead0fafd6d0bcd493f1ec6133dc406989c87c0791c1e0"
+metafile = true
