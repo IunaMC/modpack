@@ -508,5 +508,6 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 
 | Mod | Arquivo | Lado |
 | --- | --- | --- |
+| [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->
