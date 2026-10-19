@@ -9,6 +9,7 @@ Uso:
   python3 scripts/pack.py readme              # regenera a lista de mods no README.md
   python3 scripts/pack.py readme --check      # falha se a lista do README estiver desatualizada
   python3 scripts/pack.py mudancas <ref-git>  # mods adicionados/removidos/atualizados desde <ref-git>
+      # <ref-git> pode ser "estavel" (última tag estável) ou "ultima" (última tag, beta inclusive).
   python3 scripts/pack.py proxima-beta        # próxima versão beta pelo SemVer (o motivo vai para o stderr)
   python3 scripts/pack.py externo <jar> [opções]
       # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
@@ -132,7 +133,15 @@ def cmd_readme(checar):
         README.write_text(novo)
 
 
+def ultima_tag(estavel):
+    tags = subprocess.run(["git", "-c", "versionsort.suffix=-", "tag", "--list", "v*", "--sort=-v:refname"],
+                          capture_output=True, text=True).stdout.split()
+    return next((t for t in tags if not (estavel and "-beta" in t)), "HEAD")
+
+
 def cmd_mudancas(ref):
+    if ref in ("estavel", "ultima"):
+        ref = ultima_tag(ref == "estavel")
     antigos, atuais = mods_em(ref), mods_atuais()
     if not antigos:
         print(f"_Sem comparação: `{ref}` não tem o pack em packwiz._")
