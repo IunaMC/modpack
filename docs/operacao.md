@@ -79,7 +79,9 @@ cd pack && packwiz refresh && cd .. && python3 scripts/pack.py readme
 
 ### Beta (`/beta`)
 
-1. `python3 scripts/pack.py proxima-beta` sugere a versão pelo SemVer.
+1. Na `devel/devel` limpa e, depois de uma estável, alinhada à `main`
+   (`git fetch && git merge --ff-only origin/main`).
+   `python3 scripts/pack.py proxima-beta` sugere a versão pelo SemVer.
 2. Troque `version` em `pack/pack.toml`, rode `refresh` e `readme`.
 3. Reescreva o `MUDANCAS.md` (`python3 scripts/pack.py mudancas ultima`
    dá a lista de mods), com a linha "Beta: sai como pre-release…".
@@ -146,7 +148,7 @@ lista as que estão abertas. Para abrir uma à mão:
 
 | Workflow | Quando roda | O que faz | Rodar na sua máquina |
 | --- | --- | --- | --- |
-| Validar | push fora da `main`, PR, manual | confere README, fonte da CurseForge, exporta `.mrpack` e sobe um servidor de verdade com as configs | `bash scripts/testar-servidor.sh --configs` (veja [servidor local](servidor-local.md)); `MEMORIA=4G` em máquina modesta |
+| Validar | push fora da `main` que mexe em `pack/`, `scripts/`, `README.md` ou `.github/` (o resultado aparece no PR), manual | confere README, fonte da CurseForge, exporta `.mrpack` e sobe um servidor de verdade com as configs | `bash scripts/testar-servidor.sh --configs` (veja [servidor local](servidor-local.md)); `MEMORIA=4G` em máquina modesta |
 | Release | push na `main`/`devel/devel` com versão nova | tag, release com `.mrpack`, Modrinth e CurseForge | `cd pack && packwiz mr export`; `python3 scripts/modrinth.py publicar <v> <mrpack> MUDANCAS.md --simular`; `cd pack && packwiz curseforge export -o ../IUNA.zip`; `python3 scripts/curseforge.py publicar <v> IUNA.zip MUDANCAS.md --simular` |
 | Modrinth | push que muda `modrinth/` | atualiza textos, links e galeria do projeto | `python3 scripts/modrinth.py sincronizar --simular` (sem `--simular` com `MODRINTH_TOKEN`) |
 | Atualizações de mods | segunda, 10h23 UTC | issue com os mods que têm versão nova | `cd pack && packwiz update --all` e `git diff` (depois `git checkout pack/`) |
@@ -163,7 +165,8 @@ publicar o `.zip`.
 | `MODRINTH_TOKEN` | secret do modpack | página e versões no Modrinth | modrinth.com → Settings → PATs |
 | `CURSEFORGE_TOKEN` | secret do modpack | envio de arquivos | authors.curseforge.com → My API Tokens |
 | `CURSEFORGE_PROJECT_ID` | variable do modpack | projeto da CurseForge | — |
-| `MINECRAFT_CONFIG_TOKEN` | secret do modpack | ler `minecraft-config` e `modpack-moderacao` (Validar, Resumo) | GitHub → fine-grained PAT; anote a data de expiração |
+| `MINECRAFT_CONFIG_TOKEN` | secret do modpack | Contents read no `minecraft-config`: o Validar sobe o servidor com as configs | GitHub → fine-grained PAT; anote a data de expiração |
+| `RESUMO_TOKEN` | secret do modpack | Contents, Actions, Issues e PRs read no `modpack`, `modpack-moderacao` e `minecraft-config` (Resumo). Sem ele, o Resumo tenta o `MINECRAFT_CONFIG_TOKEN` e depois o token do workflow | GitHub → fine-grained PAT; anote a data de expiração |
 | marcadores `{{NOME}}` | secrets do `minecraft-config` | token do bot e IDs do Discord no teste | `docs/segredos.md` de lá |
 
 Token vencido aparece como falha no Validar ou "sem acesso" no Resumo.
