@@ -60,6 +60,13 @@ jobs:
           fi
           echo "publicar=true" >> "$GITHUB_OUTPUT"
 
+          # Alarme: as mesmas regras do workflow "Entrada na main", para o caso de
+          # algo ter chegado à main sem passar por ele.
+          if [[ "$GITHUB_REF_NAME" == main && "$GITHUB_EVENT_NAME" == push ]] \
+            && git cat-file -e "$ANTES^{commit}" 2>/dev/null; then
+            python3 scripts/pack.py conferir "$ANTES" "$GITHUB_SHA"
+          fi
+
           if gh release view "v$VERSAO" >/dev/null 2>&1; then
             # O servidor reinstala o pack da main a cada inicialização: mudar o
             # pack nela sem versão nova mudaria o servidor sem release.

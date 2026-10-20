@@ -2,6 +2,8 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directories: ["/", "/.github/actions/*"]
+    # PRs para a devel/devel: a main só recebe PR da devel/devel ou da docs/docs.
+    target-branch: devel/devel
     schedule:
       interval: monthly
     commit-message:
