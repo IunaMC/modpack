@@ -107,7 +107,7 @@ jobs:
           fi
           unzip -l "$ARQUIVO" | tail -1
           # Cópia com nome fixo: o GitHub só resolve releases/latest/download/<nome>
-          # com o nome exato do asset, e o iuna.space/mrpack aponta para ela.
+          # com o nome exato do asset, e o iuna.club/mrpack aponta para ela.
           cp "$ARQUIVO" IUNA.mrpack
 
       # Notas = MUDANCAS.md escrito à mão + lista de mods gerada pela

@@ -13,7 +13,7 @@ instala com um clique.
 ### Pelo Modrinth (recomendado)
 
 > A página do pack no Modrinth está em revisão e ainda não aparece na busca.
-> Quando sair, o atalho <https://iuna.space/modpack> leva direto a ela.
+> Quando sair, o atalho <https://iuna.club/modpack> leva direto a ela.
 
 1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
    procure "IUNA" na aba de modpacks.
@@ -26,7 +26,7 @@ instala com um clique.
 
 Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
-1. Baixe o `.mrpack` em <https://iuna.space/mrpack>, que sempre baixa a
+1. Baixe o `.mrpack` em <https://iuna.club/mrpack>, que sempre baixa a
    versão mais recente, ou pela [última release](https://github.com/IunaMC/modpack/releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
@@ -51,7 +51,7 @@ só os mods `server` e `both` e apaga os que saíram do pack. No comando de
 inicialização, antes do Java do servidor:
 
 ```sh
-java -jar packwiz-installer-bootstrap.jar -g -s server https://iuna.space/pack/pack.toml
+java -jar packwiz-installer-bootstrap.jar -g -s server https://iuna.club/pack/pack.toml
 ```
 
 O atalho redireciona para o `pack/pack.toml` da `main`

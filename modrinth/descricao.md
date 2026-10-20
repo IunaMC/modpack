@@ -160,4 +160,4 @@ mantém a licença do seu autor.
 
 - Código do pack e lista de mods: [github.com/IunaMC/modpack](https://github.com/IunaMC/modpack)
 - Problemas e sugestões: [Issues](https://github.com/IunaMC/modpack/issues)
-- Wiki: [wiki.iuna.space](https://wiki.iuna.space)
+- Wiki: [wiki.iuna.club](https://wiki.iuna.club)
