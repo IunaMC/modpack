@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ferramentas do pack: lista de mods do README, changelog de mods e arquivos externos.
+"""Ferramentas do pack: lista de mods do README, changelog de mods, arquivos externos e as regras da main.
 
 Lê os metadados do packwiz (pack/pack.toml e os .pw.toml de pack/mods, pack/resourcepacks e pack/shaderpacks).
 
@@ -15,10 +15,15 @@ Uso:
       # anexa o jar à release arquivos-servidor e cria o .pw.toml que aponta para ele.
       # Opções: --lado server|both|client (padrão server), --nome, --versao, --autor,
       # --licenca, --origem (o padrão de cada uma vem dos metadados do jar) e --simular,
-      # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/arquivos-externos.md.
+      # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/guias/arquivos-externos.md.
+  python3 scripts/pack.py conferir <base> <topo> [--ramo <branch>]
+      # confere as regras de versão do que entra na main, de <base> até <topo> (ex.: origin/main HEAD).
+      # --ramo também confere a branch de origem do PR; o corpo do PR vem de CORPO_PR.
+      # Veja docs/referencia/versionamento.md.
 """
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -325,8 +330,81 @@ def cmd_proxima_beta():
     print(motivo, file=sys.stderr)
 
 
+RAMOS_DA_MAIN = {"devel/devel": "pack, scripts, CI e docs", "docs/docs": "só documentação"}
+
+
+def git(*args):
+    return subprocess.run(["git", "-C", str(RAIZ), *args], capture_output=True, text=True,
+                          check=True).stdout
+
+
+def numeros(versao):
+    return tuple(map(int, versao.split("-")[0].split(".")))
+
+
+def cmd_conferir(base, topo, ramo=None, corpo=""):
+    """Regras para o que entra na main, de base até topo:
+    - pack/ mudou além da versão  → precisa de versão nova;
+    - só a versão mudou           → recusado (para reenviar, rode o Release à mão);
+    - versão nova                 → estável, sem tag ainda e a próxima depois da última estável;
+    - MAJOR                       → com --pr, o corpo do PR precisa ter "MAJOR confirmado";
+    - nada em pack/               → passa, sem release (docs, CI, scripts).
+    Com ramo, também confere de onde o PR vem (devel/devel ou docs/docs)."""
+    erros = []
+    origem = git("merge-base", base, topo).strip()
+    mudou = [p for p in git("diff", "--name-only", origem, topo, "--", "pack/").split() if p]
+    antes = tomllib.loads(git("show", f"{origem}:pack/pack.toml"))
+    depois = tomllib.loads(git("show", f"{topo}:pack/pack.toml"))
+    va, vd = antes["version"], depois["version"]
+    so_versao = mudou == ["pack/pack.toml"] and \
+        {k: v for k, v in antes.items() if k != "version"} == {k: v for k, v in depois.items() if k != "version"}
+
+    if ramo is not None and ramo not in RAMOS_DA_MAIN:
+        erros.append(f"A main só recebe PR de {' ou '.join(RAMOS_DA_MAIN)}, e este vem de '{ramo}'.")
+    if ramo == "docs/docs" and mudou:
+        erros.append("A docs/docs é só de documentação, e este PR muda o pack/: leve a mudança pela devel/devel.")
+    if "-" in vd:
+        erros.append(f"A main só recebe versões estáveis, e '{vd}' é beta.")
+
+    if not mudou:
+        caso = "nada mudou em pack/: entra sem release"
+    elif va == vd:
+        caso = "pack/ mudou sem versão nova"
+        erros.append(f"O pack/ mudou ({len(mudou)} arquivo(s)), mas a versão continua {va}. Suba a versão no pack/pack.toml.")
+    elif so_versao:
+        caso = "só a versão mudou"
+        erros.append(f"Só a versão mudou ({va} → {vd}), sem nenhuma mudança no pack. "
+                     "Para reenviar uma versão às plataformas, rode o Release à mão (workflow_dispatch).")
+    else:
+        caso = f"versão nova: {va} → {vd}"
+
+    if va != vd and "-" not in vd:
+        if git("tag", "--list", f"v{vd}").strip():
+            erros.append(f"A tag v{vd} já existe.")
+        tag = ultima_estavel()
+        if tag:
+            a, b, c = numeros(tag[1:])
+            proximas = {(a, b, c + 1): "PATCH", (a, b + 1, 0): "MINOR", (a + 1, 0, 0): "MAJOR"}
+            tipo = proximas.get(numeros(vd))
+            if tipo is None:
+                validas = ", ".join("{}.{}.{}".format(*v) for v in proximas)
+                erros.append(f"{vd} não é a próxima versão depois de {tag}: use {validas}.")
+            elif tipo == "MAJOR" and ramo is not None and "MAJOR confirmado" not in corpo:
+                erros.append(f"{vd} é MAJOR (mundo novo ou reinstalar tudo): escreva \"MAJOR confirmado\" "
+                             "no corpo do PR para seguir.")
+
+    print(f"{git('rev-parse', '--short', origem).strip()}..{git('rev-parse', '--short', topo).strip()}: {caso}")
+    for erro in erros:
+        print(f"::error::{erro}" if os.environ.get("GITHUB_ACTIONS") else f"ERRO: {erro}")
+    if erros:
+        sys.exit(1)
+    print("ok")
+
+
 def main(args):
-    if args[:1] == ["versao"]:
+    if args[:1] == ["conferir"] and len(args) >= 3:
+        cmd_conferir(args[1], args[2], opcao(args, "--ramo", None), os.environ.get("CORPO_PR", ""))
+    elif args[:1] == ["versao"]:
         print(versao())
     elif args[:1] == ["neoforge"]:
         print(tomllib.loads((PACK / "pack.toml").read_text())["versions"]["neoforge"])

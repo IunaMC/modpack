@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Atalhos das tarefas de rotina do pack, para quem opera sem o Claude Code.
-# Cada alvo só junta os comandos do docs/operacao.md; nada aqui publica.
+# Cada alvo só junta os comandos dos guias em docs/guias/; nada aqui publica.
 #
 # Uso: bash scripts/op.sh <alvo>
 #   refresh     packwiz refresh + README + fonte da CurseForge (depois de mexer em mods)

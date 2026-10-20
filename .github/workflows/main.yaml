@@ -1,0 +1,44 @@
+name: Entrada na main
+
+# Trava do que entra na main, que o servidor instala a cada boot. Roda em todo
+# PR para a main e confere as regras de versão (scripts/pack.py conferir):
+# pack/ mudou exige versão nova, só a versão mudar é recusado, a versão nova é
+# a próxima depois da última estável, MAJOR pede "MAJOR confirmado" no corpo e
+# o PR vem da devel/devel ou da docs/docs. O ruleset da main exige este job.
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: main-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      # As regras valem como estão na main, não como o PR as deixaria: o
+      # script da main substitui o do PR. Só o PR que cria o comando usa o dele.
+      - name: Usar as regras da main
+        run: |
+          git fetch -q origin main
+          if git show origin/main:scripts/pack.py | grep -q 'def cmd_conferir'; then
+            git show origin/main:scripts/pack.py > scripts/pack.py
+          else
+            echo "::notice::A main ainda não tem o pack.py conferir; usando o do PR."
+          fi
+
+      - name: Conferir versão e origem
+        env:
+          CORPO_PR: ${{ github.event.pull_request.body }}
+          RAMO: ${{ github.event.pull_request.head.ref }}
+        run: python3 scripts/pack.py conferir origin/main HEAD --ramo "$RAMO"

@@ -33,19 +33,19 @@ CurseForge. Conferência de 16/10/2026, versão 3.0.0 do pack.
 
 | Mod | Arquivo | Licença no jar | Licença verificada | Opção | Link de prova |
 | --- | --- | --- | --- | --- | --- |
-| The Twilight Forest | `twilightforest-1.21.1-4.8.3345-universal.jar` | LGPL 2.1 | Código LGPL 2.1, mas sons e estruturas **All Rights Reserved** (README do repositório) | **No permission** | https://github.com/TeamTwilight/twilightforest#licensing |
-| Ice and Fire CE | `iceandfire-2.1.3.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | https://github.com/IAFEnvoy/IceAndFire-CE/blob/master/LICENSE |
-| Uranus | `uranus-3.0-beta.1.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | https://github.com/IAFEnvoy/Uranus/blob/master/LICENSE |
-| Flux Networks | `FluxNetworks-1.21.1-8.0.0.jar` | MIT | MIT (`LICENSE`) | **License** | https://github.com/SonarSonic/Flux-Networks/blob/1.20/LICENSE |
-| Building Gadgets 2 | `buildinggadgets2-1.3.9.jar` | MIT | MIT (`LICENSE`) | **License** | https://github.com/Direwolf20-MC/BuildingGadgets2/blob/main/LICENSE |
-| Refurbished Furniture | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | MIT | MIT (`LICENSE` do repositório e `LICENSE_refurbished_furniture` no jar) | **License** | https://github.com/MrCrayfish/MrCrayfishFurnitureMod-Refurbished/blob/26.1.2/LICENSE |
-| Framework | `framework-neoforge-1.21.1-0.13.11.jar` | LGPLv2.1 | LGPL 2.1 (`LICENSE` e `LICENSE_framework` no jar) | **License** | https://github.com/MrCrayfish/Framework/blob/multiloader/26.3/LICENSE |
-| ObserverLib | `observerlib-1.10.3.jar` | LGPL 3.0 | LGPL 3.0 (`LICENCE`) | **License** | https://github.com/HellFirePvP/ObserverLib/blob/master/LICENCE |
-| AE2 JEI Integration | `ae2jeiintegration-1.2.1.jar` | LGPL-3.0 | LGPL 3.0 (`LICENSE`) | **License** | https://github.com/mezz/AE2-JEI-Integration/blob/master/LICENSE |
-| Cosmetic Armor Reworked | `cosmeticarmorreworked-1.21.1-v1-neoforge.jar` | MMPL 1.0.1 | MMPL 1.0.1 (`LICENSE.txt` no repositório e no jar) | **License** | https://github.com/zlainsama/CosmeticArmorReworked/blob/master/LICENSE.txt |
-| Monsters & Spellbooks | `monsterspellbooks-0.0.16.3.jar` | All Rights Reserved | **MIT** na página do CurseForge, que diz: "Fell free to add to modpacks" | **License** | https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss (cole também a frase da descrição) |
-| Astral Sorcery | `AstralSorcery-2.0.1.20.jar` | All Rights Reserved | Licença própria de código visível. Proíbe redistribuir o código, mas diz: "only the original author or modpacks may distribute compiled binary versions of this code" | **License**, com a frase citada; se a moderação recusar, **Special permission** com a resposta do autor | https://github.com/HellFirePvP/AstralSorcery/blob/1.21.1/LICENSE |
-| Fire's Ender Expansion | `firesenderexpansion-2.5.1.jar` | All Rights Reserved | All Rights Reserved (CurseForge). O repositório só tem o `TEMPLATE_LICENSE.txt` do MDK do NeoForge, que não é a licença do mod | **Resolvido:** o Modrinth reconheceu o arquivo sozinho, e o autor também autorizou o uso no pack em 17/10/2026 | https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4#issuecomment-6229744399 |
+| The Twilight Forest | `twilightforest-1.21.1-4.8.3345-universal.jar` | LGPL 2.1 | Código LGPL 2.1, mas sons e estruturas **All Rights Reserved** (README do repositório) | **No permission** | <https://github.com/TeamTwilight/twilightforest#licensing> |
+| Ice and Fire CE | `iceandfire-2.1.3.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | <https://github.com/IAFEnvoy/IceAndFire-CE/blob/master/LICENSE> |
+| Uranus | `uranus-3.0-beta.1.jar` | LGPL-3.0 | LGPL 3.0 ou posterior (`LICENSE`) | **License** | <https://github.com/IAFEnvoy/Uranus/blob/master/LICENSE> |
+| Flux Networks | `FluxNetworks-1.21.1-8.0.0.jar` | MIT | MIT (`LICENSE`) | **License** | <https://github.com/SonarSonic/Flux-Networks/blob/1.20/LICENSE> |
+| Building Gadgets 2 | `buildinggadgets2-1.3.9.jar` | MIT | MIT (`LICENSE`) | **License** | <https://github.com/Direwolf20-MC/BuildingGadgets2/blob/main/LICENSE> |
+| Refurbished Furniture | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | MIT | MIT (`LICENSE` do repositório e `LICENSE_refurbished_furniture` no jar) | **License** | <https://github.com/MrCrayfish/MrCrayfishFurnitureMod-Refurbished/blob/26.1.2/LICENSE> |
+| Framework | `framework-neoforge-1.21.1-0.13.11.jar` | LGPLv2.1 | LGPL 2.1 (`LICENSE` e `LICENSE_framework` no jar) | **License** | <https://github.com/MrCrayfish/Framework/blob/multiloader/26.3/LICENSE> |
+| ObserverLib | `observerlib-1.10.3.jar` | LGPL 3.0 | LGPL 3.0 (`LICENCE`) | **License** | <https://github.com/HellFirePvP/ObserverLib/blob/master/LICENCE> |
+| AE2 JEI Integration | `ae2jeiintegration-1.2.1.jar` | LGPL-3.0 | LGPL 3.0 (`LICENSE`) | **License** | <https://github.com/mezz/AE2-JEI-Integration/blob/master/LICENSE> |
+| Cosmetic Armor Reworked | `cosmeticarmorreworked-1.21.1-v1-neoforge.jar` | MMPL 1.0.1 | MMPL 1.0.1 (`LICENSE.txt` no repositório e no jar) | **License** | <https://github.com/zlainsama/CosmeticArmorReworked/blob/master/LICENSE.txt> |
+| Monsters & Spellbooks | `monsterspellbooks-0.0.16.3.jar` | All Rights Reserved | **MIT** na página do CurseForge, que diz: "Fell free to add to modpacks" | **License** | <https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss> (cole também a frase da descrição) |
+| Astral Sorcery | `AstralSorcery-2.0.1.20.jar` | All Rights Reserved | Licença própria de código visível. Proíbe redistribuir o código, mas diz: "only the original author or modpacks may distribute compiled binary versions of this code" | **License**, com a frase citada; se a moderação recusar, **Special permission** com a resposta do autor | <https://github.com/HellFirePvP/AstralSorcery/blob/1.21.1/LICENSE> |
+| Fire's Ender Expansion | `firesenderexpansion-2.5.1.jar` | All Rights Reserved | All Rights Reserved (CurseForge). O repositório só tem o `TEMPLATE_LICENSE.txt` do MDK do NeoForge, que não é a licença do mod | **Resolvido:** o Modrinth reconheceu o arquivo sozinho, e o autor também autorizou o uso no pack em 17/10/2026 | <https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4#issuecomment-6229744399> |
 | Mob Grinding Utils | `mob_grinding_utils-1.1.10+mc1.21.1.jar` | All rights reserved | All Rights Reserved (CurseForge). O repositório não tem licença | **No permission** até o autor responder; depois **Special permission** | Resposta do autor na issue (ver abaixo) |
 
 ## Arquivos baixados de outro site (a partir da 3.1.0)
@@ -57,16 +57,16 @@ porque o autor não publica o jar com link fixo. É só de servidor
 
 | Mod | Arquivo | Licença no jar | Licença verificada | Opção | Link de prova |
 | --- | --- | --- | --- | --- | --- |
-| LuckPerms Placeholders | `LuckPerms-Fabric-Placeholders.jar` | MIT | MIT (`LICENSE.txt`) | **License** | https://github.com/LuckPerms/placeholders/blob/master/LICENSE.txt |
+| LuckPerms Placeholders | `LuckPerms-Fabric-Placeholders.jar` | MIT | MIT (`LICENSE.txt`) | **License** | <https://github.com/LuckPerms/placeholders/blob/master/LICENSE.txt> |
 
 ## Pedidos aos autores
 
 Abertos em 17/10/2026. Quando houver resposta, marque **Special permission** e
 cole o link da issue.
 
-- Fire's Ender Expansion: https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4
+- Fire's Ender Expansion: <https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4>
   (autorizado pelo autor em 17/10/2026; o Modrinth já reconhecia o arquivo)
-- Mob Grinding Utils: https://github.com/vadis365/Mob-Grinding-Utils/issues/372
+- Mob Grinding Utils: <https://github.com/vadis365/Mob-Grinding-Utils/issues/372>
   (sem resposta; fechado em 18/10/2026)
 - The Twilight Forest: sem pedido. A Team Twilight já recusou várias vezes
   liberar o mod em packs do Modrinth (issues
@@ -86,11 +86,11 @@ caso algum dia voltem para o arquivo.
 
 | Mod | Arquivo | Licença no jar | Licença verificada | Opção | Link de prova |
 | --- | --- | --- | --- | --- | --- |
-| Crash Utilities | `crashutilities-9.0.4.jar` | MIT | MIT (`LICENSE`) | **License** | https://github.com/Darkere/CrashUtilities/blob/master/LICENSE |
-| Better End Cities Better End | `BetterEndCities-BetterEnd-1.21.jar` | `LicenseRef-Datapack` (sem licença; é um datapack convertido em mod) | **MIT** na página do CurseForge | **License** | https://www.curseforge.com/minecraft/mc-mods/better-end-cities-better-end |
-| Cupboard | `cupboard-1.21.1-4.2.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/cupboard |
-| Fast Async World Save | `fastasyncworldsave-1.21-2.6.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/fast-async-world-save-forge-fabric |
-| Smooth Chunk Save | `smoothchunk-1.21-4.1.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | https://www.curseforge.com/minecraft/mc-mods/smooth-chunk-save |
+| Crash Utilities | `crashutilities-9.0.4.jar` | MIT | MIT (`LICENSE`) | **License** | <https://github.com/Darkere/CrashUtilities/blob/master/LICENSE> |
+| Better End Cities Better End | `BetterEndCities-BetterEnd-1.21.jar` | `LicenseRef-Datapack` (sem licença; é um datapack convertido em mod) | **MIT** na página do CurseForge | **License** | <https://www.curseforge.com/minecraft/mc-mods/better-end-cities-better-end> |
+| Cupboard | `cupboard-1.21.1-4.2.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | <https://www.curseforge.com/minecraft/mc-mods/cupboard> |
+| Fast Async World Save | `fastasyncworldsave-1.21-2.6.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | <https://www.curseforge.com/minecraft/mc-mods/fast-async-world-save-forge-fabric> |
+| Smooth Chunk Save | `smoothchunk-1.21-4.1.jar` | ARR | **All Rights Reserved** (CurseForge) | Fora do `.mrpack` | <https://www.curseforge.com/minecraft/mc-mods/smooth-chunk-save> |
 
 ## O que isso muda no plano
 

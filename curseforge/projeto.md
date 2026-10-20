@@ -12,7 +12,7 @@ Modrinth.
 | License | MIT License |
 | Source | <https://github.com/IunaMC/modpack> |
 | Issues | <https://github.com/IunaMC/modpack/issues> |
-| Wiki | <https://wiki.iuna.space> |
+| Wiki | <https://wiki.iuna.club> |
 | Logo | [`../modrinth/imagens/icone.png`](../modrinth/imagens/icone.png) |
 | Description | Editor em **Markdown**: cole o [`../modrinth/descricao.en.md`](../modrinth/descricao.en.md) sem o `# IUNA` do topo e depois a seção abaixo |
 

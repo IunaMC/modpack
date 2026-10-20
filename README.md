@@ -13,7 +13,7 @@ instala com um clique.
 ### Pelo Modrinth (recomendado)
 
 > A página do pack no Modrinth está em revisão e ainda não aparece na busca.
-> Quando sair, o atalho <https://iuna.space/modpack> leva direto a ela.
+> Quando sair, o atalho <https://iuna.club/modpack> leva direto a ela.
 
 1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
    procure "IUNA" na aba de modpacks.
@@ -26,8 +26,8 @@ instala com um clique.
 
 Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
-1. Baixe o `.mrpack` em <https://iuna.space/mrpack>, que sempre baixa a
-   versão mais recente, ou pela [última release](../../releases/latest).
+1. Baixe o `.mrpack` em <https://iuna.club/mrpack>, que sempre baixa a
+   versão mais recente, ou pela [última release](https://github.com/IunaMC/modpack/releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
    - **Modrinth App:** *+ (Create instance) → Import from file*.
@@ -51,14 +51,16 @@ só os mods `server` e `both` e apaga os que saíram do pack. No comando de
 inicialização, antes do Java do servidor:
 
 ```sh
-java -jar packwiz-installer-bootstrap.jar -g -s server \
-  https://raw.githubusercontent.com/IunaMC/modpack/main/pack/pack.toml
+java -jar packwiz-installer-bootstrap.jar -g -s server https://iuna.club/pack/pack.toml
 ```
 
-A `main` só recebe versões estáveis: o workflow de release recusa beta nela e
-falha se o pack mudar sem versão nova. Assim o servidor pega a última release
-estável ao reiniciar, sem trocar o comando. Para fixar uma versão, troque `main`
-pela tag (`v<versão>`).
+O atalho redireciona para o `pack/pack.toml` da `main`
+(`https://raw.githubusercontent.com/IunaMC/modpack/main/pack/pack.toml`, que
+também serve direto). A `main` só recebe versões estáveis: o workflow de
+release recusa beta nela e falha se o pack mudar sem versão nova. Assim o
+servidor pega a última release estável ao reiniciar, sem trocar o comando.
+Para fixar uma versão, use a URL do GitHub com a tag no lugar de `main`
+(`.../IunaMC/modpack/v<versão>/pack/pack.toml`).
 
 O bootstrap baixa o `packwiz-installer.jar` do GitHub na primeira execução.
 Para usar um jar já enviado ao servidor, coloque-o ao lado do bootstrap e
@@ -67,60 +69,13 @@ do GitHub, do Modrinth e do CurseForge.
 
 ## Manutenção
 
-Os comandos rodam dentro de `pack/`, com o packwiz instalado.
-
-| Tarefa | Comando |
-| --- | --- |
-| Adicionar um mod do Modrinth | `packwiz mr add <slug-ou-link>` |
-| Adicionar um mod do CurseForge | `packwiz cf add <slug-ou-link>` |
-| Adicionar um jar sem download fixo ([detalhes](docs/arquivos-externos.md)) | `python3 scripts/pack.py externo <jar>` (na raiz do repositório) |
-| Atualizar um mod | `packwiz update <nome>` |
-| Remover um mod | `packwiz remove <nome>` |
-| Recalcular o índice após editar um `.pw.toml` à mão | `packwiz refresh` |
-| Gerar o `.mrpack` localmente | `packwiz mr export` |
-
-Ao adicionar um mod, confira no `.pw.toml`:
-- `side`: `both` para mods de conteúdo, que precisam estar nos dois lados;
-  `client` para mods só visuais ou de interface; `server` para administração,
-  desempenho e geração de mundo. Um mod de conteúdo marcado como `client` ou
-  `server` impede o jogador de entrar no servidor.
-- `[option] optional = true` para os mods opcionais, com uma `description` curta.
-
-Depois de mudar mods, regenere a lista abaixo com
-`python3 scripts/pack.py readme`. O CI confere o índice e a lista em todo push
-e deixa um `.mrpack` de teste nos artefatos da execução.
-
-### Versão e release
-
-A versão fica em `version`, no [`pack/pack.toml`](pack/pack.toml), e segue
-SemVer:
-- **MAJOR:** exige mundo novo ou reinstalar tudo (Minecraft, NeoForge, troca de
-  formato do pack, reset).
-- **MINOR:** qualquer mod adicionado, atualizado ou removido.
-- **PATCH:** nada muda para o jogador (config, docs, CI).
-
-Para publicar, suba a versão no `pack.toml` e escreva o
-[`MUDANCAS.md`](MUDANCAS.md):
-- **Beta** (`1.2.3-beta.1`): push na `devel/devel`. Sai como pre-release, e o
-  servidor não a instala.
-- **Estável** (`1.2.3`): merge na `main`. É a versão que o servidor instala.
-
-A `main` recusa versão beta e também qualquer mudança no `pack/` sem versão
-nova. Na `devel/devel`, uma versão estável não publica nada. O workflow de
-release cria a tag `v<versão>`, anexa o `.mrpack` e junta ao changelog a lista
-de mods adicionados, atualizados e removidos desde a release anterior (a
-estável compara com a estável anterior). Depois, envia a mesma versão ao
-Modrinth.
-
-### Página do Modrinth
-
-A página do projeto no Modrinth sai dos arquivos de [`modrinth/`](modrinth):
-textos, categorias, links, ícone e galeria. Mude os arquivos e faça merge na
-`main`; o workflow aplica sozinho. Veja [`modrinth/README.md`](modrinth/README.md).
-
-### Mais documentação
-
-Processos e referências que não cabem aqui ficam em [`docs/`](docs).
+O pack é mantido com o packwiz na `devel/devel`, um commit assinado por mod, e
+publicado por SemVer: beta pela `devel/devel`, estável pelo PR para a `main`.
+Os guias de cada tarefa (adicionar, remover e atualizar mods, publicar beta e
+estável), os workflows, os scripts e as decisões estão em [`docs/`](docs). Para
+contribuir, veja o [`CONTRIBUTING.md`](CONTRIBUTING.md). A arquitetura e o
+processo entre os repositórios da IunaMC estão em
+[IunaMC/docs](https://github.com/IunaMC/docs).
 
 ## Licença
 

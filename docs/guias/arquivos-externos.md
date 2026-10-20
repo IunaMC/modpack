@@ -35,7 +35,7 @@ conferir os dados.
 | `--nome`, `--versao`, `--autor`, `--licenca`, `--origem` | o que o jar declara | Corrigir ou completar os metadados do jar |
 
 Depois, como em qualquer mod: suba a versão (MINOR), escreva o
-[`MUDANCAS.md`](../MUDANCAS.md) e faça o commit
+[`MUDANCAS.md`](../../MUDANCAS.md) e faça o commit
 (`feat(mods): adiciona <Nome> <versão> no servidor`). O CI sobe o servidor de
 teste já com o arquivo novo.
 
@@ -55,7 +55,7 @@ repositório.
 - **Só entra o que a licença deixa redistribuir.** A release é pública, então
   anexar o jar é distribuir. Mods com URL também entram no índice do `.mrpack`
   e aparecem na página Permissions do Modrinth, mesmo os só de servidor (veja
-  [`modrinth/permissoes.md`](../modrinth/permissoes.md)).
+  [`modrinth/permissoes.md`](../../modrinth/permissoes.md)).
 
 ## Mod All Rights Reserved ou teste rápido
 

@@ -2,8 +2,14 @@
 
 O pack da CurseForge é o mesmo do `.mrpack`, **com** o Twilight Forest e o Mob
 Grinding Utils, que o Modrinth não aceita. A página é feita à mão no site: a
-API de upload da CurseForge envia arquivos, mas não edita o projeto. Mantenha
-esta pasta igual ao que está no site.
+API de upload da CurseForge envia arquivos, mas não edita o projeto, e nenhuma
+API mostra arquivo em revisão. Mantenha esta pasta igual ao que está no site:
+
+```sh
+python3 scripts/curseforge.py descricao            # texto para colar no editor Markdown
+python3 scripts/curseforge.py descricao --marcar   # depois de colar; commit do descricao.sha256
+python3 scripts/curseforge.py status               # versões que já aparecem e se a descrição está em dia
+```
 
 | Arquivo | Uso |
 | --- | --- |
@@ -56,3 +62,7 @@ python3 scripts/curseforge.py verificar --corrigir
   descrição.
 - Os mods `side = "server"` não entram no `.zip` da CurseForge. Eles continuam
   em `pack/` e no `.mrpack`, para o servidor.
+- Não rode o Release de novo para uma versão já enviada. Enquanto ela está em
+  revisão, o `status` não a enxerga, e o script envia outra cópia.
+- "Não aparece" no `status` é revisão ou recusa. O motivo só aparece em
+  authors.curseforge.com.

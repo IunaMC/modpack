@@ -161,4 +161,4 @@ author's license.
 
 - Pack source and mod list: [github.com/IunaMC/modpack](https://github.com/IunaMC/modpack)
 - Bugs and suggestions: [Issues](https://github.com/IunaMC/modpack/issues)
-- Wiki: [wiki.iuna.space](https://wiki.iuna.space)
+- Wiki: [wiki.iuna.club](https://wiki.iuna.club)
