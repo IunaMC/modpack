@@ -3,6 +3,8 @@
 Bugs e sugestões de mods vão para o
 [IunaMC/issues](https://github.com/IunaMC/issues). Este guia é para quem mexe
 no pack.
+O trabalho planejado, com prioridade e situação de cada item, está no projeto
+[IUNA · Roadmap](https://github.com/orgs/IunaMC/projects/1).
 
 ## Preparar a máquina
 
