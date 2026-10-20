@@ -16,7 +16,8 @@ Nomes e permissões, nunca valores.
   avisa.
 - Sem os tokens das plataformas, os scripts avisam e saem sem erro.
 - Ao gerar um PAT, anote a data de expiração. Token vencido aparece como falha
-  no Validar ou como "sem acesso" no Resumo.
+  no Validar ou como "sem acesso" no Resumo. O aviso antes de vencer, no
+  Resumo semanal, está em [#23](https://github.com/IunaMC/modpack/issues/23).
 
 Para trocar um valor:
 

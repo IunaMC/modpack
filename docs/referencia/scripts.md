@@ -24,13 +24,21 @@ estiver disponível, o guia basta.
 
 | Skill | Guia | Comandos principais | O que só a skill faz |
 | --- | --- | --- | --- |
-| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `curseforge.py ligar`, `op.sh refresh` | Consulta lado e licença no Modrinth e acha o Project ID da CurseForge |
-| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `packwiz remove`, `op.sh refresh` | Procura dependências órfãs |
-| `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh versao`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md` |
-| `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `pack.py mudancas estavel`, `gh pr create`, `gh pr merge --merge` | Escreve o `MUDANCAS.md` e o corpo do PR; encadeia o `/propagar` |
-| `/propagar` | [Propagar](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) | `gh workflow run acompanhar-base.yaml`, `git commit --amend -S -s` | — |
-| `/testar` | [Servidor local](../guias/servidor-local.md) | `gh run watch`, `testar-servidor.sh` | Escolhe entre o CI e a máquina local pelo disco e pela memória livres |
+| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `curseforge.py ligar`, `op.sh refresh` | Consulta lado e licença no Modrinth (vira `pack.py lado`, [#17](https://github.com/IunaMC/modpack/issues/17)) e acha o Project ID da CurseForge |
+| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `packwiz remove`, `op.sh refresh` | Procura dependências órfãs (vira `pack.py orfas`, [#18](https://github.com/IunaMC/modpack/issues/18)) |
+| `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh versao`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md`; o resto vira `op.sh beta` ([#19](https://github.com/IunaMC/modpack/issues/19)) |
+| `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `pack.py mudancas estavel`, `gh pr create`, `gh pr merge --merge` | Escreve o `MUDANCAS.md` e o corpo do PR; o resto vira `op.sh estavel` ([#20](https://github.com/IunaMC/modpack/issues/20)) |
+| `/propagar` | [Propagar](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) | `gh workflow run acompanhar-base.yaml`, `git commit --amend -S -s` | Tudo vira `op.sh propagar` ([#21](https://github.com/IunaMC/modpack/issues/21)) |
+| `/testar` | [Servidor local](../guias/servidor-local.md) | `gh run watch`, `testar-servidor.sh` | Escolhe entre o CI e a máquina local pelo disco e pela memória livres; o caminho do CI vira `op.sh ci` ([#22](https://github.com/IunaMC/modpack/issues/22)) |
 | `/spark` | — | `.claude/skills/spark/spark.py` | Análise dos perfis do Spark |
 
 A coluna "O que só a skill faz" lista o que ainda depende de julgamento ou de
-IA. É candidata a virar script.
+IA. O que é mecânico vai virar script, com uma issue por script (etiqueta
+[`processo`](https://github.com/IunaMC/modpack/issues?q=label%3Aprocesso)).
+Quando um script existir, a skill passa a chamá-lo, e o guia mostra o comando
+no mesmo commit.
+
+O mapa entre repositórios do que roda sozinho e do que é feito à mão, com o
+porquê de cada item, está no IunaMC/docs:
+[processos automáticos](https://github.com/IunaMC/docs/blob/main/processo/automatico.md)
+e [processos manuais](https://github.com/IunaMC/docs/blob/main/processo/manual.md).
