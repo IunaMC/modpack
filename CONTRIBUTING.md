@@ -22,7 +22,11 @@ O segundo comando lista os atalhos de rotina. Nenhum publica.
 
 ## Como trabalhar
 
-- Todo trabalho acontece na `devel/devel`. A `main` só recebe a estável, por PR.
+- Pack, scripts e CI: na `devel/devel`, ou numa `devel/<tarefa>` com PR para ela.
+  Documentação que não depende de código: na `docs/docs`, ou numa
+  `docs/<assunto>` com PR para ela. A `main` só recebe PR dessas duas, e um
+  job confere a versão antes do merge
+  ([regras](docs/referencia/versionamento.md#o-que-entra-na-main)).
 - Um commit por mod, assinado (`git commit -S -s`), em Conventional Commits em
   português. As regras completas estão em
   [versionamento](docs/referencia/versionamento.md).

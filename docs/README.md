@@ -14,6 +14,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 | [Atualizar mods](guias/atualizar-mods.md) | — |
 | [Publicar uma beta](guias/publicar-beta.md) | `/beta` |
 | [Publicar a estável](guias/publicar-estavel.md) | `/estavel` |
+| [Publicar documentação](guias/publicar-docs.md) | — |
 | [Arquivos externos](guias/arquivos-externos.md) | — |
 | [Servidor local e teste de boot](guias/servidor-local.md) | `/testar` |
 

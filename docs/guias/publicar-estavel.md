@@ -30,13 +30,22 @@ instalá-la no próximo reinício.
    git push
    ```
 
-3. Abra o PR, com Resumo, Mods, outras mudanças e Testes no corpo:
+3. Abra o PR, com Resumo, Mods, outras mudanças e Testes no corpo. Se a versão
+   for MAJOR, o corpo também leva a frase "MAJOR confirmado":
 
    ```sh
    gh pr create --base main --head devel/devel --title "Versão <versão>: <resumo>"
    ```
 
-4. Faça merge com merge commit,
+4. Espere o job *Entrada na main* ficar verde: sem ele, o GitHub não libera o
+   merge ([regras](../referencia/versionamento.md#o-que-entra-na-main)). Para
+   conferir antes de abrir o PR:
+
+   ```sh
+   python3 scripts/pack.py conferir origin/main HEAD --ramo devel/devel
+   ```
+
+   Depois, faça merge com merge commit,
    [nunca rebase](../decisoes/0002-merge-commit-assinado.md) e nunca apagando
    a branch:
 
