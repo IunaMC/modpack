@@ -1,6 +1,4 @@
-# Mudanças — v3.4.0-beta.1, KubeJS no servidor e quatro shaders novos
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.4.0, KubeJS no servidor e quatro shaders novos
 
 Muda o cliente e o servidor: todo mundo precisa atualizar o pack.
 
