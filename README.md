@@ -474,5 +474,6 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 | [MakeUp - Ultra Fast](https://modrinth.com/mod/izsIPI7a) | `MakeUp-UltraFast-9.6.zip` | Cliente e servidor |
 | [Mellow](https://modrinth.com/mod/BUxf36AP) | `Mellow v3.4.1a.zip` | Cliente e servidor |
 | [Pastel Shaders](https://modrinth.com/mod/BkTdFBUU) | `Pastel-Shaders-Universal-v1.200.zip` | Cliente e servidor |
+| [Super Duper Vanilla](https://modrinth.com/mod/LMIZZNxZ) | `superDuperVanilla.zip` | Cliente e servidor |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->

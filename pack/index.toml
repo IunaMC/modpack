@@ -1814,3 +1814,8 @@ metafile = true
 file = "shaderpacks/pastel-shaders.pw.toml"
 hash = "b84b4f3195286bc9963d91d2a4beff4ee673c50bc8e580fb25129c2553f4d902"
 metafile = true
+
+[[files]]
+file = "shaderpacks/super-duper-vanilla.pw.toml"
+hash = "d3fa8532103db030fbbf0686dea91db06f8323d65117efc43d15d1c237b43df0"
+metafile = true
