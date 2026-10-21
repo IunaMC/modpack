@@ -87,7 +87,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **353 mods**. O jogador recebe 288 (256 obrigatórios e 32 opcionais), e o servidor, 313.
+O pack tem **354 mods**. O jogador recebe 289 (257 obrigatórios e 32 opcionais), e o servidor, 314.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -237,6 +237,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Just Enough Items (JEI)](https://modrinth.com/mod/u6dRKJwZ) | `jei-1.21.1-neoforge-19.57.0.450.jar` | Cliente e servidor |
 | [Konkrete](https://modrinth.com/mod/J81TRJWm) | `konkrete_neoforge_1.9.9_MC_1.21.jar` | Cliente |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) | `kotlinforforge-5.12.0-all.jar` | Cliente e servidor |
+| [KubeJS](https://modrinth.com/mod/umyGl7zF) | `kubejs-neoforge-2101.7.2-build.377.jar` | Cliente e servidor |
 | [L_Ender's Cataclysm](https://modrinth.com/mod/46KJle7n) | `L_Ender's Cataclysm 1.21.1-3.33.jar` | Cliente e servidor |
 | [Lightman's Currency](https://modrinth.com/mod/wvMc8AJt) | `lightmanscurrency-1.21-2.3.0.6.jar` | Cliente e servidor |
 | [Lionfish-API](https://modrinth.com/mod/FoVacERa) | `lionfishapi-3.1.jar` | Cliente e servidor |
