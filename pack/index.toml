@@ -1141,6 +1141,11 @@ hash = "83850a904319a511d512c6fb9990e735d7090b2098db22202ca27650a88ead91"
 metafile = true
 
 [[files]]
+file = "mods/morejs.pw.toml"
+hash = "084f5cdaad9501605b82426c8a8911c0877ca94b9d5a6ece4da113e250ab6a63"
+metafile = true
+
+[[files]]
 file = "mods/mouse-tweaks.pw.toml"
 hash = "1e1e22850900207873db00839b4ee5412f318140d3952c0fa018d5171f20c746"
 metafile = true

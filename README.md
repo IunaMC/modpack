@@ -87,7 +87,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **354 mods**. O jogador recebe 289 (257 obrigatórios e 32 opcionais), e o servidor, 314.
+O pack tem **355 mods**. O jogador recebe 290 (258 obrigatórios e 32 opcionais), e o servidor, 315.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -260,6 +260,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Monsters & Spellbooks: Iron's Spells 'n Spellbooks Addon](https://www.curseforge.com/projects/1428928) | `monsterspellbooks-0.0.16.3.jar` | Cliente e servidor |
 | [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.0-neoforge.jar` | Cliente e servidor |
 | [More Delight (for Farmer's Delight)](https://modrinth.com/mod/znHQQtuU) | `moredelight-26.05.20a-1.21-neoforge.jar` | Cliente e servidor |
+| [MoreJS: KubeJS Addon](https://modrinth.com/mod/mo64mR1W) | `morejs-neoforge-1.21.1-0.16.0.jar` | Cliente e servidor |
 | [Mowzie's Cataclysm](https://modrinth.com/mod/7UsJsd1y) | `mowzies_cataclysm-1.2.2.jar` | Cliente e servidor |
 | [Mowzie's Mobs](https://modrinth.com/mod/BFbX9xcm) | `mowziesmobs-1.21.1-1.8.2.jar` | Cliente e servidor |
 | [MrCrayfish's Furniture Mod: Refurbished](https://www.curseforge.com/projects/897116) | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | Cliente e servidor |
