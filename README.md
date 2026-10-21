@@ -87,7 +87,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 287 (255 obrigatórios e 32 opcionais), e o servidor, 312.
+O pack tem **353 mods**. O jogador recebe 288 (256 obrigatórios e 32 opcionais), e o servidor, 313.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -123,6 +123,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Balm](https://modrinth.com/mod/MBAkmtvl) | `balm-neoforge-1.21.1-21.0.66.jar` | Cliente e servidor |
 | [Barbeque's Delight [Forge/NeoForge]](https://modrinth.com/mod/rtu7uERF) | `barbequesdelight-1.3.0.jar` | Cliente e servidor |
 | [BCLib: New Dawn](https://modrinth.com/mod/7bdKEtKC) | `bclib-21.0.26.jar` | Cliente e servidor |
+| [Better Advanced Tooltips](https://modrinth.com/mod/iHLDc0eo) | `better-advanced-tooltips-2101.1.0-build.5.jar` | Cliente e servidor |
 | [Better Combat](https://modrinth.com/mod/5sy6g3kz) | `bettercombat-neoforge-2.4.0+1.21.1.jar` | Cliente e servidor |
 | [BetterEnd: New Dawn](https://modrinth.com/mod/IcERKldh) | `BetterEnd-21.0.35.jar` | Cliente e servidor |
 | [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G) | `BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar` | Cliente e servidor |

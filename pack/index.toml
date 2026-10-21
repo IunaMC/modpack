@@ -181,6 +181,11 @@ hash = "3c23cf93fc49b516cdf264d8948def073ebac92e987d4ebdb13361802962dc58"
 metafile = true
 
 [[files]]
+file = "mods/better-advanced-tooltips.pw.toml"
+hash = "13fc1dcf13857ad75c23a7d7edef86183ecb11ca116837b933841d06eec87dd2"
+metafile = true
+
+[[files]]
 file = "mods/better-advancements.pw.toml"
 hash = "289f8029fa1f144917a142eb58a6d61aa3c2c995b7bd6de0e4f6f552706e0c59"
 metafile = true
