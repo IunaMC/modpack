@@ -87,7 +87,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **351 mods**. O jogador recebe 286 (254 obrigatórios e 32 opcionais), e o servidor, 311.
+O pack tem **352 mods**. O jogador recebe 287 (255 obrigatórios e 32 opcionais), e o servidor, 312.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -301,6 +301,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [RFTools Base](https://modrinth.com/mod/hIO8IsD8) | `rftoolsbase-1.21-6.0.11.jar` | Cliente e servidor |
 | [RFTools Builder](https://modrinth.com/mod/e0IclJLr) | `rftoolsbuilder-1.21-7.0.7.jar` | Cliente e servidor |
 | [RFTools Utility](https://modrinth.com/mod/7n3HbHSE) | `rftoolsutility-1.21-7.0.12.jar` | Cliente e servidor |
+| [Rhino](https://modrinth.com/mod/sk9knFPE) | `rhino-2101.2.7-build.81.jar` | Cliente e servidor |
 | [Sable](https://modrinth.com/mod/T9PomCSv) | `sable-neoforge-1.21.1-2.0.6.jar` | Cliente e servidor |
 | [SecurityCraft](https://modrinth.com/mod/v8jzRtAt) | `[1.21.1] SecurityCraft v1.10.2.1.jar` | Cliente e servidor |
 | [ShatterLib \| OctoLib](https://modrinth.com/mod/RH2KUdKJ) | `OctoLib-NEOFORGE-0.6.2+1.21.jar` | Cliente e servidor |

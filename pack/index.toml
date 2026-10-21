@@ -1376,6 +1376,11 @@ hash = "396fa9c294a63ce823fdc774dee37e56cf088793da5663764487d6b902dd7b01"
 metafile = true
 
 [[files]]
+file = "mods/rhino.pw.toml"
+hash = "fa24225661b9da4393d157fbf33f7e7b1f442effdeb075325f707f4bf4be75c6"
+metafile = true
+
+[[files]]
 file = "mods/sable.pw.toml"
 hash = "be72861118a9bd8e411681134e926d464644644f2776c70ca5cb3ca727d36b08"
 metafile = true
@@ -1766,6 +1771,30 @@ hash = "c83069db01f0c483a119d1146d0e2e9b2ed6a377beaa8623c0ffeb7a99df5b66"
 metafile = true
 
 [[files]]
+file = "shaderpacks/BSL_v10.1.8.zip"
+hash = "36b0a50ff7918bf10e9422c401d93779f9d0088a26acea975b435243f96930b5"
+
+[[files]]
+file = "shaderpacks/ComplementaryReimagined_r5.9.3.zip"
+hash = "fed6c879e732cf7fc7bc6570ebb1def43235aa7e96f62859fbdbdbfa0b484b38"
+
+[[files]]
+file = "shaderpacks/ComplementaryUnbound_r5.9.3.zip"
+hash = "98ac741dee294d2a3c82d153349148c3bb7fb688c30eb3b49c3b9ac37e968c5a"
+
+[[files]]
+file = "shaderpacks/MakeUp-UltraFast-9.6.zip"
+hash = "71319ea5d0ad114143ef1c334890e315dbf1eeb2318d6bc35f3e5021fb3c8ba8"
+
+[[files]]
+file = "shaderpacks/Mellow v3.4.1a.zip"
+hash = "0f41c30e04e7d482c691c51c5b40d0fd51cebfa5dcf6cb4e8c02b8e1fbe807ad"
+
+[[files]]
+file = "shaderpacks/Pastel-Shaders-Universal-v1.200.zip"
+hash = "72d100aa877177247a6afce644f05c87fd76b341ae78ca549ab0cfec8e86aad1"
+
+[[files]]
 file = "shaderpacks/bsl-shaders.pw.toml"
 hash = "9e7f54a0ff8b28f177aead0fafd6d0bcd493f1ec6133dc406989c87c0791c1e0"
 metafile = true
@@ -1779,3 +1808,7 @@ metafile = true
 file = "shaderpacks/complementary-unbound.pw.toml"
 hash = "37fc37f453cf70faf6ada9363bf49730d96be96ae0155083dc13b2b8595c2981"
 metafile = true
+
+[[files]]
+file = "shaderpacks/superDuperVanilla.zip"
+hash = "c1cd481ac7ec81b6cb82f162b235509568f6f1ab9e416ccfedaee15e79e1a795"
