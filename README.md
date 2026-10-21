@@ -471,6 +471,7 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 | [Complementary Shaders - Reimagined](https://modrinth.com/mod/HVnmMxH1) | `ComplementaryReimagined_r5.9.3.zip` | Cliente |
 | [Complementary Shaders - Unbound](https://modrinth.com/mod/R6NEzAwj) | `ComplementaryUnbound_r5.9.3.zip` | Cliente |
 | [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
+| [MakeUp - Ultra Fast](https://modrinth.com/mod/izsIPI7a) | `MakeUp-UltraFast-9.6.zip` | Cliente e servidor |
 | [Mellow](https://modrinth.com/mod/BUxf36AP) | `Mellow v3.4.1a.zip` | Cliente e servidor |
 | [Pastel Shaders](https://modrinth.com/mod/BkTdFBUU) | `Pastel-Shaders-Universal-v1.200.zip` | Cliente e servidor |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
