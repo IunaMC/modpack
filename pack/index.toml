@@ -1801,6 +1801,11 @@ hash = "37fc37f453cf70faf6ada9363bf49730d96be96ae0155083dc13b2b8595c2981"
 metafile = true
 
 [[files]]
+file = "shaderpacks/mellow.pw.toml"
+hash = "a7b047e2e54f148c104b38380fd2e905247e9dd6f2e68f5f93a2359309425d09"
+metafile = true
+
+[[files]]
 file = "shaderpacks/pastel-shaders.pw.toml"
 hash = "b84b4f3195286bc9963d91d2a4beff4ee673c50bc8e580fb25129c2553f4d902"
 metafile = true
