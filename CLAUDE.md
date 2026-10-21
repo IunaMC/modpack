@@ -11,3 +11,4 @@ Pack IUNA (Minecraft 1.21.1, NeoForge) em packwiz, fonte única do jogador e do 
 - **Modrinth:** a página sai de `modrinth/` (não edite pelo site). Ela é em inglês, com o português recolhível; todo o resto é em português do Brasil.
 - **Documentação:** guias, referência e decisões em `docs/` (índice em `docs/README.md`); regras completas de versão, branch e commit em `docs/referencia/versionamento.md`. O que atravessa repos fica em `IunaMC/docs` (local `../iunamc.docs`), com o padrão de escrita. Mudou skill, workflow ou script: atualize o guia no mesmo commit.
 - **Skills:** `/add-mod`, `/remover-mod`, `/beta`, `/estavel`, `/propagar`, `/testar`, `/spark`. Use a skill da tarefa em vez de fazer à mão.
+- **Modelo:** tarefa mecânica vai para subagente Haiku ou Sonnet com esforço baixo; Opus só para decisão e depuração. Tabela em `docs/referencia/scripts.md#modelo-e-esforço`.
