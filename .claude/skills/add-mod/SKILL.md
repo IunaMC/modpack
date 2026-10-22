@@ -16,13 +16,12 @@ allowed-tools:
   - Bash(packwiz *)
   - Bash(python3 scripts/pack.py *)
   - Bash(python3 scripts/curseforge.py *)
-  - Bash(curl -s https://api.modrinth.com/*)
   - Bash(ls *)
   - Bash(cat *)
   - Bash(grep *)
 ---
 
-Adicione ao pack: `$ARGUMENTS`. O lado vem dos argumentos; sem lado, use o que o Modrinth indicar (passo 3). Só é opcional se "opcional" estiver nos argumentos.
+Adicione ao pack: `$ARGUMENTS`. O lado vem dos argumentos; sem lado, vale o que o `pack.py lado` gravar (passo 3); lado dado nos argumentos vence, ajuste o `side` à mão. Só é opcional se "opcional" estiver nos argumentos.
 
 ## Estado atual
 - Branch: !`git status -sb | head -1`
@@ -32,11 +31,8 @@ Adicione ao pack: `$ARGUMENTS`. O lado vem dos argumentos; sem lado, use o que o
 ## Passos
 1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se não estiver, pare e avise.
 2. `cd pack && packwiz modrinth add <slug> -y`. Aceite as dependências que ele oferecer.
-3. Para cada mod novo, consulte o Modrinth:
-   `curl -s https://api.modrinth.com/v2/project/<slug ou mod-id> | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["title"], d["license"]["id"], "cliente:", d["client_side"], "servidor:", d["server_side"])'`
-   - Lado: `client_side` igual a `unsupported` → `server`; `server_side` igual a `unsupported` → `client`; qualquer outro caso → `both`.
-   - Licença `LicenseRef-All-Rights-Reserved` ou sem licença: avise antes de commitar, porque isso trava a página no Modrinth (ver `modrinth/permissoes.md`).
-4. Ajuste `side` em cada `.pw.toml`. Para mod opcional, copie o bloco `[option]` do exemplo acima, com uma `description` curta em inglês. **Dependência de mod obrigatório nunca é opcional.** Depois, rode `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`.
+3. Para cada mod novo, grave o lado pelo Modrinth: `python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...`. Ele muda o `side` (`client_side` unsupported → `server`; `server_side` unsupported → `client`; senão `both`) e avisa se a licença é All Rights Reserved ou falta: avise o usuário antes de commitar, porque isso trava a página no Modrinth (ver `modrinth/permissoes.md`).
+4. Para mod opcional, copie o bloco `[option]` do exemplo acima, com uma `description` curta em inglês. **Dependência de mod obrigatório nunca é opcional.** Depois, rode `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`.
 5. Todo mod que não é `server` precisa da fonte da CurseForge, senão o pack de lá sai incompleto. Para cada um, ache o Project ID na lateral da página do mod em curseforge.com (procure pelo nome; se não souber, pergunte ao usuário) e rode `python3 scripts/curseforge.py ligar pack/mods/<arquivo>.pw.toml <Project ID>`. Se a CurseForge não tiver o mesmo arquivo, pare e avise: o mod precisa de uma versão que exista nas duas fontes. Depois, `cd pack && packwiz refresh`.
 6. Um commit por item, dependências primeiro, sempre com `git commit -S -s` e sem `Co-Authored-By`:
    - dependência: `feat(deps): adiciona <Nome> <versão>`

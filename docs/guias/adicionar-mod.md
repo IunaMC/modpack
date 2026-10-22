@@ -18,15 +18,21 @@ um commit por item.
    cd pack && packwiz modrinth add <slug> -y && cd ..
    ```
 
-2. Defina o lado de cada mod novo pelo Modrinth
-   (`https://api.modrinth.com/v2/project/<slug>`): `client_side` igual a
-   `unsupported` → `side = "server"`; `server_side` igual a `unsupported` →
-   `side = "client"`; senão, `"both"`. Um mod de conteúdo marcado como
-   `client` ou `server` impede o jogador de entrar no servidor.
+2. Grave o lado de cada mod novo pelo que o Modrinth declara: `client_side`
+   igual a `unsupported` → `side = "server"`; `server_side` igual a
+   `unsupported` → `side = "client"`; senão, `"both"`. O script também avisa
+   da licença (passo 4). Um mod de conteúdo marcado como `client` ou `server`
+   impede o jogador de entrar no servidor.
+
+   ```sh
+   python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...
+   ```
+
 3. Mod opcional ganha o bloco `[option]` com `optional = true` e uma
    `description` curta em inglês. Dependência de mod obrigatório **nunca** é
    opcional.
-4. Licença All Rights Reserved ou sem licença trava a página do Modrinth: veja
+4. Se o `pack.py lado` avisar de licença All Rights Reserved ou ausente, a
+   página do Modrinth trava: veja
    [`modrinth/permissoes.md`](../../modrinth/permissoes.md) antes de seguir.
 5. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
    fica na lateral da página do mod em curseforge.com:
