@@ -17,6 +17,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 | [Propagar uma estável](guias/propagar.md) | `/propagar` |
 | [Publicar documentação](guias/publicar-docs.md) | — |
 | [Arquivos externos](guias/arquivos-externos.md) | — |
+| [Configurações padrão do cliente](guias/configs-do-cliente.md) | — |
 | [Servidor local e teste de boot](guias/servidor-local.md) | `/testar` |
 
 ## Referência
