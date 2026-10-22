@@ -45,6 +45,6 @@ Publique a estável do pack. Versão pedida: `$ARGUMENTS` (vazio = a da beta atu
 3. Saída 3 com "O MUDANCAS.md não tem o título…" ou "ainda tem a linha 'Beta: …'": reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo>`, quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, comparando com a **última estável**, não com as betas, sem a linha "Beta: …". Rode o script de novo.
 4. Saída 3 com "Sem PR aberto": escreva o corpo do PR em um arquivo fora do repo (seções Resumo, Mods, outras mudanças e Testes; sem menção ao Claude) e rode o script com `--corpo <arquivo>`.
 
-10. Se o Release terminou verde, siga direto para a skill `/propagar` com a versão, sem esperar novo pedido: a estável só termina com a moderação e as configs alinhadas.
+5. Se o Release terminou verde, siga direto para a skill `/propagar` (que roda `bash scripts/op.sh propagar <versão>`) com a versão, sem esperar novo pedido: a estável só termina com a moderação e as configs alinhadas.
 
 Responda só com a versão, os links do PR e da release, o status do Modrinth e da CurseForge e o resultado do `/propagar`.

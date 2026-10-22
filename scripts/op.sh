@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Atalhos das tarefas de rotina do pack, para quem opera sem o Claude Code.
-# Cada alvo só junta os comandos dos guias em docs/guias/; só beta e estavel publicam.
+# Cada alvo só junta os comandos dos guias em docs/guias/; só beta, estavel e propagar publicam.
 #
 # Uso: bash scripts/op.sh <alvo>
 #   refresh     packwiz refresh + README + fonte da CurseForge (depois de mexer em mods)
@@ -17,6 +17,10 @@
 #               leva a devel/devel à main: versão, commit, Validar, PR, merge commit, Release e
 #               alinhamento da devel/devel. Para no primeiro passo vermelho. O MUDANCAS.md e o
 #               corpo do PR (--corpo) são seus; depois, rode o /propagar
+#   propagar <versão>
+#               leva a estável à moderação (pack base, commit reassinado, PR, merge, devel/devel)
+#               e ao MODPACK do minecraft-config. Os clones ficam ao lado do modpack
+#               (MODERACAO_DIR e CONFIGS_DIR trocam o caminho)
 #   ci [id]     espera o Validar do commit atual (ou do run <id>) e, se falhar, mostra só o erro
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -217,6 +221,86 @@ estavel() {
   echo "Falta propagar: o /propagar leva a v$versao à moderação e às configs."
 }
 
+# Leva a versão estável do modpack à moderação e às configs. Mexe em dois outros
+# clones, ao lado deste (mesmo a partir de um worktree). Nunca apaga branch.
+propagar() {
+  local versao="${1:-}" mod cfg raiz base branch sha id pr issue
+  [[ "$versao" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Uso: op.sh propagar X.Y.Z" >&2; return 1; }
+  raiz="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
+  mod="${MODERACAO_DIR:-$(dirname "$raiz")/iunamc.modpack-moderacao}"
+  cfg="${CONFIGS_DIR:-$(dirname "$raiz")/iunamc.minecraft-config}"
+  [[ -d "$mod/.git" && -d "$cfg/.git" ]] || { echo "Não achei os clones $mod e $cfg." >&2; return 1; }
+  gh release view "v$versao" --json isPrerelease --jq 'select(.isPrerelease | not)' > /dev/null \
+    || { echo "v$versao não é uma release estável do modpack." >&2; return 1; }
+  for dir in "$mod" "$cfg"; do
+    [[ -z "$(git -C "$dir" status --porcelain)" ]] || { echo "A árvore de $dir não está limpa." >&2; return 1; }
+  done
+
+  # 1. Moderação
+  git -C "$mod" fetch -q --prune
+  base="$(git -C "$mod" show origin/main:base.toml | sed -nE 's/^tag = "(.*)"/\1/p')"
+  if [[ "$base" == "v$versao" ]]; then
+    echo "==> Moderação já está na v$versao."
+  else
+    branch="base/v$versao"
+    if [[ -z "$(git -C "$mod" ls-remote --heads origin "$branch")" ]]; then
+      echo "==> Disparando o Acompanhar pack base"
+      GH_REPO=IunaMC/modpack-moderacao gh workflow run acompanhar-base.yaml
+      sleep 10
+      id="$(GH_REPO=IunaMC/modpack-moderacao gh run list --workflow acompanhar-base.yaml --limit 1 --json databaseId --jq '.[0].databaseId')"
+      GH_REPO=IunaMC/modpack-moderacao gh run watch "$id" --exit-status --interval 15 > /dev/null \
+        || { echo "O Acompanhar pack base falhou: gh run view $id -R IunaMC/modpack-moderacao --log-failed" >&2; return 1; }
+      git -C "$mod" fetch -q --prune
+      [[ -n "$(git -C "$mod" ls-remote --heads origin "$branch")" ]] \
+        || { echo "O workflow não criou a $branch (veja as issues de Pack base na moderação)." >&2; return 1; }
+    fi
+    git -C "$mod" checkout -q -B "$branch" "origin/$branch"
+    # O bot não tem a chave de quem mantém: refaz o commit com a sua.
+    if [[ "$(git -C "$mod" log -1 --format=%G?)" == N ]]; then
+      git -C "$mod" commit --amend --no-edit --reset-author -S -s
+      git -C "$mod" push --force-with-lease origin "$branch"
+    fi
+    sha="$(git -C "$mod" rev-parse HEAD)"
+    pr="$(GH_REPO=IunaMC/modpack-moderacao gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')"
+    if [[ -z "$pr" ]]; then
+      issue="$(GH_REPO=IunaMC/modpack-moderacao gh issue list --state open --search "Pack base v$versao in:title" --json number --jq '.[0].number // empty')"
+      pr="$(GH_REPO=IunaMC/modpack-moderacao gh pr create --base main --head "$branch" --title "Pack base v$versao" \
+              --body "${issue:+Closes #$issue}" | grep -oE '[0-9]+$')"
+    fi
+    echo "==> PR da moderação: $(GH_REPO=IunaMC/modpack-moderacao gh pr view "$pr" --json url --jq .url)"
+    id="$(GH_REPO=IunaMC/modpack-moderacao run_do_commit validar.yaml "$sha")" \
+      || { echo "O Validar da moderação não começou para ${sha:0:7}." >&2; return 2; }
+    GH_REPO=IunaMC/modpack-moderacao gh run watch "$id" --exit-status --interval 15 > /dev/null \
+      || { echo "O Validar da moderação falhou: gh run view $id -R IunaMC/modpack-moderacao --log-failed" >&2; return 1; }
+    echo "--- MUDANCAS.md da moderação:"; git -C "$mod" show "HEAD:MUDANCAS.md" | sed -n 1,20p
+    GH_REPO=IunaMC/modpack-moderacao gh pr merge "$pr" --merge
+    git -C "$mod" fetch -q
+    sha="$(git -C "$mod" rev-parse origin/main)"
+    id="$(GH_REPO=IunaMC/modpack-moderacao run_do_commit release.yaml "$sha")" \
+      || { echo "O Release da moderação não começou." >&2; return 2; }
+    GH_REPO=IunaMC/modpack-moderacao gh run watch "$id" --exit-status --interval 15 > /dev/null \
+      || { echo "O Release da moderação falhou: gh run view $id -R IunaMC/modpack-moderacao --log-failed" >&2; return 1; }
+    git -C "$mod" checkout -q devel/devel
+    git -C "$mod" merge --ff-only origin/main > /dev/null
+    git -C "$mod" push origin devel/devel
+    echo "==> Moderação na v$versao."
+  fi
+
+  # 2. Configs
+  if [[ "$(git -C "$cfg" branch --show-current)" != devel/devel ]]; then
+    echo "O minecraft-config tem que estar na devel/devel." >&2; return 1
+  fi
+  if [[ "$(cat "$cfg/MODPACK")" == "$versao" ]]; then
+    echo "==> Configs já testam com o modpack $versao."
+  else
+    echo "$versao" > "$cfg/MODPACK"
+    git -C "$cfg" commit -S -s -a -m "build: testa com o modpack $versao"
+    git -C "$cfg" push origin devel/devel
+    echo "==> MODPACK das configs em $versao."
+  fi
+  echo "Falta: o /versao do minecraft-config (testa o servidor com o pack novo) e o envio pelo FileZilla."
+}
+
 case "${1:-}" in
   refresh)
     (cd pack && packwiz refresh)
@@ -245,7 +329,9 @@ case "${1:-}" in
     ci "${2:-}" ;;
   estavel)
     estavel "${@:2}" ;;
+  propagar)
+    propagar "${2:-}" ;;
   *)
-    sed -n '2,21p' "$0" | sed 's/^# \{0,1\}//'
+    sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'
     exit 1 ;;
 esac
