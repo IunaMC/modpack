@@ -87,7 +87,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **351 mods**. O jogador recebe 286 (254 obrigatórios e 32 opcionais), e o servidor, 311.
+O pack tem **355 mods**. O jogador recebe 290 (258 obrigatórios e 32 opcionais), e o servidor, 315.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -123,6 +123,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Balm](https://modrinth.com/mod/MBAkmtvl) | `balm-neoforge-1.21.1-21.0.66.jar` | Cliente e servidor |
 | [Barbeque's Delight [Forge/NeoForge]](https://modrinth.com/mod/rtu7uERF) | `barbequesdelight-1.3.0.jar` | Cliente e servidor |
 | [BCLib: New Dawn](https://modrinth.com/mod/7bdKEtKC) | `bclib-21.0.26.jar` | Cliente e servidor |
+| [Better Advanced Tooltips](https://modrinth.com/mod/iHLDc0eo) | `better-advanced-tooltips-2101.1.0-build.5.jar` | Cliente e servidor |
 | [Better Combat](https://modrinth.com/mod/5sy6g3kz) | `bettercombat-neoforge-2.4.0+1.21.1.jar` | Cliente e servidor |
 | [BetterEnd: New Dawn](https://modrinth.com/mod/IcERKldh) | `BetterEnd-21.0.35.jar` | Cliente e servidor |
 | [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G) | `BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar` | Cliente e servidor |
@@ -236,6 +237,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Just Enough Items (JEI)](https://modrinth.com/mod/u6dRKJwZ) | `jei-1.21.1-neoforge-19.57.0.450.jar` | Cliente e servidor |
 | [Konkrete](https://modrinth.com/mod/J81TRJWm) | `konkrete_neoforge_1.9.9_MC_1.21.jar` | Cliente |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) | `kotlinforforge-5.12.0-all.jar` | Cliente e servidor |
+| [KubeJS](https://modrinth.com/mod/umyGl7zF) | `kubejs-neoforge-2101.7.2-build.377.jar` | Cliente e servidor |
 | [L_Ender's Cataclysm](https://modrinth.com/mod/46KJle7n) | `L_Ender's Cataclysm 1.21.1-3.33.jar` | Cliente e servidor |
 | [Lightman's Currency](https://modrinth.com/mod/wvMc8AJt) | `lightmanscurrency-1.21-2.3.0.6.jar` | Cliente e servidor |
 | [Lionfish-API](https://modrinth.com/mod/FoVacERa) | `lionfishapi-3.1.jar` | Cliente e servidor |
@@ -258,6 +260,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Monsters & Spellbooks: Iron's Spells 'n Spellbooks Addon](https://www.curseforge.com/projects/1428928) | `monsterspellbooks-0.0.16.3.jar` | Cliente e servidor |
 | [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.0-neoforge.jar` | Cliente e servidor |
 | [More Delight (for Farmer's Delight)](https://modrinth.com/mod/znHQQtuU) | `moredelight-26.05.20a-1.21-neoforge.jar` | Cliente e servidor |
+| [MoreJS: KubeJS Addon](https://modrinth.com/mod/mo64mR1W) | `morejs-neoforge-1.21.1-0.16.0.jar` | Cliente e servidor |
 | [Mowzie's Cataclysm](https://modrinth.com/mod/7UsJsd1y) | `mowzies_cataclysm-1.2.2.jar` | Cliente e servidor |
 | [Mowzie's Mobs](https://modrinth.com/mod/BFbX9xcm) | `mowziesmobs-1.21.1-1.8.2.jar` | Cliente e servidor |
 | [MrCrayfish's Furniture Mod: Refurbished](https://www.curseforge.com/projects/897116) | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | Cliente e servidor |
@@ -301,6 +304,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [RFTools Base](https://modrinth.com/mod/hIO8IsD8) | `rftoolsbase-1.21-6.0.11.jar` | Cliente e servidor |
 | [RFTools Builder](https://modrinth.com/mod/e0IclJLr) | `rftoolsbuilder-1.21-7.0.7.jar` | Cliente e servidor |
 | [RFTools Utility](https://modrinth.com/mod/7n3HbHSE) | `rftoolsutility-1.21-7.0.12.jar` | Cliente e servidor |
+| [Rhino](https://modrinth.com/mod/sk9knFPE) | `rhino-2101.2.7-build.81.jar` | Cliente e servidor |
 | [Sable](https://modrinth.com/mod/T9PomCSv) | `sable-neoforge-1.21.1-2.0.6.jar` | Cliente e servidor |
 | [SecurityCraft](https://modrinth.com/mod/v8jzRtAt) | `[1.21.1] SecurityCraft v1.10.2.1.jar` | Cliente e servidor |
 | [ShatterLib \| OctoLib](https://modrinth.com/mod/RH2KUdKJ) | `OctoLib-NEOFORGE-0.6.2+1.21.jar` | Cliente e servidor |
@@ -467,5 +471,9 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 | [Complementary Shaders - Reimagined](https://modrinth.com/mod/HVnmMxH1) | `ComplementaryReimagined_r5.9.3.zip` | Cliente |
 | [Complementary Shaders - Unbound](https://modrinth.com/mod/R6NEzAwj) | `ComplementaryUnbound_r5.9.3.zip` | Cliente |
 | [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
+| [MakeUp - Ultra Fast](https://modrinth.com/mod/izsIPI7a) | `MakeUp-UltraFast-9.6.zip` | Cliente e servidor |
+| [Mellow](https://modrinth.com/mod/BUxf36AP) | `Mellow v3.4.1a.zip` | Cliente e servidor |
+| [Pastel Shaders](https://modrinth.com/mod/BkTdFBUU) | `Pastel-Shaders-Universal-v1.200.zip` | Cliente e servidor |
+| [Super Duper Vanilla](https://modrinth.com/mod/LMIZZNxZ) | `superDuperVanilla.zip` | Cliente e servidor |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->

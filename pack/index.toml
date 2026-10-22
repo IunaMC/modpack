@@ -181,6 +181,11 @@ hash = "3c23cf93fc49b516cdf264d8948def073ebac92e987d4ebdb13361802962dc58"
 metafile = true
 
 [[files]]
+file = "mods/better-advanced-tooltips.pw.toml"
+hash = "13fc1dcf13857ad75c23a7d7edef86183ecb11ca116837b933841d06eec87dd2"
+metafile = true
+
+[[files]]
 file = "mods/better-advancements.pw.toml"
 hash = "289f8029fa1f144917a142eb58a6d61aa3c2c995b7bd6de0e4f6f552706e0c59"
 metafile = true
@@ -971,6 +976,11 @@ hash = "d6c8e59f8baafa4c8461f58bce7dde91457c21c6880b75d2ddb763a725f86362"
 metafile = true
 
 [[files]]
+file = "mods/kubejs.pw.toml"
+hash = "99c9c4e23d0556426533f78d22c17d522d318f68b7049547836310c155ddf3be"
+metafile = true
+
+[[files]]
 file = "mods/l_enders-cataclysm.pw.toml"
 hash = "fc3ded2cef9496aba239829a4dfdfc2cfdcd29cc0d96741e65769a6a49f88152"
 metafile = true
@@ -1128,6 +1138,11 @@ metafile = true
 [[files]]
 file = "mods/more-overlays-updated.pw.toml"
 hash = "83850a904319a511d512c6fb9990e735d7090b2098db22202ca27650a88ead91"
+metafile = true
+
+[[files]]
+file = "mods/morejs.pw.toml"
+hash = "084f5cdaad9501605b82426c8a8911c0877ca94b9d5a6ece4da113e250ab6a63"
 metafile = true
 
 [[files]]
@@ -1373,6 +1388,11 @@ metafile = true
 [[files]]
 file = "mods/rftools-utility.pw.toml"
 hash = "396fa9c294a63ce823fdc774dee37e56cf088793da5663764487d6b902dd7b01"
+metafile = true
+
+[[files]]
+file = "mods/rhino.pw.toml"
+hash = "fa24225661b9da4393d157fbf33f7e7b1f442effdeb075325f707f4bf4be75c6"
 metafile = true
 
 [[files]]
@@ -1778,4 +1798,24 @@ metafile = true
 [[files]]
 file = "shaderpacks/complementary-unbound.pw.toml"
 hash = "37fc37f453cf70faf6ada9363bf49730d96be96ae0155083dc13b2b8595c2981"
+metafile = true
+
+[[files]]
+file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
+hash = "d292509114c9a8c37f655fb6a4e0d27da4364aecc318602848010fdfc16ca0cc"
+metafile = true
+
+[[files]]
+file = "shaderpacks/mellow.pw.toml"
+hash = "a7b047e2e54f148c104b38380fd2e905247e9dd6f2e68f5f93a2359309425d09"
+metafile = true
+
+[[files]]
+file = "shaderpacks/pastel-shaders.pw.toml"
+hash = "b84b4f3195286bc9963d91d2a4beff4ee673c50bc8e580fb25129c2553f4d902"
+metafile = true
+
+[[files]]
+file = "shaderpacks/super-duper-vanilla.pw.toml"
+hash = "d3fa8532103db030fbbf0686dea91db06f8323d65117efc43d15d1c237b43df0"
 metafile = true
