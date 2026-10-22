@@ -1,6 +1,14 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/yosbr/config/lambdynlights.toml"
+hash = "46ba345b29c28b078248a023a5c8927e952ce52535e6fc561bb72541e7db334a"
+
+[[files]]
+file = "config/yosbr/config/moreoverlays.toml"
+hash = "194f908ed442e6153e7a65651c0509ab2646b7925d7f000e2c7ac5e875c7199a"
+
+[[files]]
 file = "config/yosbr/options.txt"
 hash = "5a405ab53f62bed6693b9ee69c43e7d8a44697298aa2143284412ba679881d2a"
 
