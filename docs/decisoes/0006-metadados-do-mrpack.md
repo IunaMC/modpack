@@ -14,7 +14,7 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 
 | Campo do índice | Origem no pack | Estado |
 | --- | --- | --- |
-| `name` | `name` do `pack.toml` ("IUNA Modpack") | ok; é o nome padrão da instância ao importar |
+| `name` | `name` do `pack.toml` ("IUNA Mark II") | ok; é o nome padrão da instância ao importar |
 | `versionId` | `version` | ok |
 | `summary` | `description` | **faltava**, agora preenchido |
 | `dependencies` | `[versions]` (minecraft, neoforge) | ok |
@@ -34,8 +34,9 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 
 ## Notas para a instância criada ao importar
 
-- O `name` vira o nome da instância: "IUNA Modpack", enquanto o projeto no
-  Modrinth se chama "IUNA 2". Mudar o `name` é decisão pendente.
+- O `name` vira o nome da instância: "IUNA Mark II" (marco da segunda
+  temporada). O projeto no Modrinth ainda se chama "IUNA 2", nome que é
+  independente do `pack.toml`.
 - Só `overrides/` e `client-overrides/` são aplicados ao cliente; o
   `server-overrides/` é ignorado por launchers e o workflow o tira do arquivo.
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`

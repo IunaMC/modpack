@@ -1,4 +1,4 @@
-# IUNA Modpack
+# IUNA Mark II
 
 Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.253**.
 
