@@ -14,7 +14,7 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 
 | Campo do índice | Origem no pack | Estado |
 | --- | --- | --- |
-| `name` | `name` do `pack.toml` ("IUNA Modpack") | ok; é o nome padrão da instância ao importar |
+| `name` | `name` do `pack.toml` ("IUNA Mark II") | ok; é o nome padrão da instância ao importar |
 | `versionId` | `version` | ok |
 | `summary` | `description` | **faltava**, agora preenchido |
 | `dependencies` | `[versions]` (minecraft, neoforge) | ok |
@@ -34,12 +34,18 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 
 ## Notas para a instância criada ao importar
 
-- O `name` vira o nome da instância: "IUNA Modpack", enquanto o projeto no
-  Modrinth se chama "IUNA 2". Mudar o `name` é decisão pendente.
+- O `name` vira o nome da instância: "IUNA Mark II" (marco da segunda
+  temporada). O projeto no Modrinth ainda se chama "IUNA 2", nome que é
+  independente do `pack.toml`.
 - Só `overrides/` e `client-overrides/` são aplicados ao cliente; o
   `server-overrides/` é ignorado por launchers e o workflow o tira do arquivo.
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`
   não tem `config/`, `options.txt` nem `servers.dat`: qualquer um desses entra
   como arquivo no `pack/` (packwiz o põe em `overrides/`).
+- `servers.dat` com o servidor (`jogar.iuna.club`, nome "IUNA") fica em
+  `pack/config/yosbr/servers.dat`. O YOSBR o copia para a raiz da instância
+  só na primeira abertura e nunca sobrescreve, então a lista do jogador
+  sobrevive às atualizações. Em `overrides/` direto, cada atualização
+  apagaria os servidores que ele adicionou. Decidido em 22/10/2026.
 - `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
   pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.
