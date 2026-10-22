@@ -36,59 +36,18 @@ O Summary tem 85 caracteres, bem abaixo do limite.
 
 ## Description
 
-Editor em **Markdown**. Cole a saída de:
+Editor em **Markdown**. A descrição é própria da CurseForge, em
+[`descricao.md`](descricao.md), e **não** é gerada da do Modrinth: as duas
+começam parecidas, mas cada plataforma tem a sua instalação, os seus mods
+(aqui entram Twilight Forest e Mob Grinding Utils) e os seus créditos. Mudou o
+pack, atualize as duas à mão. Para colar:
 
 ```sh
 python3 scripts/curseforge.py descricao
 ```
 
-Ela é o [`../modrinth/descricao.en.md`](../modrinth/descricao.en.md) sem o
-`# IUNA` do topo, com as trocas da seção seguinte. Depois de colar, rode
-`python3 scripts/curseforge.py descricao --marcar` e faça o commit do
-`descricao.sha256`.
-
-O que a descrição cobre hoje: o pack (Minecraft 1.21.1, NeoForge), a contagem
-de mods, o aviso de que o servidor é fechado, as categorias de conteúdo
-(tecnologia, magia, exploração com Twilight Forest, combate, comida,
-construção, convivência, desempenho), os sete shaders e os dois resource packs,
-o KubeJS, os mods opcionais, requisitos, singleplayer, versões e créditos. O
-português (`modrinth/descricao.md`) não vai para a CurseForge, que só recebe o
-inglês.
-
-## Trechos trocados na descrição
-
-O `curseforge.py descricao` faz duas trocas no texto do Modrinth, nos blocos
-abaixo, nesta ordem:
-
-1. O primeiro bloco **substitui** a seção `## Installation` inteira (a do
-   Modrinth fala de Modrinth App e `.mrpack`; na CurseForge o caminho é outro).
-2. O segundo entra **antes** de `## Links`. Só é obrigatório se algum mod for no
-   `overrides/` (mod de fora da CurseForge). Hoje a lista está vazia.
-
-```md
-## Installation
-
-**CurseForge app:** click **Install** on this page, or search for "IUNA" in the
-Minecraft modpacks tab.
-
-**Prism Launcher:** *Add Instance → CurseForge*, search for "IUNA" and pick the
-version. You can also download the `.zip` from *Files* and use *Add Instance →
-Import*.
-
-The launcher installs NeoForge and downloads the mods for you. Unlike the
-Modrinth version, this one includes The Twilight Forest and Mob Grinding Utils.
-
-**To update,** the safest way is to create a new instance with the new
-version. If the first number changes (from 3.x to 4.0, for example), the
-server world is new as well. To keep your worlds, screenshots and settings,
-copy the `saves`, `screenshots` and `config` folders from the old instance.
-```
-
-```md
-## Credits for mods not hosted on CurseForge
-
-This pack includes the following mods from outside CurseForge, with thanks to
-their authors:
-
-- (none)
-```
+Depois de colar, rode `python3 scripts/curseforge.py descricao --marcar` e faça
+o commit do `descricao.sha256`. O português não vai para a CurseForge, que só
+recebe o inglês. Se algum mod for no `overrides/` (de fora da CurseForge), a
+seção "Credits for mods not hosted on CurseForge" do `descricao.md` lista cada
+um; hoje ela diz que não há nenhum.

@@ -116,7 +116,7 @@ copy the `saves`, `screenshots` and `config` folders from the old instance.
 
 ## Requirements
 
-- **Java 21.** Modrinth App, CurseForge app and Prism download it for you.
+- **Java 21.** The Modrinth App and Prism download it for you.
 - **Memory:** we recommend allocating **8 GB** of RAM to the game (6 GB
   minimum). With shaders or many visual mods, 10 GB. Your computer also needs
   spare RAM for the system.
