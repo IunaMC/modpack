@@ -16,7 +16,7 @@ Por isso a mudança de um padrão não alcança quem já tem o arquivo.
 
 - **`options.txt`:** gráficos leves (`graphicsMode` rápido, nuvens rápidas,
   `biomeBlendRadius` 1, `entityDistanceScaling` 0,75, `simulationDistance` 8,
-  V-Sync desligado), dicas avançadas nos itens, sem tutorial, . Volume, FOV, sensibilidade, resource
+  V-Sync desligado), dicas avançadas nos itens, sem tutorial. Volume, FOV, sensibilidade, resource
   packs e idioma ficam por conta do jogador.
 - **LambDynamicLights:** `mode = "fast"`, com menos atualizações de luz.
 - **More Overlays:** `update_interval_frames = 4`, para o scanner de luz.
