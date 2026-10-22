@@ -2,8 +2,9 @@ name: Discord · commits
 
 # Avisa no canal de commits do Discord quando algo entra na main ou na
 # devel/devel. O webhook fica no secret DISCORD_WEBHOOK_COMMIT; sem ele o
-# workflow pula sozinho. A mensagem é um embed no estilo do webhook nativo do
-# GitHub (autor, título com repo e branch, um commit por linha, até 8),
+# workflow pula sozinho. Cada commit vira uma mensagem com um embed no estilo do webhook
+# nativo do GitHub (autor, título com repo e branch, hash e título do commit;
+# no máximo 10 por push, o resto vira um aviso),
 # montado aqui com jq e enviado por curl: sem action de terceiros recebendo o
 # webhook e sem menções (allowed_mentions vazio).
 on:
@@ -26,24 +27,36 @@ jobs:
           DISCORD_WEBHOOK_COMMIT: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
         run: |
           [ -n "$DISCORD_WEBHOOK_COMMIT" ] || exit 0
-          [ "$(jq '.commits | length' "$GITHUB_EVENT_PATH")" -gt 0 ] || exit 0
-          jq '
-            (.commits | length) as $n
-            | (.ref | sub("refs/heads/"; "")) as $branch
-            | {
+          total=$(jq '.commits | length' "$GITHUB_EVENT_PATH")
+          [ "$total" -gt 0 ] || exit 0
+          # Um payload por linha: um por commit (até 10) e, se passar disso, um aviso.
+          jq -c '
+            (.ref | sub("refs/heads/"; "")) as $branch
+            | .repository.name as $repo
+            | (.commits | length) as $n
+            | .compare as $compare
+            | .sender as $sender
+            | (.commits[:10][] | {
                 username: "IUNA · commits",
                 allowed_mentions: {parse: []},
                 embeds: [{
                   color: 7506394,
-                  author: {name: .sender.login, icon_url: .sender.avatar_url, url: .sender.html_url},
-                  title: "[\(.repository.name):\($branch)] \($n) \(if $n == 1 then "novo commit" else "novos commits" end)",
-                  url: .compare,
-                  description: (
-                    [.commits[:8][] | "[`\(.id[:7])`](\(.url)) \(.message | split("\n")[0]) - \(.author.name)"]
-                    + (if $n > 8 then ["… e mais \($n - 8)"] else [] end)
-                    | join("\n") | .[:4000]
-                  )
+                  author: {
+                    name: (.author.username // .author.name),
+                    icon_url: (if .author.username then "https://github.com/\(.author.username).png" else $sender.avatar_url end),
+                    url: (if .author.username then "https://github.com/\(.author.username)" else $sender.html_url end)
+                  },
+                  title: "[\($repo):\($branch)] novo commit",
+                  url: .url,
+                  description: "[`\(.id[:7])`](\(.url)) \(.message | split("\n")[0] | .[:300])"
                 }]
-              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
-          curl -fsS -H 'Content-Type: application/json' \
-            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_COMMIT"
+              }),
+              (if $n > 10 then {
+                username: "IUNA · commits",
+                allowed_mentions: {parse: []},
+                embeds: [{color: 7506394, title: "[\($repo):\($branch)] … e mais \($n - 10) commits", url: $compare}]
+              } else empty end)' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embeds.jsonl"
+          while IFS= read -r payload; do
+            curl -fsS -H 'Content-Type: application/json' -d "$payload" "$DISCORD_WEBHOOK_COMMIT"
+            sleep 1  # o Discord limita a poucas mensagens por segundo por webhook
+          done < "$RUNNER_TEMP/embeds.jsonl"

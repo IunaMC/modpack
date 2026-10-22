@@ -12,7 +12,7 @@ Os workflows deste repositório e o que roda igual na sua máquina.
 | [Regras do Claude](../../.github/workflows/regras-claude.yaml) | Push ou PR que muda o `CLAUDE.md`; manual | Baixa o texto oficial e o script do IunaMC/docs (`main`) e confere se o bloco de regras comuns do `CLAUDE.md` é igual | `python3 ../iunamc.docs/scripts/regras-comuns.py conferir` |
 | [Atualizações de mods](../../.github/workflows/atualizacoes.yaml) | Segunda, 10h23 UTC; manual | Issue com os mods que têm versão nova | `cd pack && packwiz update --all`, `git diff`, depois `git checkout pack/` |
 | [Resumo semanal](../../.github/workflows/resumo.yaml) | Segunda, 10h53 UTC; manual | Issue "Resumo semanal" com o estado dos três repositórios e a validade dos tokens | `bash scripts/op.sh resumo` |
-| [Discord · commits](../../.github/workflows/discord-commits.yaml) | Push na `main` ou na `devel/devel` | Avisa no canal de commits do Discord, em embed, os títulos dos commits (até 8) e o link da comparação | Não tem |
+| [Discord · commits](../../.github/workflows/discord-commits.yaml) | Push na `main` ou na `devel/devel` | Avisa no canal de commits do Discord um embed por commit (até 10 por push), com autor, hash, título e link do commit | Não tem |
 | [Discord · workflows](../../.github/workflows/discord-workflows.yaml) | Fim de outro workflow (sucesso, falha ou tempo esgotado) | Avisa no canal de workflows, em embed, o resultado, a branch e o link da execução. Só dispara com o arquivo na `main` | Não tem |
 
 O aviso da release no canal de releases do Discord é um passo do próprio
