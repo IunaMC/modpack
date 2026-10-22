@@ -108,8 +108,14 @@ caso algum dia voltem para o arquivo.
   a frase e manter o pedido ao autor como plano B.
 - **Faltam 2 do jogador, e ficam assim por decisão:** Mob Grinding Utils
   (pedido sem resposta) e The Twilight Forest (equipe recusa). Os dois
-  continuam no pack, porque o objetivo é o `.mrpack` completo. Por isso as
-  versões no Modrinth ficam retidas, e a distribuição é pelo GitHub.
+  continuam no pack, mas desde a [decisão 0007](../docs/decisoes/0007-mrpack-reduzido-no-modrinth.md)
+  saem do `.mrpack` enviado ao Modrinth (`[[reduzido.fora]]` em
+  [`projeto.toml`](projeto.toml)), e a página explica como adicioná-los. Assim
+  o `.mrpack` do Modrinth fica com 12 arquivos externos, todos resolvidos. As
+  versões antigas, que ainda os embutem, saem com `scripts/modrinth.py limpar`.
+- **Mods e shaders baixados de `cdn.modrinth.com` não passam por aqui,** nem
+  os All Rights Reserved, como Pastel Shaders e Super Duper Vanilla: o
+  `.mrpack` só faz referência ao arquivo hospedado no próprio Modrinth.
 - **Os 3 mods All Rights Reserved do servidor** (Cupboard, Fast Async World
   Save e Smooth Chunk Save, do autor someaddon) já não vão no `.mrpack`, nem
   no do GitHub nem no do Modrinth. Nada a fazer.

@@ -21,10 +21,19 @@ merge na `main`; não edite no site, porque o próximo push desfaz.
   imagens são reconhecidas pelo conteúdo: trocar um arquivo envia a imagem nova
   e apaga a antiga.
 - **Versões:** o workflow [`Release`](../.github/workflows/release.yaml), depois
-  de criar a release no GitHub, envia o mesmo `.mrpack` ao Modrinth, com as
-  notas da release como changelog. Se a versão já estiver lá, pula. Se o envio
-  falhar, rode o workflow de novo pela aba Actions: ele reaproveita a release
-  do GitHub e só tenta o Modrinth.
+  de criar a release no GitHub, gera o `.mrpack` **reduzido**
+  (`IUNA-<versão>-modrinth.mrpack`) e o envia ao Modrinth, com as notas da
+  release como changelog. Se a versão já estiver lá, pula. Se o envio falhar,
+  rode o workflow de novo pela aba Actions: ele reaproveita a release do GitHub
+  e só tenta o Modrinth.
+- **Reduzido:** o Modrinth não aceita a redistribuição de alguns mods do pack.
+  O `.mrpack` dele sai do completo sem os jars listados em `[[reduzido.fora]]`
+  do [`projeto.toml`](projeto.toml), e só isso muda
+  ([decisão 0007](../docs/decisoes/0007-mrpack-reduzido-no-modrinth.md)). O
+  GitHub, a CurseForge e o servidor seguem com o pack completo. O changelog de
+  cada versão ganha a seção "Not included in this file", com o arquivo exato
+  de cada mod na CurseForge, e o `verificar` exige o nome de cada um na
+  abertura das duas descrições.
 - Sem o secret `MODRINTH_TOKEN`, os dois workflows avisam e não enviam nada.
 
 Para testar localmente, com o token em `MODRINTH_TOKEN` ou em
@@ -33,7 +42,14 @@ Para testar localmente, com o token em `MODRINTH_TOKEN` ou em
 ```sh
 python3 scripts/modrinth.py verificar               # confere esta pasta, sem rede
 python3 scripts/modrinth.py sincronizar --simular   # mostra o que mudaria na página
+python3 scripts/modrinth.py reduzir IUNA.mrpack IUNA-modrinth.mrpack   # gera o reduzido
+python3 scripts/modrinth.py limpar                  # versões completas que ainda estão no Modrinth
 ```
+
+O `limpar` lista as versões cujo arquivo não é o reduzido. Elas embutem os
+mods sem permissão e travam a moderação do projeto. Com `--apagar`, ele as
+apaga, e isso não tem volta. Ele só apaga se já houver uma versão reduzida no
+Modrinth. Rode você mesmo, depois de conferir a lista.
 
 ## O que continua no site
 

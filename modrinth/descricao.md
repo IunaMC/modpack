@@ -5,6 +5,18 @@ O **IUNA** é o modpack da comunidade **IunaMC**: Minecraft **1.21.1** com
 feito para jogar em grupo. Ele foi montado para o servidor da comunidade, mas
 você pode instalar e jogar sozinho.
 
+> **Dois mods não vêm no arquivo do Modrinth.** **The Twilight Forest** e
+> **Mob Grinding Utils** não permitem a redistribuição pelo Modrinth, então
+> você os adiciona da CurseForge, em geral pelo próprio launcher. Sem eles o
+> jogo não abre, porque o Twilight Forest – Dungeons & Villages, que vem no
+> pack, depende do The Twilight Forest. O changelog de cada versão diz o
+> arquivo exato de cada mod, e a [Instalação](#instalação) mostra como
+> adicionar.
+>
+> O pack completo, sem nada para adicionar, está na
+> [CurseForge](https://www.curseforge.com/projects/1752945) e no
+> [GitHub](https://github.com/IunaMC/modpack/releases/latest).
+
 Na versão 3.4.0 o jogador recebe **290 mods**: 258 obrigatórios e 32 opcionais,
 que você escolhe na instalação, mais 2 resource packs e 7 shaders.
 
@@ -108,6 +120,19 @@ versão. Também dá para baixar o `.mrpack` em *Versions* e usar *Add Instance
 
 O launcher instala o NeoForge e baixa os mods sozinho.
 
+**Depois, adicione o The Twilight Forest e o Mob Grinding Utils** da
+CurseForge, nas versões que o changelog indica:
+
+- **Prism Launcher** (recomendado): *Edit → Mods → Download mods*, abra a aba
+  **CurseForge**, procure cada mod e escolha o arquivo indicado.
+- **Modrinth App:** ele só busca no Modrinth, então baixe cada `.jar` pelos
+  links do changelog e ponha na pasta `mods` da instância (*⋮ → Abrir pasta*).
+- **Outros launchers:** se o seu busca na CurseForge, adicione como no Prism;
+  se não, use a pasta `mods`.
+
+Quando o pack atualizar, confira o changelog: se o arquivo de algum dos dois
+mudou, atualize pelo launcher ou troque o `.jar` antigo.
+
 **Para atualizar,** o mais seguro é criar uma instância nova com a versão nova. Se a versão
 nova mudar o primeiro número (de 3.x para 4.0, por exemplo), o mundo do
 servidor também é novo. Para levar seus mundos, prints e configurações, copie
@@ -143,11 +168,12 @@ A lista completa, com o link de cada mod, está no
 [README do repositório](https://github.com/IunaMC/modpack#mods).
 
 Alguns mods vêm do CurseForge e vão dentro do pack, com a licença ou a
-permissão de cada autor:
+permissão de cada autor. O The Twilight Forest e o Mob Grinding Utils são a
+exceção: não vêm no arquivo do Modrinth, e você os adiciona.
 
 | Mod | Autor(es) | Licença |
 | --- | --- | --- |
-| [The Twilight Forest](https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest) | Benimatic e Team Twilight | LGPL 2.1 |
+| [The Twilight Forest](https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest) | Benimatic e Team Twilight | LGPL 2.1; sons e estruturas All Rights Reserved. **Não vem aqui** |
 | [Ice and Fire Community Edition](https://www.curseforge.com/minecraft/mc-mods/iceandfire-ce) | IAFEnvoy e equipe | LGPL 3.0 |
 | [Uranus](https://www.curseforge.com/minecraft/mc-mods/uranus) | IAFEnvoy | LGPL 3.0 |
 | [Flux Networks](https://www.curseforge.com/minecraft/mc-mods/flux-networks) | Sonar Sonic e BloCamLimb | MIT |
@@ -160,7 +186,7 @@ permissão de cada autor:
 | [Monsters & Spellbooks](https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss) | RedReaper | MIT |
 | [Astral Sorcery](https://www.curseforge.com/minecraft/mc-mods/astral-sorcery) | HellFirePvP | Licença própria, que permite modpacks distribuírem o jar |
 | [Fire's Ender Expansion](https://www.curseforge.com/minecraft/mc-mods/fires-ender-expansion) | Fire | Permissão do autor ([issue](https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4)) |
-| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 e flanks255 | Permissão pedida ao autor |
+| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 e flanks255 | All Rights Reserved. **Não vem aqui** |
 
 A licença do IUNA vale só para os arquivos feitos pelo IunaMC. Cada mod
 mantém a licença do seu autor.

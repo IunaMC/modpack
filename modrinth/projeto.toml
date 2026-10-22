@@ -46,3 +46,15 @@ arquivo = "imagens/banner.png"
 titulo = "IUNA Mark II"
 descricao = ""
 destaque = true
+
+# Mods que o .mrpack do Modrinth não leva, porque o autor não permite a
+# redistribuição por lá (decisão 0007). O pack, o GitHub, a CurseForge e o
+# servidor seguem completos. Cada um precisa estar citado nas duas descrições;
+# o changelog de cada versão recebe o link do arquivo exato.
+[[reduzido.fora]]
+pw = "the-twilight-forest"
+curseforge = "https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest"
+
+[[reduzido.fora]]
+pw = "mob-grinding-utils"
+curseforge = "https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils"

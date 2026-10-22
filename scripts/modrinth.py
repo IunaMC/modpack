@@ -7,10 +7,13 @@ Modrinth leem o token de MODRINTH_TOKEN; sem ele, avisam e saem sem erro.
 Uso:
   python3 scripts/modrinth.py verificar                      # confere modrinth/ sem acessar a rede
   python3 scripts/modrinth.py sincronizar [--simular]        # aplica nome, textos, links, ícone e galeria
+  python3 scripts/modrinth.py reduzir <completo.mrpack> <reduzido.mrpack>
+                                                             # tira os mods de [[reduzido.fora]]
   python3 scripts/modrinth.py publicar <versão> <.mrpack> <notas.md> [--simular]
-                                                             # envia a versão, se ainda não existir
+                                                             # envia a versão reduzida, se ainda não existir
+  python3 scripts/modrinth.py limpar [--apagar]              # lista (ou apaga) as versões completas antigas
 
---simular mostra o que mudaria, sem mudar nada.
+--simular mostra o que mudaria, sem mudar nada. O limpar só apaga com --apagar.
 """
 import hashlib
 import json
@@ -27,6 +30,9 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 PASTA = RAIZ / "modrinth"
+PACK = RAIZ / "pack"
+# O .mrpack reduzido termina assim; o limpar reconhece as versões por isso.
+SUFIXO = "-modrinth.mrpack"
 API = "https://api.modrinth.com/v2"
 REPO = os.environ.get("GITHUB_REPOSITORY", "IunaMC/modpack")
 AGENTE = f"{REPO} (github.com/{REPO})"
@@ -55,6 +61,18 @@ def sem_titulo(texto):
 
 def vazio(valor):
     return valor or None
+
+
+def fora(cfg=None):
+    """Mods que o .mrpack do Modrinth não leva, com o arquivo de cada um."""
+    lista = []
+    for item in (cfg or config()).get("reduzido", {}).get("fora", []):
+        caminho = PACK / "mods" / f"{item['pw']}.pw.toml"
+        pw = tomllib.loads(caminho.read_text()) if caminho.is_file() else {}
+        cf = pw.get("update", {}).get("curseforge", {})
+        lista.append({**item, "caminho": caminho, "existe": caminho.is_file(), "nome": pw.get("name", item["pw"]),
+                      "arquivo": pw.get("filename"), "file_id": cf.get("file-id")})
+    return lista
 
 
 # --- verificar ---------------------------------------------------------------
@@ -106,6 +124,20 @@ def verificar():
         if rel := cfg["descricao"].get(chave):
             if not (PASTA / rel).is_file():
                 erros.append(f"descricao.{chave}: {rel} não existe")
+
+    # A página não pode esconder o corte: cada mod de fora aparece na abertura
+    # (antes da primeira seção) das duas descrições, não só nos créditos.
+    textos = [(PASTA / cfg["descricao"][c]).read_text().split("\n## ")[0] for c in ("principal", "traducao")
+              if cfg["descricao"].get(c) and (PASTA / cfg["descricao"][c]).is_file()]
+    for mod in fora(cfg):
+        if not mod["existe"]:
+            erros.append(f"reduzido.fora: pack/mods/{mod['pw']}.pw.toml não existe; tire o item da lista")
+        elif not mod["file_id"]:
+            erros.append(f"reduzido.fora: {mod['pw']} não tem [update.curseforge]")
+        if not mod.get("curseforge", "").startswith("https://www.curseforge.com/"):
+            erros.append(f"reduzido.fora: {mod['pw']} precisa do link da página na CurseForge")
+        if any(mod["nome"] not in texto for texto in textos):
+            erros.append(f"descrição: {mod['nome']} fica fora do .mrpack do Modrinth e precisa ser citado na abertura das duas descrições")
     if not erros:
         corpo = montar_corpo(cfg, None)
         if len(corpo) > 65536:
@@ -258,6 +290,48 @@ def sincronizar(simular):
         print("campos do projeto: nada mudou")
 
 
+# --- reduzir -----------------------------------------------------------------
+
+def reduzir(entrada, saida):
+    """Copia o .mrpack completo sem os jars dos mods de [[reduzido.fora]]."""
+    entrada, saida = Path(entrada), Path(saida)
+    mods = fora()
+    tirar = {f"overrides/mods/{m['arquivo']}" for m in mods}
+    erros = [f"{m['pw']}: pack/mods/{m['pw']}.pw.toml não existe" for m in mods if not m["existe"]]
+    with zipfile.ZipFile(entrada) as z:
+        nomes = set(z.namelist())
+        erros += [f"{nome} não está em {entrada.name}" for nome in sorted(tirar - nomes)]
+        if erros:
+            for erro in erros:
+                print(f"::error file=modrinth/projeto.toml::reduzido.fora: {erro}")
+            sys.exit(1)
+        with zipfile.ZipFile(saida, "w", zipfile.ZIP_DEFLATED) as nova:
+            for info in z.infolist():
+                if info.filename not in tirar:
+                    nova.writestr(info, z.read(info))
+    for m in mods:
+        print(f"fora do .mrpack do Modrinth: {m['nome']} ({m['arquivo']})")
+    print(f"{saida.name}: {saida.stat().st_size // 1024} KiB (o completo tem {entrada.stat().st_size // 1024} KiB)")
+
+
+def fora_do_arquivo(mods):
+    """Seção do changelog com o arquivo exato de cada mod que se baixa à parte."""
+    linhas = [
+        "## Not included in this file · Fora deste arquivo",
+        "",
+        "These mods don't allow redistribution through Modrinth. Add the exact files below from "
+        "CurseForge, or the game will not start. In Prism Launcher: *Edit → Mods → Download mods → "
+        "CurseForge*. In the Modrinth App, download the `.jar` and put it in the instance's `mods` folder.",
+        "",
+        "Estes mods não permitem a redistribuição pelo Modrinth. Adicione da CurseForge os arquivos "
+        "abaixo, ou o jogo não abre. No Prism Launcher: *Edit → Mods → Download mods → CurseForge*. "
+        "No Modrinth App, baixe o `.jar` e ponha na pasta `mods` da instância.",
+        "",
+    ]
+    linhas += [f"- [{m['nome']}]({m['curseforge'].rstrip('/')}/files/{m['file_id']}): `{m['arquivo']}`" for m in mods]
+    return "\n".join(linhas) + "\n"
+
+
 # --- publicar ----------------------------------------------------------------
 
 def multipart(dados, arquivo, nome_arquivo, tipo):
@@ -277,6 +351,17 @@ def publicar(versao, mrpack, notas, simular):
     with zipfile.ZipFile(mrpack) as z:
         indice = json.loads(z.read("modrinth.index.json"))
         embutidos = [n for n in z.namelist() if n.startswith("overrides/mods/") and n.endswith(".jar")]
+    # O Modrinth só recebe o reduzido: nenhum jar de fora pode ter ficado.
+    mods = fora(cfg)
+    if sobra := [m["nome"] for m in mods if f"overrides/mods/{m['arquivo']}" in embutidos]:
+        print(f"::error::{mrpack.name} ainda tem {', '.join(sobra)}. Gere o arquivo com: python3 scripts/modrinth.py reduzir")
+        sys.exit(1)
+    if not mrpack.name.endswith(SUFIXO):
+        print(f"::error::{mrpack.name}: o .mrpack do Modrinth precisa terminar em {SUFIXO}")
+        sys.exit(1)
+    changelog = notas.read_text()
+    if mods:
+        changelog = changelog.rstrip() + "\n\n" + fora_do_arquivo(mods)
     deps = indice["dependencies"]
     loaders = [nome.removesuffix("-loader") for nome in deps if nome != "minecraft"]
     externos = [f["path"] for f in indice["files"]
@@ -286,7 +371,7 @@ def publicar(versao, mrpack, notas, simular):
         "project_id": cfg["id"],
         "name": cfg.get("versao", {}).get("nome", "IUNA {versao}").format(versao=versao),
         "version_number": versao,
-        "changelog": notas.read_text(),
+        "changelog": changelog,
         "dependencies": [],
         "game_versions": [deps["minecraft"]],
         "loaders": loaders,
@@ -299,6 +384,7 @@ def publicar(versao, mrpack, notas, simular):
     }
     print(f"versão {versao} ({tipo}), {', '.join(loaders)} {deps['minecraft']}, {mrpack.name}")
     print(f"arquivos de fora do Modrinth: {len(embutidos)} embutidos e {len(externos)} baixados de outro site")
+    print(f"mods que se baixam à parte: {', '.join(m['nome'] for m in mods) or 'nenhum'}")
     if not exigir_token():
         return
     if any(v["version_number"] == versao for v in chamar("GET", f"/project/{cfg['id']}/version")):
@@ -326,15 +412,49 @@ def publicar(versao, mrpack, notas, simular):
           "que ainda não está na página Permissions, ela fica retida até alguém marcar a permissão no site.")
 
 
+# --- limpar ------------------------------------------------------------------
+
+def limpar(apagar):
+    """Versões cujo arquivo não é o reduzido: embutem mods sem permissão e travam a moderação."""
+    if not exigir_token():
+        return
+    pid = config()["id"]
+    versoes = chamar("GET", f"/project/{pid}/version", consulta={"include_changelog": "false"})
+
+    def principal(v):
+        return next((f["filename"] for f in v["files"] if f.get("primary")), v["files"][0]["filename"] if v["files"] else "")
+
+    reduzidas = [v for v in versoes if principal(v).endswith(SUFIXO)]
+    antigas = [v for v in versoes if not principal(v).endswith(SUFIXO)]
+    print(f"{len(versoes)} versões no Modrinth: {len(reduzidas)} reduzidas e {len(antigas)} completas")
+    for v in antigas:
+        print(f"  {v['version_number']} ({principal(v)}, {v['date_published'][:10]})")
+    if not antigas:
+        return
+    if not reduzidas:
+        print("::warning::Nenhuma versão reduzida no Modrinth ainda. Publique uma antes de apagar as completas.")
+        return
+    if not apagar:
+        print("Nada foi apagado. Para apagar estas versões (não tem volta): python3 scripts/modrinth.py limpar --apagar")
+        return
+    for v in antigas:
+        chamar("DELETE", f"/version/{v['id']}")
+        print(f"apagada: {v['version_number']}")
+
+
 def main():
-    args = [a for a in sys.argv[1:] if a != "--simular"]
+    args = [a for a in sys.argv[1:] if a not in ("--simular", "--apagar")]
     simular = "--simular" in sys.argv
     if args == ["verificar"]:
         verificar()
     elif args == ["sincronizar"]:
         sincronizar(simular)
+    elif len(args) == 3 and args[0] == "reduzir":
+        reduzir(*args[1:])
     elif len(args) == 4 and args[0] == "publicar":
         publicar(*args[1:], simular)
+    elif args == ["limpar"]:
+        limpar("--apagar" in sys.argv)
     else:
         sys.exit(__doc__)
 
