@@ -1721,6 +1721,11 @@ hash = "9495a0ec606f03e63042a545599758cee39126ee50f1eddb90556196ad010f61"
 metafile = true
 
 [[files]]
+file = "mods/yosbr.pw.toml"
+hash = "9a8e1349f25b2f7f7cf61d03f8a2cc8f8f38f156aeab683f9c9359dcdc3cc3ec"
+metafile = true
+
+[[files]]
 file = "mods/yungs-api.pw.toml"
 hash = "317189130fb199f28191f1993c58d3cb35a588b76366fa03f0ef28b654284504"
 metafile = true
