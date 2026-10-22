@@ -38,6 +38,22 @@ IA. O que é mecânico vai virar script, com uma issue por script (etiqueta
 Quando um script existir, a skill passa a chamá-lo, e o guia mostra o comando
 no mesmo commit.
 
+### Modelo e esforço
+
+Cada skill fixa no próprio cabeçalho (`model` e `effort`) o modelo que a roda,
+para não gastar o limite do plano com tarefa mecânica. A regra vale também
+para o que se faz sem skill.
+
+A tabela de tarefa, modelo e esforço vale para todos os repositórios e está
+nas [regras do Claude Code](https://github.com/IunaMC/docs/blob/main/referencia/claude.md).
+Para este repositório: packwiz, commit, `MUDANCAS.md` e conferir o CI são
+mecânicos; análise de crash ou do Spark é decisão.
+
+Na conversa principal, o modelo e o esforço se escolhem pelo `/model` e pelo
+seletor de esforço. Em subagentes, passe o `model` da tabela. Uma tarefa sem
+relação com a anterior abre uma sessão nova, porque o histórico é reenviado a
+cada mensagem.
+
 O mapa entre repositórios do que roda sozinho e do que é feito à mão, com o
 porquê de cada item, está no IunaMC/docs:
 [processos automáticos](https://github.com/IunaMC/docs/blob/main/processo/automatico.md)
