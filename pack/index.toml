@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/yosbr/options.txt"
+hash = "5a405ab53f62bed6693b9ee69c43e7d8a44697298aa2143284412ba679881d2a"
+
+[[files]]
 file = "config/yosbr/servers.dat"
 hash = "8229d9392f5d08db050ff499b5d3ebfb5bb92817948ec932c42aeab3f66dd4ae"
 
