@@ -9,7 +9,7 @@ rodam.
 | Script | Para quê |
 | --- | --- |
 | [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`, `ci`). Nenhum publica |
-| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` de cada mod pelo Modrinth, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
+| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` de cada mod pelo Modrinth, dependências `orfas`, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
 | [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` |
 | [`scripts/modrinth.py`](../../scripts/modrinth.py) | Página do Modrinth a partir de `modrinth/` (`verificar`, `sincronizar`) e envio de versões (`publicar`) |
 | [`scripts/resumo.py`](../../scripts/resumo.py) | O Resumo semanal, em Markdown |
@@ -25,7 +25,7 @@ estiver disponível, o guia basta.
 | Skill | Guia | Comandos principais | O que só a skill faz |
 | --- | --- | --- | --- |
 | `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `pack.py lado`, `curseforge.py ligar`, `op.sh refresh` | Acha o Project ID da CurseForge; o lado e a licença vêm do `pack.py lado` |
-| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `packwiz remove`, `op.sh refresh` | Procura dependências órfãs (vira `pack.py orfas`, [#18](https://github.com/IunaMC/modpack/issues/18)) |
+| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `pack.py orfas`, `packwiz remove`, `op.sh refresh` | Decide se a dependência é mesmo órfã e se o conteúdo pode sair |
 | `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh versao`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md`; o resto vira `op.sh beta` ([#19](https://github.com/IunaMC/modpack/issues/19)) |
 | `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `pack.py mudancas estavel`, `gh pr create`, `gh pr merge --merge` | Escreve o `MUDANCAS.md` e o corpo do PR; o resto vira `op.sh estavel` ([#20](https://github.com/IunaMC/modpack/issues/20)) |
 | `/propagar` | [Propagar](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) | `gh workflow run acompanhar-base.yaml`, `git commit --amend -S -s` | Tudo vira `op.sh propagar` ([#21](https://github.com/IunaMC/modpack/issues/21)) |

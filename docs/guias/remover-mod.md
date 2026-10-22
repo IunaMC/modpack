@@ -13,12 +13,18 @@ por item.
 
 ## Passos
 
-1. Ache o `.pw.toml` (`ls pack/mods | grep -i <nome>`) e anote nome, versão,
-   lado e o `mod-id` de `[update.modrinth]`.
-2. Veja quais dependências obrigatórias dele ficariam sem uso:
-   `https://api.modrinth.com/v2/version/<version do [update.modrinth]>`, campo
-   `dependencies` com `dependency_type` igual a `required`. Mantenha as que
-   outro mod do pack ainda usa.
+1. Ache o `.pw.toml` (`ls pack/mods | grep -i <nome>`) e anote nome, versão e
+   lado.
+2. Veja quais dependências obrigatórias dele ficariam sem uso, quais mods
+   exigem o que vai sair e, se o `../iunamc.minecraft-config` existir, quais
+   arquivos de config citam cada um. O comando não remove nada:
+
+   ```sh
+   python3 scripts/pack.py orfas <nome>
+   ```
+
+   Ele segue as dependências em cadeia e só olha o Modrinth. Mantenha as que
+   outro mod do pack ainda usa e, na dúvida, mantenha também.
 3. Remova o mod e cada dependência órfã:
 
    ```sh
@@ -49,6 +55,6 @@ Remover mod é MINOR, e a versão sobe na [beta](publicar-beta.md).
 ## Conferir
 
 - `bash scripts/op.sh conferir`.
-- Configs que sobraram no `minecraft-config`:
-  `grep -rli <mod-id> ../iunamc.minecraft-config/config/`. Não apague por
-  aqui: a limpeza é feita no repositório das configs.
+- Configs que sobraram no `minecraft-config`: a lista do `pack.py orfas`
+  (passo 2). Não apague por aqui: a limpeza é feita no repositório das
+  configs.

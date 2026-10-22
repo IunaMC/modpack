@@ -20,6 +20,11 @@ Uso:
       # grava o side de cada arquivo pelo que o Modrinth declara (unsupported no cliente → server,
       # no servidor → client, senão both) e avisa se a licença é All Rights Reserved ou falta.
       # Veja docs/guias/adicionar-mod.md.
+  python3 scripts/pack.py orfas <mod>
+      # <mod> é o nome do arquivo em pack/mods (sem .pw.toml) ou parte do nome. Mostra as dependências
+      # obrigatórias que ficariam sem uso se ele saísse e, se ../iunamc.minecraft-config existir
+      # (ou MINECRAFT_CONFIG_DIR), os arquivos de config que citam cada um. Não remove nada.
+      # Veja docs/guias/remover-mod.md.
   python3 scripts/pack.py conferir <base> <topo> [--ramo <branch>]
       # confere as regras de versão do que entra na main, de <base> até <topo> (ex.: origin/main HEAD).
       # --ramo também confere a branch de origem do PR; o corpo do PR vem de CORPO_PR.
@@ -33,6 +38,7 @@ import subprocess
 import sys
 import tomllib
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -407,6 +413,105 @@ def cmd_conferir(base, topo, ramo=None, corpo=""):
     print("ok")
 
 
+def modrinth(caminho):
+    """GET na API do Modrinth, já decodificado."""
+    req = urllib.request.Request(f"https://api.modrinth.com/v2/{caminho}",
+                                 headers={"User-Agent": f"{REPO} (github.com/{REPO})"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.load(r)
+
+
+def pasta_configs():
+    candidatas = [os.environ.get("MINECRAFT_CONFIG_DIR"), RAIZ.parent / "iunamc.minecraft-config"]
+    return next((Path(c) for c in candidatas if c and (Path(c) / "config").is_dir()), None)
+
+
+def configs_que_citam(pasta, nomes):
+    """Arquivos de config/ cujo nome ou conteúdo cita algum dos nomes (slug, com - ou _)."""
+    variantes = {v.casefold() for n in nomes for v in (n, n.replace("-", "_"), n.replace("-", ""))}
+    achados = []
+    for arq in sorted((pasta / "config").rglob("*")):
+        if not arq.is_file() or arq.stat().st_size > 5_000_000:
+            continue
+        texto = arq.relative_to(pasta).as_posix().casefold()
+        try:
+            texto += "\n" + arq.read_text(errors="ignore").casefold()
+        except OSError:
+            continue
+        if any(v in texto for v in variantes):
+            achados.append(arq.relative_to(pasta).as_posix())
+    return achados
+
+
+def cmd_orfas(alvo):
+    if not alvo:
+        sys.exit(__doc__)
+    arquivos = sorted((PACK / "mods").glob("*.pw.toml"))
+    mods = {}
+    for arq in arquivos:
+        d = tomllib.loads(arq.read_text())
+        m = d.get("update", {}).get("modrinth")
+        if m:
+            mods[arq.name.removesuffix(".pw.toml")] = {"nome": d["name"], "projeto": m["mod-id"], "versao": m["version"]}
+    achados = [k for k, m in mods.items() if alvo.casefold() in (k.casefold(), m["nome"].casefold())] \
+        or [k for k, m in mods.items() if alvo.casefold() in k.casefold() or alvo.casefold() in m["nome"].casefold()]
+    if len(achados) != 1:
+        sys.exit(f"{'Nenhum mod' if not achados else 'Vários mods'} de pack/mods bate com '{alvo}'"
+                 + (f": {', '.join(achados)}." if achados else "."))
+    raiz = achados[0]
+
+    # Uma consulta só traz as dependências da versão de cada mod do pack.
+    versoes = modrinth("versions?ids=" + urllib.parse.quote(json.dumps([m["versao"] for m in mods.values()])))
+    obrigatorias = {}
+    for v in versoes:
+        dono = next(k for k, m in mods.items() if m["versao"] == v["id"])
+        obrigatorias[dono] = {dep["project_id"] for dep in v["dependencies"]
+                              if dep["dependency_type"] == "required" and dep.get("project_id")}
+    por_projeto = {m["projeto"]: k for k, m in mods.items()}
+
+    saem, mantidas = [raiz], {}
+    mudou = True
+    while mudou:
+        mudou = False
+        for dono in list(saem):
+            for projeto in sorted(obrigatorias.get(dono, ())):
+                dep = por_projeto.get(projeto)
+                if not dep or dep in saem:
+                    continue
+                usam = [k for k, deps in obrigatorias.items() if projeto in deps and k not in saem]
+                if usam:
+                    mantidas[dep] = usam
+                else:
+                    saem.append(dep)
+                    mantidas.pop(dep, None)
+                    mudou = True
+    orfas = saem[1:]
+
+    print(f"Sai: {mods[raiz]['nome']} ({raiz}).")
+    dependem = [k for k, deps in obrigatorias.items() if mods[raiz]["projeto"] in deps]
+    if dependem:
+        print("ATENÇÃO: exigem o mod que sai (saem junto ou o pack quebra): "
+              + ", ".join(mods[k]["nome"] for k in dependem))
+    print("Dependências que ficam sem uso:" + ("" if orfas else " nenhuma."))
+    for k in orfas:
+        print(f"  - {mods[k]['nome']} ({k})")
+    for k, usam in sorted(mantidas.items()):
+        print(f"Fica: {mods[k]['nome']}, ainda é exigida por " + ", ".join(mods[u]["nome"] for u in usam[:5])
+              + (f" e mais {len(usam) - 5}" if len(usam) > 5 else "") + ".")
+    print("(Só vale para o Modrinth. Dependências 'embedded' ou opcionais não contam; na dúvida, mantenha.)")
+
+    pasta = pasta_configs()
+    if not pasta:
+        print("Configs: ../iunamc.minecraft-config não encontrado, não conferi.")
+        return
+    slugs = {k: modrinth(f"project/{mods[k]['projeto']}")["slug"] for k in saem}
+    print("Configs que citam quem sai (confira antes de apagar; nada foi apagado):")
+    for k in saem:
+        citam = configs_que_citam(pasta, {slugs[k], k})
+        print(f"  {mods[k]['nome']}: " + (", ".join(citam[:10]) + (f" e mais {len(citam) - 10}" if len(citam) > 10 else "")
+                                          if citam else "nenhum arquivo."))
+
+
 def lado_do_modrinth(projeto):
     """O side que o Modrinth declara: unsupported no cliente é server, no servidor é client."""
     if projeto["client_side"] == "unsupported" and projeto["server_side"] != "unsupported":
@@ -471,6 +576,8 @@ def main(args):
         cmd_mudancas(args[1])
     elif args[:1] == ["proxima-beta"]:
         cmd_proxima_beta()
+    elif args[:1] == ["orfas"]:
+        cmd_orfas(" ".join(args[1:]))
     elif args[:1] == ["lado"]:
         cmd_lado(args[1:])
     elif args[:1] == ["externo"]:
