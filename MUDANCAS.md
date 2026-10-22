@@ -1,6 +1,4 @@
-# Mudanças — v3.5.2-beta.1, avisos do GitHub no Discord
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.5.2, avisos do GitHub no Discord
 
 Ninguém precisa reinstalar: os mods não mudam.
 
