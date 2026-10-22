@@ -9,6 +9,7 @@ allowed-tools:
   - Bash(git log *)
   - Bash(git push *)
   - Bash(gh run *)
+  - Bash(bash scripts/op.sh ci*)
   - Bash(df *)
   - Bash(free *)
   - Bash(MEMORIA=* bash scripts/testar-servidor.sh*)
@@ -28,8 +29,7 @@ Teste o boot do servidor. Argumentos: `$ARGUMENTS`.
 ## Pelo CI (padrão, sem `local`)
 A máquina tem pouco disco e pouca memória. O CI sobe o servidor com as configs do `minecraft-config`.
 1. Se houver commits sem push, rode `git push`. O Validar começa sozinho.
-2. Pegue o run mais recente e espere em segundo plano: `gh run watch <id> --exit-status`.
-3. Se falhar, rode `gh run view <id> --log-failed` e mostre só as linhas que explicam o erro. Os cerca de 110 ERROR/FATAL que sempre aparecem no log não contam.
+2. Rode `bash scripts/op.sh ci` (em segundo plano): ele acha o run do commit atual, espera e, se falhar, imprime só as linhas que explicam o erro, sem os cerca de 110 ERROR/FATAL que sempre aparecem no log.
 
 ## Local (com `local`)
 1. Com menos de 6 GB livres de disco ou de memória (veja acima), avise e pare.

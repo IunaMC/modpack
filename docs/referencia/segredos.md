@@ -15,9 +15,12 @@ Nomes e permissões, nunca valores.
 - Sem o `MINECRAFT_CONFIG_TOKEN`, o Validar sobe o servidor só com os mods e
   avisa.
 - Sem os tokens das plataformas, os scripts avisam e saem sem erro.
-- Ao gerar um PAT, anote a data de expiração. Token vencido aparece como falha
-  no Validar ou como "sem acesso" no Resumo. O aviso antes de vencer, no
-  Resumo semanal, está em [#23](https://github.com/IunaMC/modpack/issues/23).
+- Ao gerar um PAT, anote a data de expiração. O Resumo semanal mostra quantos
+  dias faltam para o `RESUMO_TOKEN` e o `MINECRAFT_CONFIG_TOKEN` vencerem, com
+  aviso abaixo de 14 dias (só a data sai na issue, nunca o token). Token
+  vencido aparece como "recusado" no Resumo e como falha no Validar. Rodando
+  `bash scripts/op.sh resumo` na sua máquina, exporte os dois nomes para ver a
+  seção Tokens.
 
 Para trocar um valor:
 

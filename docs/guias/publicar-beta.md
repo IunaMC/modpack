@@ -8,26 +8,26 @@ servidor não a instala.
 ## Antes
 
 - Na `devel/devel`, com a árvore limpa.
-- Depois de uma estável, alinhada à `main`:
-
-  ```sh
-  git fetch && git merge --ff-only origin/main
-  ```
+- Depois de uma estável, o próprio `op.sh beta` alinha a `devel/devel` à
+  `main` (`git merge --ff-only`); se não for possível avançar, ele para.
 
 ## Passos
 
-1. Veja a versão sugerida pelo SemVer e o motivo:
+O alvo `beta` faz tudo o que é mecânico e só para onde precisa de gente:
 
-   ```sh
-   bash scripts/op.sh versao
-   ```
+```sh
+bash scripts/op.sh beta [versão] [--major]
+```
 
-   Se a sugestão for MAJOR, confirme com a equipe antes
-   ([critérios](../referencia/versionamento.md#versão)).
-2. Troque `version` em `pack/pack.toml` (ex.: `3.4.0-beta.1`) e rode
-   `bash scripts/op.sh refresh`.
-3. Reescreva o `MUDANCAS.md` no formato do atual: título
-   `# Mudanças — v<versão>, <resumo>`, a linha "Beta: sai como pre-release e o
+Ele confere a branch e a árvore, avança a `devel/devel` com a `main`, escolhe
+a versão (a que você passar, ou a sugerida pelo SemVer; MAJOR só com
+`--major`, depois de confirmar com a equipe, veja os
+[critérios](../referencia/versionamento.md#versão)), troca `version` em
+`pack/pack.toml`, roda o `refresh` e o README.
+
+1. Se o `MUDANCAS.md` não tiver o título `# Mudanças — v<versão>, <resumo>`, o
+   comando **para antes do commit** e mostra os mods mudados. Reescreva o
+   arquivo no formato do atual: a linha "Beta: sai como pre-release e o
    servidor não a instala.", quem precisa reinstalar e as seções Adicionou,
    Atualizou e Removeu. A lista de mods sai de:
 
@@ -35,19 +35,14 @@ servidor não a instala.
    python3 scripts/pack.py mudancas ultima
    ```
 
-4. Um commit e push:
-
-   ```sh
-   git commit -S -s -am "build: prepara a versao <versão>"
-   ```
-
-   ```sh
-   git push
-   ```
+2. Rode `bash scripts/op.sh beta` de novo. Com o título certo, ele faz o commit
+   `build: prepara a versao <versão>` (assinado), o push, espera o Release e
+   mostra o link da pre-release.
 
 ## Conferir
 
-O Release cria a tag, a pre-release e o envio às plataformas:
+O Release cria a tag, a pre-release e o envio às plataformas. O `op.sh beta`
+já espera por ele; para rever depois:
 
 ```sh
 gh run list --branch devel/devel --limit 3
