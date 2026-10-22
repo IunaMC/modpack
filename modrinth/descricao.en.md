@@ -5,8 +5,8 @@
 food in a world made for playing together. It was built for the community
 server, but you can install it and play on your own.
 
-In version 3.0.0 the player gets **285 mods**: 253 required and 32 optional,
-which you pick during installation.
+In version 3.4.0 the player gets **290 mods**: 258 required and 32 optional,
+which you pick during installation, plus 2 resource packs and 7 shaders.
 
 > **About the server:** the IUNA server is private and open only to community
 > members. This pack does not grant access to it. If you are already a member,
@@ -73,8 +73,17 @@ and **JourneyMap Teams**.
 
 ### Performance
 **Sodium**, **Iris** (shaders), **ImmediatelyFast**, **FerriteCore**,
-**ModernFix**, **Lithium** and **Dynamic FPS**. The pack ships no shader; Iris
-works with whichever one you install.
+**ModernFix**, **Lithium** and **Dynamic FPS**.
+
+### Shaders and resource packs
+Seven shaders come ready in Iris, all off until you pick one: **BSL**,
+**Complementary Reimagined** and **Unbound**, **MakeUp - Ultra Fast**,
+**Mellow**, **Pastel Shaders** and **Super Duper Vanilla**. Resource packs:
+**Fresh Animations** (new animations for vanilla mobs) and **The Brazilian
+Localization Project** (Portuguese translation for mods that have none).
+
+### Scripting
+**KubeJS** with Rhino and MoreJS, for custom recipes, events and content.
 
 ## Optional mods
 

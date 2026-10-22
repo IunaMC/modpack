@@ -10,7 +10,7 @@ rodam.
 | --- | --- |
 | [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`, `ci`, `beta`, `estavel`, `propagar`). Só `beta`, `estavel` e `propagar` publicam |
 | [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` de cada mod pelo Modrinth, dependências `orfas`, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
-| [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` |
+| [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` (imprime o `curseforge/descricao.md`) |
 | [`scripts/modrinth.py`](../../scripts/modrinth.py) | Página do Modrinth a partir de `modrinth/` (`verificar`, `sincronizar`) e envio de versões (`publicar`) |
 | [`scripts/resumo.py`](../../scripts/resumo.py) | O Resumo semanal, em Markdown |
 | [`scripts/testar-servidor.sh`](../../scripts/testar-servidor.sh) | Sobe um servidor NeoForge com o pack ([servidor local](../guias/servidor-local.md)) |
@@ -37,6 +37,22 @@ IA; o mecânico é script. Quando um passo novo virar script, a skill passa a
 chamá-lo, e o guia mostra o comando no mesmo commit. As ideias que ainda não
 viraram script ficam nas issues com a etiqueta
 [`processo`](https://github.com/IunaMC/modpack/issues?q=label%3Aprocesso).
+
+### Modelo e esforço
+
+Cada skill fixa no próprio cabeçalho (`model` e `effort`) o modelo que a roda,
+para não gastar o limite do plano com tarefa mecânica. A regra vale também
+para o que se faz sem skill.
+
+A tabela de tarefa, modelo e esforço vale para todos os repositórios e está
+nas [regras do Claude Code](https://github.com/IunaMC/docs/blob/main/referencia/claude.md).
+Para este repositório: packwiz, commit, `MUDANCAS.md` e conferir o CI são
+mecânicos; análise de crash ou do Spark é decisão.
+
+Na conversa principal, o modelo e o esforço se escolhem pelo `/model` e pelo
+seletor de esforço. Em subagentes, passe o `model` da tabela. Uma tarefa sem
+relação com a anterior abre uma sessão nova, porque o histórico é reenviado a
+cada mensagem.
 
 O mapa entre repositórios do que roda sozinho e do que é feito à mão, com o
 porquê de cada item, está no IunaMC/docs:

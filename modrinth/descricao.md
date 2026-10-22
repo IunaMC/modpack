@@ -5,8 +5,8 @@ O **IUNA** é o modpack da comunidade **IunaMC**: Minecraft **1.21.1** com
 feito para jogar em grupo. Ele foi montado para o servidor da comunidade, mas
 você pode instalar e jogar sozinho.
 
-Na versão 3.0.0 o jogador recebe **285 mods**: 253 obrigatórios e 32 opcionais,
-que você escolhe na instalação.
+Na versão 3.4.0 o jogador recebe **290 mods**: 258 obrigatórios e 32 opcionais,
+que você escolhe na instalação, mais 2 resource packs e 7 shaders.
 
 > **Sobre o servidor:** o servidor IUNA é fechado e só para membros da
 > comunidade. Este pack não dá acesso a ele. Se você já faz parte, as
@@ -72,8 +72,17 @@ Refurbished**, **FramedBlocks**, **Macaw's Bridges**, **Supplementaries**,
 
 ### Desempenho
 **Sodium**, **Iris** (shaders), **ImmediatelyFast**, **FerriteCore**,
-**ModernFix**, **Lithium** e **Dynamic FPS**. O pack não traz shader; o Iris
-aceita o que você instalar.
+**ModernFix**, **Lithium** e **Dynamic FPS**.
+
+### Shaders e resource packs
+Sete shaders já vêm no Iris, todos desligados até você escolher um: **BSL**,
+**Complementary Reimagined** e **Unbound**, **MakeUp - Ultra Fast**,
+**Mellow**, **Pastel Shaders** e **Super Duper Vanilla**. Resource packs:
+**Fresh Animations** (animações novas para os mobs vanilla) e **The Brazilian
+Localization Project** (tradução para português dos mods que não têm).
+
+### Scripts
+**KubeJS** com Rhino e MoreJS, para receitas, eventos e conteúdo próprios.
 
 ## Mods opcionais
 

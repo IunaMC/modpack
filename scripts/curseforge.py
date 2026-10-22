@@ -206,11 +206,9 @@ def publicar(versao, arquivo, notas, simular):
 # --- descrição e status --------------------------------------------------------
 
 def descricao():
-    """A descrição do site: a do Modrinth sem o título, mais a seção extra do projeto.md."""
-    texto = (RAIZ / "modrinth" / "descricao.en.md").read_text()
-    texto = re.sub(r"\A# [^\n]*\n+", "", texto)
-    extra = re.search(r"```md\n(.*?)```", (RAIZ / "curseforge" / "projeto.md").read_text(), re.S)
-    return texto.rstrip("\n") + "\n\n" + (extra.group(1).strip() + "\n" if extra else "")
+    """A descrição do site: curseforge/descricao.md, própria da CurseForge, sem o título."""
+    texto = (RAIZ / "curseforge" / "descricao.md").read_text()
+    return re.sub(r"\A# [^\n]*\n+", "", texto).rstrip("\n") + "\n"
 
 
 def estado_descricao():

@@ -110,6 +110,19 @@ jobs:
           # com o nome exato do asset, e o iuna.club/mrpack aponta para ela.
           cp "$ARQUIVO" IUNA.mrpack
 
+      # O pack da CurseForge é o mesmo, com o Twilight Forest e o Mob Grinding
+      # Utils, que o Modrinth não aceita. O .zip leva só os mods de cliente,
+      # referenciados pela CurseForge. Fica na release ao lado do .mrpack e é o
+      # que vai para a CurseForge.
+      - name: Exportar o .zip da CurseForge
+        run: |
+          ARQUIVO="IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip"
+          (cd pack && packwiz curseforge export -o "../$ARQUIVO")
+          if unzip -l "$ARQUIVO" 'overrides/mods/*' > /dev/null 2>&1; then
+            echo "::error::O .zip da CurseForge tem jars em overrides/mods. Rode: python3 scripts/curseforge.py verificar"
+            exit 1
+          fi
+
       # Notas = MUDANCAS.md escrito à mão + lista de mods gerada pela
       # comparação com a release anterior.
       - name: Montar as notas da release
@@ -136,6 +149,7 @@ jobs:
         if: needs.versao.outputs.existe != 'true'
         run: |
           gh release create "${{ needs.versao.outputs.tag }}" "IUNA-${{ needs.versao.outputs.versao }}.mrpack" IUNA.mrpack \
+            "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" \
             --target "$GITHUB_SHA" \
             --title "${{ needs.versao.outputs.tag }}" \
             --notes-file "$RUNNER_TEMP/notas.md" \
@@ -148,6 +162,9 @@ jobs:
         run: |
           gh release download "${{ needs.versao.outputs.tag }}" -p '*.mrpack'
           gh release view "${{ needs.versao.outputs.tag }}" --json body -q .body > "$RUNNER_TEMP/notas.md"
+          # Releases antigas não têm o .zip; --clobber evita asset duplicado.
+          gh release upload "${{ needs.versao.outputs.tag }}" \
+            "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" --clobber
 
       # Pula sozinho se a versão já estiver no Modrinth ou se o secret
       # MODRINTH_TOKEN não existir.
@@ -158,20 +175,12 @@ jobs:
           python3 scripts/modrinth.py publicar "${{ needs.versao.outputs.versao }}" \
             "IUNA-${{ needs.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
 
-      # O pack da CurseForge é o mesmo, com o Twilight Forest e o Mob Grinding
-      # Utils, que o Modrinth não aceita. O .zip leva só os mods de cliente,
-      # referenciados pela CurseForge. Pula sozinho se a versão já estiver lá ou
+      # Envia o .zip exportado acima. Pula sozinho se a versão já estiver lá ou
       # se faltar o secret CURSEFORGE_TOKEN ou a variable CURSEFORGE_PROJECT_ID.
       - name: Publicar na CurseForge
         env:
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
           CURSEFORGE_PROJECT_ID: ${{ vars.CURSEFORGE_PROJECT_ID }}
         run: |
-          ARQUIVO="IUNA-${{ needs.versao.outputs.versao }}.zip"
-          (cd pack && packwiz curseforge export -o "../$ARQUIVO")
-          if unzip -l "$ARQUIVO" 'overrides/mods/*' > /dev/null 2>&1; then
-            echo "::error::O .zip da CurseForge tem jars em overrides/mods. Rode: python3 scripts/curseforge.py verificar"
-            exit 1
-          fi
           python3 scripts/curseforge.py publicar "${{ needs.versao.outputs.versao }}" \
-            "$ARQUIVO" "$RUNNER_TEMP/notas.md"
+            "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" "$RUNNER_TEMP/notas.md"

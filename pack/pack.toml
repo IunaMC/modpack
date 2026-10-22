@@ -1,12 +1,13 @@
 name = "IUNA Modpack"
 author = "IunaMC"
 version = "3.4.0"
+description = "Modpack da comunidade IUNA: Minecraft 1.21.1 com NeoForge, tecnologia, magia e aventura."
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "e51621c3c2f5f63661146e023821f7f95ef890305a0bc14ee139a00605d60c8a"
+hash = "77b089496ce8db31063b441822c5a356a6a4e17ee8829bd67abb37ec943018d0"
 
 [versions]
 minecraft = "1.21.1"
