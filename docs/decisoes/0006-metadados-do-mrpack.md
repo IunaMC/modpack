@@ -20,11 +20,20 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 | `dependencies` | `[versions]` (minecraft, neoforge) | ok |
 | `files[].env` | `side` de cada `.pw.toml` | ok |
 
-O formato **não tem** ícone, autor, links nem changelog. `author` do
-`pack.toml` não entra no índice. Ícone, descrição longa, links e notas ficam no
-projeto do Modrinth (`modrinth/`), e os launchers só os mostram quando o pack é
-instalado pela página do projeto, não ao importar o arquivo. O ícone da
-instância importada vem da pasta da instância (assunto da sessão da instância).
+O formato **não tem** campo de ícone, autor, links nem changelog
+([doc do Modrinth](https://support.modrinth.com/en/articles/8802351-modrinth-modpack-format-mrpack)).
+`author` do `pack.toml` não entra no índice. O que cada launcher faz, lido no
+código deles:
+
+- **Modrinth App** (`install_mrpack.rs`): usa como ícone da instância um
+  `icon.png` na raiz do zip, em `overrides/` ou em `client-overrides/`. Se o
+  `overrides/` ou o `client-overrides/` tem `options.txt`,
+  `config/yosbr/options.txt` ou `config/defaultoptions/options.txt`, ele trata
+  isso como as opções padrão do pack. Descrição, links e ícone do projeto só
+  vêm quando a instalação parte da página do projeto.
+- **Prism**: o ícone é o que o usuário escolhe ao importar, ou um genérico
+  "modrinth"; o `summary` não é lido. Em atualização, o `overrides/` sempre
+  sobrescreve (o código tem um TODO sobre isso).
 
 ## Decisão
 
@@ -36,10 +45,14 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 
 - O `name` vira o nome da instância: "IUNA Modpack", enquanto o projeto no
   Modrinth se chama "IUNA 2". Mudar o `name` é decisão pendente.
+- Ícone: `overrides/icon.png` no pack faz o Modrinth App usar o ícone; no
+  Prism não funciona (o usuário escolhe). Um `icon.png` em `overrides/` cairia
+  na pasta da instância; avaliar se vale.
 - Só `overrides/` e `client-overrides/` são aplicados ao cliente; o
-  `server-overrides/` é ignorado por launchers e o workflow o tira do arquivo.
+  `server-overrides/` é ignorado e o workflow o tira do arquivo.
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`
-  não tem `config/`, `options.txt` nem `servers.dat`: qualquer um desses entra
-  como arquivo no `pack/` (packwiz o põe em `overrides/`).
-- `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
-  pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.
+  não tem `config/`, `options.txt` nem `servers.dat`.
+- `options.txt` em `overrides/` é sobrescrito a cada atualização no Prism. Para
+  opções que o jogador possa mudar, o caminho é um mod de opções padrão
+  (YOSBR ou DefaultOptions), que só copia se o arquivo não existir; o Modrinth
+  App já reconhece esses caminhos.
