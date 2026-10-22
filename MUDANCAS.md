@@ -1,16 +1,20 @@
-# Mudanças — v3.4.0, KubeJS no servidor e quatro shaders novos
+# Mudanças — v3.5.0-beta.1, opções padrão no cliente e instância "IUNA Mark II"
 
-Muda o cliente e o servidor: todo mundo precisa atualizar o pack.
+Beta: sai como pre-release e o servidor não a instala.
+
+Muda só o cliente: quem joga precisa atualizar o pack. O servidor não muda.
 
 ## Adicionou
-- **[KubeJS](https://modrinth.com/mod/umyGl7zF)** `2101.7.2-build.377` (LGPL-3.0-only), no cliente e no servidor. Scripts em JavaScript para receitas, eventos e conteúdo. Já estava instalado no servidor, agora faz parte do pack.
-- **[Rhino](https://modrinth.com/mod/sk9knFPE)** `2101.2.7-build.81` (MPL-2.0), no cliente e no servidor. Motor de JavaScript do KubeJS.
-- **[Better Advanced Tooltips](https://modrinth.com/mod/iHLDc0eo)** `2101.1.0-build.5` (MIT), no cliente e no servidor. Dependência do KubeJS: tooltips de tags e componentes no F3+H.
-- **[MoreJS: KubeJS Addon](https://modrinth.com/mod/mo64mR1W)** `0.16.0` (LGPL-3.0-only), no cliente e no servidor. Mais eventos e recursos para os scripts do KubeJS.
-- **[Pastel Shaders](https://modrinth.com/shader/pastel-shaders)** `1.200` (All Rights Reserved), **[Mellow](https://modrinth.com/shader/mellow)** `3.4.1a` (MIT), **[MakeUp - Ultra Fast](https://modrinth.com/shader/makeup-ultra-fast-shaders)** `9.6` (LGPL-3.0-or-later) e **[Super Duper Vanilla](https://modrinth.com/shader/super-duper-vanilla)** `1.3.8` (licença própria do autor), shaders no cliente. Ficam disponíveis no Iris, desligados até o jogador escolher um.
+- **[Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV)** `0.1.2` (MIT), só no cliente. Aplica as opções padrão do pack na primeira vez que o jogo abre, sem sobrescrever o que o jogador já mudou. Já deixa o servidor da IUNA na lista de servidores da instância.
 
 ## Atualizou
 Nada.
 
 ## Removeu
 Nada.
+
+## Outras mudanças
+- A instância criada ao importar o `.mrpack` passa a se chamar **IUNA Mark II**.
+- O `.mrpack` leva uma descrição curta do pack (summary).
+- O README informa a memória recomendada para o cliente.
+- O Release passa a anexar o `.zip` da CurseForge.
