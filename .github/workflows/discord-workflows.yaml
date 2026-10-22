@@ -1,0 +1,67 @@
+name: Discord · workflows
+
+# Avisa no canal de workflows do Discord o resultado dos outros workflows
+# (sucesso, falha ou tempo esgotado; cancelado e pulado ficam de fora, porque
+# o concurrency cancela execuções antigas o tempo todo). O webhook fica no
+# secret DISCORD_WEBHOOK_WORKFLOW; sem ele o workflow pula sozinho.
+#
+# workflow_run só dispara com este arquivo na branch padrão: na devel/devel ele
+# começa a valer quando a estável levar para a main.
+on:
+  workflow_run:
+    workflows:
+      - Validar
+      - Entrada na main
+      - Release
+      - Docs
+      - Modrinth
+      - Regras do Claude
+      - Atualizações de mods
+      - Resumo semanal
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  avisar:
+    if: contains(fromJSON('["success","failure","timed_out"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Montar a mensagem
+        id: msg
+        env:
+          DISCORD_WEBHOOK_WORKFLOW: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW }}
+          NOME: ${{ github.event.workflow_run.name }}
+          RESULTADO: ${{ github.event.workflow_run.conclusion }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          AUTOR: ${{ github.event.workflow_run.actor.login }}
+          URL: ${{ github.event.workflow_run.html_url }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_WORKFLOW" ]; then
+            echo "enviar=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          case "$RESULTADO" in
+            success) icone="✅" ;;
+            *) icone="❌" ;;
+          esac
+          texto=$(printf '%s **%s** · %s\n`%s` · %s\n<%s>' \
+            "$icone" "$NOME" "$RESULTADO" "$BRANCH" "$AUTOR" "$URL" \
+            | sed 's/{{/{ {/g' | head -c 1900)
+          {
+            echo "enviar=true"
+            echo "texto<<FIM_DA_MENSAGEM"
+            echo "$texto"
+            echo "FIM_DA_MENSAGEM"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Avisar no Discord
+        if: steps.msg.outputs.enviar == 'true'
+        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW }}
+          DISCORD_USERNAME: IUNA · workflows
+        with:
+          args: ${{ steps.msg.outputs.texto }}
