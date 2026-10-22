@@ -42,7 +42,7 @@ no mesmo commit.
 
 Cada skill fixa no próprio cabeçalho (`model` e `effort`) o modelo que a roda,
 para não gastar o limite do plano com tarefa mecânica. A regra vale também
-para o que se faz sem skill:
+para o que se faz sem skill.
 
 A tabela de tarefa, modelo e esforço vale para todos os repositórios e está
 nas [regras do Claude Code](https://github.com/IunaMC/docs/blob/main/referencia/claude.md).
