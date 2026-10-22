@@ -34,6 +34,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 - [0004: páginas das plataformas como código](decisoes/0004-paginas-como-codigo.md)
 - [0005: o pack não perde mods por causa de uma plataforma](decisoes/0005-mrpack-completo-sem-cortar-mods.md)
 - [0006: o que o .mrpack leva além dos mods](decisoes/0006-metadados-do-mrpack.md)
+- [0007: o Modrinth recebe um .mrpack reduzido](decisoes/0007-mrpack-reduzido-no-modrinth.md)
 
 ## Plataformas
 
