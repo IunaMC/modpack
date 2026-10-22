@@ -16,19 +16,15 @@ Por isso a mudança de um padrão não alcança quem já tem o arquivo.
 
 - **`options.txt`:** gráficos leves (`graphicsMode` rápido, nuvens rápidas,
   `biomeBlendRadius` 1, `entityDistanceScaling` 0,75, `simulationDistance` 8,
-  V-Sync desligado), dicas avançadas nos itens, sem tutorial, e as teclas dos
-  mods que brigavam pela mesma tecla. Volume, FOV, sensibilidade, resource
+  V-Sync desligado), dicas avançadas nos itens, sem tutorial, . Volume, FOV, sensibilidade, resource
   packs e idioma ficam por conta do jogador.
 - **LambDynamicLights:** `mode = "fast"`, com menos atualizações de luz.
 - **More Overlays:** `update_interval_frames = 4`, para o scanner de luz.
 
 ## Teclas
 
-O `options.txt` só lista as teclas que mudaram. As habilidades de combate
-(Iron's Spells em `V`, Cataclysm em Home, End, Insert e acento grave, rolar em
-vírgula) e os utilitários mais usados ficaram com teclas próprias. As teclas de
-mods que quase ninguém usa no jogo ficaram sem tecla; o jogador liga pelo menu
-*Controles*.
+O pack não mexe nas teclas: cada mod usa o padrão dele. A equipe decide depois
+se vale um mapa próprio, que entraria no mesmo `options.txt`.
 
 ## Como mudar um padrão
 
