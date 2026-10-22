@@ -43,7 +43,7 @@ código deles:
 
 - `name` passa a ser "IUNA Mark II".
 - Seguir com `overrides/icon.png` (ícone no Modrinth App) e com um mod de
-  opções padrão (YOSBR ou DefaultOptions) para o `options.txt`. Os dois entram
+  opções padrão, o YOSBR (NeoForge), para o `options.txt`. Os dois entram
   nas sessões da instância e do cliente, não aqui.
 
 ## Notas para a instância criada ao importar
@@ -58,5 +58,5 @@ código deles:
   não tem `config/`, `options.txt` nem `servers.dat`.
 - `options.txt` em `overrides/` é sobrescrito a cada atualização no Prism. Para
   opções que o jogador possa mudar, o caminho é um mod de opções padrão
-  (YOSBR ou DefaultOptions), que só copia se o arquivo não existir; o Modrinth
+  (YOSBR), que só copia se o arquivo não existir; o Modrinth
   App já reconhece esses caminhos.
