@@ -3,7 +3,9 @@ name: Discord · workflows
 # Avisa no canal de workflows do Discord o resultado dos outros workflows
 # (sucesso, falha ou tempo esgotado; cancelado e pulado ficam de fora, porque
 # o concurrency cancela execuções antigas o tempo todo). O webhook fica no
-# secret DISCORD_WEBHOOK_WORKFLOW; sem ele o workflow pula sozinho.
+# secret DISCORD_WEBHOOK_WORKFLOW; sem ele o workflow pula sozinho. A mensagem é
+# um embed montado com jq e enviado por curl (verde no sucesso, vermelho na
+# falha), sem menções.
 #
 # workflow_run só dispara com este arquivo na branch padrão: na devel/devel ele
 # começa a valer quando a estável levar para a main.
@@ -28,40 +30,25 @@ jobs:
     if: contains(fromJSON('["success","failure","timed_out"]'), github.event.workflow_run.conclusion)
     runs-on: ubuntu-latest
     steps:
-      - name: Montar a mensagem
-        id: msg
+      - name: Avisar no Discord
         env:
           DISCORD_WEBHOOK_WORKFLOW: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW }}
-          NOME: ${{ github.event.workflow_run.name }}
-          RESULTADO: ${{ github.event.workflow_run.conclusion }}
-          BRANCH: ${{ github.event.workflow_run.head_branch }}
-          AUTOR: ${{ github.event.workflow_run.actor.login }}
-          URL: ${{ github.event.workflow_run.html_url }}
-          REPO: ${{ github.repository }}
         run: |
-          if [ -z "$DISCORD_WEBHOOK_WORKFLOW" ]; then
-            echo "enviar=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          case "$RESULTADO" in
-            success) icone="✅" ;;
-            *) icone="❌" ;;
-          esac
-          texto=$(printf '%s **%s** · %s\n`%s` · %s\n<%s>' \
-            "$icone" "$NOME" "$RESULTADO" "$BRANCH" "$AUTOR" "$URL" \
-            | sed 's/{{/{ {/g' | head -c 1900)
-          {
-            echo "enviar=true"
-            echo "texto<<FIM_DA_MENSAGEM"
-            echo "$texto"
-            echo "FIM_DA_MENSAGEM"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Avisar no Discord
-        if: steps.msg.outputs.enviar == 'true'
-        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW }}
-          DISCORD_USERNAME: IUNA · workflows
-        with:
-          args: ${{ steps.msg.outputs.texto }}
+          [ -n "$DISCORD_WEBHOOK_WORKFLOW" ] || exit 0
+          jq '
+            .workflow_run as $r
+            | ($r.conclusion == "success") as $ok
+            | {
+                username: "IUNA · workflows",
+                allowed_mentions: {parse: []},
+                embeds: [{
+                  color: (if $ok then 3066993 else 15158332 end),
+                  author: {name: $r.actor.login, icon_url: $r.actor.avatar_url, url: $r.actor.html_url},
+                  title: "\($r.name): \(if $ok then "sucesso" elif $r.conclusion == "timed_out" then "tempo esgotado" else "falhou" end)",
+                  url: $r.html_url,
+                  description: "`\($r.head_branch)` · \($r.display_title | split("\n")[0] | .[:200])",
+                  footer: {text: .repository.full_name}
+                }]
+              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
+          curl -fsS -H 'Content-Type: application/json' \
+            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_WORKFLOW"
