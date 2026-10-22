@@ -14,7 +14,6 @@ allowed-tools:
   - Bash(cd pack && packwiz *)
   - Bash(packwiz *)
   - Bash(python3 scripts/pack.py *)
-  - Bash(curl -s https://api.modrinth.com/*)
   - Bash(ls *)
   - Bash(cat *)
   - Bash(grep *)
@@ -28,13 +27,11 @@ Remova do pack: `$ARGUMENTS`.
 
 ## Passos
 1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se não estiver, pare e avise.
-2. Ache o `.pw.toml` (`ls pack/mods | grep -i <nome>`) e anote nome, versão, lado e o `mod-id` de `[update.modrinth]`.
-3. Dependências que podem ficar órfãs: pegue as obrigatórias da versão no Modrinth:
-   `curl -s https://api.modrinth.com/v2/version/<version do [update.modrinth]> | python3 -c 'import json,sys; [print(x["project_id"]) for x in json.load(sys.stdin)["dependencies"] if x["dependency_type"]=="required"]'`
-   Para cada uma que está no pack, veja se outro mod do pack ainda precisa dela (a mesma consulta nos mods que parecem relacionados, pelo nome ou pelo autor). Na dúvida, mantenha a dependência e liste no fim como "talvez órfã".
+2. Ache o `.pw.toml` (`ls pack/mods | grep -i <nome>`) e anote nome, versão e lado.
+3. Rode `python3 scripts/pack.py orfas <nome>`. Ele lista as dependências obrigatórias que ficam sem uso (em cadeia), quem ainda exige o mod e as configs do `minecraft-config` que citam cada um. Na dúvida, mantenha a dependência e liste no fim como "talvez órfã".
 4. Mod de conteúdo (`side = both`) tira blocos e itens do mundo: avise o usuário e espere o OK antes de remover.
 5. `cd pack && packwiz remove <nome>` para o mod e para cada dependência órfã. Depois, `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`.
-6. Configs que sobram: `grep -rli "<mod-id>" ../iunamc.minecraft-config/config | head`. Não apague nada lá; liste no fim.
+6. Configs que sobram: as que o `pack.py orfas` listou. Não apague nada lá; liste no fim.
 7. Um commit por item, o mod primeiro e as dependências depois, sempre com `git commit -S -s`:
    - mod: `feat(mods): remove <Nome> <versão>`, com o motivo no corpo;
    - dependência: `feat(deps): remove <Nome> <versão>`, com o corpo "Ninguém mais no pack usa."

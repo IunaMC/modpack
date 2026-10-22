@@ -19,6 +19,7 @@ allowed-tools:
   - Bash(git commit *)
   - Bash(git push *)
   - Bash(python3 scripts/pack.py *)
+  - Bash(bash scripts/op.sh beta*)
   - Bash(packwiz refresh*)
   - Bash(cd pack && packwiz refresh*)
   - Bash(gh run *)
@@ -38,11 +39,9 @@ Prepare a próxima beta do pack. Versão pedida: `$ARGUMENTS` (vazio = use a sug
 - `MUDANCAS.md` atual: !`cat MUDANCAS.md`
 
 ## Passos
-1. A branch tem que ser `devel/devel` e a árvore tem que estar limpa. Se ela estiver atrás da `main` (depois de uma estável), rode `git fetch` e `git merge --ff-only origin/main`. Se não der para avançar assim, pare e diga o que falta.
-2. Se a sugerida for MAJOR, pergunte antes de seguir.
-3. Troque `version` em `pack/pack.toml`, rode `cd pack && packwiz refresh` e depois `python3 scripts/pack.py readme`.
-4. Reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo curto>`, a linha "Beta: sai como pre-release e o servidor não a instala.", quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, cada mod com link do Modrinth, versão, licença e lado. A fonte são os mods e os commits listados acima.
-5. Um commit só: `git commit -S -s -m "build: prepara a versao <versão>"`. Sem `Co-Authored-By` e sem menção ao Claude.
-6. `git push`. O `release.yaml` cria a tag e a pre-release. Acompanhe com `gh run list --branch devel/devel --limit 3`. Quando terminar, rode `gh release view v<versão>`. Se o CI falhar, mostre o erro e pare.
+1. Se a sugerida for MAJOR, pergunte antes de seguir; só com o OK rode o script com `--major`.
+2. Rode `bash scripts/op.sh beta <versão>` (sem a versão, ele usa a sugerida). Ele confere a branch e a árvore, avança a `devel/devel` com a `main`, troca a versão, roda `refresh` e `readme`. Se parar com "O MUDANCAS.md não tem o título da v<versão>" (saída 3), vá ao passo 3. Qualquer outra parada: mostre a mensagem e pare.
+3. Reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo curto>`, a linha "Beta: sai como pre-release e o servidor não a instala.", quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, cada mod com link do Modrinth, versão, licença e lado. A fonte são os mods e os commits listados acima.
+4. Rode `bash scripts/op.sh beta` de novo (a mesma versão). Ele faz o commit assinado `build: prepara a versao <versão>`, o push, espera o Release e mostra o link. Sem `Co-Authored-By` e sem menção ao Claude. Se o Release falhar, mostre o erro e pare.
 
 Responda só com a versão publicada, o link da release e o status do CI.
