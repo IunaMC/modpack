@@ -38,7 +38,8 @@ gh variable set CURSEFORGE_PROJECT_ID -R IunaMC/modpack
 ## Como funciona
 
 - **Versões:** o workflow [`Release`](../.github/workflows/release.yaml), depois
-  do Modrinth, gera o `.zip` com `packwiz curseforge export` e o envia pelo
+  gera o `.zip` com `packwiz curseforge export` (`IUNA-<versão>-curseforge.zip`,
+  também anexado à GitHub Release) e, depois do Modrinth, o envia pelo
   [`scripts/curseforge.py`](../scripts/curseforge.py) (`beta` ou `release`,
   com as notas da release). Cada arquivo passa pela revisão da CurseForge.
 - **Fonte de cada mod:** todo mod de cliente tem `[update.curseforge]` apontando
