@@ -2,7 +2,7 @@ name: Resumo semanal
 
 # Toda segunda, depois do Atualizações de mods, junta numa issue fixa o estado dos
 # três repos: versões e se estão alinhadas, CI quebrado na main e na devel/devel,
-# commits fora da main e PRs e issues abertos (scripts/resumo.py).
+# commits fora da main, validade dos tokens e PRs e issues abertos (scripts/resumo.py).
 #
 # A moderação e as configs são privadas: o script lê os dois com o secret
 # RESUMO_TOKEN (token fine-grained só de leitura nos três repos: Contents,
@@ -31,6 +31,9 @@ jobs:
       - name: Montar o resumo
         env:
           GH_TOKEN: ${{ secrets.RESUMO_TOKEN || secrets.MINECRAFT_CONFIG_TOKEN || github.token }}
+          # Só para mostrar quando cada um vence; o valor nunca vai para a issue.
+          RESUMO_TOKEN: ${{ secrets.RESUMO_TOKEN }}
+          MINECRAFT_CONFIG_TOKEN: ${{ secrets.MINECRAFT_CONFIG_TOKEN }}
         run: |
           {
             echo "Estado dos repos em $(date -u +%d/%m/%Y). Esta issue é reescrita toda segunda."
