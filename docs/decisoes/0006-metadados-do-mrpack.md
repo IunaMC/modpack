@@ -42,5 +42,10 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`
   não tem `config/`, `options.txt` nem `servers.dat`: qualquer um desses entra
   como arquivo no `pack/` (packwiz o põe em `overrides/`).
+- `servers.dat` com o servidor (`jogar.iuna.club`, nome "IUNA") fica em
+  `pack/config/yosbr/servers.dat`. O YOSBR o copia para a raiz da instância
+  só na primeira abertura e nunca sobrescreve, então a lista do jogador
+  sobrevive às atualizações. Em `overrides/` direto, cada atualização
+  apagaria os servidores que ele adicionou. Decidido em 22/10/2026.
 - `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
   pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.
