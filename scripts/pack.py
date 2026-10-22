@@ -18,7 +18,8 @@ Uso:
       # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/guias/arquivos-externos.md.
   python3 scripts/pack.py lado <arquivo.pw.toml>...
       # grava o side de cada arquivo pelo que o Modrinth declara (unsupported no cliente → server,
-      # no servidor → client, senão both) e avisa se a licença é All Rights Reserved ou falta.
+      # no servidor → client, senão both) e mostra a licença. Mod baixado do Modrinth não precisa
+      # de permissão, mesmo All Rights Reserved: só jar embutido no .mrpack precisa.
       # Veja docs/guias/adicionar-mod.md.
   python3 scripts/pack.py orfas <mod>
       # <mod> é o nome do arquivo em pack/mods (sem .pw.toml) ou parte do nome. Mostra as dependências
@@ -554,11 +555,6 @@ def cmd_lado(arquivos):
         licenca = projeto.get("license", {}).get("id") or ""
         print(f"{dados['name']}: side = {lado}{mudou}; cliente {projeto['client_side']}, "
               f"servidor {projeto['server_side']}; licença {licenca or 'não informada'}.")
-        if not licenca or licenca == "LicenseRef-All-Rights-Reserved":
-            print(f"::warning::{dados['name']}: licença {licenca or 'não informada'} trava a página do "
-                  "Modrinth; veja modrinth/permissoes.md." if os.environ.get("GITHUB_ACTIONS") else
-                  f"AVISO: {dados['name']} está sob {licenca or 'licença não informada'}: isso trava a "
-                  "página do Modrinth, veja modrinth/permissoes.md.")
     if erros:
         sys.exit(1)
 
