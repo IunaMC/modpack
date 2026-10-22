@@ -189,3 +189,35 @@ jobs:
         run: |
           python3 scripts/curseforge.py publicar "${{ needs.versao.outputs.versao }}" \
             "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" "$RUNNER_TEMP/notas.md"
+
+      # A release acima sai com o GITHUB_TOKEN, que não dispara outros
+      # workflows (nem o release: published). Por isso o aviso fica aqui, e
+      # só quando a release é nova. Pula sozinho sem o secret
+      # DISCORD_WEBHOOK_RELEASE; falha no Discord não derruba a publicação.
+      - name: Ver se há webhook do Discord
+        id: discord
+        env:
+          DISCORD_WEBHOOK_RELEASE: ${{ secrets.DISCORD_WEBHOOK_RELEASE }}
+        run: |
+          [ -n "$DISCORD_WEBHOOK_RELEASE" ] || exit 0
+          {
+            echo "enviar=true"
+            echo "notas<<FIM_DAS_NOTAS"
+            head -c 3800 "$RUNNER_TEMP/notas.md"
+            echo
+            echo "FIM_DAS_NOTAS"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Avisar a release no Discord
+        if: needs.versao.outputs.existe != 'true' && steps.discord.outputs.enviar == 'true'
+        continue-on-error: true
+        # Fixada por SHA (v1.20.0): a action recebe o webhook.
+        uses: SethCohen/github-releases-to-discord@24d166886aee4646d448c8a389ff9e1ebcab3682
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_RELEASE }}
+          username: IUNA · releases
+          release_name: ${{ needs.versao.outputs.tag }}
+          release_html_url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.versao.outputs.tag }}
+          release_body: ${{ steps.discord.outputs.notas }}
+          reduce_headings: true
+          remove_github_reference_links: true
