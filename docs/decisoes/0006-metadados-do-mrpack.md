@@ -14,7 +14,7 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 
 | Campo do índice | Origem no pack | Estado |
 | --- | --- | --- |
-| `name` | `name` do `pack.toml` ("IUNA Modpack") | ok; é o nome padrão da instância ao importar |
+| `name` | `name` do `pack.toml` ("IUNA Mark II") | ok; é o nome padrão da instância ao importar |
 | `versionId` | `version` | ok |
 | `summary` | `description` | **faltava**, agora preenchido |
 | `dependencies` | `[versions]` (minecraft, neoforge) | ok |
@@ -41,10 +41,14 @@ código deles:
   `summary` do índice aparecer ao importar.
 - Nada mais cabe no `.mrpack` como metadado; não se tenta contornar.
 
+- `name` passa a ser "IUNA Mark II".
+- Seguir com `overrides/icon.png` (ícone no Modrinth App) e com um mod de
+  opções padrão (YOSBR ou DefaultOptions) para o `options.txt`. Os dois entram
+  nas sessões da instância e do cliente, não aqui.
+
 ## Notas para a instância criada ao importar
 
-- O `name` vira o nome da instância: "IUNA Modpack", enquanto o projeto no
-  Modrinth se chama "IUNA 2". Mudar o `name` é decisão pendente.
+- O `name` vira o nome da instância e agora é "IUNA Mark II".
 - Ícone: `overrides/icon.png` no pack faz o Modrinth App usar o ícone; no
   Prism não funciona (o usuário escolhe). Um `icon.png` em `overrides/` cairia
   na pasta da instância; avaliar se vale.
