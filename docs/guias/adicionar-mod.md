@@ -31,9 +31,13 @@ um commit por item.
 3. Mod opcional ganha o bloco `[option]` com `optional = true` e uma
    `description` curta em inglês. Dependência de mod obrigatório **nunca** é
    opcional.
-4. Se o `pack.py lado` avisar de licença All Rights Reserved ou ausente, a
-   página do Modrinth trava: veja
-   [`modrinth/permissoes.md`](../../modrinth/permissoes.md) antes de seguir.
+4. Mod baixado do Modrinth não precisa de permissão no `.mrpack`, mesmo All
+   Rights Reserved: o arquivo só aponta para o CDN do Modrinth. Só o jar que
+   existe apenas na CurseForge vai embutido e precisa de permissão na página
+   Permissions ([`modrinth/permissoes.md`](../../modrinth/permissoes.md)). Sem
+   ela, o mod entra em `[[reduzido.fora]]` do `modrinth/projeto.toml` e nas
+   descrições, e sai só do `.mrpack` do Modrinth
+   ([decisão 0007](../decisoes/0007-mrpack-reduzido-no-modrinth.md)).
 5. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
    fica na lateral da página do mod em curseforge.com:
 

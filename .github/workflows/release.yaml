@@ -166,14 +166,19 @@ jobs:
           gh release upload "${{ needs.versao.outputs.tag }}" \
             "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" --clobber
 
-      # Pula sozinho se a versão já estiver no Modrinth ou se o secret
-      # MODRINTH_TOKEN não existir.
+      # O Modrinth recebe o .mrpack reduzido, sem os mods de [[reduzido.fora]]
+      # do modrinth/projeto.toml (decisão 0007). Ele sai do completo, então
+      # funciona também com o .mrpack baixado da release existente, e não vai
+      # para a release do GitHub. Pula sozinho se a versão já estiver no
+      # Modrinth ou se o secret MODRINTH_TOKEN não existir.
       - name: Publicar no Modrinth
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          VERSAO: ${{ needs.versao.outputs.versao }}
         run: |
-          python3 scripts/modrinth.py publicar "${{ needs.versao.outputs.versao }}" \
-            "IUNA-${{ needs.versao.outputs.versao }}.mrpack" "$RUNNER_TEMP/notas.md"
+          python3 scripts/modrinth.py reduzir "IUNA-$VERSAO.mrpack" "IUNA-$VERSAO-modrinth.mrpack"
+          python3 scripts/modrinth.py publicar "$VERSAO" \
+            "IUNA-$VERSAO-modrinth.mrpack" "$RUNNER_TEMP/notas.md"
 
       # Envia o .zip exportado acima. Pula sozinho se a versão já estiver lá ou
       # se faltar o secret CURSEFORGE_TOKEN ou a variable CURSEFORGE_PROJECT_ID.

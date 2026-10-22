@@ -29,4 +29,5 @@ ficaram sem ela:
 
 - No Modrinth, as versões com esses mods ficam retidas.
 - Um `.mrpack` reduzido só para o Modrinth é aceitável. A página teria de dizer
-  com clareza que os dois mods se baixam à parte. Ainda não foi feito.
+  com clareza que os dois mods se baixam à parte. Feito na
+  [0007](0007-mrpack-reduzido-no-modrinth.md).

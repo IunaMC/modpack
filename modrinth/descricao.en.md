@@ -5,6 +5,18 @@
 food in a world made for playing together. It was built for the community
 server, but you can install it and play on your own.
 
+> **Two mods are not included in the Modrinth file.** **The Twilight Forest**
+> and **Mob Grinding Utils** don't allow redistribution through Modrinth, so
+> you add them yourself from CurseForge, usually straight from your launcher.
+> Until you do, the game will not start: Twilight Forest – Dungeons &
+> Villages, which is included, depends on The Twilight Forest. Each version's
+> changelog lists the exact file of each mod, and
+> [Installation](#installation) shows how to add them.
+>
+> The complete pack, with nothing to add, is on
+> [CurseForge](https://www.curseforge.com/projects/1752945) and on
+> [GitHub](https://github.com/IunaMC/modpack/releases/latest).
+
 In version 3.4.0 the player gets **290 mods**: 258 required and 32 optional,
 which you pick during installation, plus 2 resource packs and 7 shaders.
 
@@ -109,6 +121,20 @@ Instance → Import*.
 
 The launcher installs NeoForge and downloads the mods for you.
 
+**Then add The Twilight Forest and Mob Grinding Utils** from CurseForge, in
+the versions the changelog lists:
+
+- **Prism Launcher** (recommended): *Edit → Mods → Download mods*, open the
+  **CurseForge** tab, search for each mod and pick the listed file.
+- **Modrinth App:** it only searches Modrinth, so download each `.jar` from the
+  changelog links and put it in the instance's `mods` folder (*⋮ → Open
+  folder*).
+- **Other launchers:** if yours searches CurseForge, add them the same way as
+  in Prism; if not, use the `mods` folder.
+
+When the pack updates, check the changelog: if the file of either mod changed,
+update it in the launcher or replace the old `.jar`.
+
 **To update,** the safest way is to create a new instance with the new
 version. If the first number changes (from 3.x to 4.0, for example), the
 server world is new as well. To keep your worlds, screenshots and settings,
@@ -144,11 +170,12 @@ The full list, with a link to every mod, is in the
 [repository README](https://github.com/IunaMC/modpack#mods).
 
 A few mods come from CurseForge and are bundled in the pack under each
-author's license or permission:
+author's license or permission. The Twilight Forest and Mob Grinding Utils are
+the exception: they are not in the Modrinth file, and you add them yourself.
 
 | Mod | Author(s) | License |
 | --- | --- | --- |
-| [The Twilight Forest](https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest) | Benimatic and Team Twilight | LGPL 2.1 |
+| [The Twilight Forest](https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest) | Benimatic and Team Twilight | LGPL 2.1; sounds and structures All Rights Reserved. **Not included here** |
 | [Ice and Fire Community Edition](https://www.curseforge.com/minecraft/mc-mods/iceandfire-ce) | IAFEnvoy and team | LGPL 3.0 |
 | [Uranus](https://www.curseforge.com/minecraft/mc-mods/uranus) | IAFEnvoy | LGPL 3.0 |
 | [Flux Networks](https://www.curseforge.com/minecraft/mc-mods/flux-networks) | Sonar Sonic and BloCamLimb | MIT |
@@ -161,7 +188,7 @@ author's license or permission:
 | [Monsters & Spellbooks](https://www.curseforge.com/minecraft/mc-mods/monsters-spellbooks-iss) | RedReaper | MIT |
 | [Astral Sorcery](https://www.curseforge.com/minecraft/mc-mods/astral-sorcery) | HellFirePvP | Custom license that lets modpacks distribute the jar |
 | [Fire's Ender Expansion](https://www.curseforge.com/minecraft/mc-mods/fires-ender-expansion) | Fire | Permission granted by the author ([issue](https://github.com/FireOfPower/firesenderexpansion-1.21.1/issues/4)) |
-| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 and flanks255 | Permission requested from the author |
+| [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) | vadis365 and flanks255 | All Rights Reserved. **Not included here** |
 
 The IUNA license covers only the files made by IunaMC. Every mod keeps its
 author's license.

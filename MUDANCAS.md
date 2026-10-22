@@ -1,9 +1,9 @@
-# Mudanças — v3.5.0, opções padrão no cliente e instância "IUNA Mark II"
+# Mudanças — v3.5.1, ícone da instância e .mrpack reduzido no Modrinth
 
-Muda só o cliente: quem joga precisa atualizar o pack. O servidor não muda.
+Ninguém precisa reinstalar: os mods não mudam.
 
 ## Adicionou
-- **[Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV)** `0.1.2` (MIT), só no cliente. Aplica as opções padrão do pack na primeira vez que o jogo abre, sem sobrescrever o que o jogador já mudou. Já deixa o servidor da IUNA na lista de servidores da instância.
+Nada.
 
 ## Atualizou
 Nada.
@@ -12,7 +12,6 @@ Nada.
 Nada.
 
 ## Outras mudanças
-- A instância criada ao importar o `.mrpack` passa a se chamar **IUNA Mark II**.
-- O `.mrpack` leva uma descrição curta do pack (summary).
-- O README informa a memória recomendada para o cliente.
-- O Release passa a anexar o `.zip` da CurseForge.
+- A instância criada ao importar o `.mrpack` ganha o ícone do IUNA no Modrinth App.
+- O Modrinth passa a receber um `.mrpack` sem o The Twilight Forest e o Mob Grinding Utils, que não permitem a redistribuição por lá. A página e o changelog de cada versão explicam como adicioná-los pelo launcher. O `.mrpack` do GitHub, o pack da CurseForge e o servidor seguem completos.
+- O `pack.py lado` não avisa mais que mod All Rights Reserved do Modrinth trava a página de lá: só jar embutido precisa de permissão.

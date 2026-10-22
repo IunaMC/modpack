@@ -44,7 +44,9 @@ script acrescenta "MAJOR confirmado" ao corpo do PR).
    ([por quê](../decisoes/0002-merge-commit-assinado.md)) e nunca
    `--delete-branch`: a `devel/devel` é permanente.
 5. Espera o Release da `main` e mostra o resultado dos passos "Publicar no
-   Modrinth" e "Publicar na CurseForge". Se o Release falhar, a release do
+   Modrinth" e "Publicar na CurseForge". O Modrinth recebe o `.mrpack`
+   reduzido ([decisão 0007](../decisoes/0007-mrpack-reduzido-no-modrinth.md));
+   o GitHub e a CurseForge, o completo. Se o Release falhar, a release do
    GitHub ainda vale.
 6. Alinha a `devel/devel` com a `main` (`merge --ff-only` e push), mesmo que o
    Release tenha falhado, porque o merge já aconteceu.

@@ -51,6 +51,13 @@ jobs:
           (cd pack && packwiz mr export -o "../$ARQUIVO")
           echo "arquivo=$ARQUIVO" >> "$GITHUB_OUTPUT"
 
+      # Confere se a lista [[reduzido.fora]] do modrinth/projeto.toml ainda bate
+      # com o pack: o Release gera o reduzido do mesmo jeito antes de enviar.
+      - name: Gerar o .mrpack do Modrinth
+        run: |
+          ARQUIVO="${{ steps.exportar.outputs.arquivo }}"
+          python3 scripts/modrinth.py reduzir "$ARQUIVO" "${ARQUIVO%.mrpack}-modrinth.mrpack"
+
       - uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.exportar.outputs.arquivo }}
