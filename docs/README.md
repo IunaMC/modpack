@@ -14,6 +14,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 | [Atualizar mods](guias/atualizar-mods.md) | — |
 | [Publicar uma beta](guias/publicar-beta.md) | `/beta` |
 | [Publicar a estável](guias/publicar-estavel.md) | `/estavel` |
+| [Propagar uma estável](guias/propagar.md) | `/propagar` |
 | [Publicar documentação](guias/publicar-docs.md) | — |
 | [Arquivos externos](guias/arquivos-externos.md) | — |
 | [Servidor local e teste de boot](guias/servidor-local.md) | `/testar` |
@@ -32,6 +33,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 - [0003: `devel/devel` permanente e `main` só com estáveis](decisoes/0003-devel-permanente-main-estavel.md)
 - [0004: páginas das plataformas como código](decisoes/0004-paginas-como-codigo.md)
 - [0005: o pack não perde mods por causa de uma plataforma](decisoes/0005-mrpack-completo-sem-cortar-mods.md)
+- [0006: o que o .mrpack leva além dos mods](decisoes/0006-metadados-do-mrpack.md)
 
 ## Plataformas
 

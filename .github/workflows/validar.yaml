@@ -33,9 +33,12 @@ jobs:
         run: python3 scripts/curseforge.py verificar
 
       - name: Exportar o .zip da CurseForge
+        id: zip
         run: |
-          (cd pack && packwiz curseforge export -o ../curseforge-teste.zip)
-          if unzip -l curseforge-teste.zip 'overrides/mods/*' > /dev/null 2>&1; then
+          ZIP="IUNA-$(python3 scripts/pack.py versao)-${GITHUB_SHA::7}-curseforge.zip"
+          echo "arquivo=$ZIP" >> "$GITHUB_OUTPUT"
+          (cd pack && packwiz curseforge export -o ../"$ZIP")
+          if unzip -l "$ZIP" 'overrides/mods/*' > /dev/null 2>&1; then
             echo "::error::O .zip da CurseForge tem jars em overrides/mods."
             exit 1
           fi
@@ -52,6 +55,13 @@ jobs:
         with:
           name: ${{ steps.exportar.outputs.arquivo }}
           path: ${{ steps.exportar.outputs.arquivo }}
+          retention-days: 14
+          compression-level: 0
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.zip.outputs.arquivo }}
+          path: ${{ steps.zip.outputs.arquivo }}
           retention-days: 14
           compression-level: 0
 

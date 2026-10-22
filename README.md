@@ -1,4 +1,4 @@
-# IUNA Modpack
+# IUNA Mark II
 
 Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.253**.
 
@@ -7,6 +7,14 @@ mantido com o [packwiz](https://packwiz.infra.link/): cada mod é um `.pw.toml`
 em [`pack/mods/`](pack/mods), sem nenhum jar, e o campo `side` diz onde ele
 roda. A cada versão, o CI gera um `.mrpack` que qualquer launcher compatível
 instala com um clique.
+
+## Requisitos
+
+- **Java 21** (o Modrinth App e o Prism baixam sozinhos).
+- **Memória:** aloque **8 GB** de RAM ao jogo (mínimo de 6 GB; 10 GB com
+  shaders ou muitos mods visuais). O computador precisa ter RAM sobrando para
+  o sistema.
+- O primeiro carregamento, com quase 300 mods, demora alguns minutos.
 
 ## Instalação
 
@@ -87,7 +95,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **355 mods**. O jogador recebe 290 (258 obrigatórios e 32 opcionais), e o servidor, 315.
+O pack tem **356 mods**. O jogador recebe 291 (259 obrigatórios e 32 opcionais), e o servidor, 315.
 
 ### Obrigatórios
 Necessários para entrar no servidor. O launcher instala todos.
@@ -349,6 +357,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [WorldWeaver: New Dawn](https://modrinth.com/mod/R8uGDQpB) | `worldweaver-21.0.26.jar` | Cliente e servidor |
 | [WunderLib: New Dawn](https://modrinth.com/mod/HZmhgdJk) | `wunderlib-21.0.10.jar` | Cliente e servidor |
 | [Xray Snitch](https://modrinth.com/mod/AKunSbDQ) | `xray_snitch-1.3.jar` | Cliente e servidor |
+| [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) | `yosbr-0.1.2.jar` | Cliente |
 | [YUNG's API](https://modrinth.com/mod/Ua7DFN59) | `YungsApi-1.21.1-NeoForge-5.1.9.jar` | Cliente e servidor |
 | [ZeroCore](https://modrinth.com/mod/rHpb85Mf) | `ZeroCore2-1.21.1-2.4.9.jar` | Cliente e servidor |
 | [Zeta](https://modrinth.com/mod/MVARlG2f) | `Zeta-1.1-40.jar` | Cliente e servidor |

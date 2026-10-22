@@ -8,9 +8,9 @@ rodam.
 
 | Script | Para quê |
 | --- | --- |
-| [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`). Nenhum publica |
-| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
-| [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` |
+| [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`, `ci`, `beta`, `estavel`, `propagar`). Só `beta`, `estavel` e `propagar` publicam |
+| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` de cada mod pelo Modrinth, dependências `orfas`, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
+| [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` (imprime o `curseforge/descricao.md`) |
 | [`scripts/modrinth.py`](../../scripts/modrinth.py) | Página do Modrinth a partir de `modrinth/` (`verificar`, `sincronizar`) e envio de versões (`publicar`) |
 | [`scripts/resumo.py`](../../scripts/resumo.py) | O Resumo semanal, em Markdown |
 | [`scripts/testar-servidor.sh`](../../scripts/testar-servidor.sh) | Sobe um servidor NeoForge com o pack ([servidor local](../guias/servidor-local.md)) |
@@ -24,19 +24,19 @@ estiver disponível, o guia basta.
 
 | Skill | Guia | Comandos principais | O que só a skill faz |
 | --- | --- | --- | --- |
-| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `curseforge.py ligar`, `op.sh refresh` | Consulta lado e licença no Modrinth (vira `pack.py lado`, [#17](https://github.com/IunaMC/modpack/issues/17)) e acha o Project ID da CurseForge |
-| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `packwiz remove`, `op.sh refresh` | Procura dependências órfãs (vira `pack.py orfas`, [#18](https://github.com/IunaMC/modpack/issues/18)) |
-| `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh versao`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md`; o resto vira `op.sh beta` ([#19](https://github.com/IunaMC/modpack/issues/19)) |
-| `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `pack.py mudancas estavel`, `gh pr create`, `gh pr merge --merge` | Escreve o `MUDANCAS.md` e o corpo do PR; o resto vira `op.sh estavel` ([#20](https://github.com/IunaMC/modpack/issues/20)) |
-| `/propagar` | [Propagar](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) | `gh workflow run acompanhar-base.yaml`, `git commit --amend -S -s` | Tudo vira `op.sh propagar` ([#21](https://github.com/IunaMC/modpack/issues/21)) |
-| `/testar` | [Servidor local](../guias/servidor-local.md) | `gh run watch`, `testar-servidor.sh` | Escolhe entre o CI e a máquina local pelo disco e pela memória livres; o caminho do CI vira `op.sh ci` ([#22](https://github.com/IunaMC/modpack/issues/22)) |
+| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `pack.py lado`, `curseforge.py ligar`, `op.sh refresh` | Acha o Project ID da CurseForge; o lado e a licença vêm do `pack.py lado` |
+| `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `pack.py orfas`, `packwiz remove`, `op.sh refresh` | Decide se a dependência é mesmo órfã e se o conteúdo pode sair |
+| `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh beta`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md`; o resto é do `op.sh beta` |
+| `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `op.sh estavel`, `pack.py mudancas estavel` | Escreve o `MUDANCAS.md` e o corpo do PR; o resto é do `op.sh estavel` |
+| `/propagar` | [Propagar](../guias/propagar.md) | `op.sh propagar` | Nada: é só o script |
+| `/testar` | [Servidor local](../guias/servidor-local.md) | `op.sh ci`, `testar-servidor.sh` | Escolhe entre o CI e a máquina local pelo disco e pela memória livres |
 | `/spark` | — | `.claude/skills/spark/spark.py` | Análise dos perfis do Spark |
 
 A coluna "O que só a skill faz" lista o que ainda depende de julgamento ou de
-IA. O que é mecânico vai virar script, com uma issue por script (etiqueta
-[`processo`](https://github.com/IunaMC/modpack/issues?q=label%3Aprocesso)).
-Quando um script existir, a skill passa a chamá-lo, e o guia mostra o comando
-no mesmo commit.
+IA; o mecânico é script. Quando um passo novo virar script, a skill passa a
+chamá-lo, e o guia mostra o comando no mesmo commit. As ideias que ainda não
+viraram script ficam nas issues com a etiqueta
+[`processo`](https://github.com/IunaMC/modpack/issues?q=label%3Aprocesso).
 
 ### Modelo e esforço
 

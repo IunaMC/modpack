@@ -3,7 +3,8 @@
 
 Uso: python3 scripts/resumo.py
 
-Lê pelo `gh api` (token em GH_TOKEN): versões e alinhamento entre o modpack, a
+Lê pelo `gh api` (token em GH_TOKEN; RESUMO_TOKEN e MINECRAFT_CONFIG_TOKEN, se
+definidos, só têm a validade consultada): versões e alinhamento entre o modpack, a
 moderação e as configs, o último resultado de cada workflow na main e na
 devel/devel, commits da devel/devel fora da main (com aviso quando parados há
 muito tempo), as releases das configs ainda não enviadas ao servidor (issues
@@ -13,6 +14,7 @@ contagens e o resultado do CI, nunca títulos.
 """
 import base64
 import json
+import os
 import re
 import subprocess
 import sys
@@ -23,6 +25,8 @@ ORG = "IunaMC"
 PARADO = 14  # dias de commit na devel/devel sem estável que viram aviso
 REPOS = {"modpack": "Modpack", "modpack-moderacao": "Moderação", "minecraft-config": "Configs"}
 PUBLICO = "modpack"
+TOKENS = ("RESUMO_TOKEN", "MINECRAFT_CONFIG_TOKEN")  # secrets com validade
+AVISO_TOKEN = 14  # dias para vencer que viram aviso
 
 
 def api(caminho):
@@ -33,6 +37,42 @@ def api(caminho):
         print(f"::warning::gh api {caminho.split('?')[0]}: {motivo}", file=sys.stderr)
         return None
     return json.loads(r.stdout)
+
+
+def vencimento(token):
+    """Data em que o token vence, pelo cabeçalho github-authentication-token-expiration.
+
+    Devolve (data, None), (None, None) se o token não vence ou (None, motivo) se
+    a consulta falhou. O token só viaja para o gh e nunca é impresso.
+    """
+    r = subprocess.run(["gh", "api", "-i", "rate_limit"], capture_output=True, text=True,
+                       env={**os.environ, "GH_TOKEN": token})
+    cabecalho = re.search(r"^github-authentication-token-expiration:\s*(\S+ \S+)", r.stdout, re.M | re.I)
+    if cabecalho:
+        return datetime.strptime(cabecalho.group(1), "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc), None
+    if r.returncode != 0 and "401" in r.stdout + r.stderr:
+        return None, "recusado pelo GitHub (vencido ou revogado)"
+    return (None, None) if r.returncode == 0 else (None, "sem resposta do GitHub")
+
+
+def tokens():
+    """Uma linha por token com os dias que faltam para vencer; só a data, nunca o valor."""
+    linhas = []
+    for nome in TOKENS:
+        token = os.environ.get(nome)
+        if not token:
+            linhas.append(f"- **`{nome}`:** não definido neste ambiente.")
+            continue
+        data, erro = vencimento(token)
+        if erro:
+            linhas.append(f"- **`{nome}`:** ❌ {erro}: gere outro e atualize o secret.")
+        elif data is None:
+            linhas.append(f"- **`{nome}`:** sem data de validade.")
+        else:
+            dias = (data - datetime.now(timezone.utc)).days
+            aviso = " ⚠️ gere outro antes disso e atualize o secret." if dias < AVISO_TOKEN else ""
+            linhas.append(f"- **`{nome}`:** vence em {data:%d/%m/%Y} ({dias} dias).{aviso}")
+    return linhas
 
 
 def arquivo(repo, caminho, ref="main"):
@@ -146,6 +186,9 @@ def main():
             out.append(f"- **{nome}:** {l}")
     if total == 0:
         out.append("- Tudo verde na `main` e na `devel/devel`.")
+
+    out.append("\n## Tokens\n")
+    out.extend(tokens())
 
     out.append("\n## Pendências\n")
     for repo, nome in REPOS.items():

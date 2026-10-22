@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/yosbr/servers.dat"
+hash = "8229d9392f5d08db050ff499b5d3ebfb5bb92817948ec932c42aeab3f66dd4ae"
+
+[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "7ab99905f3c6dd645e33a43ebbba748f9291861c2628af31dfbb37be218046f5"
 metafile = true
@@ -1718,6 +1722,11 @@ metafile = true
 [[files]]
 file = "mods/xray-snitch.pw.toml"
 hash = "9495a0ec606f03e63042a545599758cee39126ee50f1eddb90556196ad010f61"
+metafile = true
+
+[[files]]
+file = "mods/yosbr.pw.toml"
+hash = "9a8e1349f25b2f7f7cf61d03f8a2cc8f8f38f156aeab683f9c9359dcdc3cc3ec"
 metafile = true
 
 [[files]]

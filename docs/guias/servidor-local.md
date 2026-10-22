@@ -88,3 +88,13 @@ nesse arquivo, ou outro bot.
 O workflow `Validar` sobe o servidor a cada push fora da `main`. Com o secret
 `MINECRAFT_CONFIG_TOKEN` (token com leitura do `minecraft-config`), ele usa
 `--configs-git main`; sem o secret, sobe só com os mods e mostra um aviso.
+
+Para esperar o resultado do commit atual sem abrir o GitHub (depois do
+`git push`), use:
+
+```sh
+bash scripts/op.sh ci
+```
+
+Se o Validar falhar, o comando imprime só as linhas que explicam o erro. Os
+cerca de 110 `ERROR`/`FATAL` que o servidor sempre registra ficam de fora.
