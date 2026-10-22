@@ -1,0 +1,60 @@
+name: Discord · commits
+
+# Avisa no canal de commits do Discord quando algo entra na main ou na
+# devel/devel. O webhook fica no secret DISCORD_WEBHOOK_COMMIT; sem ele o
+# workflow pula sozinho. A mensagem é montada aqui (título de cada commit, no
+# máximo 8) para não depender do texto livre do evento nem passar de 2000
+# caracteres, o limite do Discord.
+on:
+  push:
+    branches: [main, devel/devel]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discord-commits-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Montar a mensagem
+        id: msg
+        env:
+          DISCORD_WEBHOOK_COMMIT: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          AUTOR: ${{ github.event.pusher.name }}
+          COMPARAR: ${{ github.event.compare }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_COMMIT" ]; then
+            echo "enviar=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo "**$REPO** · \`$BRANCH\` · $AUTOR"
+            jq -r '.commits[:8][] | "- `\(.id[:7])` \(.message | split("\n")[0])"' "$GITHUB_EVENT_PATH"
+            total=$(jq '.commits | length' "$GITHUB_EVENT_PATH")
+            [ "$total" -gt 8 ] && echo "- … e mais $((total - 8))"
+            echo "<$COMPARAR>"
+          } > "$RUNNER_TEMP/msg.md"
+          # O Actions for Discord trata {{ }} como variável: neutraliza.
+          texto=$(sed 's/{{/{ {/g' "$RUNNER_TEMP/msg.md" | head -c 1900)
+          {
+            echo "enviar=true"
+            echo "texto<<FIM_DA_MENSAGEM"
+            echo "$texto"
+            echo "FIM_DA_MENSAGEM"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Avisar no Discord
+        if: steps.msg.outputs.enviar == 'true'
+        # Fixada por SHA (0.4.0): a action recebe o webhook.
+        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
+          DISCORD_USERNAME: IUNA · commits
+        with:
+          args: ${{ steps.msg.outputs.texto }}
