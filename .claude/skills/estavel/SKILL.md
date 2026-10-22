@@ -22,6 +22,7 @@ allowed-tools:
   - Bash(cd pack && packwiz refresh*)
   - Bash(gh run *)
   - Bash(gh pr *)
+  - Bash(bash scripts/op.sh *)
   - Bash(gh release view *)
 ---
 
@@ -39,15 +40,10 @@ Publique a estável do pack. Versão pedida: `$ARGUMENTS` (vazio = a da beta atu
 - `MUDANCAS.md` atual: !`cat MUDANCAS.md`
 
 ## Passos
-1. A branch tem que ser `devel/devel`, a árvore limpa e o último Validar verde. Se faltar algo, pare e diga o quê.
-2. Se nenhuma beta desta versão saiu (não há tag `v<versão>-beta.*`), pergunte se pode publicar sem beta.
-3. Troque `version` em `pack/pack.toml` pela estável, rode `cd pack && packwiz refresh` e `python3 scripts/pack.py readme`.
-4. Reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo>`, quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, comparando com a **última estável**, não com as betas. Tire a linha "Beta: …".
-5. Um commit: `git commit -S -s -m "build: prepara a versao <versão>"`, depois `git push`. Espere o Validar desse commit com `gh run watch <id> --exit-status` em segundo plano. Se falhar, mostre o erro e pare.
-6. Sem PR aberto, crie: `gh pr create --base main --head devel/devel --title "Versão <versão>: <resumo>" --body "<corpo>"`, com as seções Resumo, Mods (o que muda para o jogador), outras mudanças e Testes (Validar verde, betas publicadas). Se a versão for MAJOR e o usuário confirmou, inclua a linha "MAJOR confirmado". Sem menção ao Claude. Espere o job *Entrada na main* do PR (`gh pr checks <número> --watch`); se falhar, mostre o erro e pare.
-7. `gh pr merge <número> --merge`, nunca `--rebase` e nunca `--delete-branch`: a `devel/devel` é permanente.
-8. Acompanhe o Release da `main`: `gh run list --workflow release.yaml --branch main --limit 1` e `gh run watch <id> --exit-status`. Confira os passos "Publicar no Modrinth" e "Publicar na CurseForge" (`gh run view <id>`); se um falhar, mostre o erro, mas a release do GitHub já vale. Depois, `gh release view v<versão>`.
-9. Alinhe a `devel/devel` com a `main`: `git fetch`, `git merge --ff-only origin/main` e `git push`.
+1. Se nenhuma beta desta versão saiu (não há tag `v<versão>-beta.*`), pergunte se pode publicar sem beta (então use `--sem-beta`). Se a versão for MAJOR, pergunte e só com o OK use `--major`.
+2. Rode `bash scripts/op.sh estavel <versão>` (em segundo plano; sem versão, ele usa a da beta atual). Ele confere a branch, troca a versão, roda `refresh` e `readme`, commita (assinado), faz o push, espera o Validar, abre o PR, espera *Entrada na main*, faz `gh pr merge --merge`, espera o Release e alinha a `devel/devel`. Para no primeiro passo vermelho: mostre o erro e pare.
+3. Saída 3 com "O MUDANCAS.md não tem o título…" ou "ainda tem a linha 'Beta: …'": reescreva o `MUDANCAS.md` no formato do atual: título `# Mudanças — v<versão>, <resumo>`, quem precisa reinstalar e as seções Adicionou, Atualizou e Removeu, comparando com a **última estável**, não com as betas, sem a linha "Beta: …". Rode o script de novo.
+4. Saída 3 com "Sem PR aberto": escreva o corpo do PR em um arquivo fora do repo (seções Resumo, Mods, outras mudanças e Testes; sem menção ao Claude) e rode o script com `--corpo <arquivo>`.
 
 10. Se o Release terminou verde, siga direto para a skill `/propagar` com a versão, sem esperar novo pedido: a estável só termina com a moderação e as configs alinhadas.
 
