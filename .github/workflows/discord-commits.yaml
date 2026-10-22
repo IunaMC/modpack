@@ -2,9 +2,10 @@ name: Discord · commits
 
 # Avisa no canal de commits do Discord quando algo entra na main ou na
 # devel/devel. O webhook fica no secret DISCORD_WEBHOOK_COMMIT; sem ele o
-# workflow pula sozinho. A mensagem é montada aqui (título de cada commit, no
-# máximo 8) para não depender do texto livre do evento nem passar de 2000
-# caracteres, o limite do Discord.
+# workflow pula sozinho. A mensagem é um embed no estilo do webhook nativo do
+# GitHub (autor, título com repo e branch, um commit por linha, até 8),
+# montado aqui com jq e enviado por curl: sem action de terceiros recebendo o
+# webhook e sem menções (allowed_mentions vazio).
 on:
   push:
     branches: [main, devel/devel]
@@ -20,41 +21,29 @@ jobs:
   avisar:
     runs-on: ubuntu-latest
     steps:
-      - name: Montar a mensagem
-        id: msg
+      - name: Avisar no Discord
         env:
           DISCORD_WEBHOOK_COMMIT: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
-          REPO: ${{ github.repository }}
-          BRANCH: ${{ github.ref_name }}
-          AUTOR: ${{ github.event.pusher.name }}
-          COMPARAR: ${{ github.event.compare }}
         run: |
-          if [ -z "$DISCORD_WEBHOOK_COMMIT" ]; then
-            echo "enviar=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          {
-            echo "**$REPO** · \`$BRANCH\` · $AUTOR"
-            jq -r '.commits[:8][] | "- `\(.id[:7])` \(.message | split("\n")[0])"' "$GITHUB_EVENT_PATH"
-            total=$(jq '.commits | length' "$GITHUB_EVENT_PATH")
-            [ "$total" -gt 8 ] && echo "- … e mais $((total - 8))"
-            echo "<$COMPARAR>"
-          } > "$RUNNER_TEMP/msg.md"
-          # O Actions for Discord trata {{ }} como variável: neutraliza.
-          texto=$(sed 's/{{/{ {/g' "$RUNNER_TEMP/msg.md" | head -c 1900)
-          {
-            echo "enviar=true"
-            echo "texto<<FIM_DA_MENSAGEM"
-            echo "$texto"
-            echo "FIM_DA_MENSAGEM"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Avisar no Discord
-        if: steps.msg.outputs.enviar == 'true'
-        # Fixada por SHA (0.4.0): a action recebe o webhook.
-        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
-          DISCORD_USERNAME: IUNA · commits
-        with:
-          args: ${{ steps.msg.outputs.texto }}
+          [ -n "$DISCORD_WEBHOOK_COMMIT" ] || exit 0
+          [ "$(jq '.commits | length' "$GITHUB_EVENT_PATH")" -gt 0 ] || exit 0
+          jq '
+            (.commits | length) as $n
+            | (.ref | sub("refs/heads/"; "")) as $branch
+            | {
+                username: "IUNA · commits",
+                allowed_mentions: {parse: []},
+                embeds: [{
+                  color: 7506394,
+                  author: {name: .sender.login, icon_url: .sender.avatar_url, url: .sender.html_url},
+                  title: "[\(.repository.name):\($branch)] \($n) \(if $n == 1 then "novo commit" else "novos commits" end)",
+                  url: .compare,
+                  description: (
+                    [.commits[:8][] | "[`\(.id[:7])`](\(.url)) \(.message | split("\n")[0]) - \(.author.name)"]
+                    + (if $n > 8 then ["… e mais \($n - 8)"] else [] end)
+                    | join("\n") | .[:4000]
+                  )
+                }]
+              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
+          curl -fsS -H 'Content-Type: application/json' \
+            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_COMMIT"
