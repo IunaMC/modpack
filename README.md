@@ -8,6 +8,14 @@ em [`pack/mods/`](pack/mods), sem nenhum jar, e o campo `side` diz onde ele
 roda. A cada versão, o CI gera um `.mrpack` que qualquer launcher compatível
 instala com um clique.
 
+## Requisitos
+
+- **Java 21** (o Modrinth App e o Prism baixam sozinhos).
+- **Memória:** aloque **8 GB** de RAM ao jogo (mínimo de 6 GB; 10 GB com
+  shaders ou muitos mods visuais). O computador precisa ter RAM sobrando para
+  o sistema.
+- O primeiro carregamento, com quase 300 mods, demora alguns minutos.
+
 ## Instalação
 
 ### Pelo Modrinth (recomendado)
