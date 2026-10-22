@@ -43,7 +43,7 @@ python3 scripts/curseforge.py descricao
 ```
 
 Ela é o [`../modrinth/descricao.en.md`](../modrinth/descricao.en.md) sem o
-`# IUNA` do topo, mais a seção extra abaixo. Depois de colar, rode
+`# IUNA` do topo, com as trocas da seção seguinte. Depois de colar, rode
 `python3 scripts/curseforge.py descricao --marcar` e faça o commit do
 `descricao.sha256`.
 
@@ -55,27 +55,36 @@ o KubeJS, os mods opcionais, requisitos, singleplayer, versões e créditos. O
 português (`modrinth/descricao.md`) não vai para a CurseForge, que só recebe o
 inglês.
 
-## Seção extra da descrição
+## Trechos trocados na descrição
 
-Entra no fim da descrição. A parte de instalação existe porque o texto do
-Modrinth fala de Modrinth App; na CurseForge o caminho é outro. A seção de
-créditos só é obrigatória se algum mod for no `overrides/` (mod de fora da
-CurseForge). Hoje a lista está vazia.
+O `curseforge.py descricao` faz duas trocas no texto do Modrinth, nos blocos
+abaixo, nesta ordem:
+
+1. O primeiro bloco **substitui** a seção `## Installation` inteira (a do
+   Modrinth fala de Modrinth App e `.mrpack`; na CurseForge o caminho é outro).
+2. O segundo entra **antes** de `## Links`. Só é obrigatório se algum mod for no
+   `overrides/` (mod de fora da CurseForge). Hoje a lista está vazia.
 
 ```md
-## Installing from CurseForge
+## Installation
 
-**CurseForge app:** open the page and click **Install**, or search for "IUNA"
-in the Minecraft modpacks tab.
+**CurseForge app:** click **Install** on this page, or search for "IUNA" in the
+Minecraft modpacks tab.
 
 **Prism Launcher:** *Add Instance → CurseForge*, search for "IUNA" and pick the
 version. You can also download the `.zip` from *Files* and use *Add Instance →
 Import*.
 
-The launcher installs NeoForge and downloads the mods for you. Everything else
-in this page (requirements, updating, versions) works the same here. Unlike the
+The launcher installs NeoForge and downloads the mods for you. Unlike the
 Modrinth version, this one includes The Twilight Forest and Mob Grinding Utils.
 
+**To update,** the safest way is to create a new instance with the new
+version. If the first number changes (from 3.x to 4.0, for example), the
+server world is new as well. To keep your worlds, screenshots and settings,
+copy the `saves`, `screenshots` and `config` folders from the old instance.
+```
+
+```md
 ## Credits for mods not hosted on CurseForge
 
 This pack includes the following mods from outside CurseForge, with thanks to

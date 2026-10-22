@@ -206,11 +206,15 @@ def publicar(versao, arquivo, notas, simular):
 # --- descrição e status --------------------------------------------------------
 
 def descricao():
-    """A descrição do site: a do Modrinth sem o título, mais a seção extra do projeto.md."""
+    """A descrição do site: a do Modrinth sem o título, com a instalação da CurseForge e os créditos extras do projeto.md."""
     texto = (RAIZ / "modrinth" / "descricao.en.md").read_text()
     texto = re.sub(r"\A# [^\n]*\n+", "", texto)
-    extra = re.search(r"```md\n(.*?)```", (RAIZ / "curseforge" / "projeto.md").read_text(), re.S)
-    return texto.rstrip("\n") + "\n\n" + (extra.group(1).strip() + "\n" if extra else "")
+    blocos = re.findall(r"```md\n(.*?)```", (RAIZ / "curseforge" / "projeto.md").read_text(), re.S)
+    if blocos:
+        texto = re.sub(r"## Installation\n.*?(?=## Requirements)", lambda _: blocos[0].strip() + "\n\n", texto, flags=re.S)
+    if len(blocos) > 1:
+        texto = texto.replace("## Links", blocos[1].strip() + "\n\n## Links", 1)
+    return texto.rstrip("\n") + "\n"
 
 
 def estado_descricao():
