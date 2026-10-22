@@ -1,0 +1,54 @@
+name: Discord · workflows
+
+# Avisa no canal de workflows do Discord o resultado dos outros workflows
+# (sucesso, falha ou tempo esgotado; cancelado e pulado ficam de fora, porque
+# o concurrency cancela execuções antigas o tempo todo). O webhook fica no
+# secret DISCORD_WEBHOOK_WORKFLOW; sem ele o workflow pula sozinho. A mensagem é
+# um embed montado com jq e enviado por curl (verde no sucesso, vermelho na
+# falha), sem menções.
+#
+# workflow_run só dispara com este arquivo na branch padrão: na devel/devel ele
+# começa a valer quando a estável levar para a main.
+on:
+  workflow_run:
+    workflows:
+      - Validar
+      - Entrada na main
+      - Release
+      - Docs
+      - Modrinth
+      - Regras do Claude
+      - Atualizações de mods
+      - Resumo semanal
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  avisar:
+    if: contains(fromJSON('["success","failure","timed_out"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar no Discord
+        env:
+          DISCORD_WEBHOOK_WORKFLOW: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW }}
+        run: |
+          [ -n "$DISCORD_WEBHOOK_WORKFLOW" ] || exit 0
+          jq '
+            .workflow_run as $r
+            | ($r.conclusion == "success") as $ok
+            | {
+                username: "IUNA · workflows",
+                allowed_mentions: {parse: []},
+                embeds: [{
+                  color: (if $ok then 3066993 else 15158332 end),
+                  author: {name: $r.actor.login, icon_url: $r.actor.avatar_url, url: $r.actor.html_url},
+                  title: "\($r.name): \(if $ok then "sucesso" elif $r.conclusion == "timed_out" then "tempo esgotado" else "falhou" end)",
+                  url: $r.html_url,
+                  description: "`\($r.head_branch)` · \($r.display_title | split("\n")[0] | .[:200])",
+                  footer: {text: .repository.full_name}
+                }]
+              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
+          curl -fsS -H 'Content-Type: application/json' \
+            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_WORKFLOW"

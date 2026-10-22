@@ -1,0 +1,49 @@
+name: Discord · commits
+
+# Avisa no canal de commits do Discord quando algo entra na main ou na
+# devel/devel. O webhook fica no secret DISCORD_WEBHOOK_COMMIT; sem ele o
+# workflow pula sozinho. A mensagem é um embed no estilo do webhook nativo do
+# GitHub (autor, título com repo e branch, um commit por linha, até 8),
+# montado aqui com jq e enviado por curl: sem action de terceiros recebendo o
+# webhook e sem menções (allowed_mentions vazio).
+on:
+  push:
+    branches: [main, devel/devel]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discord-commits-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar no Discord
+        env:
+          DISCORD_WEBHOOK_COMMIT: ${{ secrets.DISCORD_WEBHOOK_COMMIT }}
+        run: |
+          [ -n "$DISCORD_WEBHOOK_COMMIT" ] || exit 0
+          [ "$(jq '.commits | length' "$GITHUB_EVENT_PATH")" -gt 0 ] || exit 0
+          jq '
+            (.commits | length) as $n
+            | (.ref | sub("refs/heads/"; "")) as $branch
+            | {
+                username: "IUNA · commits",
+                allowed_mentions: {parse: []},
+                embeds: [{
+                  color: 7506394,
+                  author: {name: .sender.login, icon_url: .sender.avatar_url, url: .sender.html_url},
+                  title: "[\(.repository.name):\($branch)] \($n) \(if $n == 1 then "novo commit" else "novos commits" end)",
+                  url: .compare,
+                  description: (
+                    [.commits[:8][] | "[`\(.id[:7])`](\(.url)) \(.message | split("\n")[0]) - \(.author.name)"]
+                    + (if $n > 8 then ["… e mais \($n - 8)"] else [] end)
+                    | join("\n") | .[:4000]
+                  )
+                }]
+              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
+          curl -fsS -H 'Content-Type: application/json' \
+            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_COMMIT"
