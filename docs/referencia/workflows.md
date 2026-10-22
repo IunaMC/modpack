@@ -9,6 +9,7 @@ Os workflows deste repositório e o que roda igual na sua máquina.
 | [Entrada na main](../../.github/workflows/main.yaml) | PR para a `main` (aberto, atualizado ou com o corpo editado) | Confere versão e origem do PR. O ruleset da `main` exige que passe ([regras](versionamento.md#o-que-entra-na-main)) | `python3 scripts/pack.py conferir origin/main HEAD --ramo devel/devel` |
 | [Modrinth](../../.github/workflows/modrinth.yaml) | Push que muda `modrinth/`; manual | Fora da `main`, mostra o que mudaria; na `main`, aplica textos, links e galeria | `python3 scripts/modrinth.py sincronizar --simular` |
 | [Docs](../../.github/workflows/docs.yaml) | Push ou PR que muda algum `.md`; manual | Links internos e âncoras (`lychee --offline`) e estilo (`markdownlint-cli2`) | `npx markdownlint-cli2 '**/*.md'` |
+| [Regras do Claude](../../.github/workflows/regras-claude.yaml) | Push ou PR que muda o `CLAUDE.md`; manual | Baixa o texto oficial e o script do IunaMC/docs (`main`) e confere se o bloco de regras comuns do `CLAUDE.md` é igual | `python3 ../iunamc.docs/scripts/regras-comuns.py conferir` |
 | [Atualizações de mods](../../.github/workflows/atualizacoes.yaml) | Segunda, 10h23 UTC; manual | Issue com os mods que têm versão nova | `cd pack && packwiz update --all`, `git diff`, depois `git checkout pack/` |
 | [Resumo semanal](../../.github/workflows/resumo.yaml) | Segunda, 10h53 UTC; manual | Issue "Resumo semanal" com o estado dos três repositórios | `bash scripts/op.sh resumo` |
 
