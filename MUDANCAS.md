@@ -1,6 +1,4 @@
-# Mudanças — v3.5.0-beta.1, opções padrão no cliente e instância "IUNA Mark II"
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.5.0, opções padrão no cliente e instância "IUNA Mark II"
 
 Muda só o cliente: quem joga precisa atualizar o pack. O servidor não muda.
 
