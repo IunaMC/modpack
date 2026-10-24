@@ -1,8 +1,7 @@
-# Mudanças — v3.5.2-beta.2, padrões do cliente
+# Mudanças — v3.5.2, padrões do cliente
 
-Beta: sai como pre-release e o servidor não a instala.
-
-Ninguém precisa reinstalar: os mods não mudam. As novas opções só chegam a quem instala o pack do zero, porque o YOSBR não sobrescreve arquivos que a instância já tem.
+Ninguém precisa reinstalar: os mods não mudam.
+As novas opções só chegam a quem instala o pack do zero, porque o YOSBR não sobrescreve arquivos que a instância já tem.
 
 ## Adicionou
 Nada.
