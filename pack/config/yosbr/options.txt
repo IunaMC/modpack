@@ -1,0 +1,10 @@
+version:3955
+graphicsMode:0
+renderClouds:"fast"
+biomeBlendRadius:1
+entityDistanceScaling:0.75
+simulationDistance:8
+enableVsync:false
+entityShadows:true
+advancedItemTooltips:true
+tutorialStep:none
