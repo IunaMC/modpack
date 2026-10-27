@@ -1,8 +1,8 @@
 # IUNA na CurseForge
 
-O pack da CurseForge é o mesmo do `.mrpack`, **com** o Twilight Forest e o Mob
-Grinding Utils, que o Modrinth não aceita. A página é feita à mão no site: a
-API de upload da CurseForge envia arquivos, mas não edita o projeto, e nenhuma
+A CurseForge é a única loja do pack. Ele é o mesmo do `.mrpack` da release do
+GitHub, completo, com o Twilight Forest e o Mob Grinding Utils. A página é
+feita à mão no site: a API de upload da CurseForge envia arquivos, mas não edita o projeto, e nenhuma
 API mostra arquivo em revisão. Mantenha esta pasta igual ao que está no site:
 
 ```sh
@@ -14,8 +14,8 @@ python3 scripts/curseforge.py status               # versões que já aparecem e
 | Arquivo | Uso |
 | --- | --- |
 | [`projeto.md`](projeto.md) | Campos para preencher ao criar ou editar o projeto |
-| [`descricao.md`](descricao.md) | A descrição do site, própria da CurseForge (não é a do Modrinth) |
-| [`../modrinth/imagens/`](../modrinth/imagens) | Logo e banner, os mesmos do Modrinth |
+| [`descricao.md`](descricao.md) | A descrição do site |
+| [`imagens/`](imagens) | Logo (`icone.png`) e banner |
 
 ## Criar o projeto (uma vez)
 
@@ -39,7 +39,7 @@ gh variable set CURSEFORGE_PROJECT_ID -R IunaMC/modpack
 
 - **Versões:** o workflow [`Release`](../.github/workflows/release.yaml), depois
   gera o `.zip` com `packwiz curseforge export` (`IUNA-<versão>-curseforge.zip`,
-  também anexado à GitHub Release) e, depois do Modrinth, o envia pelo
+  também anexado à GitHub Release) e o envia pelo
   [`scripts/curseforge.py`](../scripts/curseforge.py) (`beta` ou `release`,
   com as notas da release). Cada arquivo passa pela revisão da CurseForge.
 - **Fonte de cada mod:** todo mod de cliente tem `[update.curseforge]` apontando

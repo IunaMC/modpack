@@ -1,13 +1,12 @@
 # Campos do projeto na CurseForge
 
 Copie cada campo, na ordem, para o formulário de **Edit Project** em
-<https://authors.curseforge.com>. Os textos públicos ficam em inglês, como no
-Modrinth. Projeto ID 1752945.
+<https://authors.curseforge.com>. Os textos públicos ficam em inglês. Projeto ID 1752945.
 
 Esta página reflete o pack **3.4.0** (290 mods para o jogador, 2 resource packs
 e 7 shaders). Quando a versão mudar, atualize o texto em
-[`../modrinth/descricao.en.md`](../modrinth/descricao.en.md) e rode
-`python3 scripts/curseforge.py descricao` para ter o que colar.
+[`descricao.md`](descricao.md) e rode `python3 scripts/curseforge.py descricao`
+para ter o que colar.
 
 ## Aba Description / Project Details
 
@@ -19,8 +18,8 @@ e 7 shaders). Quando a versão mudar, atualize o texto em
 | Additional categories | Magic, Adventure and RPG, Multiplayer, Exploration, Extra Large |
 | Game version / loader | Minecraft 1.21.1, NeoForge (vem do arquivo enviado) |
 | License | MIT License |
-| Logo | [`../modrinth/imagens/icone.png`](../modrinth/imagens/icone.png) |
-| Imagem de capa (Images) | [`../modrinth/imagens/banner.png`](../modrinth/imagens/banner.png), com o título "IUNA Mark II" |
+| Logo | [`imagens/icone.png`](imagens/icone.png) |
+| Imagem de capa (Images) | [`imagens/banner.png`](imagens/banner.png), com o título "IUNA Mark II" |
 
 O Summary tem 85 caracteres, bem abaixo do limite.
 
@@ -36,11 +35,8 @@ O Summary tem 85 caracteres, bem abaixo do limite.
 
 ## Description
 
-Editor em **Markdown**. A descrição é própria da CurseForge, em
-[`descricao.md`](descricao.md), e **não** é gerada da do Modrinth: as duas
-começam parecidas, mas cada plataforma tem a sua instalação, os seus mods
-(aqui entram Twilight Forest e Mob Grinding Utils) e os seus créditos. Mudou o
-pack, atualize as duas à mão. Para colar:
+Editor em **Markdown**. A descrição está em
+[`descricao.md`](descricao.md). Mudou o pack, atualize-a à mão. Para colar:
 
 ```sh
 python3 scripts/curseforge.py descricao

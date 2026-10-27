@@ -93,8 +93,7 @@ Minecraft modpacks tab.
 version. You can also download the `.zip` from *Files* and use *Add Instance →
 Import*.
 
-The launcher installs NeoForge and downloads the mods for you. Unlike the
-Modrinth version, this one includes The Twilight Forest and Mob Grinding Utils.
+The launcher installs NeoForge and downloads the mods for you.
 
 **To update,** the safest way is to create a new instance with the new
 version. If the first number changes (from 3.x to 4.0, for example), the
@@ -103,7 +102,7 @@ copy the `saves`, `screenshots` and `config` folders from the old instance.
 
 ## Requirements
 
-- **Java 21.** Modrinth App, CurseForge app and Prism download it for you.
+- **Java 21.** The CurseForge app and Prism download it for you.
 - **Memory:** we recommend allocating **8 GB** of RAM to the game (6 GB
   minimum). With shaders or many visual mods, 10 GB. Your computer also needs
   spare RAM for the system.
