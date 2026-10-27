@@ -3,10 +3,9 @@
 Copie cada campo, na ordem, para o formulário de **Edit Project** em
 <https://authors.curseforge.com>. Os textos públicos ficam em inglês. Projeto ID 1752945.
 
-Esta página reflete o pack **3.4.0** (290 mods para o jogador, 2 resource packs
-e 7 shaders). Quando a versão mudar, atualize o texto em
-[`descricao.md`](descricao.md) e rode `python3 scripts/curseforge.py descricao`
-para ter o que colar.
+Quando o pack mudar (mods de destaque, número de mods, instalação), atualize o
+texto em [`descricao.md`](descricao.md) e rode
+`python3 scripts/curseforge.py descricao` para ter o que colar.
 
 ## Aba Description / Project Details
 
@@ -43,7 +42,7 @@ python3 scripts/curseforge.py descricao
 ```
 
 Depois de colar, rode `python3 scripts/curseforge.py descricao --marcar` e faça
-o commit do `descricao.sha256`. O português não vai para a CurseForge, que só
-recebe o inglês. Se algum mod for no `overrides/` (de fora da CurseForge), a
-seção "Credits for mods not hosted on CurseForge" do `descricao.md` lista cada
-um; hoje ela diz que não há nenhum.
+o commit do `descricao.sha256`. Hoje todo mod do `.zip` vem da própria
+CurseForge. Se algum dia um mod for no `overrides/` (de fora da CurseForge),
+acrescente ao `descricao.md` uma seção "Credits for mods not hosted on
+CurseForge" com cada um, o autor e a licença.
