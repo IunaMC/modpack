@@ -9,7 +9,7 @@ rodam.
 | Script | Para quê |
 | --- | --- |
 | [`scripts/op.sh`](../../scripts/op.sh) | Atalhos de rotina (`refresh`, `corrigir`, `conferir`, `testar`, `versao`, `mudancas`, `resumo`, `ci`, `beta`, `estavel`, `propagar`). Só `beta`, `estavel` e `propagar` publicam |
-| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` de cada mod pelo Modrinth, dependências `orfas`, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
+| [`scripts/pack.py`](../../scripts/pack.py) | Lista de mods do README, versão, próxima beta, mods mudados desde uma tag, `lado` (só informa o que o Modrinth declara e a licença, não grava), dependências `orfas`, [arquivos externos](../guias/arquivos-externos.md) e as [regras da `main`](versionamento.md#o-que-entra-na-main) (`conferir`) |
 | [`scripts/curseforge.py`](../../scripts/curseforge.py) | Fonte da CurseForge de cada mod (`verificar`, `ligar`), envio (`publicar`), `status` e `descricao` (imprime o `curseforge/descricao.md`) |
 | [`scripts/modrinth.py`](../../scripts/modrinth.py) | Página do Modrinth a partir de `modrinth/` (`verificar`, `sincronizar`), o `.mrpack` reduzido (`reduzir`), o envio de versões (`publicar`) e a lista das versões completas antigas (`limpar`, que só apaga com `--apagar`) |
 | [`scripts/resumo.py`](../../scripts/resumo.py) | O Resumo semanal, em Markdown |
@@ -24,7 +24,7 @@ estiver disponível, o guia basta.
 
 | Skill | Guia | Comandos principais | O que só a skill faz |
 | --- | --- | --- | --- |
-| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `pack.py lado`, `curseforge.py ligar`, `op.sh refresh` | Acha o Project ID da CurseForge; o lado e a licença vêm do `pack.py lado` |
+| `/add-mod` | [Adicionar um mod](../guias/adicionar-mod.md) | `packwiz modrinth add`, `pack.py lado`, `curseforge.py ligar`, `op.sh refresh` | Acha o Project ID da CurseForge; o lado é escolha do usuário; o `pack.py lado` só mostra o que o Modrinth declara e a licença |
 | `/remover-mod` | [Remover um mod](../guias/remover-mod.md) | `pack.py orfas`, `packwiz remove`, `op.sh refresh` | Decide se a dependência é mesmo órfã e se o conteúdo pode sair |
 | `/beta` | [Publicar uma beta](../guias/publicar-beta.md) | `op.sh beta`, `pack.py mudancas ultima` | Escreve o `MUDANCAS.md`; o resto é do `op.sh beta` |
 | `/estavel` | [Publicar a estável](../guias/publicar-estavel.md) | `op.sh estavel`, `pack.py mudancas estavel` | Escreve o `MUDANCAS.md` e o corpo do PR; o resto é do `op.sh estavel` |

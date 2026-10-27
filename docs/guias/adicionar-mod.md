@@ -18,11 +18,13 @@ um commit por item.
    cd pack && packwiz modrinth add <slug> -y && cd ..
    ```
 
-2. Grave o lado de cada mod novo pelo que o Modrinth declara: `client_side`
-   igual a `unsupported` → `side = "server"`; `server_side` igual a
-   `unsupported` → `side = "client"`; senão, `"both"`. O script também avisa
-   da licença (passo 4). Um mod de conteúdo marcado como `client` ou `server`
-   impede o jogador de entrar no servidor.
+2. Escolha o lado de cada mod novo e das dependências, à mão: `side = "client"`,
+   `"server"` ou `"both"` no `.pw.toml`. É decisão de uma pessoa, porque a
+   declaração do Modrinth ou da CurseForge pode estar errada, faltar ou não
+   dizer tudo (há mod de cliente que ganha recursos se estiver no servidor).
+   Um mod de conteúdo marcado como `client` ou `server` impede o jogador de
+   entrar no servidor. Para ver o que o Modrinth declara e a licença, sem gravar
+   nada:
 
    ```sh
    python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...
