@@ -35,11 +35,11 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 - [0004: páginas das plataformas como código](decisoes/0004-paginas-como-codigo.md)
 - [0005: o pack não perde mods por causa de uma plataforma](decisoes/0005-mrpack-completo-sem-cortar-mods.md)
 - [0006: o que o .mrpack leva além dos mods](decisoes/0006-metadados-do-mrpack.md)
-- [0007: o Modrinth recebe um .mrpack reduzido](decisoes/0007-mrpack-reduzido-no-modrinth.md)
+- [0007: o Modrinth recebe um .mrpack reduzido](decisoes/0007-mrpack-reduzido-no-modrinth.md) (substituída pela 0008)
+- [0008: o pack não é distribuído no Modrinth](decisoes/0008-sem-distribuicao-no-modrinth.md)
 
 ## Plataformas
 
-- [Modrinth](../modrinth/README.md): a página sai de `modrinth/`.
 - [CurseForge](../curseforge/README.md): o projeto e a revisão dos arquivos.
 
 O padrão de escrita desta documentação está em

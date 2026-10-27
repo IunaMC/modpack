@@ -21,9 +21,9 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 | `files[].env` | `side` de cada `.pw.toml` | ok |
 
 O formato **não tem** ícone, autor, links nem changelog. `author` do
-`pack.toml` não entra no índice. Ícone, descrição longa, links e notas ficam no
-projeto do Modrinth (`modrinth/`), e os launchers só os mostram quando o pack é
-instalado pela página do projeto, não ao importar o arquivo. O ícone da
+`pack.toml` não entra no índice. Ícone, descrição longa, links e notas ficam na
+página da CurseForge (`curseforge/`), e os launchers só os mostram quando o
+pack é instalado pela loja, não ao importar o arquivo. O ícone da
 instância importada vem da pasta da instância (assunto da sessão da instância).
 
 ## Decisão
@@ -35,7 +35,7 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 ## Notas para a instância criada ao importar
 
 - O `name` vira o nome da instância: "IUNA Mark II" (marco da segunda
-  temporada). O projeto no Modrinth ainda se chama "IUNA 2", nome que é
+  temporada). O projeto na CurseForge se chama "IUNA 2", nome que é
   independente do `pack.toml`.
 - Ícone: `pack/icon.png` vira `overrides/icon.png` no `.mrpack` (conferido com
   `packwiz modrinth export`); o Modrinth App usa como ícone da instância. O
