@@ -1,6 +1,4 @@
-# Mudanças — v3.7.0-beta.3, lista de servidores preservada e pack só com arquivos do cliente
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.7.0, lista de servidores preservada e pack só com arquivos do cliente
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar.
 
