@@ -19,8 +19,7 @@ Uso:
   python3 scripts/pack.py lado <arquivo.pw.toml>...
       # só informa: mostra o que o Modrinth declara para cliente e servidor e a licença, sem gravar
       # nada. O side de cada mod é escolha de uma pessoa, a declaração do Modrinth pode estar errada.
-      # Mod baixado do Modrinth não precisa de permissão, mesmo All Rights Reserved: só jar embutido
-      # no .mrpack precisa. Veja docs/guias/adicionar-mod.md.
+      # Veja docs/guias/adicionar-mod.md.
   python3 scripts/pack.py orfas <mod>
       # <mod> é o nome do arquivo em pack/mods (sem .pw.toml) ou parte do nome. Mostra as dependências
       # obrigatórias que ficariam sem uso se ele saísse e, se ../iunamc.minecraft-config existir
