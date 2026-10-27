@@ -587,11 +587,6 @@ hash = "c8e682fe8bfd3f898455eecc3114ccc7c62600de1ea1fe88b9d85aefc7d8194c"
 metafile = true
 
 [[files]]
-file = "mods/easy-npc.pw.toml"
-hash = "fca32c3b006594f9338f19fa4886ca6983c34bc9c86d2666b95801f1f25d068a"
-metafile = true
-
-[[files]]
 file = "mods/easyauth.pw.toml"
 hash = "19557e96e9fa5965af9dad4d84038e740c57513fcf65e016274e590a9cb2faa8"
 metafile = true

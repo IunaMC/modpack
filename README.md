@@ -95,7 +95,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **353 mods**. O jogador recebe 285, e o servidor, 313.
+O pack tem **352 mods**. O jogador recebe 284, e o servidor, 312.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -198,7 +198,6 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1) | `dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar` | Cliente |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5) | `EasyAnvils-v21.1.0-1.21.1-NeoForge.jar` | Cliente e servidor |
-| [Easy NPC](https://modrinth.com/mod/CgGEe1h3) | `easy_npc_bundle-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [Easy NPC: Config UI](https://modrinth.com/mod/uTGjf7vA) | `easy_npc_config_ui-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [Easy NPC: Core](https://modrinth.com/mod/Epm6R3P2) | `easy_npc-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [ElevatorMod](https://modrinth.com/mod/hi2dSXTu) | `elevatorid-neoforge-1.21.1-1.11.4.jar` | Cliente e servidor |
