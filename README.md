@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 284, e o servidor, 312.
+O pack tem **352 mods**. O jogador recebe 285, e o servidor, 312.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -188,6 +188,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Decocraft](https://modrinth.com/mod/IZJSgKZe) | `decocraft-3.0.11-1.21.1-neoforge.jar` | Cliente e servidor |
 | [Delight Lib](https://modrinth.com/mod/rmDY6fYt) | `delightlib-26.05.18-1.21-neoforge.jar` | Cliente e servidor |
 | [Deltabox Lib](https://modrinth.com/mod/FDGHOWuC) | `deltaboxlib-fabric-3.0.1+1.21.1.jar` | Cliente e servidor |
+| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Cliente e servidor |
 | [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1) | `dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar` | Cliente |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5) | `EasyAnvils-v21.1.0-1.21.1-NeoForge.jar` | Cliente e servidor |
@@ -398,7 +399,6 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Crash Utilities](https://www.curseforge.com/projects/371813) | `crashutilities-9.0.4.jar` | Servidor |
 | [CraterLib](https://modrinth.com/mod/Nn8Wasaq) | `CraterLib-Neoforge-1.21-3.1.3.jar` | Servidor |
 | [Cupboard](https://www.curseforge.com/projects/326652) | `cupboard-1.21.1-4.2.jar` | Servidor |
-| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Servidor |
 | [Dungeon Crawl](https://modrinth.com/mod/q0rRg4lH) | `DungeonCrawl-NeoForge-1.21-2.3.17.jar` | Servidor |
 | [Dungeons and Taverns](https://modrinth.com/mod/tpehi7ww) | `dungeons-and-taverns-v4.4.4.jar` | Servidor |
 | [EasyAuth](https://modrinth.com/mod/aZj58GfX) | `easyauth-mc1.21-3.3.6.jar` | Servidor |
