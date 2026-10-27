@@ -1,9 +1,22 @@
 # Configurações padrão do cliente
 
-O pack entrega os padrões do cliente pelo YOSBR (`pack/config/yosbr/`). O mod
-copia cada arquivo para a instância **só se ele ainda não existir**. Quem já
-joga mantém as próprias escolhas, e quem instala agora começa com os padrões.
-Por isso a mudança de um padrão não alcança quem já tem o arquivo.
+O pack entrega os padrões do cliente pelo YOMBR (Your Options Must Be Respected,
+`pack/config/yosbr/`). O mod é nativo do NeoForge e só existe na CurseForge.
+Ele lê a mesma pasta do antigo YOSBR, que nunca rodou: o YOSBR é um mod Fabric
+que depende de um language adapter, e o Sinytra Connector não o executa.
+
+Regras de cópia:
+
+- **`options.txt`:** o YOMBR o copia na primeira abertura, mesmo que o launcher
+  já tenha criado um, e grava `options_applied.flag` na instância. Depois disso
+  o arquivo do jogador não é mais tocado. Para testar de novo, apague o
+  `options_applied.flag`.
+- **Os demais arquivos:** são copiados **só se ainda não existirem**.
+
+Quem já joga mantém as próprias escolhas, e quem instala agora começa com os
+padrões. Por isso a mudança de um padrão não alcança quem já tem o arquivo. O
+`options.txt` precisa da linha `version:` (3955 para a 1.21.1), senão o
+Minecraft o descarta.
 
 ## Onde cada coisa fica
 

@@ -1,6 +1,6 @@
 ---
 name: estavel
-description: Publica a versão estável do modpack pelo PR da devel/devel para a main (versão, MUDANCAS.md, PR, merge commit, Release, Modrinth e CurseForge) e deixa a devel/devel pronta de novo. Use quando o usuário pedir para soltar ou publicar a estável do modpack.
+description: Publica a versão estável do modpack pelo PR da devel/devel para a main (versão, MUDANCAS.md, PR, merge commit, Release e CurseForge) e deixa a devel/devel pronta de novo. Use quando o usuário pedir para soltar ou publicar a estável do modpack.
 argument-hint: "[versão, ex.: 3.3.0]"
 model: sonnet
 effort: low
@@ -47,4 +47,4 @@ Publique a estável do pack. Versão pedida: `$ARGUMENTS` (vazio = a da beta atu
 
 5. Se o Release terminou verde, siga direto para a skill `/propagar` (que roda `bash scripts/op.sh propagar <versão>`) com a versão, sem esperar novo pedido: a estável só termina com a moderação e as configs alinhadas.
 
-Responda só com a versão, os links do PR e da release, o status do Modrinth e da CurseForge e o resultado do `/propagar`.
+Responda só com a versão, os links do PR e da release, o status da CurseForge e o resultado do `/propagar`.

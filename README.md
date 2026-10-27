@@ -10,7 +10,7 @@ instala com um clique.
 
 ## Requisitos
 
-- **Java 21** (o Modrinth App e o Prism baixam sozinhos).
+- **Java 21** (o app da CurseForge e o Prism baixam sozinhos).
 - **Memória:** aloque **8 GB** de RAM ao jogo (mínimo de 6 GB; 10 GB com
   shaders ou muitos mods visuais). O computador precisa ter RAM sobrando para
   o sistema.
@@ -18,29 +18,22 @@ instala com um clique.
 
 ## Instalação
 
-### Pelo Modrinth (recomendado)
+### Pela CurseForge (recomendado)
 
-> A página do pack no Modrinth está em revisão e ainda não aparece na busca.
-> Quando sair, o atalho <https://iuna.club/modpack> leva direto a ela.
-
-1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
-   procure "IUNA" na aba de modpacks.
-   **Prism Launcher:** *Add Instance → Modrinth*, procure "IUNA" e escolha a
+1. **App da CurseForge:** procure "IUNA" na aba de modpacks do Minecraft e
+   clique em **Install**.
+   **Prism Launcher:** *Add Instance → CurseForge*, procure "IUNA" e escolha a
    versão.
-2. Escolha os mods opcionais que quiser. Todos vêm marcados por padrão.
-3. Abra o jogo e entre no servidor.
+2. Abra o jogo e entre no servidor.
 
 ### Pelo arquivo `.mrpack`
-
-Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
 1. Baixe o `.mrpack` em <https://iuna.club/mrpack>, que sempre baixa a
    versão mais recente, ou pela [última release](https://github.com/IunaMC/modpack/releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
    - **Modrinth App:** *+ (Create instance) → Import from file*.
-3. Escolha os mods opcionais que quiser. Todos vêm marcados por padrão.
-4. Abra o jogo e entre no servidor.
+3. Abra o jogo e entre no servidor.
 
 O launcher baixa os mods do Modrinth na hora. Os poucos que só existem no
 CurseForge já vêm dentro do `.mrpack`.
@@ -95,14 +88,16 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **356 mods**. O jogador recebe 291 (259 obrigatórios e 32 opcionais), e o servidor, 315.
+O pack tem **352 mods**. O jogador recebe 284, e o servidor, 312.
 
-### Obrigatórios
-Necessários para entrar no servidor. O launcher instala todos.
+### Mods do jogador
+Todos obrigatórios para entrar no servidor. O launcher instala todos.
 
 | Mod | Arquivo | Lado |
 | --- | --- | --- |
-| [Accelerated Decay](https://modrinth.com/mod/laX5CckD) | `accelerated-decay-neoforge-21.0.0.jar` | Cliente e servidor |
+| [3D Skin Layers](https://modrinth.com/mod/zV5r3pPn) | `skinlayers3d-neoforge-1.11.3-mc1.21.1.jar` | Cliente |
+| [[EMF] Entity Model Features](https://modrinth.com/mod/4I1XuqiY) | `entity_model_features-3.3.11-1.21-neoforge.jar` | Cliente |
+| [[ETF] Entity Texture Features](https://modrinth.com/mod/BVzZfTc1) | `entity_texture_features-7.2.5-1.21-neoforge.jar` | Cliente |
 | [Accessories](https://modrinth.com/mod/jtmvUHXj) | `accessories-neoforge-1.1.0-beta.53+1.21.1.jar` | Cliente e servidor |
 | [Ace's Spell Utils](https://modrinth.com/mod/7Jy4rK9m) | `aces_spell_utils-1.2.7.2-1.21.1.jar` | Cliente e servidor |
 | [AE2 Import Export Card](https://modrinth.com/mod/qelfSMnn) | `ae2importexportcard-1.21.1-1.9.1.jar` | Cliente e servidor |
@@ -111,11 +106,13 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Alex's Caves Continued Delight](https://modrinth.com/mod/7sC7Bn8p) | `accdelight-1.0.0-neoforge+1.21.1.jar` | Cliente e servidor |
 | [Alex's Mobs Continued](https://modrinth.com/mod/kYIaHHfw) | `alexsmobs-2.2.2-neoforge+1.21.1.jar` | Cliente e servidor |
 | [Alex's Mobs Continued Delight](https://modrinth.com/mod/iY124w4e) | `amcdelight-1.0.1-neoforge+1.21.1.jar` | Cliente e servidor |
+| [AmbientSounds](https://modrinth.com/mod/fM515JnW) | `AmbientSounds_NEOFORGE_v6.3.9_mc1.21.1.jar` | Cliente |
 | [Amendments](https://modrinth.com/mod/6iTJugQR) | `amendments-1.21-2.1.10-neoforge.jar` | Cliente e servidor |
 | [Apotheosis](https://modrinth.com/mod/rqFWfVlz) | `Apotheosis-1.21.1-8.9.0.jar` | Cliente e servidor |
 | [Apothic Attributes](https://modrinth.com/mod/DGaH8Rh0) | `ApothicAttributes-1.21.1-2.11.0.jar` | Cliente e servidor |
 | [Apothic-Enchanting](https://modrinth.com/mod/pL8MtgqY) | `ApothicEnchanting-1.21.1-1.6.3.jar` | Cliente e servidor |
 | [Apothic-Spawners](https://modrinth.com/mod/DfxVkOAO) | `ApothicSpawners-1.21.1-1.4.0.jar` | Cliente e servidor |
+| [AppleSkin](https://modrinth.com/mod/EsAfCjCV) | `appleskin-neoforge-mc1.21-3.0.9.jar` | Cliente e servidor |
 | [Applied Energistics 2](https://modrinth.com/mod/XxWD5pD3) | `appliedenergistics2-19.2.18.jar` | Cliente e servidor |
 | [Aquaculture 2](https://modrinth.com/mod/Vl1uNAuy) | `Aquaculture-1.21.1-2.7.21.jar` | Cliente e servidor |
 | [Aquaculture Delight](https://modrinth.com/mod/U9GJqWrI) | `aquaculturedelight-1.2.0-neoforge-1.21.1.jar` | Cliente e servidor |
@@ -132,7 +129,9 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Barbeque's Delight [Forge/NeoForge]](https://modrinth.com/mod/rtu7uERF) | `barbequesdelight-1.3.0.jar` | Cliente e servidor |
 | [BCLib: New Dawn](https://modrinth.com/mod/7bdKEtKC) | `bclib-21.0.26.jar` | Cliente e servidor |
 | [Better Advanced Tooltips](https://modrinth.com/mod/iHLDc0eo) | `better-advanced-tooltips-2101.1.0-build.5.jar` | Cliente e servidor |
+| [Better Advancements](https://modrinth.com/mod/Q2OqKxDG) | `BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar` | Cliente |
 | [Better Combat](https://modrinth.com/mod/5sy6g3kz) | `bettercombat-neoforge-2.4.0+1.21.1.jar` | Cliente e servidor |
+| [Better Third Person](https://modrinth.com/mod/G1s2WpNo) | `BetterThirdPerson-neoforge-1.9.0.jar` | Cliente |
 | [BetterEnd: New Dawn](https://modrinth.com/mod/IcERKldh) | `BetterEnd-21.0.35.jar` | Cliente e servidor |
 | [Biomes O' Plenty](https://modrinth.com/mod/HXF82T3G) | `BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar` | Cliente e servidor |
 | [Bookshelf](https://modrinth.com/mod/uy4Cnpcm) | `bookshelf-neoforge-1.21.1-21.1.81.jar` | Cliente e servidor |
@@ -147,6 +146,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Carry On Extend](https://modrinth.com/mod/JbqjOoQj) | `CarryOnExtend-Architectury-neoforge-1.5.2.jar` | Cliente e servidor |
 | [Cataclysm Weaponery](https://modrinth.com/mod/S5OkaSK0) | `cataclysm_weaponery-3.0.0-neoforge-1.21.1.jar` | Cliente |
 | [Cataclysm: Spellbooks](https://modrinth.com/mod/3FEg0A8D) | `cataclysm_spellbooks-1.1.14-1.21.jar` | Cliente e servidor |
+| [Chat Heads](https://modrinth.com/mod/Wb5oqrBJ) | `chat_heads-0.15.7-neoforge-1.21.jar` | Cliente |
 | [Chipped](https://modrinth.com/mod/BAscRYKm) | `chipped-neoforge-1.21.1-4.0.2.jar` | Cliente e servidor |
 | [Cloth Config API](https://modrinth.com/mod/9s6osm5g) | `cloth-config-15.0.140-neoforge.jar` | Cliente e servidor |
 | [Cobweb](https://modrinth.com/mod/dQcfqGbl) | `cobweb-neoforge-1.21-1.4.0.jar` | Cliente e servidor |
@@ -160,11 +160,13 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Connector Extras](https://modrinth.com/mod/FYpiwiBR) | `ConnectorExtras-1.12.1+1.21.1.jar` | Cliente e servidor |
 | [Construction Sticks](https://modrinth.com/mod/ooyjDLZt) | `ConstructionSticks-1.21.1-1.5.0.jar` | Cliente e servidor |
 | [Continuity](https://modrinth.com/mod/1IjD5062) | `continuity-3.0.0+1.21.neoforge.jar` | Cliente |
+| [Controlling](https://modrinth.com/mod/xv94TkTM) | `Controlling-neoforge-1.21.1-19.0.5.jar` | Cliente |
 | [CoroUtil](https://modrinth.com/mod/rLLJ1OZM) | `coroutil-neoforge-1.21.0-1.3.8.jar` | Cliente e servidor |
 | [Corpse](https://modrinth.com/mod/WrpuIfhw) | `corpse-neoforge-1.21.1-1.1.13.jar` | Cliente e servidor |
 | [Corpse x Cosmetic Armor Reworked Compat](https://modrinth.com/mod/VrbUxhCI) | `cosmeticcorpsecompat-1.21.1-NeoForge-4.0.1.jar` | Cliente e servidor |
 | [Corpse x Curios API Compat](https://modrinth.com/mod/pJGcKPh1) | `corpsecurioscompat-1.21.1-NeoForge-4.0.1.jar` | Cliente e servidor |
 | [Cosmetic Armor Reworked](https://www.curseforge.com/projects/237307) | `cosmeticarmorreworked-1.21.1-v1-neoforge.jar` | Cliente e servidor |
+| [Crash Assistant](https://modrinth.com/mod/ix1qq8Ux) | `CrashAssistant-neoforge-1.20.6-1.21.4-1.11.12.jar` | Cliente |
 | [Crate Delight](https://modrinth.com/mod/9rlXSyLg) | `cratedelight-26.07.01-1.21-neoforge.jar` | Cliente e servidor |
 | [Create](https://modrinth.com/mod/LNytGWDc) | `create-1.21.1-6.0.10.jar` | Cliente e servidor |
 | [Create Aeronautics](https://modrinth.com/mod/oWaK0Q19) | `create-aeronautics-bundled-1.21.1-1.3.2.jar` | Cliente e servidor |
@@ -181,27 +183,30 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Cristel Lib](https://modrinth.com/mod/cl223EMc) | `cristellib-neoforge-1.21.1-3.1.7.jar` | Cliente e servidor |
 | [Cucumber Library](https://modrinth.com/mod/Rw1NrDzF) | `Cucumber-1.21.1-8.0.16.jar` | Cliente e servidor |
 | [Curios API](https://modrinth.com/mod/vvuO3ImH) | `curios-neoforge-9.5.1+1.21.1.jar` | Cliente e servidor |
+| [Custom Player Animations](https://modrinth.com/mod/EhthJpjM) | `cpa-5.9.10-neoforge+1.21.1.jar` | Cliente |
 | [Cyclops Core](https://modrinth.com/mod/Z9DM0LJ4) | `cyclopscore-1.21.1-neoforge-1.30.0.jar` | Cliente e servidor |
 | [Decocraft](https://modrinth.com/mod/IZJSgKZe) | `decocraft-3.0.11-1.21.1-neoforge.jar` | Cliente e servidor |
 | [Delight Lib](https://modrinth.com/mod/rmDY6fYt) | `delightlib-26.05.18-1.21-neoforge.jar` | Cliente e servidor |
 | [Deltabox Lib](https://modrinth.com/mod/FDGHOWuC) | `deltaboxlib-fabric-3.0.1+1.21.1.jar` | Cliente e servidor |
-| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Cliente e servidor |
+| [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1) | `dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar` | Cliente |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5) | `EasyAnvils-v21.1.0-1.21.1-NeoForge.jar` | Cliente e servidor |
-| [Easy NPC](https://modrinth.com/mod/CgGEe1h3) | `easy_npc_bundle-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [Easy NPC: Config UI](https://modrinth.com/mod/uTGjf7vA) | `easy_npc_config_ui-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [Easy NPC: Core](https://modrinth.com/mod/Epm6R3P2) | `easy_npc-neoforge-1.21.1-7.14.0.jar` | Cliente e servidor |
 | [ElevatorMod](https://modrinth.com/mod/hi2dSXTu) | `elevatorid-neoforge-1.21.1-1.11.4.jar` | Cliente e servidor |
 | [Emotecraft](https://modrinth.com/mod/pZ2wrerK) | `emotecraft-for-MC1.21.1-2.4.12-neoforge.jar` | Cliente e servidor |
+| [Enchantment Descriptions](https://modrinth.com/mod/UVtY3ZAC) | `enchdesc-neoforge-1.21.1-21.1.11.jar` | Cliente |
 | [Ender IO](https://modrinth.com/mod/49ZofO4f) | `enderio-8.2.12-beta.jar` | Cliente e servidor |
 | [Ender Storage](https://modrinth.com/mod/BbrHg80P) | `EnderStorage-1.21.1-2.13.0.191.jar` | Cliente e servidor |
 | [Enderman Overhaul](https://modrinth.com/mod/Lq6ojcWv) | `endermanoverhaul-neoforge-1.21.1-2.0.3.jar` | Cliente e servidor |
+| [Entity Culling](https://modrinth.com/mod/NNAgCjsB) | `entityculling-neoforge-1.11.2-mc1.21.1.jar` | Cliente |
 | [Even Better Nether](https://modrinth.com/mod/ZSdhSrVt) | `evenbetternether-1.3.0-neoforge-1.21.1.jar` | Cliente e servidor |
 | [EvilCraft](https://modrinth.com/mod/3ANq2btA) | `evilcraft-1.21.1-neoforge-1.2.98.jar` | Cliente e servidor |
 | [Expanded Delight](https://modrinth.com/mod/e9V6wFcR) | `expandeddelight-0.1.4.jar` | Cliente e servidor |
 | [Explorer's Compass](https://modrinth.com/mod/RV1qfVQ8) | `ExplorersCompass-1.21.1-3.4.0-neoforge.jar` | Cliente e servidor |
 | [Extreme Reactors](https://modrinth.com/mod/idkvShUy) | `ExtremeReactors2-1.21.1-2.4.9.jar` | Cliente e servidor |
 | [Fabric Language Kotlin](https://modrinth.com/mod/Ha28R6CL) | `fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar` | Cliente e servidor |
+| [FallingTree](https://modrinth.com/mod/Fb4jn8m6) | `FallingTree-1.21.1-1.21.1.11.jar` | Cliente e servidor |
 | [Farmer's Delight](https://modrinth.com/mod/R2OftAxM) | `FarmersDelight-1.21.1-1.3.4.jar` | Cliente e servidor |
 | [Farmer's Respite Unofficial Port](https://modrinth.com/mod/AioQLjKj) | `farmersrespite-1.21.1-3.0.1.jar` | Cliente e servidor |
 | [FastFurnace](https://modrinth.com/mod/9X0318ev) | `FastFurnace-1.21.1-9.0.1.jar` | Cliente e servidor |
@@ -233,20 +238,29 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Integrated Dynamics](https://modrinth.com/mod/yYzdQHJI) | `integrateddynamics-1.21.1-neoforge-1.38.0.jar` | Cliente e servidor |
 | [Integrated Terminals](https://modrinth.com/mod/HmLJoQ1K) | `integratedterminals-1.21.1-neoforge-1.10.0.jar` | Cliente e servidor |
 | [Integrated Tunnels](https://modrinth.com/mod/Etqy1Omb) | `integratedtunnels-1.21.1-neoforge-1.13.0.jar` | Cliente e servidor |
+| [InventoryHUD+](https://modrinth.com/mod/Kp2uclYl) | `inventoryhud.neoforged.1.21.1-3.4.28.jar` | Cliente |
 | [Iris Shaders](https://modrinth.com/mod/YL57xq9U) | `iris-neoforge-1.8.14-beta.1+mc1.21.1.jar` | Cliente |
 | [Iron Chests](https://modrinth.com/mod/P3iIrPH3) | `ironchest-1.21-neoforge-16.0.7.jar` | Cliente e servidor |
 | [Iron Furnaces](https://modrinth.com/mod/yPlaLxD1) | `ironfurnaces-neoforge-1.21.1-4.3.2.jar` | Cliente e servidor |
 | [Iron's Lib](https://modrinth.com/mod/9nfaJPtX) | `irons_lib-1.21.1-2.2.0.jar` | Cliente e servidor |
 | [Iron's Spells 'n Spellbooks](https://modrinth.com/mod/s4OWxYQQ) | `irons_spellbooks-1.21.1-3.16.3.jar` | Cliente e servidor |
+| [Item Highlighter](https://modrinth.com/mod/cVNW5lr6) | `Highlighter-1.21-neoforge-1.1.11.jar` | Cliente |
 | [Item Obliterator](https://modrinth.com/mod/3ESR84kR) | `Item-Obliterator-NeoForge-MC1.21.1-2.3.0.jar` | Cliente e servidor |
+| [Jade Addons (Neo/Forge)](https://modrinth.com/mod/xuDOzCLy) | `JadeAddons-1.21.1-NeoForge-6.1.2.jar` | Cliente e servidor |
+| [Jade 🔍](https://modrinth.com/mod/nvQzSEkH) | `Jade-1.21.1-NeoForge-15.10.6.jar` | Cliente e servidor |
 | [JourneyMap](https://modrinth.com/mod/lfHFW1mp) | `journeymap-neoforge-1.21.1-6.0.9.jar` | Cliente e servidor |
-| [JourneyMap Teams](https://modrinth.com/mod/EV5wjtvP) | `JourneyMap-Teams-neoforge-1.21.1-1.3.1.jar` | Cliente e servidor |
 | [Jupiter](https://modrinth.com/mod/XbiLGMMU) | `jupiter-2.3.7-1.21.1-neoforge.jar` | Cliente e servidor |
+| [Just Enough Breeding (JEBr)](https://modrinth.com/mod/9Pk89J3g) | `justenoughbreeding-neoforge-1.21.1-3.3.1.jar` | Cliente e servidor |
 | [Just Enough Items (JEI)](https://modrinth.com/mod/u6dRKJwZ) | `jei-1.21.1-neoforge-19.57.0.450.jar` | Cliente e servidor |
+| [Just Enough Mekanism Multiblocks](https://modrinth.com/mod/kRaE85yQ) | `JustEnoughMekanismMultiblocks-1.21.1-7.21.jar` | Cliente |
+| [Just Enough Professions (JEP)](https://modrinth.com/mod/kB56GtWA) | `JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar` | Cliente e servidor |
+| [Just Enough Resources (JER)](https://modrinth.com/mod/uEfK2CXF) | `JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar` | Cliente |
+| [Just Zoom](https://modrinth.com/mod/iAiqcykM) | `justzoom_neoforge_3.0.1_MC_1.21.1.jar` | Cliente |
 | [Konkrete](https://modrinth.com/mod/J81TRJWm) | `konkrete_neoforge_1.9.9_MC_1.21.jar` | Cliente |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) | `kotlinforforge-5.12.0-all.jar` | Cliente e servidor |
 | [KubeJS](https://modrinth.com/mod/umyGl7zF) | `kubejs-neoforge-2101.7.2-build.377.jar` | Cliente e servidor |
 | [L_Ender's Cataclysm](https://modrinth.com/mod/46KJle7n) | `L_Ender's Cataclysm 1.21.1-3.33.jar` | Cliente e servidor |
+| [LambDynamicLights - Dynamic Lights](https://modrinth.com/mod/yBW8D80W) | `lambdynamiclights-4.8.11+1.21.1.jar` | Cliente |
 | [Lightman's Currency](https://modrinth.com/mod/wvMc8AJt) | `lightmanscurrency-1.21-2.3.0.6.jar` | Cliente e servidor |
 | [Lionfish-API](https://modrinth.com/mod/FoVacERa) | `lionfishapi-3.1.jar` | Cliente e servidor |
 | [Lithium](https://modrinth.com/mod/gvQqBUqZ) | `lithium-neoforge-0.15.4+mc1.21.1.jar` | Cliente e servidor |
@@ -268,7 +282,9 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Monsters & Spellbooks: Iron's Spells 'n Spellbooks Addon](https://www.curseforge.com/projects/1428928) | `monsterspellbooks-0.0.16.3.jar` | Cliente e servidor |
 | [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.0-neoforge.jar` | Cliente e servidor |
 | [More Delight (for Farmer's Delight)](https://modrinth.com/mod/znHQQtuU) | `moredelight-26.05.20a-1.21-neoforge.jar` | Cliente e servidor |
+| [More Overlays Updated](https://modrinth.com/mod/Thy5Pqut) | `moreoverlays-1.24.2-mc1.21.1-neoforge.jar` | Cliente |
 | [MoreJS: KubeJS Addon](https://modrinth.com/mod/mo64mR1W) | `morejs-neoforge-1.21.1-0.16.0.jar` | Cliente e servidor |
+| [Mouse Tweaks](https://modrinth.com/mod/aC3cM3Vq) | `MouseTweaks-neoforge-mc1.21-2.26.1.jar` | Cliente |
 | [Mowzie's Cataclysm](https://modrinth.com/mod/7UsJsd1y) | `mowzies_cataclysm-1.2.2.jar` | Cliente e servidor |
 | [Mowzie's Mobs](https://modrinth.com/mod/BFbX9xcm) | `mowziesmobs-1.21.1-1.8.2.jar` | Cliente e servidor |
 | [MrCrayfish's Furniture Mod: Refurbished](https://www.curseforge.com/projects/897116) | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | Cliente e servidor |
@@ -292,6 +308,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Paragliders](https://modrinth.com/mod/esqWA0aQ) | `Paraglider-neoforge-21.1.5.jar` | Cliente e servidor |
 | [Patchouli](https://modrinth.com/mod/nU0bVIaL) | `Patchouli-1.21.1-93-NEOFORGE.jar` | Cliente e servidor |
 | [Petting - Tame any mob!](https://modrinth.com/mod/vf91JXwf) | `petting-4.2.2-neoforge-1.21.1.jar` | Cliente e servidor |
+| [Ping Wheel](https://modrinth.com/mod/QQXAdCzh) | `Ping-Wheel-1.12.2-neoforge-1.21.1.jar` | Cliente e servidor |
 | [Pipez](https://modrinth.com/mod/iRmWy6ga) | `pipez-neoforge-1.21.1-1.2.31.jar` | Cliente e servidor |
 | [Placebo](https://modrinth.com/mod/tCkE8p2N) | `Placebo-1.21.1-9.9.2.jar` | Cliente e servidor |
 | [Player Animation Library](https://modrinth.com/mod/ha1mEyJS) | `PlayerAnimationLibNeoforge-1.1.6+mc.1.21.1.jar` | Cliente e servidor |
@@ -314,6 +331,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [RFTools Utility](https://modrinth.com/mod/7n3HbHSE) | `rftoolsutility-1.21-7.0.12.jar` | Cliente e servidor |
 | [Rhino](https://modrinth.com/mod/sk9knFPE) | `rhino-2101.2.7-build.81.jar` | Cliente e servidor |
 | [Sable](https://modrinth.com/mod/T9PomCSv) | `sable-neoforge-1.21.1-2.0.6.jar` | Cliente e servidor |
+| [Searchables](https://modrinth.com/mod/fuuu3xnx) | `Searchables-neoforge-1.21.1-1.0.2.jar` | Cliente |
 | [SecurityCraft](https://modrinth.com/mod/v8jzRtAt) | `[1.21.1] SecurityCraft v1.10.2.1.jar` | Cliente e servidor |
 | [ShatterLib \| OctoLib](https://modrinth.com/mod/RH2KUdKJ) | `OctoLib-NEOFORGE-0.6.2+1.21.jar` | Cliente e servidor |
 | [Silent Lib](https://modrinth.com/mod/BQhuHQo4) | `silent-lib-1.21.1-neoforge-10.6.0.jar` | Cliente e servidor |
@@ -332,6 +350,7 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [Sophisticated Core](https://modrinth.com/mod/nmoqTijg) | `sophisticatedcore-1.21.1-1.5.5.2363.jar` | Cliente e servidor |
 | [Sophisticated Storage](https://modrinth.com/mod/hMlaZH8f) | `sophisticatedstorage-1.21.1-1.6.1.2147.jar` | Cliente e servidor |
 | [Soul Fire'd](https://modrinth.com/mod/d6MhxwRo) | `soul-fire-d-neoforge-1.21-6.1.0.jar` | Cliente e servidor |
+| [Sound Physics Remastered](https://modrinth.com/mod/qyVF9oeo) | `sound-physics-remastered-neoforge-1.21.1-1.5.1.jar` | Cliente |
 | [Storage Drawers](https://modrinth.com/mod/guitPqEi) | `StorageDrawers-neoforge-1.21.1-13.11.4.jar` | Cliente e servidor |
 | [SuperMartijn642's Config Lib](https://modrinth.com/mod/LN9BxssP) | `supermartijn642configlib-1.1.8-neoforge-mc1.21.jar` | Cliente e servidor |
 | [SuperMartijn642's Core Lib](https://modrinth.com/mod/rOUBggPv) | `supermartijn642corelib-1.1.24b-neoforge-mc1.21.jar` | Cliente e servidor |
@@ -341,7 +360,6 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [The Twilight Forest](https://www.curseforge.com/projects/227639) | `twilightforest-1.21.1-4.8.3345-universal.jar` | Cliente e servidor |
 | [Titanium](https://modrinth.com/mod/1Ro7m06l) | `titanium-1.21-4.0.50.jar` | Cliente e servidor |
 | [TorchMaster](https://modrinth.com/mod/Tl8ESrhX) | `torchmaster-neoforge-1.21.1-21.1.13.jar` | Cliente e servidor |
-| [Towns and Towers](https://modrinth.com/mod/DjLobEOy) | `t_and_t-fabric-neoforge-1.13.11.jar` | Cliente e servidor |
 | [TrashSlot](https://modrinth.com/mod/vRYk0bv7) | `trashslot-neoforge-1.21.1-21.1.11.jar` | Cliente e servidor |
 | [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds) | `tf_dnv-2.0.3.jar` | Cliente e servidor |
 | [TxniLib](https://modrinth.com/mod/vBbPDuOs) | `txnilib-neoforge-1.0.24-1.21.1.jar` | Cliente e servidor |
@@ -357,54 +375,17 @@ Necessários para entrar no servidor. O launcher instala todos.
 | [WorldWeaver: New Dawn](https://modrinth.com/mod/R8uGDQpB) | `worldweaver-21.0.26.jar` | Cliente e servidor |
 | [WunderLib: New Dawn](https://modrinth.com/mod/HZmhgdJk) | `wunderlib-21.0.10.jar` | Cliente e servidor |
 | [Xray Snitch](https://modrinth.com/mod/AKunSbDQ) | `xray_snitch-1.3.jar` | Cliente e servidor |
-| [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) | `yosbr-0.1.2.jar` | Cliente |
+| [Your Options Must Be Respected](https://www.curseforge.com/projects/1574981) | `yombr-1.0.0.jar` | Cliente |
 | [YUNG's API](https://modrinth.com/mod/Ua7DFN59) | `YungsApi-1.21.1-NeoForge-5.1.9.jar` | Cliente e servidor |
 | [ZeroCore](https://modrinth.com/mod/rHpb85Mf) | `ZeroCore2-1.21.1-2.4.9.jar` | Cliente e servidor |
 | [Zeta](https://modrinth.com/mod/MVARlG2f) | `Zeta-1.1-40.jar` | Cliente e servidor |
-
-### Opcionais
-Melhorias visuais e de qualidade de vida. O launcher pergunta quais você quer na instalação.
-
-| Mod | Arquivo | Lado |
-| --- | --- | --- |
-| [3D Skin Layers](https://modrinth.com/mod/zV5r3pPn) | `skinlayers3d-neoforge-1.11.3-mc1.21.1.jar` | Cliente |
-| [[EMF] Entity Model Features](https://modrinth.com/mod/4I1XuqiY) | `entity_model_features-3.3.11-1.21-neoforge.jar` | Cliente |
-| [[ETF] Entity Texture Features](https://modrinth.com/mod/BVzZfTc1) | `entity_texture_features-7.2.5-1.21-neoforge.jar` | Cliente |
-| [AmbientSounds](https://modrinth.com/mod/fM515JnW) | `AmbientSounds_NEOFORGE_v6.3.9_mc1.21.1.jar` | Cliente |
-| [AppleSkin](https://modrinth.com/mod/EsAfCjCV) | `appleskin-neoforge-mc1.21-3.0.9.jar` | Cliente e servidor |
-| [Better Advancements](https://modrinth.com/mod/Q2OqKxDG) | `BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar` | Cliente |
-| [Better Ping Display [Forge/NeoForge]](https://modrinth.com/mod/ZvaHbwoZ) | `BetterPingDisplay-1.21.1-1.1.jar` | Cliente |
-| [Better Third Person](https://modrinth.com/mod/G1s2WpNo) | `BetterThirdPerson-neoforge-1.9.0.jar` | Cliente |
-| [Chat Heads](https://modrinth.com/mod/Wb5oqrBJ) | `chat_heads-0.15.7-neoforge-1.21.jar` | Cliente |
-| [Controlling](https://modrinth.com/mod/xv94TkTM) | `Controlling-neoforge-1.21.1-19.0.5.jar` | Cliente |
-| [Crash Assistant](https://modrinth.com/mod/ix1qq8Ux) | `CrashAssistant-neoforge-1.20.6-1.21.4-1.11.12.jar` | Cliente |
-| [Custom Player Animations](https://modrinth.com/mod/EhthJpjM) | `cpa-5.9.10-neoforge+1.21.1.jar` | Cliente |
-| [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
-| [Enchantment Descriptions](https://modrinth.com/mod/UVtY3ZAC) | `enchdesc-neoforge-1.21.1-21.1.11.jar` | Cliente e servidor |
-| [Entity Culling](https://modrinth.com/mod/NNAgCjsB) | `entityculling-neoforge-1.11.2-mc1.21.1.jar` | Cliente |
-| [FallingTree](https://modrinth.com/mod/Fb4jn8m6) | `FallingTree-1.21.1-1.21.1.11.jar` | Cliente e servidor |
-| [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO) | `fast-ip-ping-v1.0.12-mc1.21.1-neoforge.jar` | Cliente |
-| [InventoryHUD+](https://modrinth.com/mod/Kp2uclYl) | `inventoryhud.neoforged.1.21.1-3.4.28.jar` | Cliente |
-| [Item Highlighter](https://modrinth.com/mod/cVNW5lr6) | `Highlighter-1.21-neoforge-1.1.11.jar` | Cliente |
-| [Jade Addons (Neo/Forge)](https://modrinth.com/mod/xuDOzCLy) | `JadeAddons-1.21.1-NeoForge-6.1.2.jar` | Cliente e servidor |
-| [Jade 🔍](https://modrinth.com/mod/nvQzSEkH) | `Jade-1.21.1-NeoForge-15.10.6.jar` | Cliente e servidor |
-| [Just Enough Breeding (JEBr)](https://modrinth.com/mod/9Pk89J3g) | `justenoughbreeding-neoforge-1.21.1-3.3.1.jar` | Cliente e servidor |
-| [Just Enough Mekanism Multiblocks](https://modrinth.com/mod/kRaE85yQ) | `JustEnoughMekanismMultiblocks-1.21.1-7.21.jar` | Cliente |
-| [Just Enough Professions (JEP)](https://modrinth.com/mod/kB56GtWA) | `JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar` | Cliente e servidor |
-| [Just Enough Resources (JER)](https://modrinth.com/mod/uEfK2CXF) | `JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar` | Cliente |
-| [Just Zoom](https://modrinth.com/mod/iAiqcykM) | `justzoom_neoforge_3.0.1_MC_1.21.1.jar` | Cliente |
-| [LambDynamicLights - Dynamic Lights](https://modrinth.com/mod/yBW8D80W) | `lambdynamiclights-4.8.11+1.21.1.jar` | Cliente |
-| [More Overlays Updated](https://modrinth.com/mod/Thy5Pqut) | `moreoverlays-1.24.2-mc1.21.1-neoforge.jar` | Cliente |
-| [Mouse Tweaks](https://modrinth.com/mod/aC3cM3Vq) | `MouseTweaks-neoforge-mc1.21-2.26.1.jar` | Cliente |
-| [Ping Wheel](https://modrinth.com/mod/QQXAdCzh) | `Ping-Wheel-1.12.2-neoforge-1.21.1.jar` | Cliente e servidor |
-| [Searchables](https://modrinth.com/mod/fuuu3xnx) | `Searchables-neoforge-1.21.1-1.0.2.jar` | Cliente |
-| [Sound Physics Remastered](https://modrinth.com/mod/qyVF9oeo) | `sound-physics-remastered-neoforge-1.21.1-1.5.1.jar` | Cliente |
 
 ### Só no servidor
 Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.
 
 | Mod | Arquivo | Lado |
 | --- | --- | --- |
+| [Accelerated Decay](https://modrinth.com/mod/laX5CckD) | `accelerated-decay-neoforge-21.0.0.jar` | Servidor |
 | [AI Improvements: Performance Tuning](https://modrinth.com/mod/DSVgwcji) | `AI-Improvements-1.21-0.5.3.jar` | Servidor |
 | [Almanac](https://modrinth.com/mod/Gi02250Z) | `Almanac-1.21.1-2-neoforge-1.5.2.jar` | Servidor |
 | [BanHammer](https://modrinth.com/mod/Wpqg0ciI) | `banhammer-0.11.1+1.21.jar` | Servidor |
@@ -417,6 +398,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Crash Utilities](https://www.curseforge.com/projects/371813) | `crashutilities-9.0.4.jar` | Servidor |
 | [CraterLib](https://modrinth.com/mod/Nn8Wasaq) | `CraterLib-Neoforge-1.21-3.1.3.jar` | Servidor |
 | [Cupboard](https://www.curseforge.com/projects/326652) | `cupboard-1.21.1-4.2.jar` | Servidor |
+| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Servidor |
 | [Dungeon Crawl](https://modrinth.com/mod/q0rRg4lH) | `DungeonCrawl-NeoForge-1.21-2.3.17.jar` | Servidor |
 | [Dungeons and Taverns](https://modrinth.com/mod/tpehi7ww) | `dungeons-and-taverns-v4.4.4.jar` | Servidor |
 | [EasyAuth](https://modrinth.com/mod/aZj58GfX) | `easyauth-mc1.21-3.3.6.jar` | Servidor |
@@ -455,6 +437,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Styled Player List](https://modrinth.com/mod/DQIfKUHf) | `styledplayerlist-3.5.1+1.21.jar` | Servidor |
 | [Terralith](https://modrinth.com/mod/8oi3bsk5) | `Terralith_1.21.1_v2.6.2_Neoforge.jar` | Servidor |
 | [Tick Stasis](https://modrinth.com/mod/t6XBQ2xn) | `tick-stasis-1.1.1.jar` | Servidor |
+| [Towns and Towers](https://modrinth.com/mod/DjLobEOy) | `t_and_t-fabric-neoforge-1.13.11.jar` | Servidor |
 | [TT20 (TPS Fixer)](https://modrinth.com/mod/YS3ZignI) | `tt20-0.8.5+mc1.21.1-neoforge.jar` | Servidor |
 | [Vanishmod](https://modrinth.com/mod/MihN2cw5) | `Vanishmod-1.21.1-1.1.21.jar` | Servidor |
 | [View Distance Fix](https://modrinth.com/mod/nxrXbh5K) | `viewdistancefix-fabric-1.21.1-1.0.2.jar` | Servidor |
@@ -480,9 +463,9 @@ Vêm na instância do jogador; ative em Opções → Pacotes de recursos ou Shad
 | [Complementary Shaders - Reimagined](https://modrinth.com/mod/HVnmMxH1) | `ComplementaryReimagined_r5.9.3.zip` | Cliente |
 | [Complementary Shaders - Unbound](https://modrinth.com/mod/R6NEzAwj) | `ComplementaryUnbound_r5.9.3.zip` | Cliente |
 | [Fresh Animations](https://modrinth.com/mod/50dA9Sha) | `FreshAnimations_v1.10.4.zip` | Cliente |
-| [MakeUp - Ultra Fast](https://modrinth.com/mod/izsIPI7a) | `MakeUp-UltraFast-9.6.zip` | Cliente e servidor |
-| [Mellow](https://modrinth.com/mod/BUxf36AP) | `Mellow v3.4.1a.zip` | Cliente e servidor |
-| [Pastel Shaders](https://modrinth.com/mod/BkTdFBUU) | `Pastel-Shaders-Universal-v1.200.zip` | Cliente e servidor |
-| [Super Duper Vanilla](https://modrinth.com/mod/LMIZZNxZ) | `superDuperVanilla.zip` | Cliente e servidor |
+| [MakeUp - Ultra Fast](https://modrinth.com/mod/izsIPI7a) | `MakeUp-UltraFast-9.6.zip` | Cliente |
+| [Mellow](https://modrinth.com/mod/BUxf36AP) | `Mellow v3.4.1a.zip` | Cliente |
+| [Pastel Shaders](https://modrinth.com/mod/BkTdFBUU) | `Pastel-Shaders-Universal-v1.200.zip` | Cliente |
+| [Super Duper Vanilla](https://modrinth.com/mod/LMIZZNxZ) | `superDuperVanilla.zip` | Cliente |
 | [The Brazilian Localization Project [PT-BR]](https://modrinth.com/mod/FGsIa36p) | `The Brazilian Project [1.21.1-1.4.0].zip` | Cliente |
 <!-- lista-de-mods:fim -->

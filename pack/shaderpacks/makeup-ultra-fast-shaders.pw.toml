@@ -1,6 +1,6 @@
 name = "MakeUp - Ultra Fast"
 filename = "MakeUp-UltraFast-9.6.zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/izsIPI7a/versions/t4YRxQug/MakeUp-UltraFast-9.6.zip"

@@ -1,20 +1,24 @@
-# Mudanças — v3.5.2, padrões do cliente
+# Mudanças — v3.6.0, padrões do cliente funcionando, sem mods opcionais e cinco mods a menos
 
-Ninguém precisa reinstalar: os mods não mudam.
-As novas opções só chegam a quem instala o pack do zero, porque o YOSBR não sobrescreve arquivos que a instância já tem.
+Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack agora é distribuído só pela CurseForge.
 
 ## Adicionou
-Nada.
+- [Your Options Must Be Respected](https://www.curseforge.com/minecraft/mc-mods/yombr) 1.0.0 (cliente): copia os padrões de `config/yosbr/` (`options.txt`, LambDynamicLights e More Overlays) na primeira abertura, sem sobrescrever o que o jogador já mudou depois disso. Só existe na CurseForge.
 
 ## Atualizou
 Nada.
 
 ## Removeu
-Nada.
+- [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) 0.1.2 (cliente), LGPL-3.0: nunca aplicou os padrões, porque o Sinytra Connector não executa o language adapter dele; substituído pelo YOMBR.
+- [Better Ping Display](https://modrinth.com/mod/ZvaHbwoZ) 1.1 (cliente)
+- [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO) 1.0.12 (cliente)
+- [Easy NPC](https://modrinth.com/mod/CgGEe1h3) (bundle) 7.14.0 (cliente e servidor): era só um metapacote vazio, bloqueado para launchers de terceiros na CurseForge; o Easy NPC: Core e o Config UI continuam no pack e o jogo não muda
+- [JourneyMap Teams](https://modrinth.com/mod/EV5wjtvP) 1.3.1 (cliente e servidor)
 
 ## Outras mudanças
-- Gráficos mais leves por padrão: modo rápido, nuvens rápidas, mistura de bioma 1, distância das entidades 0,75 e simulação 8. V-Sync desligado e sombras de entidades ligadas.
-- Dicas avançadas nos itens ligadas e tutorial desligado por padrão.
-- LambDynamicLights no modo rápido, com menos atualizações de luz.
-- More Overlays atualiza o scanner de luz a cada 4 frames.
-- Volume, FOV, sensibilidade, resource packs, idioma e teclas seguem o padrão de cada mod.
+- Todos os mods deixam de ser opcionais: o launcher instala todos.
+- Despawn Tweaks e Towns and Towers passam a ser só do servidor.
+- Os shaders passam a ser só do cliente.
+- O `servers.dat` com o servidor IUNA fica na raiz da instância, onde o Minecraft o carrega na lista. Atualizações do pack podem substituí-lo.
+- Quem já tem um `options.txt` o terá substituído uma única vez pelo padrão do pack; depois o YOMBR não mexe mais nele.
+- O pack deixa de ser publicado no Modrinth (decisão 0008): a instalação é pela CurseForge, e o `.mrpack` completo fica na release do GitHub.

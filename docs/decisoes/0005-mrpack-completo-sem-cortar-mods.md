@@ -8,7 +8,7 @@
 ## Contexto
 
 O Modrinth retém versões de modpack com arquivos de fora até cada um ter
-permissão ([`modrinth/permissoes.md`](../../modrinth/permissoes.md)). Dois mods
+permissão na página Permissions. Dois mods
 ficaram sem ela:
 
 - **The Twilight Forest:** o código é LGPL, mas sons e estruturas são All
@@ -28,6 +28,7 @@ ficaram sem ela:
 ## Consequências
 
 - No Modrinth, as versões com esses mods ficam retidas.
-- Um `.mrpack` reduzido só para o Modrinth é aceitável. A página teria de dizer
-  com clareza que os dois mods se baixam à parte. Feito na
-  [0007](0007-mrpack-reduzido-no-modrinth.md).
+- Um `.mrpack` reduzido só para o Modrinth foi feito na
+  [0007](0007-mrpack-reduzido-no-modrinth.md) e abandonado na
+  [0008](0008-sem-distribuicao-no-modrinth.md): o pack não é mais distribuído
+  no Modrinth, e a CurseForge é a única loja.

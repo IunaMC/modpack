@@ -4,13 +4,12 @@ Nomes e permissões, nunca valores.
 
 | Nome | Tipo | Usado por | Permissão | Renovar em |
 | --- | --- | --- | --- | --- |
-| `MODRINTH_TOKEN` | secret | Release, Modrinth | Página e versões do projeto | modrinth.com → Settings → PATs |
 | `CURSEFORGE_TOKEN` | secret | Release | Envio de arquivos (token de upload, não a API key do Studios) | authors.curseforge.com → My API Tokens |
 | `CURSEFORGE_PROJECT_ID` | variable | Release | ID do projeto na CurseForge | — |
 | `MINECRAFT_CONFIG_TOKEN` | secret | Validar | Contents read no `minecraft-config` | GitHub → fine-grained PAT |
 | `RESUMO_TOKEN` | secret | Resumo semanal | Contents, Actions, Issues e PRs read no `modpack`, `modpack-moderacao` e `minecraft-config` | GitHub → fine-grained PAT |
-| `DISCORD_WEBHOOK_COMMIT` | secret | Discord · commits | Webhook do canal de commits | Discord → canal → Integrações → Webhooks |
-| `DISCORD_WEBHOOK_RELEASE` | secret | Release | Webhook do canal de releases | Discord → canal → Integrações → Webhooks |
+| `DISCORD_WEBHOOK_ISSUES` | secret | Discord · issues | Webhook do canal de issues | Discord → canal → Integrações → Webhooks |
+| `DISCORD_WEBHOOK_RELEASE` | secret | Discord · releases | Webhook do canal de releases | Discord → canal → Integrações → Webhooks |
 | `DISCORD_WEBHOOK_WORKFLOW` | secret | Discord · workflows | Webhook do canal de workflows | Discord → canal → Integrações → Webhooks |
 
 - Sem o `RESUMO_TOKEN`, o Resumo tenta o `MINECRAFT_CONFIG_TOKEN` e, por fim, o

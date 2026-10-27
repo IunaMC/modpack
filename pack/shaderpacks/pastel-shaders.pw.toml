@@ -1,6 +1,6 @@
 name = "Pastel Shaders"
 filename = "Pastel-Shaders-Universal-v1.200.zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/BkTdFBUU/versions/w3Pxx3b4/Pastel-Shaders-Universal-v1.200.zip"

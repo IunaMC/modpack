@@ -7,11 +7,6 @@ url = "https://cdn.modrinth.com/data/Kp2uclYl/versions/gOEEnxa6/inventoryhud.neo
 hash-format = "sha512"
 hash = "a316cfb654199f51f242e6fe95fb29d129166231d14993d3a3b82f4c0461497e2e709bd5acb69701d982d63b207e65bdf0c620acab308af35aa06e8e9b2ba203"
 
-[option]
-optional = true
-default = true
-description = "Adds your main inventory, potion effects and your equipments to your HUD. And few other features."
-
 [update]
 [update.modrinth]
 mod-id = "Kp2uclYl"

@@ -17,9 +17,8 @@ Uso:
       # --licenca, --origem (o padrão de cada uma vem dos metadados do jar) e --simular,
       # que mostra o que seria feito sem enviar nem gravar nada. Veja docs/guias/arquivos-externos.md.
   python3 scripts/pack.py lado <arquivo.pw.toml>...
-      # grava o side de cada arquivo pelo que o Modrinth declara (unsupported no cliente → server,
-      # no servidor → client, senão both) e mostra a licença. Mod baixado do Modrinth não precisa
-      # de permissão, mesmo All Rights Reserved: só jar embutido no .mrpack precisa.
+      # só informa: mostra o que o Modrinth declara para cliente e servidor e a licença, sem gravar
+      # nada. O side de cada mod é escolha de uma pessoa, a declaração do Modrinth pode estar errada.
       # Veja docs/guias/adicionar-mod.md.
   python3 scripts/pack.py orfas <mod>
       # <mod> é o nome do arquivo em pack/mods (sem .pw.toml) ou parte do nome. Mostra as dependências
@@ -67,7 +66,6 @@ def ler_mod(texto):
         "nome": dados["name"].strip(),
         "arquivo": dados["filename"],
         "lado": dados.get("side", "both"),
-        "opcional": dados.get("option", {}).get("optional", False),
         "link": link,
     }
 
@@ -116,25 +114,17 @@ def lista_readme():
     extras = [m for k, m in todos.items() if not k.startswith("mods/")]
     servidor = [m for m in mods if m["lado"] == "server"]
     cliente = [m for m in mods if m["lado"] != "server"]
-    obrigatorios = [m for m in cliente if not m["opcional"]]
-    opcionais = [m for m in cliente if m["opcional"]]
     return "\n".join([
         INICIO,
         "<!-- Gerado por scripts/pack.py readme. Não edite à mão. -->",
         "",
-        f"O pack tem **{len(mods)} mods**. O jogador recebe {len(cliente)} "
-        f"({len(obrigatorios)} obrigatórios e {len(opcionais)} opcionais), e o servidor, "
-        f"{len(mods) - sum(1 for m in mods if m['lado'] == 'client')}.",
+        f"O pack tem **{len(mods)} mods**. O jogador recebe {len(cliente)}, "
+        f"e o servidor, {len(mods) - sum(1 for m in mods if m['lado'] == 'client')}.",
         "",
-        "### Obrigatórios",
-        "Necessários para entrar no servidor. O launcher instala todos.",
+        "### Mods do jogador",
+        "Todos obrigatórios para entrar no servidor. O launcher instala todos.",
         "",
-        tabela(obrigatorios),
-        "",
-        "### Opcionais",
-        "Melhorias visuais e de qualidade de vida. O launcher pergunta quais você quer na instalação.",
-        "",
-        tabela(opcionais),
+        tabela(cliente),
         "",
         "### Só no servidor",
         "Administração, desempenho e geração de mundo. O launcher do jogador ignora estes.",
@@ -513,26 +503,16 @@ def cmd_orfas(alvo):
                                           if citam else "nenhum arquivo."))
 
 
-def lado_do_modrinth(projeto):
-    """O side que o Modrinth declara: unsupported no cliente é server, no servidor é client."""
-    if projeto["client_side"] == "unsupported" and projeto["server_side"] != "unsupported":
-        return "server"
-    if projeto["server_side"] == "unsupported" and projeto["client_side"] != "unsupported":
-        return "client"
-    return "both"
-
-
 def cmd_lado(arquivos):
     if not arquivos:
         sys.exit(__doc__)
     erros = 0
     for arquivo in arquivos:
         caminho = Path(arquivo)
-        texto = caminho.read_text()
-        dados = tomllib.loads(texto)
+        dados = tomllib.loads(caminho.read_text())
         mod_id = dados.get("update", {}).get("modrinth", {}).get("mod-id")
         if not mod_id:
-            print(f"{caminho.name}: sem [update.modrinth], o lado fica como está ({dados.get('side', 'both')}).")
+            print(f"{caminho.name}: sem [update.modrinth], side atual {dados.get('side', 'both')}.")
             continue
         req = urllib.request.Request(f"https://api.modrinth.com/v2/project/{mod_id}",
                                      headers={"User-Agent": f"{REPO} (github.com/{REPO})"})
@@ -543,18 +523,9 @@ def cmd_lado(arquivos):
             print(f"ERRO: {caminho.name}: não consegui ler o projeto {mod_id} no Modrinth ({e}).")
             erros += 1
             continue
-        lado = lado_do_modrinth(projeto)
-        antes = dados.get("side", "both")
-        if re.search(r"^side\s*=", texto, re.M):
-            novo = re.sub(r'^side\s*=.*$', f'side = "{lado}"', texto, count=1, flags=re.M)
-        else:
-            novo = re.sub(r'^(filename\s*=.*)$', rf'\1\nside = "{lado}"', texto, count=1, flags=re.M)
-        if novo != texto:
-            caminho.write_text(novo)
-        mudou = "" if antes == lado else f" (era {antes})"
         licenca = projeto.get("license", {}).get("id") or ""
-        print(f"{dados['name']}: side = {lado}{mudou}; cliente {projeto['client_side']}, "
-              f"servidor {projeto['server_side']}; licença {licenca or 'não informada'}.")
+        print(f"{dados['name']}: side atual {dados.get('side', 'both')}; Modrinth declara cliente "
+              f"{projeto['client_side']}, servidor {projeto['server_side']}; licença {licenca or 'não informada'}.")
     if erros:
         sys.exit(1)
 

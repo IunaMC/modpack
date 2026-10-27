@@ -1,7 +1,7 @@
 # 0007: o Modrinth recebe um .mrpack reduzido
 
 - **Data:** 22/10/2026
-- **Estado:** aceita
+- **Estado:** substituída pela [0008](0008-sem-distribuicao-no-modrinth.md) em 27/10/2026
 - **Origem:** consequência da [0005](0005-mrpack-completo-sem-cortar-mods.md)
 
 ## Contexto

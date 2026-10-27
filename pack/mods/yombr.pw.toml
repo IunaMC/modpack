@@ -1,0 +1,13 @@
+name = "Your Options Must Be Respected"
+filename = "yombr-1.0.0.jar"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "a5121fbed7b2835bb1e16b2c9a15d368284322c6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8245943
+project-id = 1574981

@@ -26,8 +26,7 @@
       "Bash(packwiz *)",
       "Bash(cd pack && packwiz *)",
       "Bash(python3 scripts/pack.py *)",
-      "Bash(python3 scripts/curseforge.py *)",
-      "Bash(python3 scripts/modrinth.py *)"
+      "Bash(python3 scripts/curseforge.py *)"
     ]
   }
 }

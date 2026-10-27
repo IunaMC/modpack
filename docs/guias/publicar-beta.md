@@ -1,6 +1,6 @@
 # Publicar uma beta
 
-Solta a próxima versão como *pre-release*: GitHub, Modrinth e CurseForge. O
+Solta a próxima versão como *pre-release*: GitHub e CurseForge. O
 servidor não a instala.
 
 **Skill:** `/beta [versão]`.

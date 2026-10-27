@@ -4,8 +4,7 @@ name: Release
 # (1.2.3) saem só da main e betas (1.2.3-beta.1), só da devel/devel: o servidor
 # instala direto da main, então ela nunca pode ter beta. Só cria a release do
 # GitHub se a versão do pack/pack.toml ainda não tiver uma; depois envia a
-# versão ao Modrinth e à CurseForge, se ela ainda não estiver lá. Também roda
-# pela aba Actions.
+# versão à CurseForge, se ela ainda não estiver lá. Também roda pela aba Actions.
 on:
   push:
     branches: [main, devel/devel]
@@ -110,10 +109,8 @@ jobs:
           # com o nome exato do asset, e o iuna.club/mrpack aponta para ela.
           cp "$ARQUIVO" IUNA.mrpack
 
-      # O pack da CurseForge é o mesmo, com o Twilight Forest e o Mob Grinding
-      # Utils, que o Modrinth não aceita. O .zip leva só os mods de cliente,
-      # referenciados pela CurseForge. Fica na release ao lado do .mrpack e é o
-      # que vai para a CurseForge.
+      # O .zip leva só os mods de cliente, referenciados pela CurseForge. Fica na
+      # release ao lado do .mrpack e é o que vai para a CurseForge.
       - name: Exportar o .zip da CurseForge
         run: |
           ARQUIVO="IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip"
@@ -155,30 +152,15 @@ jobs:
             --notes-file "$RUNNER_TEMP/notas.md" \
             ${{ needs.versao.outputs.prerelease }}
 
-      # Se a release já existia (ou o envio ao Modrinth falhou e o workflow foi
-      # rodado de novo pela aba Actions), usa o .mrpack e as notas dela.
+      # Se a release já existia (ou o envio à CurseForge falhou e o workflow foi
+      # rodado de novo pela aba Actions), usa as notas dela.
       - name: Baixar a release existente
         if: needs.versao.outputs.existe == 'true'
         run: |
-          gh release download "${{ needs.versao.outputs.tag }}" -p '*.mrpack'
           gh release view "${{ needs.versao.outputs.tag }}" --json body -q .body > "$RUNNER_TEMP/notas.md"
           # Releases antigas não têm o .zip; --clobber evita asset duplicado.
           gh release upload "${{ needs.versao.outputs.tag }}" \
             "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" --clobber
-
-      # O Modrinth recebe o .mrpack reduzido, sem os mods de [[reduzido.fora]]
-      # do modrinth/projeto.toml (decisão 0007). Ele sai do completo, então
-      # funciona também com o .mrpack baixado da release existente, e não vai
-      # para a release do GitHub. Pula sozinho se a versão já estiver no
-      # Modrinth ou se o secret MODRINTH_TOKEN não existir.
-      - name: Publicar no Modrinth
-        env:
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-          VERSAO: ${{ needs.versao.outputs.versao }}
-        run: |
-          python3 scripts/modrinth.py reduzir "IUNA-$VERSAO.mrpack" "IUNA-$VERSAO-modrinth.mrpack"
-          python3 scripts/modrinth.py publicar "$VERSAO" \
-            "IUNA-$VERSAO-modrinth.mrpack" "$RUNNER_TEMP/notas.md"
 
       # Envia o .zip exportado acima. Pula sozinho se a versão já estiver lá ou
       # se faltar o secret CURSEFORGE_TOKEN ou a variable CURSEFORGE_PROJECT_ID.
@@ -190,34 +172,14 @@ jobs:
           python3 scripts/curseforge.py publicar "${{ needs.versao.outputs.versao }}" \
             "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" "$RUNNER_TEMP/notas.md"
 
-      # A release acima sai com o GITHUB_TOKEN, que não dispara outros
-      # workflows (nem o release: published). Por isso o aviso fica aqui, e
-      # só quando a release é nova. Pula sozinho sem o secret
-      # DISCORD_WEBHOOK_RELEASE; falha no Discord não derruba a publicação.
-      - name: Ver se há webhook do Discord
-        id: discord
-        env:
-          DISCORD_WEBHOOK_RELEASE: ${{ secrets.DISCORD_WEBHOOK_RELEASE }}
-        run: |
-          [ -n "$DISCORD_WEBHOOK_RELEASE" ] || exit 0
-          {
-            echo "enviar=true"
-            echo "notas<<FIM_DAS_NOTAS"
-            head -c 3800 "$RUNNER_TEMP/notas.md"
-            echo
-            echo "FIM_DAS_NOTAS"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Avisar a release no Discord
-        if: needs.versao.outputs.existe != 'true' && steps.discord.outputs.enviar == 'true'
-        continue-on-error: true
-        # Fixada por SHA (v1.20.0): a action recebe o webhook.
-        uses: SethCohen/github-releases-to-discord@24d166886aee4646d448c8a389ff9e1ebcab3682
-        with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK_RELEASE }}
-          username: IUNA · releases
-          release_name: ${{ needs.versao.outputs.tag }}
-          release_html_url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.versao.outputs.tag }}
-          release_body: ${{ steps.discord.outputs.notas }}
-          reduce_headings: true
-          remove_github_reference_links: true
+  # A release sai com o GITHUB_TOKEN, que não dispara o evento release: o aviso
+  # é chamado daqui. Falha no Discord não derruba o Release (ver o workflow).
+  avisar:
+    needs: [versao, release]
+    if: needs.versao.outputs.publicar == 'true' && needs.versao.outputs.existe != 'true'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/discord-releases.yaml
+    with:
+      tag: ${{ needs.versao.outputs.tag }}
+    secrets: inherit

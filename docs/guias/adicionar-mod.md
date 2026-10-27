@@ -3,7 +3,7 @@
 Põe um mod do Modrinth no pack, com as dependências e a fonte da CurseForge,
 um commit por item.
 
-**Skill:** `/add-mod <slug> [server|client|both] [opcional]`.
+**Skill:** `/add-mod <slug> [server|client|both]`.
 
 ## Antes
 
@@ -18,27 +18,21 @@ um commit por item.
    cd pack && packwiz modrinth add <slug> -y && cd ..
    ```
 
-2. Grave o lado de cada mod novo pelo que o Modrinth declara: `client_side`
-   igual a `unsupported` → `side = "server"`; `server_side` igual a
-   `unsupported` → `side = "client"`; senão, `"both"`. O script também avisa
-   da licença (passo 4). Um mod de conteúdo marcado como `client` ou `server`
-   impede o jogador de entrar no servidor.
+2. Escolha o lado de cada mod novo e das dependências, à mão: `side = "client"`,
+   `"server"` ou `"both"` no `.pw.toml`. É decisão de uma pessoa, porque a
+   declaração do Modrinth ou da CurseForge pode estar errada, faltar ou não
+   dizer tudo (há mod de cliente que ganha recursos se estiver no servidor).
+   Um mod de conteúdo marcado como `client` ou `server` impede o jogador de
+   entrar no servidor. Para ver o que o Modrinth declara e a licença, sem gravar
+   nada:
 
    ```sh
    python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...
    ```
 
-3. Mod opcional ganha o bloco `[option]` com `optional = true` e uma
-   `description` curta em inglês. Dependência de mod obrigatório **nunca** é
-   opcional.
-4. Mod baixado do Modrinth não precisa de permissão no `.mrpack`, mesmo All
-   Rights Reserved: o arquivo só aponta para o CDN do Modrinth. Só o jar que
-   existe apenas na CurseForge vai embutido e precisa de permissão na página
-   Permissions ([`modrinth/permissoes.md`](../../modrinth/permissoes.md)). Sem
-   ela, o mod entra em `[[reduzido.fora]]` do `modrinth/projeto.toml` e nas
-   descrições, e sai só do `.mrpack` do Modrinth
-   ([decisão 0007](../decisoes/0007-mrpack-reduzido-no-modrinth.md)).
-5. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
+3. Nenhum mod é opcional: o pack não usa `[option]`, porque a CurseForge não
+   tem mod opcional.
+4. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
    fica na lateral da página do mod em curseforge.com:
 
    ```sh
@@ -47,13 +41,13 @@ um commit por item.
 
    Se a CurseForge não tiver o mesmo arquivo, o mod precisa de uma versão que
    exista nas duas fontes.
-6. Recalcule o índice e a lista de mods:
+5. Recalcule o índice e a lista de mods:
 
    ```sh
    bash scripts/op.sh refresh
    ```
 
-7. Um commit por item, dependências primeiro, levando o `.pw.toml`,
+6. Um commit por item, dependências primeiro, levando o `.pw.toml`,
    `pack/index.toml`, `pack/pack.toml` e o `README.md`:
 
    ```sh

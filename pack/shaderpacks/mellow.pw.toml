@@ -1,6 +1,6 @@
 name = "Mellow"
 filename = "Mellow v3.4.1a.zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/BUxf36AP/versions/jIbGxrnZ/Mellow%20v3.4.1a.zip"

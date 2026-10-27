@@ -21,9 +21,9 @@ O `.mrpack` é um zip com `modrinth.index.json` e as pastas `overrides/`,
 | `files[].env` | `side` de cada `.pw.toml` | ok |
 
 O formato **não tem** ícone, autor, links nem changelog. `author` do
-`pack.toml` não entra no índice. Ícone, descrição longa, links e notas ficam no
-projeto do Modrinth (`modrinth/`), e os launchers só os mostram quando o pack é
-instalado pela página do projeto, não ao importar o arquivo. O ícone da
+`pack.toml` não entra no índice. Ícone, descrição longa, links e notas ficam na
+página da CurseForge (`curseforge/`), e os launchers só os mostram quando o
+pack é instalado pela loja, não ao importar o arquivo. O ícone da
 instância importada vem da pasta da instância (assunto da sessão da instância).
 
 ## Decisão
@@ -35,7 +35,7 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
 ## Notas para a instância criada ao importar
 
 - O `name` vira o nome da instância: "IUNA Mark II" (marco da segunda
-  temporada). O projeto no Modrinth ainda se chama "IUNA 2", nome que é
+  temporada). O projeto na CurseForge se chama "IUNA 2", nome que é
   independente do `pack.toml`.
 - Ícone: `pack/icon.png` vira `overrides/icon.png` no `.mrpack` (conferido com
   `packwiz modrinth export`); o Modrinth App usa como ícone da instância. O
@@ -46,9 +46,10 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
   não tem `config/`, `options.txt` nem `servers.dat`: qualquer um desses entra
   como arquivo no `pack/` (packwiz o põe em `overrides/`).
 - `servers.dat` com o servidor (`jogar.iuna.club`, nome "IUNA") fica em
-  `pack/config/yosbr/servers.dat`. O YOSBR o copia para a raiz da instância
-  só na primeira abertura e nunca sobrescreve, então a lista do jogador
-  sobrevive às atualizações. Em `overrides/` direto, cada atualização
-  apagaria os servidores que ele adicionou. Decidido em 22/10/2026.
+  `pack/servers.dat`, na raiz da instância. Em 22/10/2026 ele foi para
+  `pack/config/yosbr/` para o YOSBR copiá-lo só na primeira abertura, mas lá o
+  Minecraft não o carrega na lista de servidores. Em 27/10/2026 voltou para a
+  raiz: cada atualização do pack pode substituí-lo e apagar servidores que o
+  jogador adicionou, aceito porque a instância é só do IUNA.
 - `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
   pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.
