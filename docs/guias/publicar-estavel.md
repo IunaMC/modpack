@@ -43,11 +43,9 @@ script acrescenta "MAJOR confirmado" ao corpo do PR).
 4. Com tudo verde, faz o merge com merge commit, nunca `--rebase`
    ([por quê](../decisoes/0002-merge-commit-assinado.md)) e nunca
    `--delete-branch`: a `devel/devel` é permanente.
-5. Espera o Release da `main` e mostra o resultado dos passos "Publicar no
-   Modrinth" e "Publicar na CurseForge". O Modrinth recebe o `.mrpack`
-   reduzido ([decisão 0007](../decisoes/0007-mrpack-reduzido-no-modrinth.md));
-   o GitHub e a CurseForge, o completo. Se o Release falhar, a release do
-   GitHub ainda vale.
+5. Espera o Release da `main` e mostra o resultado do passo "Publicar na
+   CurseForge" ([decisão 0008](../decisoes/0008-sem-distribuicao-no-modrinth.md)).
+   Se o Release falhar, a release do GitHub ainda vale.
 6. Alinha a `devel/devel` com a `main` (`merge --ff-only` e push), mesmo que o
    Release tenha falhado, porque o merge já aconteceu.
 7. [Propague](https://github.com/IunaMC/docs/blob/main/processo/propagar.md) a
