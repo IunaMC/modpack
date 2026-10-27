@@ -77,6 +77,29 @@ run_do_commit() {
   echo "$id"
 }
 
+# Espera o check obrigatório conferir (Entrada na main) de um PR e os demais checks.
+# O conferir demora a aparecer depois do gh pr create: sem esperar por ele, o
+# gh pr checks --watch termina com os outros checks e o merge é recusado.
+espera_conferir() {
+  local pr="$1" tentativas=0 estado
+  until [[ -n "$(gh pr checks "$pr" --required --json name --jq '.[] | select(.name == "conferir") | .name' 2>/dev/null || true)" ]]; do
+    (( ++tentativas > 24 )) && { echo "O check conferir não apareceu no PR $pr depois de 2 min: gh pr checks $pr" >&2; return 2; }
+    sleep 5
+  done
+  gh pr checks "$pr" --watch --interval 15 > /dev/null || { echo "O PR $pr tem check vermelho: gh pr checks $pr" >&2; return 1; }
+  estado="$(gh pr checks "$pr" --required --json name,bucket --jq '.[] | select(.name == "conferir") | .bucket' || true)"
+  [[ "$estado" == pass ]] || { echo "O conferir (Entrada na main) do PR $pr terminou como '$estado': gh pr checks $pr" >&2; return 1; }
+  echo "==> conferir verde."
+}
+
+# Faz o merge commit de um PR e confere que ele entrou (gh pr merge recusado não pode passar).
+merge_pr() {
+  local pr="$1"
+  gh pr merge "$pr" --merge || { echo "O merge do PR $pr foi recusado: gh pr view $pr" >&2; return 1; }
+  [[ "$(gh pr view "$pr" --json state --jq .state)" == MERGED ]] \
+    || { echo "O PR $pr não ficou MERGED depois do gh pr merge: gh pr view $pr" >&2; return 1; }
+}
+
 # Prepara e publica a próxima beta. Escrever o MUDANCAS.md continua com pessoa:
 # o script para antes do commit enquanto o título não for o da versão nova.
 beta() {
@@ -196,10 +219,10 @@ estavel() {
     pr="$(gh pr create --base main --head devel/devel --title "$titulo" --body-file "$corpo" | grep -oE '[0-9]+$')"
   fi
   echo "==> PR $pr: $(gh pr view "$pr" --json url --jq .url)"
-  gh pr checks "$pr" --watch --interval 15 || { echo "O PR tem check vermelho: gh pr checks $pr" >&2; return 1; }
+  espera_conferir "$pr" || return 1
 
   # 4. merge commit; nunca rebase, nunca apagar a devel/devel
-  gh pr merge "$pr" --merge
+  merge_pr "$pr" || return 1
   git fetch -q
   sha="$(git rev-parse origin/main)"
 
@@ -211,8 +234,8 @@ estavel() {
   gh run view "$id" --json jobs --jq '.jobs[].steps[] | select(.name | test("CurseForge")) | "  \(.name): \(.conclusion)"'
 
   # 6. devel/devel igual à main, mesmo se o Release falhou (o merge já aconteceu)
-  git merge --ff-only origin/main > /dev/null
-  git push origin devel/devel
+  git merge --ff-only origin/main > /dev/null || { echo "A devel/devel não avança só com a main: resolva e faça o push." >&2; return 1; }
+  git push origin devel/devel || return 1
   if (( falhou )); then
     echo "O Release falhou: gh run view $id --log-failed. A release do GitHub vale se existir; a devel/devel já está alinhada." >&2
     return 1
@@ -273,16 +296,21 @@ propagar() {
     GH_REPO=IunaMC/modpack-moderacao gh run watch "$id" --exit-status --interval 15 > /dev/null \
       || { echo "O Validar da moderação falhou: gh run view $id -R IunaMC/modpack-moderacao --log-failed" >&2; return 1; }
     echo "--- MUDANCAS.md da moderação:"; git -C "$mod" show "HEAD:MUDANCAS.md" | sed -n 1,20p
-    GH_REPO=IunaMC/modpack-moderacao gh pr merge "$pr" --merge
+    GH_REPO=IunaMC/modpack-moderacao merge_pr "$pr" || return 1
     git -C "$mod" fetch -q
     sha="$(git -C "$mod" rev-parse origin/main)"
     id="$(GH_REPO=IunaMC/modpack-moderacao run_do_commit release.yaml "$sha")" \
       || { echo "O Release da moderação não começou." >&2; return 2; }
     GH_REPO=IunaMC/modpack-moderacao gh run watch "$id" --exit-status --interval 15 > /dev/null \
       || { echo "O Release da moderação falhou: gh run view $id -R IunaMC/modpack-moderacao --log-failed" >&2; return 1; }
-    git -C "$mod" checkout -q devel/devel
-    git -C "$mod" merge --ff-only origin/main > /dev/null
-    git -C "$mod" push origin devel/devel
+    # A devel/devel de lá pode ter commits que a main ainda não tem: aí vai merge assinado.
+    git -C "$mod" checkout -q devel/devel || return 1
+    git -C "$mod" merge -q --ff-only "origin/devel/devel" 2> /dev/null || true
+    if ! git -C "$mod" merge -q --ff-only origin/main 2> /dev/null; then
+      git -C "$mod" merge -q -S --signoff --no-edit origin/main \
+        || { git -C "$mod" merge --abort 2> /dev/null; echo "A main da moderação não entra na devel/devel de lá sem conflito: resolva em $mod." >&2; return 1; }
+    fi
+    git -C "$mod" push origin devel/devel || { echo "O push da devel/devel da moderação falhou." >&2; return 1; }
     echo "==> Moderação na v$versao."
   fi
 
@@ -294,8 +322,8 @@ propagar() {
     echo "==> Configs já testam com o modpack $versao."
   else
     echo "$versao" > "$cfg/MODPACK"
-    git -C "$cfg" commit -S -s -a -m "build: testa com o modpack $versao"
-    git -C "$cfg" push origin devel/devel
+    git -C "$cfg" commit -S -s -a -m "build: testa com o modpack $versao" || return 1
+    git -C "$cfg" push origin devel/devel || return 1
     echo "==> MODPACK das configs em $versao."
   fi
   echo "Falta: o /versao do minecraft-config (testa o servidor com o pack novo) e o envio pelo FileZilla."

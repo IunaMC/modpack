@@ -21,7 +21,8 @@ fim.
 bash scripts/op.sh propagar <versão>
 ```
 
-O alvo faz, em ordem, e para no primeiro passo vermelho:
+O alvo faz, em ordem, e para no primeiro passo vermelho, com código de saída
+diferente de 0:
 
 1. **Moderação.** Se a `base.toml` da `main` já está na versão, pula. Senão,
    dispara o *Acompanhar pack base* (se a branch `base/v<versão>` ainda não
@@ -29,8 +30,11 @@ O alvo faz, em ordem, e para no primeiro passo vermelho:
    (`commit --amend --reset-author -S -s` e `push --force-with-lease`, porque o
    Actions não tem a chave de quem mantém), abre o PR (`Closes` da issue de
    pack base, se houver), espera o Validar, mostra o `MUDANCAS.md`, faz o
-   merge commit (nunca rebase), espera o Release de lá e alinha a
-   `devel/devel` com a `main`.
+   merge commit (nunca rebase), confere que o PR ficou `MERGED`, espera o
+   Release de lá e alinha a `devel/devel` com a `main`: `merge --ff-only`
+   quando dá e, se a `devel/devel` de lá tem commits que a `main` ainda não
+   tem, merge assinado (`merge -S --signoff --no-edit origin/main`). Com
+   conflito, aborta o merge e para antes das configs.
 2. **Configs.** Grava a versão em `MODPACK` (sem o `v`) e faz o commit
    `build: testa com o modpack <versão>` e o push, se ainda não estiver.
 
