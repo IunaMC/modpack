@@ -1,0 +1,36 @@
+name: Discord · releases
+
+# Avisa no canal de releases do Discord quando uma release é publicada.
+# O webhook fica no secret DISCORD_WEBHOOK_RELEASE; sem ele o workflow pula sozinho.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar no Discord
+        env:
+          DISCORD_WEBHOOK_RELEASE: ${{ secrets.DISCORD_WEBHOOK_RELEASE }}
+        run: |
+          [ -n "$DISCORD_WEBHOOK_RELEASE" ] || exit 0
+          jq '
+            .release as $r
+            | .repository as $repo
+            | {
+                username: "IUNA · releases",
+                allowed_mentions: {parse: []},
+                embeds: [{
+                  color: 5763719,
+                  author: {name: $r.author.login, icon_url: $r.author.avatar_url, url: $r.author.html_url},
+                  title: "\($repo.name) \($r.tag_name)",
+                  url: $r.html_url,
+                  description: ($r.body // "" | .[:400])
+                }]
+              }' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/embed.json"
+          curl -fsS -H 'Content-Type: application/json' \
+            -d @"$RUNNER_TEMP/embed.json" "$DISCORD_WEBHOOK_RELEASE"
