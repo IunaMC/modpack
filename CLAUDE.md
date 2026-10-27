@@ -20,7 +20,7 @@ Texto oficial em
 Não edite este bloco: mude lá e rode `scripts/regras-comuns.py sincronizar`.
 
 - **Commits:** `git commit -S -s`, [Conventional Commits](https://www.conventionalcommits.org/pt-br/) em português. Nunca `Co-Authored-By` nem menção ao Claude, nem em commit, PR, issue ou release.
-- **Idioma:** português do Brasil em código comentado, documentação, commits, PRs e issues. A única exceção é a página do Modrinth, em inglês com o português recolhível.
+- **Idioma:** português do Brasil em código comentado, documentação, commits, PRs e issues. A única exceção é a descrição da CurseForge, só em inglês.
 - **Repositório público:** nada de host, hardware, IP, DNS interno, caminho local nem segredo. Isso fica nos repositórios privados, e a página pública só diz que existe.
 - **Uma sessão por tarefa:** tarefa sem relação com a anterior abre sessão nova, porque o histórico é reenviado a cada mensagem.
 - **Antes de perguntar ao usuário:** leia a memória, o `git log` e as sessões anteriores. Pergunte só o que não estiver registrado.
