@@ -13,13 +13,15 @@ Os workflows deste repositório e o que roda igual na sua máquina.
 | [Atualizações de mods](../../.github/workflows/atualizacoes.yaml) | Segunda, 10h23 UTC; manual | Issue com os mods que têm versão nova | `cd pack && packwiz update --all`, `git diff`, depois `git checkout pack/` |
 | [Resumo semanal](../../.github/workflows/resumo.yaml) | Segunda, 10h53 UTC; manual | Issue "Resumo semanal" com o estado dos três repositórios e a validade dos tokens | `bash scripts/op.sh resumo` |
 | [Discord · issues](../../.github/workflows/discord-issues.yaml) | Issue aberta, fechada ou reaberta | Avisa no canal de issues do Discord, em embed, com autor, número, título e trecho do texto | Não tem |
-| [Discord · releases](../../.github/workflows/discord-releases.yaml) | Release publicada | Avisa no canal de releases do Discord, em embed, com a versão e o início das notas | Não tem |
+| [Discord · releases](../../.github/workflows/discord-releases.yaml) | Release publicada por uma pessoa | Avisa no canal de releases do Discord, em embed, com a versão e o início das notas. Não dispara para as releases do workflow Release | Não tem |
 | [Discord · workflows](../../.github/workflows/discord-workflows.yaml) | Fim de outro workflow (sucesso, falha ou tempo esgotado) | Avisa no canal de workflows, em embed, o resultado, a branch e o link da execução. Só dispara com o arquivo na `main` | Não tem |
 
 Os três avisos são `curl` com embed montado por `jq` e pulam sozinhos sem o
-secret do webhook. A release sai com o `GITHUB_TOKEN`, que não dispara outros
-workflows, mas o evento `release` do próprio GitHub dispara o aviso de releases.
-Não há mais aviso de commits.
+secret do webhook. As releases do workflow Release saem com o `GITHUB_TOKEN`,
+que não dispara outros workflows: o aviso delas é um passo do próprio Release,
+com uma action de terceiros fixada por SHA, porque ela recebe o webhook. O
+Discord · releases só vale para release publicada à mão. Não há mais aviso de
+commits.
 
 Os workflows de agenda só rodam na `main`. Um workflow novo começa a valer
 depois da estável seguinte.
