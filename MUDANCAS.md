@@ -1,4 +1,6 @@
-# Mudanças — v3.6.0, sem mods opcionais e três mods a menos
+# Mudanças — v3.7.0-beta.1, sem mods opcionais e quatro mods a menos
+
+Beta: sai como pre-release e o servidor não a instala.
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack também vive na CurseForge.
 
@@ -11,6 +13,7 @@ Nada.
 ## Removeu
 - [Better Ping Display](https://modrinth.com/mod/ZvaHbwoZ) 1.1 (cliente)
 - [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO) 1.0.12 (cliente)
+- [Easy NPC](https://modrinth.com/mod/CgGEe1h3) (bundle) 7.14.0 (cliente e servidor): era só um metapacote vazio, bloqueado para launchers de terceiros na CurseForge; o Easy NPC: Core e o Config UI continuam no pack e o jogo não muda
 - [JourneyMap Teams](https://modrinth.com/mod/EV5wjtvP) 1.3.1 (cliente e servidor)
 
 ## Outras mudanças
