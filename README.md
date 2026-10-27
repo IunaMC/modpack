@@ -10,7 +10,7 @@ instala com um clique.
 
 ## Requisitos
 
-- **Java 21** (o Modrinth App e o Prism baixam sozinhos).
+- **Java 21** (o app da CurseForge e o Prism baixam sozinhos).
 - **Memória:** aloque **8 GB** de RAM ao jogo (mínimo de 6 GB; 10 GB com
   shaders ou muitos mods visuais). O computador precisa ter RAM sobrando para
   o sistema.
@@ -18,29 +18,22 @@ instala com um clique.
 
 ## Instalação
 
-### Pelo Modrinth (recomendado)
+### Pela CurseForge (recomendado)
 
-> A página do pack no Modrinth está em revisão e ainda não aparece na busca.
-> Quando sair, o atalho <https://iuna.club/modpack> leva direto a ela.
-
-1. **Modrinth App:** abra a página do pack e clique em **Install**, ou
-   procure "IUNA" na aba de modpacks.
-   **Prism Launcher:** *Add Instance → Modrinth*, procure "IUNA" e escolha a
+1. **App da CurseForge:** procure "IUNA" na aba de modpacks do Minecraft e
+   clique em **Install**.
+   **Prism Launcher:** *Add Instance → CurseForge*, procure "IUNA" e escolha a
    versão.
-2. Escolha os mods opcionais que quiser. Todos vêm marcados por padrão.
-3. Abra o jogo e entre no servidor.
+2. Abra o jogo e entre no servidor.
 
 ### Pelo arquivo `.mrpack`
-
-Enquanto a página do Modrinth não sai, ou se preferir o arquivo:
 
 1. Baixe o `.mrpack` em <https://iuna.club/mrpack>, que sempre baixa a
    versão mais recente, ou pela [última release](https://github.com/IunaMC/modpack/releases/latest).
 2. Importe no launcher:
    - **Prism Launcher:** *Add Instance → Import* e escolha o arquivo.
    - **Modrinth App:** *+ (Create instance) → Import from file*.
-3. Escolha os mods opcionais que quiser. Todos vêm marcados por padrão.
-4. Abra o jogo e entre no servidor.
+3. Abra o jogo e entre no servidor.
 
 O launcher baixa os mods do Modrinth na hora. Os poucos que só existem no
 CurseForge já vêm dentro do `.mrpack`.
