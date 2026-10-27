@@ -13,7 +13,7 @@ instalá-la no próximo reinício.
 ## Passos
 
 O alvo `estavel` faz os passos mecânicos em ordem e **para no primeiro
-vermelho**:
+vermelho**, sempre com código de saída diferente de 0:
 
 ```sh
 bash scripts/op.sh estavel [versão] [--corpo <arquivo.md>] [--major] [--sem-beta]
@@ -39,10 +39,14 @@ script acrescenta "MAJOR confirmado" ao corpo do PR).
    publicadas) e passe com `--corpo`. O título do PR sai do título do
    `MUDANCAS.md`. Antes de abrir, ele confere as
    [regras da `main`](../referencia/versionamento.md#o-que-entra-na-main) com
-   `pack.py conferir` e depois espera o job *Entrada na main*.
+   `pack.py conferir`. Depois espera o check obrigatório `conferir` (job
+   *Entrada na main*) aparecer no PR, que demora alguns segundos depois do
+   `gh pr create`, e todos os checks terminarem; se o `conferir` não ficar
+   verde, para.
 4. Com tudo verde, faz o merge com merge commit, nunca `--rebase`
    ([por quê](../decisoes/0002-merge-commit-assinado.md)) e nunca
-   `--delete-branch`: a `devel/devel` é permanente.
+   `--delete-branch`: a `devel/devel` é permanente. Se a `main` recusar o
+   merge, ou o PR não ficar `MERGED`, para com erro.
 5. Espera o Release da `main` e mostra o resultado do passo "Publicar na
    CurseForge" ([decisão 0008](../decisoes/0008-sem-distribuicao-no-modrinth.md)).
    Se o Release falhar, a release do GitHub ainda vale.
