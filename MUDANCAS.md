@@ -1,23 +1,17 @@
-# Mudanças — v3.7.0-beta.1, sem mods opcionais e quatro mods a menos
+# Mudanças — v3.7.0-beta.2, os padrões do cliente passam a funcionar
 
 Beta: sai como pre-release e o servidor não a instala.
 
-Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack também vive na CurseForge.
+Quem já tem o pack atualiza pelo launcher, sem reinstalar. O YOSBR nunca chegou a aplicar os padrões porque o Sinytra Connector não executa o language adapter dele; o YOMBR faz o mesmo trabalho nativo no NeoForge. As mudanças da 3.7.0-beta.1 continuam valendo.
 
 ## Adicionou
-Nada.
+- [Your Options Must Be Respected](https://www.curseforge.com/minecraft/mc-mods/yombr) 1.0.0 (cliente): copia os padrões de `config/yosbr/` (`options.txt`, LambDynamicLights e More Overlays) na primeira abertura, sem sobrescrever o que o jogador já mudou depois disso. Só existe na CurseForge.
 
 ## Atualizou
 Nada.
 
 ## Removeu
-- [Better Ping Display](https://modrinth.com/mod/ZvaHbwoZ) 1.1 (cliente)
-- [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO) 1.0.12 (cliente)
-- [Easy NPC](https://modrinth.com/mod/CgGEe1h3) (bundle) 7.14.0 (cliente e servidor): era só um metapacote vazio, bloqueado para launchers de terceiros na CurseForge; o Easy NPC: Core e o Config UI continuam no pack e o jogo não muda
-- [JourneyMap Teams](https://modrinth.com/mod/EV5wjtvP) 1.3.1 (cliente e servidor)
+- [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) 0.1.2 (cliente), LGPL-3.0: substituído pelo YOMBR.
 
 ## Outras mudanças
-- Todos os mods deixam de ser opcionais: o launcher instala todos.
-- Despawn Tweaks e Towns and Towers passam a ser só do servidor.
-- Os shaders passam a ser só do cliente.
-- O `servers.dat` com o servidor IUNA sai do YOSBR e vai para a raiz da instância, onde o Minecraft o carrega na lista. Atualizações do pack podem substituí-lo.
+- Quem já tem um `options.txt` o terá substituído uma única vez pelo padrão do pack; depois o YOMBR não mexe mais nele.
