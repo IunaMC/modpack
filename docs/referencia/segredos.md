@@ -4,7 +4,6 @@ Nomes e permissões, nunca valores.
 
 | Nome | Tipo | Usado por | Permissão | Renovar em |
 | --- | --- | --- | --- | --- |
-| `MODRINTH_TOKEN` | secret | Release, Modrinth | Página e versões do projeto | modrinth.com → Settings → PATs |
 | `CURSEFORGE_TOKEN` | secret | Release | Envio de arquivos (token de upload, não a API key do Studios) | authors.curseforge.com → My API Tokens |
 | `CURSEFORGE_PROJECT_ID` | variable | Release | ID do projeto na CurseForge | — |
 | `MINECRAFT_CONFIG_TOKEN` | secret | Validar | Contents read no `minecraft-config` | GitHub → fine-grained PAT |

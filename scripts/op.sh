@@ -203,12 +203,12 @@ estavel() {
   git fetch -q
   sha="$(git rev-parse origin/main)"
 
-  # 5. Release da main (GitHub, Modrinth e CurseForge)
+  # 5. Release da main (GitHub e CurseForge)
   id="$(run_do_commit release.yaml "$sha")" || { echo "O Release da main não começou para ${sha:0:7}." >&2; return 2; }
   echo "==> Release, run $id"
   local falhou=0
   gh run watch "$id" --exit-status --interval 15 > /dev/null || falhou=1
-  gh run view "$id" --json jobs --jq '.jobs[].steps[] | select(.name | test("Modrinth|CurseForge")) | "  \(.name): \(.conclusion)"'
+  gh run view "$id" --json jobs --jq '.jobs[].steps[] | select(.name | test("CurseForge")) | "  \(.name): \(.conclusion)"'
 
   # 6. devel/devel igual à main, mesmo se o Release falhou (o merge já aconteceu)
   git merge --ff-only origin/main > /dev/null
@@ -312,8 +312,7 @@ case "${1:-}" in
     python3 scripts/pack.py readme ;;
   conferir)
     python3 scripts/pack.py readme --check
-    python3 scripts/curseforge.py verificar
-    python3 scripts/modrinth.py verificar ;;
+    python3 scripts/curseforge.py verificar ;;
   testar)
     bash scripts/testar-servidor.sh --configs "${@:2}" ;;
   versao)
