@@ -17,8 +17,7 @@ você pode instalar e jogar sozinho.
 > [CurseForge](https://www.curseforge.com/projects/1752945) e no
 > [GitHub](https://github.com/IunaMC/modpack/releases/latest).
 
-Na versão 3.4.0 o jogador recebe **290 mods**: 258 obrigatórios e 32 opcionais,
-que você escolhe na instalação, mais 2 resource packs e 7 shaders.
+Na versão 3.6.0 o jogador recebe **285 mods**, todos obrigatórios, mais 2 resource packs e 7 shaders.
 
 > **Sobre o servidor:** o servidor IUNA é fechado e só para membros da
 > comunidade. Este pack não dá acesso a ele. Se você já faz parte, as
@@ -95,19 +94,6 @@ Localization Project** (tradução para português dos mods que não têm).
 
 ### Scripts
 **KubeJS** com Rhino e MoreJS, para receitas, eventos e conteúdo próprios.
-
-## Mods opcionais
-
-A instalação pergunta quais você quer. Todos vêm marcados por padrão e nenhum
-é necessário para entrar no servidor. Entre eles:
-
-- Visual: 3D Skin Layers, Entity Model Features e Entity Texture Features,
-  LambDynamicLights, Better Third Person e Entity Culling.
-- Som: AmbientSounds e Sound Physics Remastered.
-- Interface: Jade, Just Enough Resources, AppleSkin, Mouse Tweaks, Controlling,
-  Searchables, Chat Heads e Better Advancements.
-
-Em um computador mais fraco, desmarque os mods visuais e de som.
 
 ## Instalação
 

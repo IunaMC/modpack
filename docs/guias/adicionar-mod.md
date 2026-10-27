@@ -3,7 +3,7 @@
 Põe um mod do Modrinth no pack, com as dependências e a fonte da CurseForge,
 um commit por item.
 
-**Skill:** `/add-mod <slug> [server|client|both] [opcional]`.
+**Skill:** `/add-mod <slug> [server|client|both]`.
 
 ## Antes
 
@@ -30,9 +30,8 @@ um commit por item.
    python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...
    ```
 
-3. Mod opcional ganha o bloco `[option]` com `optional = true` e uma
-   `description` curta em inglês. Dependência de mod obrigatório **nunca** é
-   opcional.
+3. Nenhum mod é opcional: o pack não usa `[option]`, porque a escolha só
+   existe no Modrinth e o pack também vive na CurseForge.
 4. Mod baixado do Modrinth não precisa de permissão no `.mrpack`, mesmo All
    Rights Reserved: o arquivo só aponta para o CDN do Modrinth. Só o jar que
    existe apenas na CurseForge vai embutido e precisa de permissão na página
