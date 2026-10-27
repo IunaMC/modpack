@@ -1,6 +1,4 @@
-# Mudanças — v3.6.0-beta.1, sem mods opcionais e três mods a menos
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.6.0, sem mods opcionais e três mods a menos
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack também vive na CurseForge.
 
