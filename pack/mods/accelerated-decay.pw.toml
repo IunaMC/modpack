@@ -1,6 +1,6 @@
 name = "Accelerated Decay"
 filename = "accelerated-decay-neoforge-21.0.0.jar"
-side = "both"
+side = "server"
 
 [download]
 url = "https://cdn.modrinth.com/data/laX5CckD/versions/rtgQ5T5Q/accelerated-decay-neoforge-21.0.0.jar"

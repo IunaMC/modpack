@@ -7,11 +7,6 @@ url = "https://cdn.modrinth.com/data/9Pk89J3g/versions/tnIqG3cu/justenoughbreedi
 hash-format = "sha512"
 hash = "712f023a983e37fab2f0affa677a38c5f7c1c8e2fa75757a73592cbccc1e2240ff0853102487cb3765e3097be1544394113aba22c0ffaad1b92c2963ea126bbd"
 
-[option]
-optional = true
-default = true
-description = "JEI/REI/EMI plugin that displays breeding information"
-
 [update]
 [update.modrinth]
 mod-id = "9Pk89J3g"

@@ -7,11 +7,6 @@ url = "https://cdn.modrinth.com/data/BVzZfTc1/versions/CfQJbv1u/entity_texture_f
 hash-format = "sha512"
 hash = "7b126a027aede28ca6a31e65a1c4890212ad88504ff0e252ebcaf54b4e124abd667403ca8d084af028554e159a4964eeebb07acab609cbe7cead39ec7c84394e"
 
-[option]
-optional = true
-default = true
-description = "Emissive, Random & Custom texture support for entities in resourcepacks just like Optifine but for Fabric"
-
 [update]
 [update.modrinth]
 mod-id = "BVzZfTc1"
