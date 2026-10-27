@@ -51,5 +51,9 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
   Minecraft não o carrega na lista de servidores. Em 27/10/2026 voltou para a
   raiz: cada atualização do pack pode substituí-lo e apagar servidores que o
   jogador adicionou, aceito porque a instância é só do IUNA.
+  Ainda em 27/10/2026 voltou para `pack/config/yosbr/servers.dat`: o problema
+  era o YOSBR, que nunca rodou, e o YOMBR copia o arquivo para a raiz quando
+  ele não existe. Assim os servidores do jogador ficam, e nenhum arquivo de
+  cliente fica solto fora de `config/yosbr/` (o `pack.py soltos` confere).
 - `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
   pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.

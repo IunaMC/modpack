@@ -13,6 +13,10 @@ file = "config/yosbr/options.txt"
 hash = "8d98ee86ee6f43e749802c523edcdc034eb130389115d69e3b0531da7500c3b4"
 
 [[files]]
+file = "config/yosbr/servers.dat"
+hash = "d9f708ff31aa863ba5d3d71b5e225432b43292edabeda0b6e7d050226faf75b7"
+
+[[files]]
 file = "icon.png"
 hash = "fb34c02f6d095a23c9b458be3ec9d3542d280faa34651f0c51df2ec0242937af"
 
@@ -1785,10 +1789,6 @@ metafile = true
 file = "resourcepacks/fresh-animations.pw.toml"
 hash = "c83069db01f0c483a119d1146d0e2e9b2ed6a377beaa8623c0ffeb7a99df5b66"
 metafile = true
-
-[[files]]
-file = "servers.dat"
-hash = "d9f708ff31aa863ba5d3d71b5e225432b43292edabeda0b6e7d050226faf75b7"
 
 [[files]]
 file = "shaderpacks/bsl-shaders.pw.toml"
