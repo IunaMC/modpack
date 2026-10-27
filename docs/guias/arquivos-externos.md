@@ -54,8 +54,7 @@ repositório.
   pack.
 - **Só entra o que a licença deixa redistribuir.** A release é pública, então
   anexar o jar é distribuir. Mods com URL também entram no índice do `.mrpack`
-  e aparecem na página Permissions do Modrinth, mesmo os só de servidor (veja
-  [`modrinth/permissoes.md`](../../modrinth/permissoes.md)).
+  da release, mesmo os só de servidor.
 
 ## Mod All Rights Reserved ou teste rápido
 

@@ -30,16 +30,9 @@ um commit por item.
    python3 scripts/pack.py lado pack/mods/<arquivo>.pw.toml...
    ```
 
-3. Nenhum mod é opcional: o pack não usa `[option]`, porque a escolha só
-   existe no Modrinth e o pack também vive na CurseForge.
-4. Mod baixado do Modrinth não precisa de permissão no `.mrpack`, mesmo All
-   Rights Reserved: o arquivo só aponta para o CDN do Modrinth. Só o jar que
-   existe apenas na CurseForge vai embutido e precisa de permissão na página
-   Permissions ([`modrinth/permissoes.md`](../../modrinth/permissoes.md)). Sem
-   ela, o mod entra em `[[reduzido.fora]]` do `modrinth/projeto.toml` e nas
-   descrições, e sai só do `.mrpack` do Modrinth
-   ([decisão 0007](../decisoes/0007-mrpack-reduzido-no-modrinth.md)).
-5. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
+3. Nenhum mod é opcional: o pack não usa `[option]`, porque a CurseForge não
+   tem mod opcional.
+4. Todo mod que não é `server` precisa da fonte da CurseForge. O Project ID
    fica na lateral da página do mod em curseforge.com:
 
    ```sh
@@ -48,13 +41,13 @@ um commit por item.
 
    Se a CurseForge não tiver o mesmo arquivo, o mod precisa de uma versão que
    exista nas duas fontes.
-6. Recalcule o índice e a lista de mods:
+5. Recalcule o índice e a lista de mods:
 
    ```sh
    bash scripts/op.sh refresh
    ```
 
-7. Um commit por item, dependências primeiro, levando o `.pw.toml`,
+6. Um commit por item, dependências primeiro, levando o `.pw.toml`,
    `pack/index.toml`, `pack/pack.toml` e o `README.md`:
 
    ```sh
