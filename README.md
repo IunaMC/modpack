@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 284, e o servidor, 312.
+O pack tem **353 mods**. O jogador recebe 285, e o servidor, 312.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -375,6 +375,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [WorldWeaver: New Dawn](https://modrinth.com/mod/R8uGDQpB) | `worldweaver-21.0.26.jar` | Cliente e servidor |
 | [WunderLib: New Dawn](https://modrinth.com/mod/HZmhgdJk) | `wunderlib-21.0.10.jar` | Cliente e servidor |
 | [Xray Snitch](https://modrinth.com/mod/AKunSbDQ) | `xray_snitch-1.3.jar` | Cliente e servidor |
+| [Your Options Must Be Respected](https://www.curseforge.com/projects/1574981) | `yombr-1.0.0.jar` | Cliente |
 | [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) | `yosbr-0.1.2.jar` | Cliente |
 | [YUNG's API](https://modrinth.com/mod/Ua7DFN59) | `YungsApi-1.21.1-NeoForge-5.1.9.jar` | Cliente e servidor |
 | [ZeroCore](https://modrinth.com/mod/rHpb85Mf) | `ZeroCore2-1.21.1-2.4.9.jar` | Cliente e servidor |
