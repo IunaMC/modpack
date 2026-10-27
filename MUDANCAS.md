@@ -1,24 +1,17 @@
-# Mudanças — v3.6.0, padrões do cliente funcionando, sem mods opcionais e cinco mods a menos
+# Mudanças — v3.7.0, lista de servidores preservada e pack só com arquivos do cliente
 
-Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack agora é distribuído só pela CurseForge.
+Quem já tem o pack atualiza pelo launcher, sem reinstalar.
 
 ## Adicionou
-- [Your Options Must Be Respected](https://www.curseforge.com/minecraft/mc-mods/yombr) 1.0.0 (cliente): copia os padrões de `config/yosbr/` (`options.txt`, LambDynamicLights e More Overlays) na primeira abertura, sem sobrescrever o que o jogador já mudou depois disso. Só existe na CurseForge.
+Nada.
 
 ## Atualizou
 Nada.
 
 ## Removeu
-- [Your Options Shall Be Respected (YOSBR)](https://modrinth.com/mod/WwbubTsV) 0.1.2 (cliente), LGPL-3.0: nunca aplicou os padrões, porque o Sinytra Connector não executa o language adapter dele; substituído pelo YOMBR.
-- [Better Ping Display](https://modrinth.com/mod/ZvaHbwoZ) 1.1 (cliente)
-- [Fast IP Ping](https://modrinth.com/mod/9mtu0sUO) 1.0.12 (cliente)
-- [Easy NPC](https://modrinth.com/mod/CgGEe1h3) (bundle) 7.14.0 (cliente e servidor): era só um metapacote vazio, bloqueado para launchers de terceiros na CurseForge; o Easy NPC: Core e o Config UI continuam no pack e o jogo não muda
-- [JourneyMap Teams](https://modrinth.com/mod/EV5wjtvP) 1.3.1 (cliente e servidor)
+Nada.
 
 ## Outras mudanças
-- Todos os mods deixam de ser opcionais: o launcher instala todos.
-- Despawn Tweaks e Towns and Towers passam a ser só do servidor.
-- Os shaders passam a ser só do cliente.
-- O `servers.dat` com o servidor IUNA fica na raiz da instância, onde o Minecraft o carrega na lista. Atualizações do pack podem substituí-lo.
-- Quem já tem um `options.txt` o terá substituído uma única vez pelo padrão do pack; depois o YOMBR não mexe mais nele.
-- O pack deixa de ser publicado no Modrinth (decisão 0008): a instalação é pela CurseForge, e o `.mrpack` completo fica na release do GitHub.
+- O `servers.dat` com o servidor IUNA passa a vir pelo YOMBR (`config/yosbr/servers.dat`): é copiado para a instância só se o jogador ainda não tiver um, então os servidores que ele adicionar não somem mais nas atualizações.
+- O ícone da instância (`icon.png`) sai do pack: a CurseForge usa o ícone do projeto.
+- Os arquivos de cliente ficam todos em `config/yosbr/`, que o servidor ignora; o Validar recusa arquivo solto fora dessa pasta.

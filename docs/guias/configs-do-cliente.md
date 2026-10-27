@@ -24,6 +24,20 @@ Minecraft o descarta.
 | --- | --- |
 | `pack/config/yosbr/options.txt` | `options.txt` |
 | `pack/config/yosbr/config/<arquivo>` | `config/<arquivo>` |
+| `pack/config/yosbr/servers.dat` | `servers.dat` (lista de servidores, com o IUNA) |
+
+## Só em `config/yosbr/`
+
+O servidor instala o pack com o packwiz-installer (`-s server`), e o `side`
+só vale para os arquivos com `.pw.toml`. Todo arquivo solto do `pack/` vai
+também para o servidor. Em `config/yosbr/` isso não faz efeito: só o YOMBR lê
+a pasta, e ele não está no servidor. Fora dela, um arquivo em `pack/config/`
+sobrescreveria a cada boot a config que vem do `minecraft-config`.
+
+Por isso o `python3 scripts/pack.py soltos` (no Validar e no
+`bash scripts/op.sh conferir`) recusa qualquer arquivo solto fora de
+`config/yosbr/`, sem exceção. A pasta `config/yosbr/` que aparece
+no servidor pode ser ignorada: apagá-la não muda nada, e o próximo boot a recoloca.
 
 ## O que o pack define
 
@@ -33,6 +47,9 @@ Minecraft o descarta.
   packs e idioma ficam por conta do jogador.
 - **LambDynamicLights:** `mode = "fast"`, com menos atualizações de luz.
 - **More Overlays:** `update_interval_frames = 4`, para o scanner de luz.
+- **`servers.dat`:** o servidor IUNA (`jogar.iuna.club`) na lista. Como os
+  demais arquivos, só é copiado se o jogador ainda não tiver um, então os
+  servidores que ele adicionar não somem nas atualizações.
 
 ## Teclas
 

@@ -39,7 +39,9 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
   independente do `pack.toml`.
 - Ícone: `pack/icon.png` vira `overrides/icon.png` no `.mrpack` (conferido com
   `packwiz modrinth export`); o Modrinth App usa como ícone da instância. O
-  Prism ignora e deixa o usuário escolher.
+  Prism ignora e deixa o usuário escolher. Em 27/10/2026 o ícone saiu do pack:
+  a distribuição é pela CurseForge, que usa o ícone do projeto, e um arquivo
+  solto fora de `config/yosbr/` também iria para o servidor (`pack.py soltos`).
 - Só `overrides/` e `client-overrides/` são aplicados ao cliente; o
   `server-overrides/` é ignorado por launchers e o workflow o tira do arquivo.
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`
@@ -51,5 +53,9 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
   Minecraft não o carrega na lista de servidores. Em 27/10/2026 voltou para a
   raiz: cada atualização do pack pode substituí-lo e apagar servidores que o
   jogador adicionou, aceito porque a instância é só do IUNA.
+  Ainda em 27/10/2026 voltou para `pack/config/yosbr/servers.dat`: o problema
+  era o YOSBR, que nunca rodou, e o YOMBR copia o arquivo para a raiz quando
+  ele não existe. Assim os servidores do jogador ficam, e nenhum arquivo de
+  cliente fica solto fora de `config/yosbr/` (o `pack.py soltos` confere).
 - `options.txt` em `overrides/` sobrescreve o do jogador a cada atualização do
   pack; arquivos que o jogador edita (options, servers.dat) merecem atenção.

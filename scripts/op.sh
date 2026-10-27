@@ -312,6 +312,7 @@ case "${1:-}" in
     python3 scripts/pack.py readme ;;
   conferir)
     python3 scripts/pack.py readme --check
+    python3 scripts/pack.py soltos
     python3 scripts/curseforge.py verificar ;;
   testar)
     bash scripts/testar-servidor.sh --configs "${@:2}" ;;

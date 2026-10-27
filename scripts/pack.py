@@ -25,6 +25,10 @@ Uso:
       # obrigatórias que ficariam sem uso se ele saísse e, se ../iunamc.minecraft-config existir
       # (ou MINECRAFT_CONFIG_DIR), os arquivos de config que citam cada um. Não remove nada.
       # Veja docs/guias/remover-mod.md.
+  python3 scripts/pack.py soltos
+      # falha se o índice tiver arquivo solto (sem .pw.toml) fora de config/yosbr/. O servidor instala
+      # o pack inteiro, e um arquivo solto em config/ sobrescreveria a config do minecraft-config.
+      # Veja docs/guias/configs-do-cliente.md.
   python3 scripts/pack.py conferir <base> <topo> [--ramo <branch>]
       # confere as regras de versão do que entra na main, de <base> até <topo> (ex.: origin/main HEAD).
       # --ramo também confere a branch de origem do PR; o corpo do PR vem de CORPO_PR.
@@ -51,6 +55,7 @@ FIM = "<!-- lista-de-mods:fim -->"
 LADOS = {"both": "Cliente e servidor", "client": "Cliente", "server": "Servidor"}
 REPO = "IunaMC/modpack"
 RELEASE_EXTERNOS = "arquivos-servidor"
+PASTA_CLIENTE = "config/yosbr/"
 
 
 def ler_mod(texto):
@@ -404,6 +409,20 @@ def cmd_conferir(base, topo, ramo=None, corpo=""):
     print("ok")
 
 
+def cmd_soltos():
+    """O packwiz-installer leva ao servidor todo arquivo solto do pack: o side só vale nos .pw.toml.
+    Os padrões do cliente ficam em config/yosbr/, que só o YOMBR (só cliente) lê."""
+    indice = tomllib.loads((PACK / "index.toml").read_text())
+    fora = [f["file"] for f in indice["files"]
+            if not f.get("metafile") and not f["file"].startswith(PASTA_CLIENTE)]
+    for arquivo in fora:
+        print(f"::error::{arquivo}" if os.environ.get("GITHUB_ACTIONS") else f"ERRO: {arquivo}")
+    if fora:
+        sys.exit(f"{len(fora)} arquivo(s) solto(s) fora de {PASTA_CLIENTE}: o servidor também os instalaria. "
+                 f"Padrão do cliente vai em pack/{PASTA_CLIENTE} (veja docs/guias/configs-do-cliente.md).")
+    print("ok")
+
+
 def modrinth(caminho):
     """GET na API do Modrinth, já decodificado."""
     req = urllib.request.Request(f"https://api.modrinth.com/v2/{caminho}",
@@ -545,6 +564,8 @@ def main(args):
         cmd_proxima_beta()
     elif args[:1] == ["orfas"]:
         cmd_orfas(" ".join(args[1:]))
+    elif args[:1] == ["soltos"]:
+        cmd_soltos()
     elif args[:1] == ["lado"]:
         cmd_lado(args[1:])
     elif args[:1] == ["externo"]:

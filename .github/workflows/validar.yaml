@@ -27,6 +27,11 @@ jobs:
       - name: Conferir a lista de mods do README
         run: python3 scripts/pack.py readme --check
 
+      # O servidor instala todo arquivo solto do pack; fora de config/yosbr/,
+      # ele sobrescreveria as configs do minecraft-config.
+      - name: Conferir os arquivos soltos do pack
+        run: python3 scripts/pack.py soltos
+
       # O packwiz update só segue o Modrinth; isto acusa mod cujo arquivo na
       # CurseForge ficou para trás.
       - name: Conferir a fonte da CurseForge
