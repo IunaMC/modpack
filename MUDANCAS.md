@@ -1,4 +1,4 @@
-# Mudanças — v3.7.0, padrões do cliente funcionando, sem mods opcionais e cinco mods a menos
+# Mudanças — v3.6.0, padrões do cliente funcionando, sem mods opcionais e cinco mods a menos
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os mods que eram opcionais passam a ser obrigatórios para todos, porque a escolha só existia no Modrinth e o pack agora é distribuído só pela CurseForge.
 
