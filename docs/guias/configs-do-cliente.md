@@ -36,7 +36,7 @@ sobrescreveria a cada boot a config que vem do `minecraft-config`.
 
 Por isso o `python3 scripts/pack.py soltos` (no Validar e no
 `bash scripts/op.sh conferir`) recusa qualquer arquivo solto fora de
-`config/yosbr/`, com exceção do `icon.png`. A pasta `config/yosbr/` que aparece
+`config/yosbr/`, sem exceção. A pasta `config/yosbr/` que aparece
 no servidor pode ser ignorada: apagá-la não muda nada, e o próximo boot a recoloca.
 
 ## O que o pack define

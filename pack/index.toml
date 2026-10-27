@@ -17,10 +17,6 @@ file = "config/yosbr/servers.dat"
 hash = "d9f708ff31aa863ba5d3d71b5e225432b43292edabeda0b6e7d050226faf75b7"
 
 [[files]]
-file = "icon.png"
-hash = "fb34c02f6d095a23c9b458be3ec9d3542d280faa34651f0c51df2ec0242937af"
-
-[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "28945834a8a70686b7382770ee67fd958c8a9715f862d37e460eff002ea2374c"
 metafile = true

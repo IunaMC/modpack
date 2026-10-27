@@ -56,7 +56,6 @@ LADOS = {"both": "Cliente e servidor", "client": "Cliente", "server": "Servidor"
 REPO = "IunaMC/modpack"
 RELEASE_EXTERNOS = "arquivos-servidor"
 PASTA_CLIENTE = "config/yosbr/"
-SOLTOS_PERMITIDOS = {"icon.png"}
 
 
 def ler_mod(texto):
@@ -415,7 +414,7 @@ def cmd_soltos():
     Os padrões do cliente ficam em config/yosbr/, que só o YOMBR (só cliente) lê."""
     indice = tomllib.loads((PACK / "index.toml").read_text())
     fora = [f["file"] for f in indice["files"]
-            if not f.get("metafile") and not f["file"].startswith(PASTA_CLIENTE) and f["file"] not in SOLTOS_PERMITIDOS]
+            if not f.get("metafile") and not f["file"].startswith(PASTA_CLIENTE)]
     for arquivo in fora:
         print(f"::error::{arquivo}" if os.environ.get("GITHUB_ACTIONS") else f"ERRO: {arquivo}")
     if fora:

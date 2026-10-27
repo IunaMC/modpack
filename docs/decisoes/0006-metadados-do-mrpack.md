@@ -39,7 +39,9 @@ instância importada vem da pasta da instância (assunto da sessão da instânci
   independente do `pack.toml`.
 - Ícone: `pack/icon.png` vira `overrides/icon.png` no `.mrpack` (conferido com
   `packwiz modrinth export`); o Modrinth App usa como ícone da instância. O
-  Prism ignora e deixa o usuário escolher.
+  Prism ignora e deixa o usuário escolher. Em 27/10/2026 o ícone saiu do pack:
+  a distribuição é pela CurseForge, que usa o ícone do projeto, e um arquivo
+  solto fora de `config/yosbr/` também iria para o servidor (`pack.py soltos`).
 - Só `overrides/` e `client-overrides/` são aplicados ao cliente; o
   `server-overrides/` é ignorado por launchers e o workflow o tira do arquivo.
 - Hoje o `.mrpack` leva só `overrides/mods/` (jars só da CurseForge). `pack/`
