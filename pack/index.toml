@@ -1617,11 +1617,6 @@ hash = "97c0370d23ac5730dc3699f8a78957b15d5dc05b2bf19091e04afea2aac1891e"
 metafile = true
 
 [[files]]
-file = "mods/txnilib.pw.toml"
-hash = "c97e66cf9c90b562a367d2794290ea846335f9f3b0cd8150336dd327fef7d3fb"
-metafile = true
-
-[[files]]
 file = "mods/uranus.pw.toml"
 hash = "ba468b0e9e8ff229fdbaa7fc1efc6f43236cdafe7570b0ba2b51874ddbc1880b"
 metafile = true
