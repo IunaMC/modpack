@@ -290,7 +290,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Mowzie's Mobs](https://modrinth.com/mod/BFbX9xcm) | `mowziesmobs-1.21.1-1.8.2.jar` | Cliente e servidor |
 | [MrCrayfish's Furniture Mod: Refurbished](https://www.curseforge.com/projects/897116) | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | Cliente e servidor |
 | [Mystical Agradditions](https://modrinth.com/mod/pl0jGXIx) | `MysticalAgradditions-1.21.1-8.0.15.jar` | Cliente e servidor |
-| [Mystical Agriculture](https://modrinth.com/mod/C95ReXie) | `MysticalAgriculture-1.21.1-8.0.28.jar` | Cliente e servidor |
+| [Mystical Agriculture](https://modrinth.com/mod/C95ReXie) | `MysticalAgriculture-1.21.1-8.0.29.jar` | Cliente e servidor |
 | [Mystical Customization](https://modrinth.com/mod/lNK9A4rh) | `MysticalCustomization-1.21.1-6.0.2.jar` | Cliente e servidor |
 | [Nature's Compass](https://modrinth.com/mod/fPetb5Kh) | `NaturesCompass-1.21.1-3.4.0-neoforge.jar` | Cliente e servidor |
 | [Necronomicon API](https://modrinth.com/mod/P1Kv5EAO) | `Necronomicon-NeoForge-1.6.0+1.21.jar` | Cliente e servidor |

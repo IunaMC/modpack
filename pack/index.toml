@@ -1163,7 +1163,7 @@ metafile = true
 
 [[files]]
 file = "mods/mystical-agriculture.pw.toml"
-hash = "c56568426603b22a0bbdaae070bf212e027d3cc55643edcf582683e197b7912c"
+hash = "a8afed26312e78b3836b581cbafcceeafef33bb2e462a0bac1363761042a483a"
 metafile = true
 
 [[files]]
