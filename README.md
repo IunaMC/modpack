@@ -323,7 +323,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Refined Storage](https://modrinth.com/mod/KDvYkUg3) | `refinedstorage-neoforge-2.0.9.jar` | Cliente e servidor |
 | [Refined Storage - JEI Integration](https://modrinth.com/mod/VzR5wiLo) | `refinedstorage-jei-integration-neoforge-1.0.0.jar` | Cliente e servidor |
 | [Regions Unexplored](https://modrinth.com/mod/Tkikq67H) | `regions-unexplored-0.6.2-neoforge-21.1.jar` | Cliente e servidor |
-| [Relics](https://modrinth.com/mod/OCJRPujW) | `relics-1.21.1-0.12.8.jar` | Cliente e servidor |
+| [Relics](https://modrinth.com/mod/OCJRPujW) | `relics-1.21.1-0.12.11.jar` | Cliente e servidor |
 | [Reliquary Reincarnations](https://modrinth.com/mod/fQO83PId) | `reliquary-1.21.1-2.0.80.1570.jar` | Cliente e servidor |
 | [Resourceful Config](https://modrinth.com/mod/M1953qlQ) | `resourcefulconfig-neoforge-1.21-3.0.11.jar` | Cliente e servidor |
 | [Resourceful Lib](https://modrinth.com/mod/G1hIVOrD) | `resourcefullib-neoforge-1.21-3.0.12.jar` | Cliente e servidor |
