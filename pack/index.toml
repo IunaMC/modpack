@@ -1057,6 +1057,11 @@ hash = "e6518e53d3f55ba3f10cd68d9334a9b58fee3228da6ab00d408c4f44fe0423bb"
 metafile = true
 
 [[files]]
+file = "mods/matlib.pw.toml"
+hash = "287040b196ca4ba08a14923de76801ca48d8c89b520400e760df2119c12cff1e"
+metafile = true
+
+[[files]]
 file = "mods/mcjtylib.pw.toml"
 hash = "2b06cf529d9fa1b7ef0271cfb68cf31c9b956c11f32e4a5bd53a820eb8ebd7e0"
 metafile = true

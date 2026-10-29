@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **351 mods**. O jogador recebe 284, e o servidor, 311.
+O pack tem **352 mods**. O jogador recebe 285, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -268,6 +268,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Lootr](https://modrinth.com/mod/EltpO5cN) | `lootr-neoforge-1.21.1-1.11.38.127.jar` | Cliente e servidor |
 | [Macaw's Bridges](https://modrinth.com/mod/GURcjz8O) | `mcw-bridges-3.1.2-mc1.21.1neoforge.jar` | Cliente e servidor |
 | [Mahou Tsukai](https://modrinth.com/mod/7jOxn6qJ) | `mahoutsukai-1.21.1-v1.36.27.jar` | Cliente e servidor |
+| [MatLib](https://modrinth.com/mod/gnefBeV1) | `matlib-1.0.0+1.21-neoforge.jar` | Cliente |
 | [McJtyLib](https://modrinth.com/mod/1Zu0uTEE) | `mcjtylib-1.21-9.0.21.jar` | Cliente e servidor |
 | [Mekanism](https://modrinth.com/mod/Ce6I4WUE) | `Mekanism-1.21.1-10.7.19.85.jar` | Cliente e servidor |
 | [Mekanism Additions](https://modrinth.com/mod/a6F3uASn) | `MekanismAdditions-1.21.1-10.7.19.85.jar` | Cliente e servidor |
