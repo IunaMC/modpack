@@ -284,7 +284,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [ModernFix](https://modrinth.com/mod/nmDcB62a) | `modernfix-neoforge-5.27.26+mc1.21.1.jar` | Cliente e servidor |
 | [Modonomicon](https://modrinth.com/mod/692GClaE) | `modonomicon-1.21.1-neoforge-1.120.7.jar` | Cliente e servidor |
 | [Monsters & Spellbooks: Iron's Spells 'n Spellbooks Addon](https://www.curseforge.com/projects/1428928) | `monsterspellbooks-0.0.16.3.jar` | Cliente e servidor |
-| [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.0-neoforge.jar` | Cliente e servidor |
+| [Moonlight Lib](https://modrinth.com/mod/twkfQtEc) | `moonlight-1.21.1-3.7.2-neoforge.jar` | Cliente e servidor |
 | [More Delight (for Farmer's Delight)](https://modrinth.com/mod/znHQQtuU) | `moredelight-26.05.20a-1.21-neoforge.jar` | Cliente e servidor |
 | [More Overlays Updated](https://modrinth.com/mod/Thy5Pqut) | `moreoverlays-1.24.2-mc1.21.1-neoforge.jar` | Cliente |
 | [MoreJS: KubeJS Addon](https://modrinth.com/mod/mo64mR1W) | `morejs-neoforge-1.21.1-0.16.0.jar` | Cliente e servidor |
