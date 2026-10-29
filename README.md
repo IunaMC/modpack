@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 287, e o servidor, 310.
+O pack tem **353 mods**. O jogador recebe 287, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -398,6 +398,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Clear-fix](https://modrinth.com/mod/n13xynaE) | `clear-fix-1.2.1+mc1.21.jar` | Servidor |
 | [Clumps](https://modrinth.com/mod/Wnxd13zP) | `Clumps-neoforge-1.21.1-19.0.0.1.jar` | Servidor |
 | [Collective](https://modrinth.com/mod/e0M1UDsY) | `collective-1.21.1-8.42.jar` | Servidor |
+| [Configurable](https://modrinth.com/mod/lGffrQ3O) | `configurable-3.5.3+1.21.1-neoforge.jar` | Servidor |
 | [Crash Utilities](https://www.curseforge.com/projects/371813) | `crashutilities-9.0.4.jar` | Servidor |
 | [CraterLib](https://modrinth.com/mod/Nn8Wasaq) | `CraterLib-Neoforge-1.21-3.1.3.jar` | Servidor |
 | [Cupboard](https://www.curseforge.com/projects/326652) | `cupboard-1.21.1-4.2.jar` | Servidor |

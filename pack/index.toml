@@ -384,6 +384,11 @@ hash = "01b1ae8f6c564c059885e8cfd69ddbf3fce707ab47836bfa1070125e3e79b5b7"
 metafile = true
 
 [[files]]
+file = "mods/configurable.pw.toml"
+hash = "c78a54a2b4bba4671d15f6d248a7a87d16c0d68bdfa553915b1f154186b3e952"
+metafile = true
+
+[[files]]
 file = "mods/connector-extras.pw.toml"
 hash = "c1c10496892bbf5b65b306ab6e7e126eb1d19b3e016e81011923df147c356bb8"
 metafile = true
