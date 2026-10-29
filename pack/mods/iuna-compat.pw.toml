@@ -1,0 +1,8 @@
+name = "IUNA Compat"
+filename = "iunacompat-0.1.0-mc1.21.1.jar"
+side = "server"
+
+[download]
+url = "https://github.com/IunaMC/compat/releases/download/v0.1.0/iunacompat-0.1.0-mc1.21.1.jar"
+hash-format = "sha256"
+hash = "e17f2706a5d36809114b7586a124b73bf25ea650dd900fe3a84ff3160d6ed9bb"
