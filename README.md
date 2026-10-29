@@ -145,7 +145,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Carry On](https://modrinth.com/mod/joEfVgkn) | `carryon-neoforge-1.21.1-2.2.6.13.jar` | Cliente e servidor |
 | [Carry On Extend](https://modrinth.com/mod/JbqjOoQj) | `CarryOnExtend-Architectury-neoforge-1.5.2.jar` | Cliente e servidor |
 | [Cataclysm Weaponery](https://modrinth.com/mod/S5OkaSK0) | `cataclysm_weaponery-3.0.0-neoforge-1.21.1.jar` | Cliente |
-| [Cataclysm: Spellbooks](https://modrinth.com/mod/3FEg0A8D) | `cataclysm_spellbooks-1.1.14-1.21.jar` | Cliente e servidor |
+| [Cataclysm: Spellbooks](https://modrinth.com/mod/3FEg0A8D) | `cataclysm_spellbooks-1.1.15-1.21.jar` | Cliente e servidor |
 | [Chat Heads](https://modrinth.com/mod/Wb5oqrBJ) | `chat_heads-0.15.7-neoforge-1.21.jar` | Cliente |
 | [Chipped](https://modrinth.com/mod/BAscRYKm) | `chipped-neoforge-1.21.1-4.0.2.jar` | Cliente e servidor |
 | [Cloth Config API](https://modrinth.com/mod/9s6osm5g) | `cloth-config-15.0.140-neoforge.jar` | Cliente e servidor |

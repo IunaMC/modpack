@@ -300,7 +300,7 @@ metafile = true
 
 [[files]]
 file = "mods/cataclysm-spellbooks.pw.toml"
-hash = "22df04a6cc5a32883d0b721b5a5b4f9b0f5e002f659d90d08aa2588b1fcffa11"
+hash = "679bd2ae35c33453baf5f0a0fe851aacc2d460ceeff7aefce4a25b8c3d1bb248"
 metafile = true
 
 [[files]]
