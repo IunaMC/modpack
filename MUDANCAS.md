@@ -1,14 +1,23 @@
-# Mudanças — v3.9.0, Relics e Mystical Agriculture novos, Despawn Tweaks sai
+# Mudanças — v3.10.0, Despawn Tweaks volta para recuperar itens
 
-Quem já tem o pack atualiza pelo launcher, sem reinstalar.
+Correção urgente. Quem já tem o pack atualiza pelo launcher, sem reinstalar.
+
+Na 3.9.0 o Despawn Tweaks saiu, mas os itens que ele tinha marcado ficaram no
+mundo, e o jogo deixou de conseguir carregá-los: no AE2 eles aparecem como
+"Missing Content", e baús do Sophisticated Storage os perdem ao salvar. Com o
+mod de volta, esses itens voltam a carregar. Os do AE2 voltam inteiros; slots
+de baús que já foram salvos depois do erro podem não voltar.
+
+O mod fica só para reconhecer a marca: ele não marca mais itens novos, e o
+servidor tira a marca dos itens que passam pelo inventário dos jogadores, para
+que voltem a empilhar.
 
 ## Adicionou
-Nada.
+- [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) 1.0.0 (cliente e servidor): volta para que os itens marcados por ele carreguem. A marcação de itens novos fica desligada.
+- TxniLib 1.0.24 (dependência do anterior, cliente e servidor).
 
 ## Atualizou
-- [Relics](https://modrinth.com/mod/OCJRPujW) 0.12.11 (All Rights Reserved, cliente e servidor): traz a correção do custo do Relics com as Sophisticated Backpacks (lag das mochilas, relics#329, na 0.12.10), animações novas na tela de pesquisa e correção de FPS baixo nela.
-- [Mystical Agriculture](https://modrinth.com/mod/C95ReXie) 8.0.29 (MIT, cliente e servidor): corrige a receita da semente de Salitre e as receitas de plantas com Soul Jar que tenha componentes extras, e as plantas com Essence/Seed próprios deixam de aparecer na aba criativa. Atenção: há um bug aberto de criar a Experience Seed, que pode continuar.
+Nada.
 
 ## Removeu
-- [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) 1.0.0 (cliente e servidor): marcava com um componente os itens que um mob pega do chão e não tirava a marca quando o mob largava o item, então linha, cabeça de Wither etc. deixavam de empilhar. O Let Me Despawn, que continua no pack, cobre o despawn. Itens que ainda tiverem a marca podem ser descartados ao carregar; o InvHistory repõe inventários de jogadores, mas não baús.
-- TxniLib 1.0.24 (dependência, cliente e servidor): ninguém mais no pack usa.
+Nada.
