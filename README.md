@@ -343,7 +343,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Silent's Power Scale](https://modrinth.com/mod/YCjSHxCP) | `power-scale-1.21.1-neoforge-0.3.1.1.jar` | Cliente e servidor |
 | [Simple Hats](https://modrinth.com/mod/iSkQCp6b) | `simplehats-neoforge-1.21.1-0.4.0.jar` | Cliente e servidor |
 | [Simple Magnets](https://modrinth.com/mod/YyNQVpOu) | `simplemagnets-1.1.12c-neoforge-mc1.21.jar` | Cliente e servidor |
-| [Simple Voice Chat](https://modrinth.com/mod/9eGKb6K1) | `voicechat-neoforge-1.21.1-2.6.24.jar` | Cliente e servidor |
+| [Simple Voice Chat](https://modrinth.com/mod/9eGKb6K1) | `voicechat-neoforge-1.21.1-2.6.27.jar` | Cliente e servidor |
 | [Simply Swords](https://modrinth.com/mod/bK3Ubu9p) | `simplyswords-neoforge-1.70.2-1.21.1.jar` | Cliente e servidor |
 | [Simply Tooltips](https://modrinth.com/mod/6avVoBVB) | `SimplyTooltips-neoforge-0.1.5.jar` | Cliente |
 | [Sinytra Connector](https://modrinth.com/mod/u58R1TMW) | `connector-2.0.0-beta.17+1.21.1-full.jar` | Cliente e servidor |
