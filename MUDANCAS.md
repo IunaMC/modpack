@@ -1,4 +1,4 @@
-# Mudanças — v3.10.0-beta.1, otimização do cliente, chat sem assinatura, Saturn sai
+# Mudanças — v3.10.0-beta.2, otimização do cliente, chat sem assinatura, Saturn sai
 
 Beta: sai como pre-release e o servidor não a instala.
 
@@ -13,7 +13,7 @@ não sobrescreve configuração que o jogador já tem.
 - IUNA Compat 0.1.0 (servidor): ponte do LuckPerms, entrou pelo PR #51.
 
 ## Atualizou
-Nada.
+- [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) 0.2.28.1 (cliente e servidor): passa a ser instalado também no cliente, que antes só o tinha no servidor. Mesma versão.
 
 ## Removeu
 - [Saturn](https://modrinth.com/mod/2eT495vq) 0.1.5 (servidor): causava conflitos de mixin com o ModernFix e o Lithium, e o ganho nunca foi medido.
