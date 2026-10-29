@@ -547,6 +547,11 @@ hash = "46a208aae6e6838d29632172c97e5d9d02ee511b634e850c33662b46474bc8ee"
 metafile = true
 
 [[files]]
+file = "mods/despawn-tweaks.pw.toml"
+hash = "52934467c1913090005f064d2ff4dfd7651341869d110eacdc5322e238134ec6"
+metafile = true
+
+[[files]]
 file = "mods/dungeoncrawl.pw.toml"
 hash = "236b80b3c623c8f388222bf2d4a7499a09fc0b6a438c1299c1a39e2809e3133e"
 metafile = true
