@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **350 mods**. O jogador recebe 283, e o servidor, 310.
+O pack tem **351 mods**. O jogador recebe 283, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -408,6 +408,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Immersive Optimization](https://modrinth.com/mod/vNZgQmjg) | `immersive_optimization-neoforge-1.21.1-0.2.0.jar` | Servidor |
 | [Inv View Forge/NeoForge](https://modrinth.com/mod/RXM1nxge) | `inv_view-4.2.1-neoforge+1.21.1.jar` | Servidor |
 | [InvHistory](https://modrinth.com/mod/a7GydL63) | `invhistory-neoforge-1.21.1-1.0.0.jar` | Servidor |
+| [IUNA Compat](https://github.com/IunaMC/compat/releases/download/v0.1.0/iunacompat-0.1.0-mc1.21.1.jar) | `iunacompat-0.1.0-mc1.21.1.jar` | Servidor |
 | [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) | `krypton_fnp-neoforge-1.21.1-0.2.28.1-1.21.1.jar` | Servidor |
 | [Leashable Players](https://modrinth.com/mod/BKyMf6XK) | `leashmod-1.1.0.jar` | Servidor |
 | [Leaves Be Gone](https://modrinth.com/mod/AVq17PqV) | `LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar` | Servidor |
