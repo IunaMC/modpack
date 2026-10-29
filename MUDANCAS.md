@@ -1,6 +1,4 @@
-# Mudanças — v3.9.0-beta.1, Relics e Mystical Agriculture novos, Despawn Tweaks sai
-
-Beta: sai como pre-release e o servidor não a instala.
+# Mudanças — v3.9.0, Relics e Mystical Agriculture novos, Despawn Tweaks sai
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar.
 
