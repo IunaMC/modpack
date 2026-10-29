@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **350 mods**. O jogador recebe 283, e o servidor, 310.
+O pack tem **351 mods**. O jogador recebe 284, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -293,6 +293,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Mystical Customization](https://modrinth.com/mod/lNK9A4rh) | `MysticalCustomization-1.21.1-6.0.2.jar` | Cliente e servidor |
 | [Nature's Compass](https://modrinth.com/mod/fPetb5Kh) | `NaturesCompass-1.21.1-3.4.0-neoforge.jar` | Cliente e servidor |
 | [Necronomicon API](https://modrinth.com/mod/P1Kv5EAO) | `Necronomicon-NeoForge-1.6.0+1.21.jar` | Cliente e servidor |
+| [No Chat Reports](https://modrinth.com/mod/qQyHxfxd) | `NoChatReports-NEOFORGE-1.21.1-v2.9.1.jar` | Cliente e servidor |
 | [Not Enough Animations](https://modrinth.com/mod/MPCX6s5C) | `notenoughanimations-neoforge-1.12.6-mc1.21.1.jar` | Cliente |
 | [Not Enough Crashes](https://modrinth.com/mod/yM94ont6) | `notenoughcrashes-neoforge-4.4.9+1.21.1.jar` | Cliente |
 | [Not Enough Recipe Book [NERB]](https://modrinth.com/mod/bQh7xzFq) | `Not Enough Recipe Book-NEOFORGE-0.4.3+1.21.jar` | Cliente e servidor |

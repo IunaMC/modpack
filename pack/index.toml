@@ -1187,6 +1187,11 @@ hash = "5dc059422613b5645cb00e32d3bfd53de428c4939113d11ce2c844cb54165da6"
 metafile = true
 
 [[files]]
+file = "mods/no-chat-reports.pw.toml"
+hash = "71a2930d377e7e597c40e1db944f44fd2b24c0d6790b8807e941f2b735c658c2"
+metafile = true
+
+[[files]]
 file = "mods/no-random-ticks.pw.toml"
 hash = "eb41ff302afba24efbdb2480358845b62fe407e31a03d1aa26433edbecf4154a"
 metafile = true
