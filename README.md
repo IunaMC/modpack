@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **353 mods**. O jogador recebe 287, e o servidor, 311.
+O pack tem **354 mods**. O jogador recebe 287, e o servidor, 312.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -421,6 +421,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [LuckPerms Placeholders](https://github.com/IunaMC/modpack/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar) | `LuckPerms-Fabric-Placeholders.jar` | Servidor |
 | [Maintenance Mode](https://modrinth.com/mod/QOkEkSap) | `MaintenanceMode-Universal-1.3.4.jar` | Servidor |
 | [MixinTrace Reloaded](https://modrinth.com/mod/wx2WW8va) | `MixinTrace reloaded [NEOFORGE]-1.1.0+1.21.jar` | Servidor |
+| [Neruina - Ticking Entity Fixer](https://modrinth.com/mod/1s5x833P) | `neruina-3.3.5+1.21.1-neoforge.jar` | Servidor |
 | [NetherPortalFix](https://modrinth.com/mod/nPZr02ET) | `netherportalfix-neoforge-1.21.1-21.1.1.jar` | Servidor |
 | [No Random Ticks](https://modrinth.com/mod/K2uLi5au) | `norandomticks-0.4-1.21.1.jar` | Servidor |
 | [NoisiumForked](https://modrinth.com/mod/hasdd01q) | `noisium-neoforge-2.7.0+mc1.21-1.21.1.jar` | Servidor |
