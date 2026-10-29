@@ -18,6 +18,7 @@ em [IunaMC/docs](https://github.com/IunaMC/docs).
 | [Publicar documentação](guias/publicar-docs.md) | — |
 | [Arquivos externos](guias/arquivos-externos.md) | — |
 | [Configurações padrão do cliente](guias/configs-do-cliente.md) | — |
+| [Otimização do pack](guias/otimizacao.md) | — |
 | [Servidor local e teste de boot](guias/servidor-local.md) | `/testar` |
 
 ## Referência
