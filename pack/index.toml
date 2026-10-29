@@ -1574,6 +1574,11 @@ hash = "eaec78a5dd37404a381ba7cdf378a5cf018a80e50e39b7b3d9b8bd1589e231a2"
 metafile = true
 
 [[files]]
+file = "mods/structure-layout-optimizer.pw.toml"
+hash = "27fbafdc78a4a3cb8badb58078ec1f2837e65a5bbe5160e344b0fb3e779c9efe"
+metafile = true
+
+[[files]]
 file = "mods/styled-chat.pw.toml"
 hash = "81b8a1d186cc1685641bef736eadd143fa48909bd50cd7c975ec0d971a25e3ba"
 metafile = true

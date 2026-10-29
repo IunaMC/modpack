@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **354 mods**. O jogador recebe 287, e o servidor, 312.
+O pack tem **355 mods**. O jogador recebe 287, e o servidor, 313.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -435,6 +435,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [spark](https://modrinth.com/mod/l6YH9Als) | `spark-1.10.124-neoforge.jar` | Servidor |
 | [Starter Kit](https://modrinth.com/mod/6L3ydNi8) | `starterkit-1.21.1-8.3.jar` | Servidor |
 | [Structory](https://modrinth.com/mod/aKCwCJlY) | `Structory_26.2_v1.3.7.jar` | Servidor |
+| [Structure Layout Optimizer](https://modrinth.com/mod/ayPU0OHc) | `structure_layout_optimizer-neoforge-1.0.12.jar` | Servidor |
 | [Styled Chat](https://modrinth.com/mod/doqSKB0e) | `styled-chat-2.6.1+1.21.jar` | Servidor |
 | [Styled Player List](https://modrinth.com/mod/DQIfKUHf) | `styledplayerlist-3.5.1+1.21.jar` | Servidor |
 | [Terralith](https://modrinth.com/mod/8oi3bsk5) | `Terralith_1.21.1_v2.6.2_Neoforge.jar` | Servidor |
