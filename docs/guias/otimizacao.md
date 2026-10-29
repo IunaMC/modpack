@@ -51,8 +51,8 @@ instalado pelo packwiz-installer (`-s client`), 6 GB, lendo o `debug.log`.
 | Medida | Antes | Depois |
 | --- | --- | --- |
 | Servidor, tempo até pronto | 355 s | 356 s |
-| Servidor, "Done" do mundo | 106,6 s | 133 s (ruído da máquina) |
-| Linhas `ERROR` no boot | 108 | 107 |
+| Servidor, "Done" do mundo | 106,6 s | 117 a 133 s (ruído da máquina) |
+| Linhas `ERROR` no boot | 108 | 104 (pack final, com IUNA Compat) |
 | Conflitos de mixin no boot | 12 | 7 |
 | Cliente (pack 3.9.0), do início ao último atlas | cerca de 4 min 40 s | não medido |
 
