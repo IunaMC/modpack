@@ -1,0 +1,41 @@
+name: Limpar artefatos
+
+# O Validar guarda o .mrpack e o .zip de cada push como artefato (uns 80 MB
+# cada) para quem quiser testar o pack de um PR. A cota de artefatos da conta é
+# pequena, e quando enche, nenhum workflow consegue subir logs ou arquivos. O
+# que vale mesmo fica na release do GitHub; os artefatos são só rascunho, então
+# este workflow apaga todos com mais de 3 dias, todo dia. Também roda pela aba
+# Actions, com o número de dias à escolha.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: Apaga os artefatos com mais de tantos dias
+        default: "3"
+        required: true
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  limpar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apagar os artefatos antigos
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DIAS: ${{ inputs.dias || '3' }}
+        run: |
+          corte="$(date -u -d "$DIAS days ago" +%Y-%m-%dT%H:%M:%SZ)"
+          apagados=0
+          liberados=0
+          while IFS=$'\t' read -r id tamanho; do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" > /dev/null
+            apagados=$((apagados + 1))
+            liberados=$((liberados + tamanho))
+          done < <(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts" --paginate \
+            --jq ".artifacts[] | select(.created_at < \"$corte\") | [.id, .size_in_bytes] | @tsv")
+          echo "::notice::$apagados artefatos com mais de $DIAS dias apagados, $((liberados / 1048576)) MB liberados."
