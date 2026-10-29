@@ -8,3 +8,7 @@ enableVsync:false
 entityShadows:true
 advancedItemTooltips:true
 tutorialStep:none
+skipMultiplayerWarning:true
+onboardAccessibility:false
+telemetryOptInExtra:false
+joinedFirstServer:true

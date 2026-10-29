@@ -1,16 +1,28 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/yosbr/config/dynamic_fps.json"
+hash = "99c04d9907adae1fdca70b70e1f82ac8cf346c88d90490c4b4bd9fb44f0dab2d"
+
+[[files]]
 file = "config/yosbr/config/lambdynlights.toml"
 hash = "46ba345b29c28b078248a023a5c8927e952ce52535e6fc561bb72541e7db334a"
+
+[[files]]
+file = "config/yosbr/config/modernfix-mixins.properties"
+hash = "df18e6d78c2cdf9112424df63c7b299851ebdd9d8bac5262f3e7883d9b492f41"
 
 [[files]]
 file = "config/yosbr/config/moreoverlays.toml"
 hash = "194f908ed442e6153e7a65651c0509ab2646b7925d7f000e2c7ac5e875c7199a"
 
 [[files]]
+file = "config/yosbr/config/sodium-options.json"
+hash = "17bf0323af6319e7b9917f7339fb27e3416a5bbff727f61a53ec053de25b4ffa"
+
+[[files]]
 file = "config/yosbr/options.txt"
-hash = "8d98ee86ee6f43e749802c523edcdc034eb130389115d69e3b0531da7500c3b4"
+hash = "7cc237b65845c276fbc6942b909896a1582ff97df3f9c2f27023f47a9cbc8f1f"
 
 [[files]]
 file = "config/yosbr/servers.dat"
