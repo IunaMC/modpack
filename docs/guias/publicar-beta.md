@@ -1,7 +1,8 @@
 # Publicar uma beta
 
-Solta a próxima versão como *pre-release*: GitHub e CurseForge. O
-servidor não a instala.
+Solta a próxima versão como *pre-release*, só no GitHub. O servidor não a
+instala, e ela não vai à CurseForge: lá o launcher a ofereceria aos jogadores,
+que não conseguiriam entrar no servidor com ela.
 
 **Skill:** `/beta [versão]`.
 

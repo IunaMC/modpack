@@ -1,23 +1,20 @@
-# Mudanças — v3.10.0, Despawn Tweaks volta para recuperar itens
+# Mudanças — v3.10.0-beta.3, otimização do cliente, chat sem assinatura, Saturn e Fast Async World Save saem
 
-Correção urgente. Quem já tem o pack atualiza pelo launcher, sem reinstalar.
+Beta: sai como pre-release e o servidor não a instala.
 
-Na 3.9.0 o Despawn Tweaks saiu, mas os itens que ele tinha marcado ficaram no
-mundo, e o jogo deixou de conseguir carregá-los: no AE2 eles aparecem como
-"Missing Content", e baús do Sophisticated Storage os perdem ao salvar. Com o
-mod de volta, esses itens voltam a carregar. Os do AE2 voltam inteiros; slots
-de baús que já foram salvos depois do erro podem não voltar.
-
-O mod fica só para reconhecer a marca: ele não marca mais itens novos, e o
-servidor tira a marca dos itens que passam pelo inventário dos jogadores, para
-que voltem a empilhar.
+Quem já tem o pack atualiza pelo launcher, sem reinstalar. Os padrões novos de
+cliente (Sodium, Dynamic FPS, ModernFix) só valem para instalação nova: o pack
+não sobrescreve configuração que o jogador já tem.
 
 ## Adicionou
-- [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) 1.0.0 (cliente e servidor): volta para que os itens marcados por ele carreguem. A marcação de itens novos fica desligada.
-- TxniLib 1.0.24 (dependência do anterior, cliente e servidor).
+- [Enhanced Block Entities Reloaded](https://modrinth.com/mod/vpenrdOI) 0.13.3 (LGPL-3.0, cliente): renderiza baús, camas, placas e afins como modelos assados no chunk do Sodium, o que alivia o FPS onde há muitos block entities.
+- [MatLib](https://modrinth.com/mod/gnefBeV1) 1.0.0 (dependência do anterior, cliente).
+- [No Chat Reports](https://modrinth.com/mod/qQyHxfxd) 2.9.1 (WTFPL, cliente e servidor): tira a assinatura das mensagens e o botão de denúncia do chat.
+- IUNA Compat 0.1.0 (servidor): ponte do LuckPerms, entrou pelo PR #51.
 
 ## Atualizou
-Nada.
+- [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) 0.2.28.1 (cliente e servidor): passa a ser instalado também no cliente, que antes só o tinha no servidor. Mesma versão.
 
 ## Removeu
-Nada.
+- [Saturn](https://modrinth.com/mod/2eT495vq) 0.1.5 (servidor): causava conflitos de mixin com o ModernFix e o Lithium, e o ganho nunca foi medido.
+- [Fast Async World Save](https://www.curseforge.com/projects/951499) 2.6 (servidor): gravava dados salvos e o level.dat numa thread daemon que não é esperada ao desligar, então a última gravação podia se perder; o Smooth Chunk Save e o ServerCore já cuidam do salvamento.

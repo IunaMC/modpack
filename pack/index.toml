@@ -1,16 +1,28 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/yosbr/config/dynamic_fps.json"
+hash = "99c04d9907adae1fdca70b70e1f82ac8cf346c88d90490c4b4bd9fb44f0dab2d"
+
+[[files]]
 file = "config/yosbr/config/lambdynlights.toml"
 hash = "46ba345b29c28b078248a023a5c8927e952ce52535e6fc561bb72541e7db334a"
+
+[[files]]
+file = "config/yosbr/config/modernfix-mixins.properties"
+hash = "df18e6d78c2cdf9112424df63c7b299851ebdd9d8bac5262f3e7883d9b492f41"
 
 [[files]]
 file = "config/yosbr/config/moreoverlays.toml"
 hash = "194f908ed442e6153e7a65651c0509ab2646b7925d7f000e2c7ac5e875c7199a"
 
 [[files]]
+file = "config/yosbr/config/sodium-options.json"
+hash = "17bf0323af6319e7b9917f7339fb27e3416a5bbff727f61a53ec053de25b4ffa"
+
+[[files]]
 file = "config/yosbr/options.txt"
-hash = "8d98ee86ee6f43e749802c523edcdc034eb130389115d69e3b0531da7500c3b4"
+hash = "7cc237b65845c276fbc6942b909896a1582ff97df3f9c2f27023f47a9cbc8f1f"
 
 [[files]]
 file = "config/yosbr/servers.dat"
@@ -372,6 +384,11 @@ hash = "01b1ae8f6c564c059885e8cfd69ddbf3fce707ab47836bfa1070125e3e79b5b7"
 metafile = true
 
 [[files]]
+file = "mods/configurable.pw.toml"
+hash = "c78a54a2b4bba4671d15f6d248a7a87d16c0d68bdfa553915b1f154186b3e952"
+metafile = true
+
+[[files]]
 file = "mods/connector-extras.pw.toml"
 hash = "c1c10496892bbf5b65b306ab6e7e126eb1d19b3e016e81011923df147c356bb8"
 metafile = true
@@ -592,6 +609,11 @@ hash = "19557e96e9fa5965af9dad4d84038e740c57513fcf65e016274e590a9cb2faa8"
 metafile = true
 
 [[files]]
+file = "mods/ebe-reloaded.pw.toml"
+hash = "53afbe0bc7141931f720564b648c44a97304c32a1e44b1fcc383028f3fa8f4e0"
+metafile = true
+
+[[files]]
 file = "mods/elevatormod.pw.toml"
 hash = "e8e8872b83f271056a9f9ffffd98a42b6786beaed3351ec15dabddb967ed9fff"
 metafile = true
@@ -684,11 +706,6 @@ metafile = true
 [[files]]
 file = "mods/farmers-respite-unofficial-port.pw.toml"
 hash = "f2aee2ce978626c25c8a5a7db63a937bc1b59ad6b5e228736ea96cdf37ee9368"
-metafile = true
-
-[[files]]
-file = "mods/fast-async-world-save-forge-fabric.pw.toml"
-hash = "97251ed060d6fca41ec87c63e35e1a525fa95caa60a21848bc20a5a5da39fce2"
 metafile = true
 
 [[files]]
@@ -907,6 +924,11 @@ hash = "8322d8bcab32441a0d21d5d9db808693e3dc19cef3c8d3cf1a55e809db80f0a7"
 metafile = true
 
 [[files]]
+file = "mods/iuna-compat.pw.toml"
+hash = "e0a18cee7cf225cda350a020145af12021132546131f05fa8be9100fa47b12e0"
+metafile = true
+
+[[files]]
 file = "mods/jade-addons-forge.pw.toml"
 hash = "908545a56cbec0dc8f669320a262cf3e023be796177f865030fbc1ea8122a3a7"
 metafile = true
@@ -968,7 +990,7 @@ metafile = true
 
 [[files]]
 file = "mods/krypton-fnp.pw.toml"
-hash = "d6c8e59f8baafa4c8461f58bce7dde91457c21c6880b75d2ddb763a725f86362"
+hash = "b2a285f5014134ffbdf31a703bc70a5c4405b0d3f2e4a8f2ab8b67c9a1969c52"
 metafile = true
 
 [[files]]
@@ -1054,6 +1076,11 @@ metafile = true
 [[files]]
 file = "mods/maintenancemode.pw.toml"
 hash = "e6518e53d3f55ba3f10cd68d9334a9b58fee3228da6ab00d408c4f44fe0423bb"
+metafile = true
+
+[[files]]
+file = "mods/matlib.pw.toml"
+hash = "287040b196ca4ba08a14923de76801ca48d8c89b520400e760df2119c12cff1e"
 metafile = true
 
 [[files]]
@@ -1182,8 +1209,18 @@ hash = "4820607ab191852bcf42b906150bf11edcebbbc735dea091884cfdf444d2a81d"
 metafile = true
 
 [[files]]
+file = "mods/neruina.pw.toml"
+hash = "eef63248bfcc431639c650beb9e8106b518c7b13b301387ac26128e89ab85f1e"
+metafile = true
+
+[[files]]
 file = "mods/netherportalfix.pw.toml"
 hash = "5dc059422613b5645cb00e32d3bfd53de428c4939113d11ce2c844cb54165da6"
+metafile = true
+
+[[files]]
+file = "mods/no-chat-reports.pw.toml"
+hash = "71a2930d377e7e597c40e1db944f44fd2b24c0d6790b8807e941f2b735c658c2"
 metafile = true
 
 [[files]]
@@ -1397,11 +1434,6 @@ hash = "be72861118a9bd8e411681134e926d464644644f2776c70ca5cb3ca727d36b08"
 metafile = true
 
 [[files]]
-file = "mods/saturn.pw.toml"
-hash = "d7895a491247f7548c63ebabd7520f47d663746f630b0643e097343e05069b13"
-metafile = true
-
-[[files]]
 file = "mods/sdlink.pw.toml"
 hash = "2037c01b68f261d9ca033b1166cf32d63ddb5dc66b69e03d5d5fb24f22a9707e"
 metafile = true
@@ -1544,6 +1576,11 @@ metafile = true
 [[files]]
 file = "mods/structory.pw.toml"
 hash = "eaec78a5dd37404a381ba7cdf378a5cf018a80e50e39b7b3d9b8bd1589e231a2"
+metafile = true
+
+[[files]]
+file = "mods/structure-layout-optimizer.pw.toml"
+hash = "27fbafdc78a4a3cb8badb58078ec1f2837e65a5bbe5160e344b0fb3e779c9efe"
 metafile = true
 
 [[files]]

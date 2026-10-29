@@ -1,0 +1,16 @@
+name = "Enhanced Block Entities Reloaded"
+filename = "enhancedblockentities-0.13.3+1.21-neoforge.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/vpenrdOI/versions/dcpoJZ8r/enhancedblockentities-0.13.3%2B1.21-neoforge.jar"
+hash-format = "sha512"
+hash = "6d8cb5ffe4c4b2bfd1c309ad3263e36a68c53ac3273b0a5ecd75085cf33fed1358ec98291c1274f7f16fe605644e4da9929c164e9b53f34aa2e07cdefc9075e9"
+
+[update]
+[update.modrinth]
+mod-id = "vpenrdOI"
+version = "dcpoJZ8r"
+[update.curseforge]
+file-id = 9290794
+project-id = 1620400
