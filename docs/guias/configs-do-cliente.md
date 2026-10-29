@@ -47,7 +47,7 @@ no servidor pode ser ignorada: apagá-la não muda nada, e o próximo boot a rec
   packs e idioma ficam por conta do jogador.
 - **Sodium:** chuva rápida. **Dynamic FPS:** roda a coleta de lixo quando o jogo
   perde o foco. **ModernFix:** sem o cache de temperatura de bioma (o Lithium já
-  faz). Veja [otimização](otimizacao.md).
+  faz).
 - **LambDynamicLights:** `mode = "fast"`, com menos atualizações de luz.
 - **More Overlays:** `update_interval_frames = 4`, para o scanner de luz.
 - **`servers.dat`:** o servidor IUNA (`jogar.iuna.club`) na lista. Como os
