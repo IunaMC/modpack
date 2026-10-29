@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **351 mods**. O jogador recebe 283, e o servidor, 311.
+O pack tem **350 mods**. O jogador recebe 283, e o servidor, 310.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -422,7 +422,6 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [No Random Ticks](https://modrinth.com/mod/K2uLi5au) | `norandomticks-0.4-1.21.1.jar` | Servidor |
 | [NoisiumForked](https://modrinth.com/mod/hasdd01q) | `noisium-neoforge-2.7.0+mc1.21-1.21.1.jar` | Servidor |
 | [Observable](https://modrinth.com/mod/VYRu7qmG) | `observable-5.4.4.jar` | Servidor |
-| [Saturn](https://modrinth.com/mod/2eT495vq) | `saturn-mc1.21.1-0.1.5.jar` | Servidor |
 | [Server Chat Log History](https://modrinth.com/mod/HZ6y1yNV) | `server_chat_log_history-1.10+1.21.1.jar` | Servidor |
 | [Server Performance - Smooth Chunk Save](https://www.curseforge.com/projects/582327) | `smoothchunk-1.21-4.1.jar` | Servidor |
 | [ServerCore](https://modrinth.com/mod/4WWQxlQP) | `servercore-neoforge-1.5.19+1.21.1.jar` | Servidor |
