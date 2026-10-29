@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **353 mods**. O jogador recebe 286, e o servidor, 311.
+O pack tem **353 mods**. O jogador recebe 287, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -259,6 +259,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Just Zoom](https://modrinth.com/mod/iAiqcykM) | `justzoom_neoforge_3.0.1_MC_1.21.1.jar` | Cliente |
 | [Konkrete](https://modrinth.com/mod/J81TRJWm) | `konkrete_neoforge_1.9.9_MC_1.21.jar` | Cliente |
 | [Kotlin for Forge](https://modrinth.com/mod/ordsPcFz) | `kotlinforforge-5.12.0-all.jar` | Cliente e servidor |
+| [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) | `krypton_fnp-neoforge-1.21.1-0.2.28.1-1.21.1.jar` | Cliente e servidor |
 | [KubeJS](https://modrinth.com/mod/umyGl7zF) | `kubejs-neoforge-2101.7.2-build.377.jar` | Cliente e servidor |
 | [L_Ender's Cataclysm](https://modrinth.com/mod/46KJle7n) | `L_Ender's Cataclysm 1.21.1-3.33.jar` | Cliente e servidor |
 | [LambDynamicLights - Dynamic Lights](https://modrinth.com/mod/yBW8D80W) | `lambdynamiclights-4.8.11+1.21.1.jar` | Cliente |
@@ -412,7 +413,6 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Inv View Forge/NeoForge](https://modrinth.com/mod/RXM1nxge) | `inv_view-4.2.1-neoforge+1.21.1.jar` | Servidor |
 | [InvHistory](https://modrinth.com/mod/a7GydL63) | `invhistory-neoforge-1.21.1-1.0.0.jar` | Servidor |
 | [IUNA Compat](https://github.com/IunaMC/compat/releases/download/v0.1.0/iunacompat-0.1.0-mc1.21.1.jar) | `iunacompat-0.1.0-mc1.21.1.jar` | Servidor |
-| [Krypton Reno](https://modrinth.com/mod/JkxWVYwU) | `krypton_fnp-neoforge-1.21.1-0.2.28.1-1.21.1.jar` | Servidor |
 | [Leashable Players](https://modrinth.com/mod/BKyMf6XK) | `leashmod-1.1.0.jar` | Servidor |
 | [Leaves Be Gone](https://modrinth.com/mod/AVq17PqV) | `LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar` | Servidor |
 | [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-1.21.x-neoforge-1.5.0.jar` | Servidor |
