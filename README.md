@@ -98,7 +98,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [3D Skin Layers](https://modrinth.com/mod/zV5r3pPn) | `skinlayers3d-neoforge-1.11.3-mc1.21.1.jar` | Cliente |
 | [[EMF] Entity Model Features](https://modrinth.com/mod/4I1XuqiY) | `entity_model_features-3.3.11-1.21-neoforge.jar` | Cliente |
 | [[ETF] Entity Texture Features](https://modrinth.com/mod/BVzZfTc1) | `entity_texture_features-7.2.5-1.21-neoforge.jar` | Cliente |
-| [Accessories](https://modrinth.com/mod/jtmvUHXj) | `accessories-neoforge-1.1.0-beta.53+1.21.1.jar` | Cliente e servidor |
+| [Accessories](https://modrinth.com/mod/jtmvUHXj) | `accessories-neoforge-1.1.0-beta.54+1.21.1.jar` | Cliente e servidor |
 | [Ace's Spell Utils](https://modrinth.com/mod/7Jy4rK9m) | `aces_spell_utils-1.2.7.2-1.21.1.jar` | Cliente e servidor |
 | [AE2 Import Export Card](https://modrinth.com/mod/qelfSMnn) | `ae2importexportcard-1.21.1-1.9.1.jar` | Cliente e servidor |
 | [AE2 JEI Integration](https://www.curseforge.com/projects/1074338) | `ae2jeiintegration-1.2.1.jar` | Cliente e servidor |

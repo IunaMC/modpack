@@ -40,7 +40,7 @@ metafile = true
 
 [[files]]
 file = "mods/accessories.pw.toml"
-hash = "1e8fa8f4846d0e13a2c073faa6d38250b1293b78e1a869913ec0a68c1c30225c"
+hash = "81c5bffc841bd40ea16a0a32df00dad1cf3d0d5df11f04f9494b84b301b1634a"
 metafile = true
 
 [[files]]
