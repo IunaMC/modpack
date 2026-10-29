@@ -416,7 +416,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [InvHistory](https://modrinth.com/mod/a7GydL63) | `invhistory-neoforge-1.21.1-1.0.0.jar` | Servidor |
 | [Leashable Players](https://modrinth.com/mod/BKyMf6XK) | `leashmod-1.1.0.jar` | Servidor |
 | [Leaves Be Gone](https://modrinth.com/mod/AVq17PqV) | `LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar` | Servidor |
-| [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-1.21.x-neoforge-1.5.0.jar` | Servidor |
+| [Let Me Despawn](https://modrinth.com/mod/vE2FN5qn) | `letmedespawn-neoforge-1.21.1-1.26.10.2.jar` | Servidor |
 | [Log Begone](https://modrinth.com/mod/9ON3zv6e) | `logbegone-neoforge-1.21.1-1.0.3.jar` | Servidor |
 | [LuckPerms](https://modrinth.com/mod/Vebnzrzj) | `LuckPerms-NeoForge-5.4.150.jar` | Servidor |
 | [LuckPerms Placeholders](https://github.com/IunaMC/modpack/releases/download/arquivos-servidor/LuckPerms-Fabric-Placeholders.jar) | `LuckPerms-Fabric-Placeholders.jar` | Servidor |

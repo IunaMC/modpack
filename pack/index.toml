@@ -1035,7 +1035,7 @@ metafile = true
 
 [[files]]
 file = "mods/lmd.pw.toml"
-hash = "edc75ace846ae34c1cb4cf4a44106e1fb035b1eee0432765a716098c9a4b5823"
+hash = "857d4cfe53affcae0b11ee32d1f4084030bdee339370d18920ff202f8449aa17"
 metafile = true
 
 [[files]]
