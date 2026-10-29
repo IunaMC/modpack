@@ -176,6 +176,9 @@ def publicar(versao, arquivo, notas, simular):
     tipo = "alpha" if "alpha" in versao else "beta" if "-" in versao else "release"
     nome = f"IUNA {versao}"
     print(f"versão {versao} ({tipo}), Minecraft {minecraft}, {arquivo.name}")
+    if tipo != "release":
+        print(f"::notice::{versao} não é estável; beta e alpha não vão à CurseForge, que as ofereceria aos jogadores sem o servidor ter a versão.")
+        return
     if not token or not projeto:
         print("::notice::CURSEFORGE_TOKEN ou CURSEFORGE_PROJECT_ID não configurado; nada foi enviado à CurseForge.")
         return
