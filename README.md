@@ -107,7 +107,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Alex's Mobs Continued](https://modrinth.com/mod/kYIaHHfw) | `alexsmobs-2.2.2-neoforge+1.21.1.jar` | Cliente e servidor |
 | [Alex's Mobs Continued Delight](https://modrinth.com/mod/iY124w4e) | `amcdelight-1.0.1-neoforge+1.21.1.jar` | Cliente e servidor |
 | [AmbientSounds](https://modrinth.com/mod/fM515JnW) | `AmbientSounds_NEOFORGE_v6.3.9_mc1.21.1.jar` | Cliente |
-| [Amendments](https://modrinth.com/mod/6iTJugQR) | `amendments-1.21-2.1.10-neoforge.jar` | Cliente e servidor |
+| [Amendments](https://modrinth.com/mod/6iTJugQR) | `amendments-1.21-2.2.4-neoforge.jar` | Cliente e servidor |
 | [Apotheosis](https://modrinth.com/mod/rqFWfVlz) | `Apotheosis-1.21.1-8.9.0.jar` | Cliente e servidor |
 | [Apothic Attributes](https://modrinth.com/mod/DGaH8Rh0) | `ApothicAttributes-1.21.1-2.11.0.jar` | Cliente e servidor |
 | [Apothic-Enchanting](https://modrinth.com/mod/pL8MtgqY) | `ApothicEnchanting-1.21.1-1.6.3.jar` | Cliente e servidor |
