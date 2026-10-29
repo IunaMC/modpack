@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 285, e o servidor, 311.
+O pack tem **353 mods**. O jogador recebe 286, e o servidor, 311.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -199,6 +199,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Ender IO](https://modrinth.com/mod/49ZofO4f) | `enderio-8.2.12-beta.jar` | Cliente e servidor |
 | [Ender Storage](https://modrinth.com/mod/BbrHg80P) | `EnderStorage-1.21.1-2.13.0.191.jar` | Cliente e servidor |
 | [Enderman Overhaul](https://modrinth.com/mod/Lq6ojcWv) | `endermanoverhaul-neoforge-1.21.1-2.0.3.jar` | Cliente e servidor |
+| [Enhanced Block Entities Reloaded](https://modrinth.com/mod/vpenrdOI) | `enhancedblockentities-0.13.3+1.21-neoforge.jar` | Cliente |
 | [Entity Culling](https://modrinth.com/mod/NNAgCjsB) | `entityculling-neoforge-1.11.2-mc1.21.1.jar` | Cliente |
 | [Even Better Nether](https://modrinth.com/mod/ZSdhSrVt) | `evenbetternether-1.3.0-neoforge-1.21.1.jar` | Cliente e servidor |
 | [EvilCraft](https://modrinth.com/mod/3ANq2btA) | `evilcraft-1.21.1-neoforge-1.2.98.jar` | Cliente e servidor |

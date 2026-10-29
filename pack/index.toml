@@ -587,6 +587,11 @@ hash = "19557e96e9fa5965af9dad4d84038e740c57513fcf65e016274e590a9cb2faa8"
 metafile = true
 
 [[files]]
+file = "mods/ebe-reloaded.pw.toml"
+hash = "53afbe0bc7141931f720564b648c44a97304c32a1e44b1fcc383028f3fa8f4e0"
+metafile = true
+
+[[files]]
 file = "mods/elevatormod.pw.toml"
 hash = "e8e8872b83f271056a9f9ffffd98a42b6786beaed3351ec15dabddb967ed9fff"
 metafile = true
