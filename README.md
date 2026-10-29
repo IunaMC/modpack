@@ -353,7 +353,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Somake Spells - Iron's Spells Addon](https://modrinth.com/mod/uoNbtac8) | `somakespells-1.0.8-1.21.1-fix.jar` | Cliente e servidor |
 | [Sophisticated Backpacks](https://modrinth.com/mod/TyCTlI4b) | `sophisticatedbackpacks-1.21.1-3.26.17.2232.jar` | Cliente e servidor |
 | [Sophisticated Core](https://modrinth.com/mod/nmoqTijg) | `sophisticatedcore-1.21.1-1.5.19.2434.jar` | Cliente e servidor |
-| [Sophisticated Storage](https://modrinth.com/mod/hMlaZH8f) | `sophisticatedstorage-1.21.1-1.6.1.2147.jar` | Cliente e servidor |
+| [Sophisticated Storage](https://modrinth.com/mod/hMlaZH8f) | `sophisticatedstorage-1.21.1-1.6.10.2206.jar` | Cliente e servidor |
 | [Soul Fire'd](https://modrinth.com/mod/d6MhxwRo) | `soul-fire-d-neoforge-1.21-6.1.0.jar` | Cliente e servidor |
 | [Sound Physics Remastered](https://modrinth.com/mod/qyVF9oeo) | `sound-physics-remastered-neoforge-1.21.1-1.5.1.jar` | Cliente |
 | [Storage Drawers](https://modrinth.com/mod/guitPqEi) | `StorageDrawers-neoforge-1.21.1-13.11.4.jar` | Cliente e servidor |
