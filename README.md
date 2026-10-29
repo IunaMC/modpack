@@ -351,7 +351,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Sodium](https://modrinth.com/mod/AANobbMI) | `sodium-neoforge-0.8.13+mc1.21.1.jar` | Cliente |
 | [Sodium Extra](https://modrinth.com/mod/PtjYWJkn) | `sodium-extra-neoforge-0.9.4+mc1.21.1.jar` | Cliente |
 | [Somake Spells - Iron's Spells Addon](https://modrinth.com/mod/uoNbtac8) | `somakespells-1.0.8-1.21.1-fix.jar` | Cliente e servidor |
-| [Sophisticated Backpacks](https://modrinth.com/mod/TyCTlI4b) | `sophisticatedbackpacks-1.21.1-3.26.7.2182.jar` | Cliente e servidor |
+| [Sophisticated Backpacks](https://modrinth.com/mod/TyCTlI4b) | `sophisticatedbackpacks-1.21.1-3.26.17.2232.jar` | Cliente e servidor |
 | [Sophisticated Core](https://modrinth.com/mod/nmoqTijg) | `sophisticatedcore-1.21.1-1.5.19.2434.jar` | Cliente e servidor |
 | [Sophisticated Storage](https://modrinth.com/mod/hMlaZH8f) | `sophisticatedstorage-1.21.1-1.6.1.2147.jar` | Cliente e servidor |
 | [Soul Fire'd](https://modrinth.com/mod/d6MhxwRo) | `soul-fire-d-neoforge-1.21-6.1.0.jar` | Cliente e servidor |
