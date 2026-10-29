@@ -547,11 +547,6 @@ hash = "46a208aae6e6838d29632172c97e5d9d02ee511b634e850c33662b46474bc8ee"
 metafile = true
 
 [[files]]
-file = "mods/despawn-tweaks.pw.toml"
-hash = "52934467c1913090005f064d2ff4dfd7651341869d110eacdc5322e238134ec6"
-metafile = true
-
-[[files]]
 file = "mods/dungeoncrawl.pw.toml"
 hash = "236b80b3c623c8f388222bf2d4a7499a09fc0b6a438c1299c1a39e2809e3133e"
 metafile = true
@@ -1163,7 +1158,7 @@ metafile = true
 
 [[files]]
 file = "mods/mystical-agriculture.pw.toml"
-hash = "c56568426603b22a0bbdaae070bf212e027d3cc55643edcf582683e197b7912c"
+hash = "a8afed26312e78b3836b581cbafcceeafef33bb2e462a0bac1363761042a483a"
 metafile = true
 
 [[files]]
@@ -1353,7 +1348,7 @@ metafile = true
 
 [[files]]
 file = "mods/relics-mod.pw.toml"
-hash = "c55360a3b1feffa7e8d2677c33a079214a219443a66e4eafaf55e7c3e49912ad"
+hash = "91fa3a094fe09f9de0c31fcb22a96a4dbce28576660bfec8c5b4528c928c0f03"
 metafile = true
 
 [[files]]
@@ -1619,11 +1614,6 @@ metafile = true
 [[files]]
 file = "mods/tt20.pw.toml"
 hash = "97c0370d23ac5730dc3699f8a78957b15d5dc05b2bf19091e04afea2aac1891e"
-metafile = true
-
-[[files]]
-file = "mods/txnilib.pw.toml"
-hash = "c97e66cf9c90b562a367d2794290ea846335f9f3b0cd8150336dd327fef7d3fb"
 metafile = true
 
 [[files]]

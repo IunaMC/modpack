@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **352 mods**. O jogador recebe 285, e o servidor, 312.
+O pack tem **350 mods**. O jogador recebe 283, e o servidor, 310.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -188,7 +188,6 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Decocraft](https://modrinth.com/mod/IZJSgKZe) | `decocraft-3.0.11-1.21.1-neoforge.jar` | Cliente e servidor |
 | [Delight Lib](https://modrinth.com/mod/rmDY6fYt) | `delightlib-26.05.18-1.21-neoforge.jar` | Cliente e servidor |
 | [Deltabox Lib](https://modrinth.com/mod/FDGHOWuC) | `deltaboxlib-fabric-3.0.1+1.21.1.jar` | Cliente e servidor |
-| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Cliente e servidor |
 | [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1) | `dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar` | Cliente |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5) | `EasyAnvils-v21.1.0-1.21.1-NeoForge.jar` | Cliente e servidor |
@@ -290,7 +289,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Mowzie's Mobs](https://modrinth.com/mod/BFbX9xcm) | `mowziesmobs-1.21.1-1.8.2.jar` | Cliente e servidor |
 | [MrCrayfish's Furniture Mod: Refurbished](https://www.curseforge.com/projects/897116) | `refurbished_furniture-neoforge-1.21.1-1.0.22.jar` | Cliente e servidor |
 | [Mystical Agradditions](https://modrinth.com/mod/pl0jGXIx) | `MysticalAgradditions-1.21.1-8.0.15.jar` | Cliente e servidor |
-| [Mystical Agriculture](https://modrinth.com/mod/C95ReXie) | `MysticalAgriculture-1.21.1-8.0.28.jar` | Cliente e servidor |
+| [Mystical Agriculture](https://modrinth.com/mod/C95ReXie) | `MysticalAgriculture-1.21.1-8.0.29.jar` | Cliente e servidor |
 | [Mystical Customization](https://modrinth.com/mod/lNK9A4rh) | `MysticalCustomization-1.21.1-6.0.2.jar` | Cliente e servidor |
 | [Nature's Compass](https://modrinth.com/mod/fPetb5Kh) | `NaturesCompass-1.21.1-3.4.0-neoforge.jar` | Cliente e servidor |
 | [Necronomicon API](https://modrinth.com/mod/P1Kv5EAO) | `Necronomicon-NeoForge-1.6.0+1.21.jar` | Cliente e servidor |
@@ -323,7 +322,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Refined Storage](https://modrinth.com/mod/KDvYkUg3) | `refinedstorage-neoforge-2.0.9.jar` | Cliente e servidor |
 | [Refined Storage - JEI Integration](https://modrinth.com/mod/VzR5wiLo) | `refinedstorage-jei-integration-neoforge-1.0.0.jar` | Cliente e servidor |
 | [Regions Unexplored](https://modrinth.com/mod/Tkikq67H) | `regions-unexplored-0.6.2-neoforge-21.1.jar` | Cliente e servidor |
-| [Relics](https://modrinth.com/mod/OCJRPujW) | `relics-1.21.1-0.12.8.jar` | Cliente e servidor |
+| [Relics](https://modrinth.com/mod/OCJRPujW) | `relics-1.21.1-0.12.11.jar` | Cliente e servidor |
 | [Reliquary Reincarnations](https://modrinth.com/mod/fQO83PId) | `reliquary-1.21.1-2.0.80.1570.jar` | Cliente e servidor |
 | [Resourceful Config](https://modrinth.com/mod/M1953qlQ) | `resourcefulconfig-neoforge-1.21-3.0.11.jar` | Cliente e servidor |
 | [Resourceful Lib](https://modrinth.com/mod/G1hIVOrD) | `resourcefullib-neoforge-1.21-3.0.12.jar` | Cliente e servidor |
@@ -363,7 +362,6 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [TorchMaster](https://modrinth.com/mod/Tl8ESrhX) | `torchmaster-neoforge-1.21.1-21.1.13.jar` | Cliente e servidor |
 | [TrashSlot](https://modrinth.com/mod/vRYk0bv7) | `trashslot-neoforge-1.21.1-21.1.11.jar` | Cliente e servidor |
 | [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds) | `tf_dnv-2.0.3.jar` | Cliente e servidor |
-| [TxniLib](https://modrinth.com/mod/vBbPDuOs) | `txnilib-neoforge-1.0.24-1.21.1.jar` | Cliente e servidor |
 | [Uranus](https://www.curseforge.com/projects/1010827) | `uranus-3.0-beta.1.jar` | Cliente e servidor |
 | [Valhelsia Core](https://modrinth.com/mod/HsdNFinx) | `valhelsia_core-neoforge-1.21.1-1.1.4.jar` | Cliente e servidor |
 | [Veggies Delight (A Farmer's Delight Add-on)](https://modrinth.com/mod/emQ94xri) | `VeggiesDelight-1.21.1-1.9.3.jar` | Cliente e servidor |
