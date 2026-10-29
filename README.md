@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **353 mods**. O jogador recebe 287, e o servidor, 311.
+O pack tem **352 mods**. O jogador recebe 287, e o servidor, 310.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -405,7 +405,6 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | [Dungeons and Taverns](https://modrinth.com/mod/tpehi7ww) | `dungeons-and-taverns-v4.4.4.jar` | Servidor |
 | [EasyAuth](https://modrinth.com/mod/aZj58GfX) | `easyauth-mc1.21-3.3.6.jar` | Servidor |
 | [Essential Commands](https://modrinth.com/mod/6VdDUivB) | `essential_commands-0.35.2-mc1.21.jar` | Servidor |
-| [Fast Async World Save[Forge/Neo/Fabric]](https://www.curseforge.com/projects/951499) | `fastasyncworldsave-1.21-2.6.jar` | Servidor |
 | [Flan](https://modrinth.com/mod/Si383TIH) | `flan-1.21.1-1.12.8-neoforge.jar` | Servidor |
 | [GriefLogger](https://modrinth.com/mod/8oGVUFuX) | `grieflogger-1.2.10-1.21.1-neoforge.jar` | Servidor |
 | [Harvest with ease](https://modrinth.com/mod/W4Ajthd2) | `harvest-with-ease-neoforge-1.21-9.4.0.jar` | Servidor |

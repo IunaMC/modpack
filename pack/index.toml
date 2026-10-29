@@ -699,11 +699,6 @@ hash = "f2aee2ce978626c25c8a5a7db63a937bc1b59ad6b5e228736ea96cdf37ee9368"
 metafile = true
 
 [[files]]
-file = "mods/fast-async-world-save-forge-fabric.pw.toml"
-hash = "97251ed060d6fca41ec87c63e35e1a525fa95caa60a21848bc20a5a5da39fce2"
-metafile = true
-
-[[files]]
 file = "mods/fastfurnace.pw.toml"
 hash = "a924ca6199f21bb6c12b20d571f396b336936e1a47cd8e3a40b685c9620b3653"
 metafile = true
