@@ -1,6 +1,6 @@
 # IUNA Mark II
 
-Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.253**.
+Modpack do servidor IUNA: Minecraft **1.21.1** com NeoForge **21.1.265**.
 
 Este repositório é a **fonte única** do pack, do jogador e do servidor. O pack é
 mantido com o [packwiz](https://packwiz.infra.link/): cada mod é um `.pw.toml`
