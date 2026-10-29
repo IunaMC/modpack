@@ -924,11 +924,6 @@ hash = "8322d8bcab32441a0d21d5d9db808693e3dc19cef3c8d3cf1a55e809db80f0a7"
 metafile = true
 
 [[files]]
-file = "mods/iuna-compat.pw.toml"
-hash = "e0a18cee7cf225cda350a020145af12021132546131f05fa8be9100fa47b12e0"
-metafile = true
-
-[[files]]
 file = "mods/jade-addons-forge.pw.toml"
 hash = "908545a56cbec0dc8f669320a262cf3e023be796177f865030fbc1ea8122a3a7"
 metafile = true
