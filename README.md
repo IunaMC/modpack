@@ -366,7 +366,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Titanium](https://modrinth.com/mod/1Ro7m06l) | `titanium-1.21-4.0.50.jar` | Cliente e servidor |
 | [TorchMaster](https://modrinth.com/mod/Tl8ESrhX) | `torchmaster-neoforge-1.21.1-21.1.13.jar` | Cliente e servidor |
 | [TrashSlot](https://modrinth.com/mod/vRYk0bv7) | `trashslot-neoforge-1.21.1-21.1.11.jar` | Cliente e servidor |
-| [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds) | `tf_dnv-2.0.3.jar` | Cliente e servidor |
+| [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds) | `tf_dnv-neoforge-2.0.3.jar` | Cliente e servidor |
 | [TxniLib](https://modrinth.com/mod/vBbPDuOs) | `txnilib-neoforge-1.0.24-1.21.1.jar` | Cliente e servidor |
 | [Uranus](https://www.curseforge.com/projects/1010827) | `uranus-3.0-beta.1.jar` | Cliente e servidor |
 | [Valhelsia Core](https://modrinth.com/mod/HsdNFinx) | `valhelsia_core-neoforge-1.21.1-1.1.4.jar` | Cliente e servidor |
