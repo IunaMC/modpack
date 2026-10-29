@@ -88,7 +88,7 @@ a [licença MIT](LICENSE). Cada mod mantém a licença do seu autor.
 <!-- lista-de-mods:inicio -->
 <!-- Gerado por scripts/pack.py readme. Não edite à mão. -->
 
-O pack tem **350 mods**. O jogador recebe 283, e o servidor, 310.
+O pack tem **352 mods**. O jogador recebe 285, e o servidor, 312.
 
 ### Mods do jogador
 Todos obrigatórios para entrar no servidor. O launcher instala todos.
@@ -188,6 +188,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Decocraft](https://modrinth.com/mod/IZJSgKZe) | `decocraft-3.0.11-1.21.1-neoforge.jar` | Cliente e servidor |
 | [Delight Lib](https://modrinth.com/mod/rmDY6fYt) | `delightlib-26.05.18-1.21-neoforge.jar` | Cliente e servidor |
 | [Deltabox Lib](https://modrinth.com/mod/FDGHOWuC) | `deltaboxlib-fabric-3.0.1+1.21.1.jar` | Cliente e servidor |
+| [Despawn Tweaks](https://modrinth.com/mod/ahQrpeXp) | `despawntweaks-neoforge-1.0.0-1.21.1.jar` | Cliente e servidor |
 | [Durability Tooltip](https://modrinth.com/mod/smUP7V3r) | `durabilitytooltip-1.2.0-neoforge-mc1.21.jar` | Cliente |
 | [Dynamic FPS](https://modrinth.com/mod/LQ3K71Q1) | `dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar` | Cliente |
 | [Easy Anvils](https://modrinth.com/mod/OZBR5JT5) | `EasyAnvils-v21.1.0-1.21.1-NeoForge.jar` | Cliente e servidor |
@@ -362,6 +363,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [TorchMaster](https://modrinth.com/mod/Tl8ESrhX) | `torchmaster-neoforge-1.21.1-21.1.13.jar` | Cliente e servidor |
 | [TrashSlot](https://modrinth.com/mod/vRYk0bv7) | `trashslot-neoforge-1.21.1-21.1.11.jar` | Cliente e servidor |
 | [Twilight Forest - Dungeons & Villages](https://modrinth.com/mod/eDeSn4Ds) | `tf_dnv-2.0.3.jar` | Cliente e servidor |
+| [TxniLib](https://modrinth.com/mod/vBbPDuOs) | `txnilib-neoforge-1.0.24-1.21.1.jar` | Cliente e servidor |
 | [Uranus](https://www.curseforge.com/projects/1010827) | `uranus-3.0-beta.1.jar` | Cliente e servidor |
 | [Valhelsia Core](https://modrinth.com/mod/HsdNFinx) | `valhelsia_core-neoforge-1.21.1-1.1.4.jar` | Cliente e servidor |
 | [Veggies Delight (A Farmer's Delight Add-on)](https://modrinth.com/mod/emQ94xri) | `VeggiesDelight-1.21.1-1.9.3.jar` | Cliente e servidor |
