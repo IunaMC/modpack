@@ -1,9 +1,8 @@
-# Mudanças — v3.11.0-beta.1, otimização do servidor e do cliente, NeoForge 21.1.265
-
-Beta: sai como pre-release só no GitHub. O servidor não a instala.
+# Mudanças — v3.11.0, otimização do servidor e do cliente, NeoForge 21.1.265
 
 Quem já tem o pack atualiza pelo launcher, sem reinstalar; o launcher troca o
-NeoForge para a 21.1.265 sozinho. Os padrões novos de cliente (Sodium, Dynamic
+NeoForge para a 21.1.265 sozinho. O servidor precisa do NeoForge 21.1.265 e das
+configs 1.16.0 junto com esta versão. Os padrões novos de cliente (Sodium, Dynamic
 FPS, ModernFix) só valem para instalação nova: o pack não sobrescreve
 configuração que o jogador já tem.
 
