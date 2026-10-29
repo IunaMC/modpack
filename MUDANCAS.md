@@ -1,4 +1,4 @@
-# Mudanças — v3.10.0-beta.2, otimização do cliente, chat sem assinatura, Saturn sai
+# Mudanças — v3.10.0-beta.3, otimização do cliente, chat sem assinatura, Saturn e Fast Async World Save saem
 
 Beta: sai como pre-release e o servidor não a instala.
 
@@ -17,3 +17,4 @@ não sobrescreve configuração que o jogador já tem.
 
 ## Removeu
 - [Saturn](https://modrinth.com/mod/2eT495vq) 0.1.5 (servidor): causava conflitos de mixin com o ModernFix e o Lithium, e o ganho nunca foi medido.
+- [Fast Async World Save](https://www.curseforge.com/projects/951499) 2.6 (servidor): gravava dados salvos e o level.dat numa thread daemon que não é esperada ao desligar, então a última gravação podia se perder; o Smooth Chunk Save e o ServerCore já cuidam do salvamento.
