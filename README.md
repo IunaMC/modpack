@@ -392,7 +392,7 @@ Administração, desempenho e geração de mundo. O launcher do jogador ignora e
 | --- | --- | --- |
 | [Accelerated Decay](https://modrinth.com/mod/laX5CckD) | `accelerated-decay-neoforge-21.0.0.jar` | Servidor |
 | [AI Improvements: Performance Tuning](https://modrinth.com/mod/DSVgwcji) | `AI-Improvements-1.21-0.5.3.jar` | Servidor |
-| [Almanac](https://modrinth.com/mod/Gi02250Z) | `Almanac-1.21.1-2-neoforge-1.5.2.jar` | Servidor |
+| [Almanac](https://modrinth.com/mod/Gi02250Z) | `almanac-neoforge-1.21.1-1.26.10.3.jar` | Servidor |
 | [BanHammer](https://modrinth.com/mod/Wpqg0ciI) | `banhammer-0.11.1+1.21.jar` | Servidor |
 | [Better End Cities Better End](https://www.curseforge.com/projects/959460) | `BetterEndCities-BetterEnd-1.21.jar` | Servidor |
 | [CalcMod: NeoForged](https://modrinth.com/mod/7uxk5PIo) | `calcmod-neoforged-1.4.2+neoforge.1.21.1.jar` | Servidor |
