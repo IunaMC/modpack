@@ -1,0 +1,16 @@
+name = "MatLib"
+filename = "matlib-1.0.0+1.21-neoforge.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/gnefBeV1/versions/LrjXY5iA/matlib-1.0.0%2B1.21-neoforge.jar"
+hash-format = "sha512"
+hash = "95ed32b781776a445b88b4e85b2c272f3a0973f38e22c4a8d0666d2b33b0c98a04a8ea29cf44405adea7b22b9856cbee1f8dde4b3b8999e8268f82e78bbb908d"
+
+[update]
+[update.modrinth]
+mod-id = "gnefBeV1"
+version = "LrjXY5iA"
+[update.curseforge]
+file-id = 9351439
+project-id = 1681583

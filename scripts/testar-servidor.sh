@@ -17,7 +17,7 @@
 #   --manter            não para o servidor quando ele fica pronto: deixa o console
 #                       aberto no terminal para entrar no jogo (localhost) e testar.
 #
-# Variáveis: MEMORIA (padrão 8G), LIMITE em segundos (padrão 1200).
+# Variáveis: MEMORIA (padrão 8G), LIMITE em segundos (padrão 1200), PORTA da pasta do pack servida por HTTP (padrão 8765).
 #
 # Instala os mods como o servidor de produção: packwiz-installer com "-s server",
 # lendo o pack servido localmente por HTTP. Rodar de novo na mesma pasta atualiza
@@ -65,7 +65,7 @@ MEMORIA="${MEMORIA:-8G}"
 LIMITE="${LIMITE:-1200}"
 NEOFORGE="$(python3 "$RAIZ/scripts/pack.py" neoforge)"
 BOOTSTRAP=https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar
-PORTA=8765
+PORTA="${PORTA:-8765}"
 
 mkdir -p "$DIR"
 cd "$DIR"

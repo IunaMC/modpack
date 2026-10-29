@@ -4,7 +4,9 @@ name: Release
 # (1.2.3) saem só da main e betas (1.2.3-beta.1), só da devel/devel: o servidor
 # instala direto da main, então ela nunca pode ter beta. Só cria a release do
 # GitHub se a versão do pack/pack.toml ainda não tiver uma; depois envia a
-# versão à CurseForge, se ela ainda não estiver lá. Também roda pela aba Actions.
+# versão à CurseForge, se ela ainda não estiver lá. Beta não vai à CurseForge:
+# o launcher a ofereceria aos jogadores, e o servidor não a tem. Também roda
+# pela aba Actions.
 on:
   push:
     branches: [main, devel/devel]
@@ -162,9 +164,11 @@ jobs:
           gh release upload "${{ needs.versao.outputs.tag }}" \
             "IUNA-${{ needs.versao.outputs.versao }}-curseforge.zip" --clobber
 
-      # Envia o .zip exportado acima. Pula sozinho se a versão já estiver lá ou
-      # se faltar o secret CURSEFORGE_TOKEN ou a variable CURSEFORGE_PROJECT_ID.
+      # Envia o .zip exportado acima, só de versão estável. Pula sozinho se a
+      # versão já estiver lá ou se faltar o secret CURSEFORGE_TOKEN ou a
+      # variable CURSEFORGE_PROJECT_ID.
       - name: Publicar na CurseForge
+        if: needs.versao.outputs.prerelease == ''
         env:
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
           CURSEFORGE_PROJECT_ID: ${{ vars.CURSEFORGE_PROJECT_ID }}
