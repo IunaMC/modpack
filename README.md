@@ -359,7 +359,7 @@ Todos obrigatórios para entrar no servidor. O launcher instala todos.
 | [Storage Drawers](https://modrinth.com/mod/guitPqEi) | `StorageDrawers-neoforge-1.21.1-13.11.4.jar` | Cliente e servidor |
 | [SuperMartijn642's Config Lib](https://modrinth.com/mod/LN9BxssP) | `supermartijn642configlib-1.1.8-neoforge-mc1.21.jar` | Cliente e servidor |
 | [SuperMartijn642's Core Lib](https://modrinth.com/mod/rOUBggPv) | `supermartijn642corelib-1.1.24b-neoforge-mc1.21.jar` | Cliente e servidor |
-| [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) | `supplementaries-1.21.1-3.9.9-neoforge.jar` | Cliente e servidor |
+| [Supplementaries](https://modrinth.com/mod/fFEIiSDQ) | `supplementaries-1.21.1-4.0.2-neoforge.jar` | Cliente e servidor |
 | [TerraBlender](https://modrinth.com/mod/kkmrDlKT) | `TerraBlender-neoforge-1.21.1-4.1.0.8.jar` | Cliente e servidor |
 | [The Aether](https://modrinth.com/mod/YhmgMVyu) | `aether-1.21.1-1.5.10-neoforge.jar` | Cliente e servidor |
 | [The Twilight Forest](https://www.curseforge.com/projects/227639) | `twilightforest-1.21.1-4.8.3345-universal.jar` | Cliente e servidor |
